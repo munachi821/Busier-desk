@@ -2,8 +2,10 @@ import {
   ArrowDown,
   ArrowRight,
   MessageSquareText,
-  MoveDownIcon,
+  MessagesSquare,
   Phone,
+  Timer,
+  UserCheck,
 } from "lucide-react";
 
 const Home = () => {
@@ -26,7 +28,7 @@ const Home = () => {
         </ul>
       </nav>
 
-      <section className="flex items-center px-20 justify-between h-[calc(100vh-5rem)]">
+      <section className="flex items-center px-16 justify-between h-[calc(100vh-5rem)]">
         <div className="space-y-6">
           <h1 className="text-6xl font-extrabold font-manrope text-[#E5E2E1] w-md">
             Never Miss a Customer.
@@ -89,6 +91,75 @@ const Home = () => {
               <span className="text-[#647168] text-xs font-inter">
                 14:02 Delivered
               </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0E0E0E] w-full py-20 px-16">
+        <div className="mb-20">
+          <p className="text-[#E5E2E1] font-manrope text-3xl font-bold">
+            THE SMART HANDOFF
+          </p>
+          <div className="bg-[#6BDC9F] h-1 w-27 mt-1.5"></div>
+        </div>
+
+        <div className="grid grid-cols-3 gap-10">
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-[#2A2A2A] border border-[#3E4A4133] w-fit rounded-sm">
+                <UserCheck className="text-[#6BDC9F]" size={22} />
+              </div>
+              <p className="font-inter text-xs text-[#87948A]">STEP 01</p>
+            </div>
+
+            <p className="font-manrope text-[#E5E2E1] text-xl">
+              Instant Answer
+            </p>
+
+            <div>
+              <p className="font-inter text-[#87948A]">
+                AI agent picks up instantly with zero latency, greeting
+                customers with your custom brand persona.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-[#2A2A2A] border border-[#3E4A4133] w-fit rounded-sm">
+                <Timer className="text-[#6BDC9F]" size={22} />
+              </div>
+              <p className="font-inter text-xs text-[#87948A]">STEP 02</p>
+            </div>
+
+            <p className="font-manrope text-[#E5E2E1] text-xl">Smart Cap</p>
+
+            <div>
+              <p className="font-inter text-[#87948A]">
+                Protect your wallet. Set hard limits on call duration. Our AI
+                summarizes and closes the loop before the cap hits.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-[#2A2A2A] border border-[#3E4A4133] w-fit rounded-sm">
+                <MessagesSquare className="text-[#6BDC9F]" size={22} />
+              </div>
+              <p className="font-inter text-xs text-[#87948A]">STEP 03</p>
+            </div>
+
+            <p className="font-manrope text-[#E5E2E1] text-xl">
+              Whatsapp Handoff
+            </p>
+
+            <div>
+              <p className="font-inter text-[#87948A]">
+                Automatically continues complex conversations on WhatsApp,
+                reducing voice costs by up to 80% per lead.
+              </p>
             </div>
           </div>
         </div>
