@@ -1,9 +1,11 @@
 import logo from "/images/BusierDesk_logo.png";
 import nigerianman from "/images/nigerianman.jpg";
+import { useState } from "react";
 
 const SignUpSignin = () => {
+  const [isScreen, setIsScreen] = useState("signin");
   return (
-    <section className="w-full h-screen">
+    <section className="w-full h-screen flex">
       <div className="w-1/2 bg-[#0A0A0A] h-full flex items-center justify-center">
         <div className="w-md">
           <div className="flex items-center gap-2 w-fit mx-auto">
@@ -41,7 +43,138 @@ const SignUpSignin = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2"></div>
+
+      <div className="w-1/2 bg-[#0E0E0E] h-full flex items-center justify-center flex-col relative">
+        <div className="w-md mx-auto bg-[#201F1FB2] p-8 rounded-md backdrop-blur-xl border border-[#3E4A4126]">
+          <div className="flex items-center gap-2 bg-[#0E0E0E] p-1 rounded-sm">
+            <button
+              className={`${isScreen === "signin" ? "bg-[#353534] text-[#6BDC9F]" : "text-[#BDCABF]"} font-manrope font-semibold text-sm w-1/2 rounded-md py-2 transition-all duration-300 ease-in-out`}
+              onClick={() => {
+                setIsScreen("signin");
+              }}
+            >
+              Sign in
+            </button>
+            <button
+              className={`${isScreen === "signup" ? "bg-[#353534] text-[#6BDC9F]" : "text-[#BDCABF]"} font-manrope font-semibold text-sm w-1/2 rounded-md py-2 transition-all duration-300 ease-in-out`}
+              onClick={() => {
+                setIsScreen("signup");
+              }}
+            >
+              Create Account
+            </button>
+          </div>
+
+          <form
+            action="#"
+            className={`font-inter mt-6 ${isScreen === "signin" ? "flex" : "hidden"} flex-col gap-4`}
+          >
+            <div className="flex flex-col gap-1">
+              <label
+                htmlFor="email"
+                className="text-[#BDCABF] text-sm tracking-wide"
+              >
+                EMAIL ADDRESS
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="bg-[#0E0E0E] placeholder:text-[#454747] py-3.5 pl-3.5 rounded-sm"
+                placeholder="johndoe@example.com"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="text-[#BDCABF] text-sm tracking-wide"
+                >
+                  PASSWORD
+                </label>
+                <p className="text-[#6BDC9F] text-xs">FORGOT PASSWORD?</p>
+              </div>
+              <input
+                type="password"
+                name="password"
+                className="bg-[#0E0E0E] placeholder:text-[#454747] py-3.5 pl-3.5 rounded-sm"
+                placeholder="••••••••••••••"
+              />
+            </div>
+
+            <button className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm">
+              CONTINUE TO DASHBOARD
+            </button>
+          </form>
+
+          <form
+            action="#"
+            className={`font-inter mt-6 ${isScreen === "signup" ? "flex" : "hidden"} flex-col gap-4`}
+          >
+            <div className="flex flex-col gap-1">
+              <label
+                htmlFor="name"
+                className="text-[#BDCABF] text-sm tracking-wide"
+              >
+                BUSSINESS NAME
+              </label>
+              <input
+                type="text"
+                name="name"
+                className="bg-[#0E0E0E] placeholder:text-[#454747] py-3.5 pl-3.5 rounded-sm"
+                placeholder="e.g Above Enterprise"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label
+                htmlFor="email"
+                className="text-[#BDCABF] text-sm tracking-wide"
+              >
+                EMAIL ADDRESS
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="bg-[#0E0E0E] placeholder:text-[#454747] py-3.5 pl-3.5 rounded-sm"
+                placeholder="johndoe@example.com"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="text-[#BDCABF] text-sm tracking-wide"
+                >
+                  PASSWORD
+                </label>
+                <p className="text-[#6BDC9F] text-xs">FORGOT PASSWORD?</p>
+              </div>
+              <input
+                type="password"
+                name="password"
+                className="bg-[#0E0E0E] placeholder:text-[#454747] py-3.5 pl-3.5 rounded-sm"
+                placeholder="••••••••••••••"
+              />
+            </div>
+
+            <button className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm">
+              CONTINUE TO DASHBOARD
+            </button>
+          </form>
+        </div>
+
+        <div className="text-[#71717A] text-xs font-inter flex items-center justify-between w-full px-10 absolute bottom-5 left-0">
+          <p className="tracking-wider">© 2026 BUSIERDESK</p>
+
+          <ul className="flex items-center gap-4">
+            <li className="tracking-wider">PRIVACY</li>
+            <li className="tracking-wider">TERMS</li>
+            <li className="tracking-wider">SECURITY</li>
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };
