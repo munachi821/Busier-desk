@@ -6,15 +6,15 @@ import { useState } from "react";
 const SignUpSignin = () => {
   const [isScreen, setIsScreen] = useState("signin");
   return (
-    <section className="w-full h-screen flex">
+    <section className="w-full min-h-screen lg:h-screen flex flex-col lg:flex-row">
       <Helmet>
         <title>
           {`${isScreen === "signin" ? "Sign in" : "Create Account"} - BusierDesk`}
         </title>
       </Helmet>
 
-      <div className="w-1/2 bg-[#0A0A0A] h-full flex items-center justify-center">
-        <div className="w-md">
+      <div className="hidden lg:flex w-1/2 bg-[#0A0A0A] h-full items-center justify-center">
+        <div className="w-full max-w-md px-6">
           <div className="flex items-center gap-2 w-fit mx-auto">
             <div>
               <img src={logo} alt="busier desk logo" width={65} />
@@ -51,8 +51,17 @@ const SignUpSignin = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-[#0E0E0E] h-full flex items-center justify-center flex-col relative">
-        <div className="w-md mx-auto bg-[#201F1FB2] p-8 rounded-md backdrop-blur-xl border border-[#3E4A4126]">
+      <div className="w-full lg:w-1/2 bg-[#0E0E0E] min-h-screen lg:h-full flex items-center justify-center flex-col relative px-4 sm:px-0">
+        <div className="w-full sm:w-112.5 mx-auto bg-[#201F1FB2] p-6 sm:p-8 rounded-md backdrop-blur-xl border border-[#3E4A4126]">
+          <div className="flex lg:hidden items-center justify-center gap-2 w-fit mx-auto mb-6">
+            <div>
+              <img src={logo} alt="busier desk logo" width={45} />
+            </div>
+            <h2 className="font-manrope text-[#6BDC9F] font-bold text-2xl">
+              BusierDesk
+            </h2>
+          </div>
+
           <div className="flex items-center gap-2 bg-[#0E0E0E] p-1 rounded-sm">
             <button
               className={`${isScreen === "signin" ? "bg-[#353534] text-[#6BDC9F]" : "text-[#BDCABF]"} font-manrope font-semibold text-sm w-1/2 rounded-md py-2 transition-all duration-300 ease-in-out`}
@@ -172,10 +181,10 @@ const SignUpSignin = () => {
           </form>
         </div>
 
-        <div className="text-[#71717A] text-xs font-inter flex items-center justify-between w-full px-10 absolute bottom-5 left-0">
+        <div className="text-[#71717A] text-[10px] sm:text-xs font-inter flex flex-col sm:flex-row items-center justify-between w-full px-6 sm:px-10 absolute bottom-5 left-0 gap-3 sm:gap-0">
           <p className="tracking-wider">© 2026 BUSIERDESK</p>
 
-          <ul className="flex items-center gap-4">
+          <ul className="flex items-center gap-3 sm:gap-4">
             <li className="tracking-wider">PRIVACY</li>
             <li className="tracking-wider">TERMS</li>
             <li className="tracking-wider">SECURITY</li>

@@ -14,12 +14,16 @@ import {
 } from "lucide-react";
 import logo from "/images/BusierDesk_logo.png";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [callDuration, setCallDuration] = useState(1);
 
   return (
     <main className="min-h-screen bg-[#131313]">
+      <Helmet>
+        <title>BusierDesk - Never Miss a Customer. Never Overpay.</title>
+      </Helmet>
       <nav className="flex justify-between items-center px-6 md:px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
         <div className="flex items-center gap-2">
           <div>
