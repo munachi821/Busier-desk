@@ -318,6 +318,24 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+      <footer className="bg-[#0E0E0E] p-6 flex items-end justify-between">
+        <div>
+          <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
+            BusierDesk
+          </h2>
+          <p className="text-[#87948A] text-xs inter mt-0.5">
+            @ {new Date().getFullYear()} BUSIERDESK. SECURE WALLET PROVIDED BY
+            INTERSWITCH
+          </p>
+        </div>
+
+        <ul className="flex items-center gap-5 text-[#87948A] text-sm">
+          <li>PRIVACY POLICY</li>
+          <li>TERMS OF SERVICES</li>
+          <li>SECURITY</li>
+        </ul>
+      </footer>
     </main>
   );
 };
