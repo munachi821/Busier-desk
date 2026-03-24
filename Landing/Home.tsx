@@ -6,6 +6,7 @@ import {
   MessageSquareText,
   MessagesSquare,
   Phone,
+  Rocket,
   SquareArrowOutDownLeftIcon,
   Timer,
   UserCheck,
@@ -299,6 +300,22 @@ const Home = () => {
               CALCULATE FINAL QUOTE
             </button>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-16 h-screen flex items-center">
+        <div className="w-3xl mx-auto bg-[#141313B2] border border-[#6BDC9F1A] backdrop-blur-md p-6 rounded-sm text-center space-y-7">
+          <p className="font-manrope text-[#E5E2E1] text-4xl font-bold">
+            Stop burning your voice minutes.
+          </p>
+          <p className="font-inter text-[#87948A] text-[16px]">
+            Start your smart handoff journey today. Integration takes less than
+            5 minutes.
+          </p>
+
+          <button className="nav-btn-gradient text-[#00311C] mt-10 font-semibold font-inter rounded-sm w-fit px-8 py-4 mx-auto text-sm flex items-center gap-2">
+            Launch Dashboard <Rocket size={20} />
+          </button>
         </div>
       </section>
     </main>
