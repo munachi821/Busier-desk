@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -13,6 +14,8 @@ import {
 } from "lucide-react";
 
 const Home = () => {
+  const [callDuration, setCallDuration] = useState(1);
+
   return (
     <main className="min-h-screen bg-[#131313]">
       <nav className="flex justify-between items-center px-6 md:px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
@@ -200,13 +203,30 @@ const Home = () => {
             </div>
 
             <div className="flex items-center justify-between mt-8">
-              <p className="text-[#E5E2E1] font-semibold font-inter text-sm">
+              <p className="text-[#E5E2E1] font-semibold font-inter text-xs sm:text-sm">
                 SET MAX CALL DURATION
               </p>
-              <p className="text-[#6BDC9F] font-inter">1:00 Minute</p>
+              <p className="text-[#6BDC9F] font-inter text-sm">
+                {callDuration}:00 Minute{callDuration !== 1 ? "s" : ""}
+              </p>
             </div>
 
-            <div className="bg-[#0E0E0E] h-1 w-full rounded-full mt-5"></div>
+            <div className="mt-5 w-full relative flex items-center">
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                value={callDuration}
+                onChange={(e) => setCallDuration(parseInt(e.target.value))}
+                style={
+                  {
+                    "--val": `${((callDuration - 1) / 4) * 100}%`,
+                  } as React.CSSProperties
+                }
+                className="w-full appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:h-1 [&::-webkit-slider-runnable-track]:bg-[linear-gradient(to_right,#6BDC9F_var(--val),#0E0E0E_var(--val))] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6BDC9F] [&::-webkit-slider-thumb]:-mt-1.25 cursor-pointer"
+              />
+            </div>
             <div className="flex items-center justify-between mt-2">
               <p className="text-[#87948A] font-inter text-[10px]">
                 SHORT LEAD GEN
