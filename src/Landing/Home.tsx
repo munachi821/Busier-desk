@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import logo from "/images/BusierDesk_logo.png";
 import { Link } from "react-router-dom";
+
 const Home = () => {
   const [callDuration, setCallDuration] = useState(1);
 
