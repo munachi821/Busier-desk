@@ -12,14 +12,18 @@ import {
   Timer,
   UserCheck,
 } from "lucide-react";
-
+import logo from "/images/BusierDesk_logo.png";
+import { Link } from "react-router-dom";
 const Home = () => {
   const [callDuration, setCallDuration] = useState(1);
 
   return (
     <main className="min-h-screen bg-[#131313]">
       <nav className="flex justify-between items-center px-6 md:px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
-        <div className="logo">
+        <div className="flex items-center gap-2">
+          <div>
+            <img src={logo} alt="busier desk logo" width={50} />
+          </div>
           <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
             BusierDesk
           </h2>
@@ -29,9 +33,12 @@ const Home = () => {
           <li className="text-[#6BDC9F] font-semibold">Product</li>
           <li>Pricing</li>
           <li>Login</li>
-          <button className="bg-[#008F5A] px-7 py-2 font-semibold rounded-sm text-[#00311C] nav-btn-gradient">
+          <Link
+            to="/authentication"
+            className="bg-[#008F5A] px-7 py-2 font-semibold rounded-sm text-[#00311C] nav-btn-gradient"
+          >
             Get Started
-          </button>
+          </Link>
         </ul>
       </nav>
 
@@ -48,9 +55,12 @@ const Home = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 font-inter">
-            <button className="bg-[#008F5A] w-full sm:w-auto justify-center px-7 py-3.5 font-semibold rounded-sm text-[#00311C] nav-btn-gradient flex items-center gap-2">
+            <Link
+              to="/authentication"
+              className="bg-[#008F5A] w-full sm:w-auto justify-center px-7 py-3.5 font-semibold rounded-sm text-[#00311C] nav-btn-gradient flex items-center gap-2"
+            >
               Deploy Your Agent <ArrowRight size={20} />
-            </button>
+            </Link>
 
             <button className="w-full sm:w-auto px-9 py-3.5 font-semibold rounded-sm border border-[#87948A]/20 text-[#6BDC9F]">
               View Demo
@@ -341,10 +351,15 @@ const Home = () => {
 
       <footer className="bg-[#0E0E0E] p-6 md:px-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 md:gap-0">
         <div className="text-center md:text-left">
-          <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
-            BusierDesk
-          </h2>
-          <p className="text-[#87948A] text-xs font-inter mt-1 max-w-70 md:max-w-none mx-auto lg:mx-0">
+          <div className="flex items-center gap-2">
+            <div>
+              <img src={logo} alt="busier desk logo" width={50} />
+            </div>
+            <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
+              BusierDesk
+            </h2>
+          </div>
+          <p className="text-[#87948A] text-xs font-inter mt-2 max-w-70 md:max-w-none mx-auto lg:mx-0">
             @ {new Date().getFullYear()} BUSIERDESK. SECURE WALLET PROVIDED BY
             INTERSWITCH
           </p>
