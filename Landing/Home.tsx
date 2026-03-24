@@ -1,9 +1,12 @@
 import {
   ArrowDown,
   ArrowRight,
+  Bot,
+  ClipboardList,
   MessageSquareText,
   MessagesSquare,
   Phone,
+  SquareArrowOutDownLeftIcon,
   Timer,
   UserCheck,
 } from "lucide-react";
@@ -161,6 +164,140 @@ const Home = () => {
                 reducing voice costs by up to 80% per lead.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-16">
+        <div className="text-center mb-15">
+          <h2 className="font-manrope text-[#E5E2E1] text-3xl font-bold">
+            Build Your Agent
+          </h2>
+          <p className="font-inter text-[#87948A] text-lg mt-1">
+            Pay only for the hardware and brains you actually use.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-7 gap-10">
+          <div className="col-span-4 bg-[#2A2A2A] border border-[#3E4A4133] p-6 rounded-sm h-fit">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="bg-[#2CA46D33] text-[#6BDC9F] text-xs font-inter font-semibold px-2.5 py-1.5 rounded-xs mb-1 block w-fit">
+                  REQUIRED
+                </span>
+                <p className="font-manrope text-xl text-[#E5E2E1] font-bold">
+                  Inbound Calls (Base)
+                </p>
+              </div>
+
+              <div className="text-right">
+                <p className="text-[#6BDC9F] text-xl font-semibold font-inter">
+                  $0.15
+                </p>
+                <p className="text-[#87948A] text-sm font-inter">Per Minute</p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mt-8">
+              <p className="text-[#E5E2E1] font-semibold font-inter text-sm">
+                SET MAX CALL DURATION
+              </p>
+              <p className="text-[#6BDC9F] font-inter">1:00 Minute</p>
+            </div>
+
+            <div className="bg-[#0E0E0E] h-1 w-full rounded-full mt-5"></div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-[#87948A] font-inter text-[10px]">
+                SHORT LEAD GEN
+              </p>
+              <p className="text-[#87948A] font-inter text-[10px]">
+                DEEP SUPPORT
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 font-inter gap-3 mt-5">
+              <div className="grid-cols-1 bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
+                <p className="text-[#87948A] font-inter text-[10px]">
+                  ESTIMATED SAVINGS
+                </p>
+                <p className="text-[#6BDC9F] font-semibold mt-1">~ $420/mo</p>
+              </div>
+              <div className="grid-cols-1 bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
+                <p className="text-[#87948A] font-inter text-[10px]">
+                  LEAD CAPTURE RATE
+                </p>
+                <p className="text-[#6BDC9F] font-semibold mt-1">99.8%</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-3 flex flex-col gap-4">
+            <div className="bg-[#201F1F] border border-[#3E4A411A] p-6 rounded-sm flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="text-[#87948A]">
+                  <Bot size={30} />
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-[#E5E2E1] font-inter">
+                    AI Assistant Brain
+                  </p>
+                  <p className="text-[#87948A] text-xs">
+                    Llama-3 Customs RAG Training
+                  </p>
+                </div>
+              </div>
+
+              <button className="bg-[#6BDC9F33] p-1 rounded-full w-12">
+                <div className="size-4 rounded-full nav-btn-gradient translate-x-6"></div>
+              </button>
+            </div>
+
+            <div className="bg-[#201F1F] border border-[#3E4A411A] p-6 rounded-sm flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="text-[#87948A]">
+                  <ClipboardList size={30} />
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-[#E5E2E1] font-inter">
+                    Call Transcription
+                  </p>
+                  <p className="text-[#87948A] text-xs">
+                    Real-time test logging
+                  </p>
+                </div>
+              </div>
+
+              <button className="bg-[#353534] p-1 rounded-full w-12">
+                <div className="size-4 rounded-full bg-[#87948A]"></div>
+              </button>
+            </div>
+
+            <div className="bg-[#201F1F] border border-[#3E4A411A] p-6 rounded-sm flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="text-[#87948A]">
+                  <SquareArrowOutDownLeftIcon size={30} />
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-[#E5E2E1] font-inter">
+                    Whatsapp Chat Handoff
+                  </p>
+                  <p className="text-[#87948A] text-xs">
+                    Automated CRM linking
+                  </p>
+                </div>
+              </div>
+
+              <button className="bg-[#6BDC9F33] p-1 rounded-full w-12">
+                <div className="size-4 rounded-full nav-btn-gradient translate-x-6"></div>
+              </button>
+            </div>
+
+            <button className="nav-btn-gradient text-[#00311C] font-semibold font-inter w-full py-3 text-sm">
+              CALCULATE FINAL QUOTE
+            </button>
           </div>
         </div>
       </section>
