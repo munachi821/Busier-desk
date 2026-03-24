@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import logo from "/images/BusierDesk_logo.png";
 import nigerianman from "/images/nigerianman.jpg";
 import { useState } from "react";
@@ -6,6 +7,12 @@ const SignUpSignin = () => {
   const [isScreen, setIsScreen] = useState("signin");
   return (
     <section className="w-full h-screen flex">
+      <Helmet>
+        <title>
+          {`${isScreen === "signin" ? "Sign in" : "Create Account"} - BusierDesk`}
+        </title>
+      </Helmet>
+
       <div className="w-1/2 bg-[#0A0A0A] h-full flex items-center justify-center">
         <div className="w-md">
           <div className="flex items-center gap-2 w-fit mx-auto">
