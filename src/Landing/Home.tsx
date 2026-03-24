@@ -24,6 +24,7 @@ const Home = () => {
       <Helmet>
         <title>BusierDesk - Never Miss a Customer. Never Overpay.</title>
       </Helmet>
+
       <nav className="flex justify-between items-center px-6 md:px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
         <div className="flex items-center gap-2">
           <div>
