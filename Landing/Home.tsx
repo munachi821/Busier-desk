@@ -15,14 +15,14 @@ import {
 const Home = () => {
   return (
     <main className="min-h-screen bg-[#131313]">
-      <nav className="flex justify-between items-center px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
+      <nav className="flex justify-between items-center px-6 md:px-10 py-4 border-b border-[#171919] bg-[#131313B2]">
         <div className="logo">
           <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
             BusierDesk
           </h2>
         </div>
 
-        <ul className="flex items-center gap-10 text-[#E5E2E1]">
+        <ul className="hidden md:flex items-center gap-10 text-[#E5E2E1]">
           <li className="text-[#6BDC9F] font-semibold">Product</li>
           <li>Pricing</li>
           <li>Login</li>
@@ -32,30 +32,30 @@ const Home = () => {
         </ul>
       </nav>
 
-      <section className="flex items-center px-16 justify-between h-[calc(100vh-5rem)]">
-        <div className="space-y-6">
-          <h1 className="text-6xl font-extrabold font-manrope text-[#E5E2E1] w-md">
+      <section className="flex flex-col xl:flex-row items-center px-6 md:px-16 justify-between h-auto xl:h-[calc(100vh-5rem)] py-16 xl:py-0 gap-16 xl:gap-0">
+        <div className="space-y-6 w-full xl:w-auto">
+          <h1 className="text-4xl md:text-6xl font-extrabold font-manrope text-[#E5E2E1] w-full xl:w-md">
             Never Miss a Customer.
             <span className="text-[#6BDC9F] block">Never Overpay.</span>
           </h1>
 
-          <p className="text-[#BDCABF] w-125 text-xl">
+          <p className="text-[#BDCABF] w-full xl:w-125 text-lg md:text-xl">
             The world's first AI voice-to-text handoff. Save your balances with
             intelligent call capping and instant WhatsApp transitions.
           </p>
 
-          <div className="flex items-center gap-5 font-inter">
-            <button className="bg-[#008F5A] px-7 py-3.5 font-semibold rounded-sm text-[#00311C] nav-btn-gradient flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 font-inter">
+            <button className="bg-[#008F5A] w-full sm:w-auto justify-center px-7 py-3.5 font-semibold rounded-sm text-[#00311C] nav-btn-gradient flex items-center gap-2">
               Deploy Your Agent <ArrowRight size={20} />
             </button>
 
-            <button className="px-9 py-3.5 font-semibold rounded-sm border border-[#87948A]/20 text-[#6BDC9F]">
+            <button className="w-full sm:w-auto px-9 py-3.5 font-semibold rounded-sm border border-[#87948A]/20 text-[#6BDC9F]">
               View Demo
             </button>
           </div>
         </div>
 
-        <div className="w-135 border border-[#3E4A414D] bg-[#141313B2] backdrop-blur-2xl rounded-md p-5">
+        <div className="w-full sm:w-135 border border-[#3E4A414D] bg-[#141313B2] backdrop-blur-2xl rounded-md p-4 sm:p-5">
           <div className="border border-[#6BDC9F33] bg-[#0E0E0E] p-4 flex items-center justify-between rounded-sm">
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-xl w-fit text-[#00311C] call-icon-gradient">
@@ -100,15 +100,15 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-[#0E0E0E] w-full py-20 px-16">
-        <div className="mb-20">
-          <p className="text-[#E5E2E1] font-manrope text-3xl font-bold">
+      <section className="bg-[#0E0E0E] w-full py-16 md:py-20 px-6 md:px-16">
+        <div className="mb-10 md:mb-20">
+          <p className="text-[#E5E2E1] font-manrope text-2xl md:text-3xl font-bold">
             THE SMART HANDOFF
           </p>
           <div className="bg-[#6BDC9F] h-1 w-27 mt-1.5"></div>
         </div>
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-[#2A2A2A] border border-[#3E4A4133] w-fit rounded-sm">
@@ -169,18 +169,18 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 px-16">
-        <div className="text-center mb-15">
-          <h2 className="font-manrope text-[#E5E2E1] text-3xl font-bold">
+      <section className="py-16 md:py-20 px-6 md:px-16">
+        <div className="text-center mb-10 md:mb-15">
+          <h2 className="font-manrope text-[#E5E2E1] text-2xl md:text-3xl font-bold">
             Build Your Agent
           </h2>
-          <p className="font-inter text-[#87948A] text-lg mt-1">
+          <p className="font-inter text-[#87948A] text-base md:text-lg mt-1">
             Pay only for the hardware and brains you actually use.
           </p>
         </div>
 
-        <div className="grid grid-cols-7 gap-10">
-          <div className="col-span-4 bg-[#2A2A2A] border border-[#3E4A4133] p-6 rounded-sm h-fit">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-10">
+          <div className="col-span-1 lg:col-span-4 bg-[#2A2A2A] border border-[#3E4A4133] p-5 md:p-6 rounded-sm h-fit">
             <div className="flex items-center justify-between">
               <div>
                 <span className="bg-[#2CA46D33] text-[#6BDC9F] text-xs font-inter font-semibold px-2.5 py-1.5 rounded-xs mb-1 block w-fit">
@@ -216,14 +216,14 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 font-inter gap-3 mt-5">
-              <div className="grid-cols-1 bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 font-inter gap-3 mt-5">
+              <div className="bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
                 <p className="text-[#87948A] font-inter text-[10px]">
                   ESTIMATED SAVINGS
                 </p>
                 <p className="text-[#6BDC9F] font-semibold mt-1">~ $420/mo</p>
               </div>
-              <div className="grid-cols-1 bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
+              <div className="bg-[#0E0E0E] border border-[#3E4A411A] p-5 rounded-sm">
                 <p className="text-[#87948A] font-inter text-[10px]">
                   LEAD CAPTURE RATE
                 </p>
@@ -232,7 +232,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="col-span-3 flex flex-col gap-4">
+          <div className="col-span-1 lg:col-span-3 flex flex-col gap-4">
             <div className="bg-[#201F1F] border border-[#3E4A411A] p-6 rounded-sm flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="text-[#87948A]">
@@ -303,34 +303,34 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 px-16 h-screen flex items-center">
-        <div className="w-3xl mx-auto bg-[#141313B2] border border-[#6BDC9F1A] backdrop-blur-md p-6 rounded-sm text-center space-y-7">
-          <p className="font-manrope text-[#E5E2E1] text-4xl font-bold">
+      <section className="py-16 md:py-20 px-6 md:px-16 h-auto min-h-[60vh] flex items-center">
+        <div className="w-full md:w-3xl mx-auto bg-[#141313B2] border border-[#6BDC9F1A] backdrop-blur-md p-6 md:p-10 rounded-sm text-center space-y-5 md:space-y-7 my-10 md:my-0">
+          <p className="font-manrope text-[#E5E2E1] text-3xl md:text-4xl font-bold leading-tight">
             Stop burning your voice minutes.
           </p>
-          <p className="font-inter text-[#87948A] text-[16px]">
+          <p className="font-inter text-[#87948A] text-sm md:text-[16px]">
             Start your smart handoff journey today. Integration takes less than
             5 minutes.
           </p>
 
-          <button className="nav-btn-gradient text-[#00311C] mt-10 font-semibold font-inter rounded-sm w-fit px-8 py-4 mx-auto text-sm flex items-center gap-2">
+          <button className="nav-btn-gradient text-[#00311C] mt-8 md:mt-10 font-semibold font-inter rounded-sm w-full sm:w-fit px-8 py-4 mx-auto text-sm flex items-center justify-center gap-2">
             Launch Dashboard <Rocket size={20} />
           </button>
         </div>
       </section>
 
-      <footer className="bg-[#0E0E0E] p-6 flex items-end justify-between">
-        <div>
+      <footer className="bg-[#0E0E0E] p-6 md:px-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 md:gap-0">
+        <div className="text-center md:text-left">
           <h2 className="font-manrope text-[#008F5A] font-bold text-xl">
             BusierDesk
           </h2>
-          <p className="text-[#87948A] text-xs inter mt-0.5">
+          <p className="text-[#87948A] text-xs font-inter mt-1 max-w-70 md:max-w-none mx-auto lg:mx-0">
             @ {new Date().getFullYear()} BUSIERDESK. SECURE WALLET PROVIDED BY
             INTERSWITCH
           </p>
         </div>
 
-        <ul className="flex items-center gap-5 text-[#87948A] text-sm">
+        <ul className="flex flex-wrap justify-center items-center gap-4 md:gap-5 text-[#87948A] text-xs sm:text-sm mt-4 md:mt-0">
           <li>PRIVACY POLICY</li>
           <li>TERMS OF SERVICES</li>
           <li>SECURITY</li>
