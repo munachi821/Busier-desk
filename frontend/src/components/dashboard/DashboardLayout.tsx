@@ -15,11 +15,15 @@ import { useState } from "react";
 import CallLogs from "./CallLogs";
 import AgentConfiguration from "./AgentConfiguration";
 import WalletBilling from "./WalletBilling";
+import { authClient } from "../../lib/auth-client";
 
 const DashboardLayout = () => {
   const [activeTab, setActiveTab] = useState("call-logs");
   const [copied, setCopied] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const { data: sessionData, isPending } = authClient.useSession();
+  const user = sessionData?.user;
 
   const handleTabShow = () => {
     if (activeTab === "call-logs") {
@@ -143,9 +147,13 @@ const DashboardLayout = () => {
               >
                 <Menu size={26} />
               </button>
-              <p className="font-manrope text-[#E5E2E1] text-[20px] sm:text-[22px] font-bold shrink-0">
-                Demo Auto Repair
-              </p>
+              {isPending ? (
+                <div className="h-7 w-32 bg-[#262626] animate-pulse rounded-sm shrink-0"></div>
+              ) : (
+                <p className="font-manrope text-[#E5E2E1] text-[20px] sm:text-[22px] font-bold shrink-0">
+                  {user?.name || "Your Workspace"}
+                </p>
+              )}
             </div>
 
             <div className="font-inter text-white font-semibold text-[11px] sm:text-sm bg-[#252626] border border-[#4848481A] px-3 py-2 flex items-center rounded-sm w-fit shrink-0">
