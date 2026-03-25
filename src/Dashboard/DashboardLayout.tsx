@@ -1,4 +1,14 @@
-import { Bot, MessageCircleCheck, Phone, Wallet } from "lucide-react";
+import {
+  Bot,
+  MessageCircleCheck,
+  Phone,
+  Wallet,
+  Bell,
+  Search,
+  UserCircle2,
+  Copy,
+  Check,
+} from "lucide-react";
 import logo from "/images/BusierDesk_logo.png";
 import { useState } from "react";
 import CallLogs from "./CallLogs";
@@ -7,6 +17,7 @@ import WalletBilling from "./WalletBilling";
 
 const DashboardLayout = () => {
   const [activeTab, setActiveTab] = useState("call-logs");
+  const [copied, setCopied] = useState(false);
 
   const handleTabShow = () => {
     if (activeTab === "call-logs") {
@@ -19,8 +30,19 @@ const DashboardLayout = () => {
       return <WalletBilling />;
     }
   };
+
+  const agentNumber = "+2348031234567";
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(agentNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.log("Failed to copy text", error);
+    }
+  };
   return (
-    <div className="h-screen w-full flex">
+    <div className="h-screen w-full flex overflow-hidden">
       <aside className="bg-[#000000] h-full w-60 relative shrink-0">
         <div className="flex items-center gap-2 px-4 py-6">
           <div>
@@ -80,7 +102,62 @@ const DashboardLayout = () => {
         </div>
       </aside>
 
-      <div className="w-full bg-[#0E0E0E] p-4">{handleTabShow()}</div>
+      <div className="w-full bg-[#0E0E0E] p-4 overflow-y-auto">
+        <nav className="flex items-center justify-between">
+          <div className="flex gap-6 items-center">
+            <p className="font-manrope text-[#E5E2E1] text-[22px] font-bold">
+              Demo Auto Repair
+            </p>
+
+            <div className="font-inter text-white font-semibold text-sm bg-[#252626] border border-[#4848481A] p-2 flex items-center">
+              <span className="text-[#ACABAA] font-manrope font-normal">
+                AGENT NUMBER:
+              </span>
+              {"  "}
+              <p className="ml-2.5">+2348031234567</p>
+              <button
+                onClick={handleCopy}
+                className={`ml-3 transition-all duration-200 ${
+                  copied
+                    ? "text-[#008F5A] bg-green-900/20" // Success state (Emerald)
+                    : "text-gray-400 hover:text-white hover:bg-gray-800" // Default state
+                }`}
+              >
+                {copied ? <Check size={20} /> : <Copy size={20} />}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            {activeTab === "call-logs" && (
+              <div className="flex bg-[#1F2020] items-center gap-2">
+                <Search className="text-white ml-2" size={20} />
+                <input
+                  type="search"
+                  placeholder="Search Call Logs"
+                  className="w-50 py-2.5 bg-[#1F2020] text-[#ACABAA80] font-inter text-sm pl-1 outline-none"
+                />
+              </div>
+            )}
+
+            <div className="font-inter text-right">
+              <p className="text-[#ACABAA] text-sm tracking-wide">
+                AVAILABLE BALANCE
+              </p>
+              <p className="text-[#6BDC9F] font-semibold">₦12,500</p>
+            </div>
+
+            <div className="text-[#ACABAA]">
+              <Bell size={25} />
+            </div>
+
+            <div className="text-[#ACABAA]">
+              <UserCircle2 size={25} />
+            </div>
+          </div>
+        </nav>
+        {handleTabShow()}
+      </div>
     </div>
   );
 };
