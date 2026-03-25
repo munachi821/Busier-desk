@@ -4,7 +4,6 @@ import {
   Phone,
   Wallet,
   Bell,
-  Search,
   UserCircle2,
   Copy,
   Check,
@@ -89,7 +88,7 @@ const DashboardLayout = () => {
                 fill={activeTab === "call-logs" ? "#6BDC9F" : ""}
                 strokeWidth={activeTab === "call-logs" ? "0.5" : "1.5"}
               />
-              Call Logs
+              Call Registry
             </li>
             <li
               onClick={() => {

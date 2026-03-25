@@ -1,8 +1,12 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const CallLogs = () => {
   return (
     <div className="p-2 sm:p-6 pt-8">
+      <Helmet>
+        <title>Call Registry</title>
+      </Helmet>
       <h2 className="font-manrope font-bold text-4xl text-[#E7E5E5]">
         Call Registry
       </h2>
