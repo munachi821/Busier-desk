@@ -100,7 +100,7 @@ const WalletBilling = () => {
           </h2>
         </div>
 
-        <div className="bg-[#131313] border border-[#262626] rounded-md overflow-x-auto">
+        <div className="bg-[#131313] border border-[#262626] overflow-x-auto">
           <table className="w-full text-left border-collapse whitespace-nowrap">
             <thead>
               <tr className="bg-[#1C1C1C] border-b border-[#262626] font-inter">
@@ -215,7 +215,7 @@ const WalletBilling = () => {
           </table>
         </div>
 
-        <div className="flex justify-center mt-10 mb-8">
+        <div className="flex justify-center mt-10 mb-4">
           <button className="px-8 py-3.5 rounded-sm bg-[#111111] hover:bg-[#1A1A1A] border border-[#262626] text-[#87948A] text-[10px] font-inter font-bold tracking-widest transition-colors uppercase">
             Load Older Transactions
           </button>
