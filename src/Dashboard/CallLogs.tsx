@@ -2,13 +2,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CallLogs = () => {
   return (
-    <div className="p-6 pt-8">
+    <div className="p-2 sm:p-6 pt-8">
       <h2 className="font-manrope font-bold text-4xl text-[#E7E5E5]">
         Call Registry
       </h2>
 
-      <div className="bg-[#191A1A] p-5 rounded-sm flex items-center mt-10">
-        <div className="border-r border-[#48484833] pr-10 w-fit">
+      <div className="bg-[#191A1A] p-5 rounded-sm flex flex-col sm:flex-row items-start sm:items-center mt-10 gap-6 sm:gap-0">
+        <div className="sm:border-r border-[#48484833] sm:pr-10 w-full sm:w-fit">
           <p className="font-inter text-[#ACABAA] text-sm tracking-widest">
             CALLS TODAY
           </p>
@@ -17,7 +17,7 @@ const CallLogs = () => {
           </h3>
         </div>
 
-        <div className="border-r border-[#48484833] pr-10 w-fit ml-10">
+        <div className="sm:border-r border-[#48484833] sm:pr-10 w-full sm:w-fit sm:ml-10">
           <p className="font-inter text-[#ACABAA] text-sm tracking-widest">
             MINUTES USED
           </p>
@@ -26,7 +26,7 @@ const CallLogs = () => {
           </h3>
         </div>
 
-        <div className="w-fit ml-10">
+        <div className="w-full sm:w-fit sm:ml-10">
           <p className="font-inter text-[#ACABAA] text-sm tracking-widest">
             RESOLVED
           </p>
