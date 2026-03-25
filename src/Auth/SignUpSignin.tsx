@@ -2,9 +2,11 @@ import { Helmet } from "react-helmet-async";
 import logo from "/images/BusierDesk_logo.png";
 import nigerianman from "/images/nigerianman.jpg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUpSignin = () => {
   const [isScreen, setIsScreen] = useState("signin");
+  const navigate = useNavigate();
   return (
     <section className="w-full min-h-screen lg:h-screen flex flex-col lg:flex-row">
       <Helmet>
@@ -118,7 +120,10 @@ const SignUpSignin = () => {
               />
             </div>
 
-            <button className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm">
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm"
+            >
               CONTINUE TO DASHBOARD
             </button>
           </form>
@@ -175,7 +180,10 @@ const SignUpSignin = () => {
               />
             </div>
 
-            <button className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm">
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="nav-btn-gradient mt-2 text-[#00311C] tracking-wider font-manrope font-semibold text-sm w-full py-3.5 rounded-sm"
+            >
               CONTINUE TO DASHBOARD
             </button>
           </form>
