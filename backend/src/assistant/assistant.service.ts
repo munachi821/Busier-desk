@@ -29,4 +29,14 @@ export class AssistantService {
       data: { vapiAssistantId },
     });
   }
+
+  async getCalls(userId: string) {
+    const assistant = await this.findByUserId(userId);
+    if (!assistant) return [];
+    
+    return this.prisma.call.findMany({
+      where: { assistantId: assistant.id },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
 }

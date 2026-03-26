@@ -17,4 +17,10 @@ export class AssistantController {
     const userId = "placeholder-user-id";
     return this.assistantService.findByUserId(userId);
   }
+
+  @Get('calls')
+  async getCalls() {
+    const userId = "placeholder-user-id";
+    return this.assistantService.getCalls(userId);
+  }
 }
