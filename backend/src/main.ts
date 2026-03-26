@@ -13,7 +13,7 @@ async function bootstrap() {
   app.use(express.urlencoded({ extended: true }));
 
   app.enableCors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'https://busier-desk-kjo5.vercel.app/'],
     credentials: true,
   })
 
