@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { VapiModule } from './vapi/vapi.module';
+import { AssistantModule } from './assistant/assistant.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { VapiModule } from './vapi/vapi.module';
     PrismaModule,
     AuthModule,
     VapiModule,
+    AssistantModule,
   ],
   controllers: [AppController],
   providers: [AppService],
