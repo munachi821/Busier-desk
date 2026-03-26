@@ -5,12 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
+import { VapiModule } from './vapi/vapi.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     PrismaModule,
-    AuthModule, // 👈 your own module now
+    AuthModule,
+    VapiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

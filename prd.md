@@ -220,10 +220,10 @@ Ensure system reliability
 Backend: nest.js
 Database: PostgreSQL + Prisma
 Queue: BullMQ + Redis
-AI: OpenAI
-STT: Deepgram
-TTS: ElevenLabs
-Telephony: Twilio
+AI: OpenAI / Vapi.ai
+STT: Vapi.ai (Deepgram)
+TTS: Vapi.ai (ElevenLabs)
+Telephony: Vapi.ai (Twilio / Vonage)
 WhatsApp: Twilio WhatsApp API
 Payments: Interswitch
 Frontend: React
