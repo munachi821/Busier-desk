@@ -27,7 +27,6 @@ const AgentConfiguration = () => {
     if (assistant) {
       setVapiId(assistant.vapiAssistantId || "");
       setFaqs(assistant.systemPrompt || "");
-      // Other fields can be initialized here if added to DB
     }
   }, [assistant]);
 
@@ -46,7 +45,6 @@ const AgentConfiguration = () => {
       name: assistant?.name || "My AI Assistant",
       systemPrompt: faqs,
       vapiAssistantId: vapiId,
-      // Add other fields as needed
     });
   };
 
@@ -240,4 +238,5 @@ const AgentConfiguration = () => {
     </div>
   );
 };
+
 export default AgentConfiguration;
