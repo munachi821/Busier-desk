@@ -94,7 +94,7 @@ const AgentConfiguration = () => {
               placeholder="e.g. f0c43ee3-a7e5-4506-9fda-d42x..."
             />
             <p className="text-[#555] text-[10px] mt-2 font-inter">
-              Get this from your Vapi Dashboard -> Assistants
+              Get this from your Vapi Dashboard -&gt; Assistants
             </p>
           </div>
 
@@ -240,5 +240,4 @@ const AgentConfiguration = () => {
     </div>
   );
 };
-export default AgentConfiguration;
 export default AgentConfiguration;
