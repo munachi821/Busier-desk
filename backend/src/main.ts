@@ -3,10 +3,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as express from 'express';
 
-async function bootstrap() {
+  const port = process.env.PORT || 3000;
+  async function bootstrap() {
+    
+
+
   const app = await NestFactory.create(AppModule, {
     bodyParser: false,
   });
+
+
 
   // Manually apply body parsers so req.body is populated
   app.use(express.json());
@@ -17,6 +23,6 @@ async function bootstrap() {
     credentials: true,
   })
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(port, "0.0.0.0");
 }
 bootstrap();
