@@ -5,13 +5,21 @@ import { PrismaService } from '../prisma/prisma.service';
 export class AssistantService {
   constructor(private prisma: PrismaService) {}
 
-  async create(userId: string, data: { name: string; systemPrompt?: string; firstMessage?: string }) {
-    return this.prisma.businessAssistant.create({
-      data: {
+  async create(userId: string, data: { name: string; systemPrompt?: string; firstMessage?: string; vapiAssistantId?: string }) {
+    return this.prisma.businessAssistant.upsert({
+      where: { userId },
+      update: {
+        name: data.name,
+        systemPrompt: data.systemPrompt,
+        firstMessage: data.firstMessage,
+        vapiAssistantId: data.vapiAssistantId,
+      },
+      create: {
         userId,
         name: data.name,
         systemPrompt: data.systemPrompt,
         firstMessage: data.firstMessage,
+        vapiAssistantId: data.vapiAssistantId,
       },
     });
   }
