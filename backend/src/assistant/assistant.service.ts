@@ -47,4 +47,11 @@ export class AssistantService {
       orderBy: { createdAt: 'desc' },
     });
   }
+
+  async getLeads(userId: string) {
+    return this.prisma.lead.findMany({
+      where: { businessId: userId },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
 }

@@ -23,4 +23,10 @@ export class AssistantController {
     const userId = "placeholder-user-id";
     return this.assistantService.getCalls(userId);
   }
+
+  @Get('leads')
+  async getLeads() {
+    const userId = "placeholder-user-id";
+    return this.assistantService.getLeads(userId);
+  }
 }
