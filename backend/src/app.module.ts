@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { VapiModule } from './vapi/vapi.module';
 import { AssistantModule } from './assistant/assistant.module';
 import { PaymentModule } from './payment/payment.module';
+import { MigrationController } from './app/migration.controller';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { PaymentModule } from './payment/payment.module';
     AssistantModule,
     PaymentModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, MigrationController],
   providers: [AppService],
 })
 export class AppModule {}
