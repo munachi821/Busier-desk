@@ -29,11 +29,11 @@ export type BusinessAssistantMinAggregateOutputType = {
   userId: string | null
   name: string | null
   systemPrompt: string | null
-  firstMessage: string | null
   vapiAssistantId: string | null
   phoneNumber: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  firstMessage: string | null
 }
 
 export type BusinessAssistantMaxAggregateOutputType = {
@@ -41,11 +41,11 @@ export type BusinessAssistantMaxAggregateOutputType = {
   userId: string | null
   name: string | null
   systemPrompt: string | null
-  firstMessage: string | null
   vapiAssistantId: string | null
   phoneNumber: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  firstMessage: string | null
 }
 
 export type BusinessAssistantCountAggregateOutputType = {
@@ -53,11 +53,11 @@ export type BusinessAssistantCountAggregateOutputType = {
   userId: number
   name: number
   systemPrompt: number
-  firstMessage: number
   vapiAssistantId: number
   phoneNumber: number
   createdAt: number
   updatedAt: number
+  firstMessage: number
   _all: number
 }
 
@@ -67,11 +67,11 @@ export type BusinessAssistantMinAggregateInputType = {
   userId?: true
   name?: true
   systemPrompt?: true
-  firstMessage?: true
   vapiAssistantId?: true
   phoneNumber?: true
   createdAt?: true
   updatedAt?: true
+  firstMessage?: true
 }
 
 export type BusinessAssistantMaxAggregateInputType = {
@@ -79,11 +79,11 @@ export type BusinessAssistantMaxAggregateInputType = {
   userId?: true
   name?: true
   systemPrompt?: true
-  firstMessage?: true
   vapiAssistantId?: true
   phoneNumber?: true
   createdAt?: true
   updatedAt?: true
+  firstMessage?: true
 }
 
 export type BusinessAssistantCountAggregateInputType = {
@@ -91,11 +91,11 @@ export type BusinessAssistantCountAggregateInputType = {
   userId?: true
   name?: true
   systemPrompt?: true
-  firstMessage?: true
   vapiAssistantId?: true
   phoneNumber?: true
   createdAt?: true
   updatedAt?: true
+  firstMessage?: true
   _all?: true
 }
 
@@ -176,11 +176,11 @@ export type BusinessAssistantGroupByOutputType = {
   userId: string
   name: string
   systemPrompt: string | null
-  firstMessage: string | null
   vapiAssistantId: string | null
   phoneNumber: string | null
   createdAt: Date
   updatedAt: Date
+  firstMessage: string | null
   _count: BusinessAssistantCountAggregateOutputType | null
   _min: BusinessAssistantMinAggregateOutputType | null
   _max: BusinessAssistantMaxAggregateOutputType | null
@@ -209,16 +209,16 @@ export type BusinessAssistantWhereInput = {
   userId?: Prisma.StringFilter<"BusinessAssistant"> | string
   name?: Prisma.StringFilter<"BusinessAssistant"> | string
   systemPrompt?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
-  firstMessage?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   vapiAssistantId?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   createdAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
+  firstMessage?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  calls?: Prisma.CallListRelationFilter
   faqs?: Prisma.FAQListRelationFilter
   products?: Prisma.ProductListRelationFilter
   resourceLinks?: Prisma.ResourceLinkListRelationFilter
-  calls?: Prisma.CallListRelationFilter
 }
 
 export type BusinessAssistantOrderByWithRelationInput = {
@@ -226,16 +226,16 @@ export type BusinessAssistantOrderByWithRelationInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   systemPrompt?: Prisma.SortOrderInput | Prisma.SortOrder
-  firstMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   vapiAssistantId?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  firstMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+  calls?: Prisma.CallOrderByRelationAggregateInput
   faqs?: Prisma.FAQOrderByRelationAggregateInput
   products?: Prisma.ProductOrderByRelationAggregateInput
   resourceLinks?: Prisma.ResourceLinkOrderByRelationAggregateInput
-  calls?: Prisma.CallOrderByRelationAggregateInput
 }
 
 export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
@@ -247,15 +247,15 @@ export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.BusinessAssistantWhereInput | Prisma.BusinessAssistantWhereInput[]
   name?: Prisma.StringFilter<"BusinessAssistant"> | string
   systemPrompt?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
-  firstMessage?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   createdAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
+  firstMessage?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  calls?: Prisma.CallListRelationFilter
   faqs?: Prisma.FAQListRelationFilter
   products?: Prisma.ProductListRelationFilter
   resourceLinks?: Prisma.ResourceLinkListRelationFilter
-  calls?: Prisma.CallListRelationFilter
 }, "id" | "userId" | "vapiAssistantId">
 
 export type BusinessAssistantOrderByWithAggregationInput = {
@@ -263,11 +263,11 @@ export type BusinessAssistantOrderByWithAggregationInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   systemPrompt?: Prisma.SortOrderInput | Prisma.SortOrder
-  firstMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   vapiAssistantId?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  firstMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.BusinessAssistantCountOrderByAggregateInput
   _max?: Prisma.BusinessAssistantMaxOrderByAggregateInput
   _min?: Prisma.BusinessAssistantMinOrderByAggregateInput
@@ -281,27 +281,27 @@ export type BusinessAssistantScalarWhereWithAggregatesInput = {
   userId?: Prisma.StringWithAggregatesFilter<"BusinessAssistant"> | string
   name?: Prisma.StringWithAggregatesFilter<"BusinessAssistant"> | string
   systemPrompt?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
-  firstMessage?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
   vapiAssistantId?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
+  firstMessage?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
 }
 
 export type BusinessAssistantCreateInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateInput = {
@@ -309,31 +309,31 @@ export type BusinessAssistantUncheckedCreateInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateInput = {
@@ -341,15 +341,15 @@ export type BusinessAssistantUncheckedUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateManyInput = {
@@ -357,22 +357,22 @@ export type BusinessAssistantCreateManyInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
 }
 
 export type BusinessAssistantUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BusinessAssistantUncheckedUpdateManyInput = {
@@ -380,11 +380,11 @@ export type BusinessAssistantUncheckedUpdateManyInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BusinessAssistantNullableScalarRelationFilter = {
@@ -397,11 +397,11 @@ export type BusinessAssistantCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   systemPrompt?: Prisma.SortOrder
-  firstMessage?: Prisma.SortOrder
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  firstMessage?: Prisma.SortOrder
 }
 
 export type BusinessAssistantMaxOrderByAggregateInput = {
@@ -409,11 +409,11 @@ export type BusinessAssistantMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   systemPrompt?: Prisma.SortOrder
-  firstMessage?: Prisma.SortOrder
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  firstMessage?: Prisma.SortOrder
 }
 
 export type BusinessAssistantMinOrderByAggregateInput = {
@@ -421,11 +421,11 @@ export type BusinessAssistantMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   systemPrompt?: Prisma.SortOrder
-  firstMessage?: Prisma.SortOrder
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  firstMessage?: Prisma.SortOrder
 }
 
 export type BusinessAssistantScalarRelationFilter = {
@@ -525,30 +525,30 @@ export type BusinessAssistantCreateWithoutUserInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutUserInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutUserInput = {
@@ -571,45 +571,45 @@ export type BusinessAssistantUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutFaqsInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
@@ -617,14 +617,14 @@ export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutFaqsInput = {
@@ -647,15 +647,15 @@ export type BusinessAssistantUpdateWithoutFaqsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
@@ -663,29 +663,29 @@ export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutProductsInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
@@ -693,14 +693,14 @@ export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutProductsInput = {
@@ -723,15 +723,15 @@ export type BusinessAssistantUpdateWithoutProductsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
@@ -739,29 +739,29 @@ export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutResourceLinksInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
@@ -769,14 +769,14 @@ export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
-  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutResourceLinksInput = {
@@ -799,15 +799,15 @@ export type BusinessAssistantUpdateWithoutResourceLinksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
@@ -815,25 +815,25 @@ export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
-  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutCallsInput = {
   id?: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
@@ -845,11 +845,11 @@ export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
   userId: string
   name: string
   systemPrompt?: string | null
-  firstMessage?: string | null
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  firstMessage?: string | null
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
@@ -875,11 +875,11 @@ export type BusinessAssistantUpdateWithoutCallsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
@@ -891,11 +891,11 @@ export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
@@ -907,17 +907,17 @@ export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
  */
 
 export type BusinessAssistantCountOutputType = {
+  calls: number
   faqs: number
   products: number
   resourceLinks: number
-  calls: number
 }
 
 export type BusinessAssistantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
   faqs?: boolean | BusinessAssistantCountOutputTypeCountFaqsArgs
   products?: boolean | BusinessAssistantCountOutputTypeCountProductsArgs
   resourceLinks?: boolean | BusinessAssistantCountOutputTypeCountResourceLinksArgs
-  calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
 }
 
 /**
@@ -928,6 +928,13 @@ export type BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs extends runtime.
    * Select specific fields to fetch from the BusinessAssistantCountOutputType
    */
   select?: Prisma.BusinessAssistantCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * BusinessAssistantCountOutputType without action
+ */
+export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CallWhereInput
 }
 
 /**
@@ -951,29 +958,22 @@ export type BusinessAssistantCountOutputTypeCountResourceLinksArgs<ExtArgs exten
   where?: Prisma.ResourceLinkWhereInput
 }
 
-/**
- * BusinessAssistantCountOutputType without action
- */
-export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CallWhereInput
-}
-
 
 export type BusinessAssistantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
   name?: boolean
   systemPrompt?: boolean
-  firstMessage?: boolean
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  firstMessage?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  calls?: boolean | Prisma.BusinessAssistant$callsArgs<ExtArgs>
   faqs?: boolean | Prisma.BusinessAssistant$faqsArgs<ExtArgs>
   products?: boolean | Prisma.BusinessAssistant$productsArgs<ExtArgs>
   resourceLinks?: boolean | Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>
-  calls?: boolean | Prisma.BusinessAssistant$callsArgs<ExtArgs>
   _count?: boolean | Prisma.BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["businessAssistant"]>
 
@@ -982,11 +982,11 @@ export type BusinessAssistantSelectCreateManyAndReturn<ExtArgs extends runtime.T
   userId?: boolean
   name?: boolean
   systemPrompt?: boolean
-  firstMessage?: boolean
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  firstMessage?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["businessAssistant"]>
 
@@ -995,11 +995,11 @@ export type BusinessAssistantSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   userId?: boolean
   name?: boolean
   systemPrompt?: boolean
-  firstMessage?: boolean
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  firstMessage?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["businessAssistant"]>
 
@@ -1008,20 +1008,20 @@ export type BusinessAssistantSelectScalar = {
   userId?: boolean
   name?: boolean
   systemPrompt?: boolean
-  firstMessage?: boolean
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  firstMessage?: boolean
 }
 
-export type BusinessAssistantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "systemPrompt" | "firstMessage" | "vapiAssistantId" | "phoneNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
+export type BusinessAssistantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "systemPrompt" | "vapiAssistantId" | "phoneNumber" | "createdAt" | "updatedAt" | "firstMessage", ExtArgs["result"]["businessAssistant"]>
 export type BusinessAssistantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  calls?: boolean | Prisma.BusinessAssistant$callsArgs<ExtArgs>
   faqs?: boolean | Prisma.BusinessAssistant$faqsArgs<ExtArgs>
   products?: boolean | Prisma.BusinessAssistant$productsArgs<ExtArgs>
   resourceLinks?: boolean | Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>
-  calls?: boolean | Prisma.BusinessAssistant$callsArgs<ExtArgs>
   _count?: boolean | Prisma.BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BusinessAssistantIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1035,21 +1035,21 @@ export type $BusinessAssistantPayload<ExtArgs extends runtime.Types.Extensions.I
   name: "BusinessAssistant"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+    calls: Prisma.$CallPayload<ExtArgs>[]
     faqs: Prisma.$FAQPayload<ExtArgs>[]
     products: Prisma.$ProductPayload<ExtArgs>[]
     resourceLinks: Prisma.$ResourceLinkPayload<ExtArgs>[]
-    calls: Prisma.$CallPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     userId: string
     name: string
     systemPrompt: string | null
-    firstMessage: string | null
     vapiAssistantId: string | null
     phoneNumber: string | null
     createdAt: Date
     updatedAt: Date
+    firstMessage: string | null
   }, ExtArgs["result"]["businessAssistant"]>
   composites: {}
 }
@@ -1445,10 +1445,10 @@ readonly fields: BusinessAssistantFieldRefs;
 export interface Prisma__BusinessAssistantClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  calls<T extends Prisma.BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   faqs<T extends Prisma.BusinessAssistant$faqsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   products<T extends Prisma.BusinessAssistant$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   resourceLinks<T extends Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  calls<T extends Prisma.BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1482,11 +1482,11 @@ export interface BusinessAssistantFieldRefs {
   readonly userId: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly name: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly systemPrompt: Prisma.FieldRef<"BusinessAssistant", 'String'>
-  readonly firstMessage: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly vapiAssistantId: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly phoneNumber: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly createdAt: Prisma.FieldRef<"BusinessAssistant", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"BusinessAssistant", 'DateTime'>
+  readonly firstMessage: Prisma.FieldRef<"BusinessAssistant", 'String'>
 }
     
 
@@ -1888,6 +1888,30 @@ export type BusinessAssistantDeleteManyArgs<ExtArgs extends runtime.Types.Extens
 }
 
 /**
+ * BusinessAssistant.calls
+ */
+export type BusinessAssistant$callsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Call
+   */
+  select?: Prisma.CallSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Call
+   */
+  omit?: Prisma.CallOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CallInclude<ExtArgs> | null
+  where?: Prisma.CallWhereInput
+  orderBy?: Prisma.CallOrderByWithRelationInput | Prisma.CallOrderByWithRelationInput[]
+  cursor?: Prisma.CallWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CallScalarFieldEnum | Prisma.CallScalarFieldEnum[]
+}
+
+/**
  * BusinessAssistant.faqs
  */
 export type BusinessAssistant$faqsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1957,30 +1981,6 @@ export type BusinessAssistant$resourceLinksArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.ResourceLinkScalarFieldEnum | Prisma.ResourceLinkScalarFieldEnum[]
-}
-
-/**
- * BusinessAssistant.calls
- */
-export type BusinessAssistant$callsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Call
-   */
-  select?: Prisma.CallSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Call
-   */
-  omit?: Prisma.CallOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.CallInclude<ExtArgs> | null
-  where?: Prisma.CallWhereInput
-  orderBy?: Prisma.CallOrderByWithRelationInput | Prisma.CallOrderByWithRelationInput[]
-  cursor?: Prisma.CallWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CallScalarFieldEnum | Prisma.CallScalarFieldEnum[]
 }
 
 /**

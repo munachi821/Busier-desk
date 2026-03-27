@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Session: 'Session',
+  Notification: 'Notification',
   Account: 'Account',
   Verification: 'Verification',
   BusinessAssistant: 'BusinessAssistant',
@@ -85,6 +86,7 @@ export const UserScalarFieldEnum = {
   email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
+  phoneNumber: 'phoneNumber',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -104,6 +106,21 @@ export const SessionScalarFieldEnum = {
 } as const
 
 export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  read: 'read',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
 
 
 export const AccountScalarFieldEnum = {
@@ -142,11 +159,11 @@ export const BusinessAssistantScalarFieldEnum = {
   userId: 'userId',
   name: 'name',
   systemPrompt: 'systemPrompt',
-  firstMessage: 'firstMessage',
   vapiAssistantId: 'vapiAssistantId',
   phoneNumber: 'phoneNumber',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  firstMessage: 'firstMessage'
 } as const
 
 export type BusinessAssistantScalarFieldEnum = (typeof BusinessAssistantScalarFieldEnum)[keyof typeof BusinessAssistantScalarFieldEnum]
@@ -191,14 +208,14 @@ export type ResourceLinkScalarFieldEnum = (typeof ResourceLinkScalarFieldEnum)[k
 
 export const LeadScalarFieldEnum = {
   id: 'id',
-  businessId: 'businessId',
   name: 'name',
-  phoneNumber: 'phoneNumber',
-  intent: 'intent',
   email: 'email',
   summary: 'summary',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  businessId: 'businessId',
+  phoneNumber: 'phoneNumber',
+  intent: 'intent'
 } as const
 
 export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
@@ -209,14 +226,14 @@ export const CallScalarFieldEnum = {
   vapiCallId: 'vapiCallId',
   leadId: 'leadId',
   assistantId: 'assistantId',
-  customerNumber: 'customerNumber',
-  intent: 'intent',
   transcript: 'transcript',
   summary: 'summary',
   recordingUrl: 'recordingUrl',
   status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  customerNumber: 'customerNumber',
+  intent: 'intent'
 } as const
 
 export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
@@ -228,6 +245,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const QueryMode = {
@@ -244,4 +269,13 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 

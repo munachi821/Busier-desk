@@ -7,6 +7,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { VapiModule } from './vapi/vapi.module';
 import { AssistantModule } from './assistant/assistant.module';
+import { NotificationModule } from './notification/notification.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { AssistantModule } from './assistant/assistant.module';
     AuthModule,
     VapiModule,
     AssistantModule,
+    NotificationModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],

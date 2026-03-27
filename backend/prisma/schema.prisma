@@ -10,24 +10,25 @@ datasource db {
 model User {
   id                String             @id
   name              String
-  email             String
+  email             String             @unique
   emailVerified     Boolean
   image             String?
+  phoneNumber       String?
   createdAt         DateTime
   updatedAt         DateTime
-  sessions          Session[]
   accounts          Account[]
   businessAssistant BusinessAssistant?
   leads             Lead[]
+  notifications     Notification[]
+  sessions          Session[]
 
-  @@unique([email])
   @@map("user")
 }
 
 model Session {
   id        String   @id
   expiresAt DateTime
-  token     String
+  token     String   @unique
   createdAt DateTime
   updatedAt DateTime
   ipAddress String?
@@ -35,8 +36,23 @@ model Session {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([token])
   @@map("session")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  read      Boolean  @default(false)
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+  @@map("notification")
 }
 
 model Account {
@@ -44,7 +60,6 @@ model Account {
   accountId             String
   providerId            String
   userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   accessToken           String?
   refreshToken          String?
   idToken               String?
@@ -54,6 +69,7 @@ model Account {
   password              String?
   createdAt             DateTime
   updatedAt             DateTime
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("account")
 }
@@ -72,18 +88,18 @@ model Verification {
 model BusinessAssistant {
   id              String         @id @default(cuid())
   userId          String         @unique
-  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   name            String
-  systemPrompt    String?                    // ✅ Added
-  firstMessage    String?
-  vapiAssistantId String?        @unique     // ✅ Made unique
+  systemPrompt    String?
+  vapiAssistantId String?        @unique
   phoneNumber     String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  faqs            FAQ[]                      // ✅ Added
-  products        Product[]                  // ✅ Added
-  resourceLinks   ResourceLink[]             // ✅ Added
-  calls           Call[]                     // ✅ Added
+  firstMessage    String?
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calls           Call[]
+  faqs            FAQ[]
+  products        Product[]
+  resourceLinks   ResourceLink[]
 
   @@map("business_assistant")
 }
@@ -91,11 +107,11 @@ model BusinessAssistant {
 model FAQ {
   id          String            @id @default(cuid())
   assistantId String
-  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
   question    String
   answer      String
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
 
   @@map("faq")
 }
@@ -103,12 +119,12 @@ model FAQ {
 model Product {
   id          String            @id @default(cuid())
   assistantId String
-  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
   name        String
   description String?
   price       Float?
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
 
   @@map("product")
 }
@@ -116,27 +132,27 @@ model Product {
 model ResourceLink {
   id          String            @id @default(cuid())
   assistantId String
-  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
   title       String
   url         String
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
 
   @@map("resource_link")
 }
 
 model Lead {
   id          String   @id @default(cuid())
-  businessId  String
-  user        User     @relation(fields: [businessId], references: [id], onDelete: Cascade)
   name        String?
-  phoneNumber String
-  intent      String?  // ✅ Add this
   email       String?
   summary     String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  businessId  String
+  phoneNumber String
+  intent      String?
   calls       Call[]
+  user        User     @relation(fields: [businessId], references: [id], onDelete: Cascade)
 
   @@map("lead")
 }
@@ -145,17 +161,17 @@ model Call {
   id             String            @id @default(cuid())
   vapiCallId     String            @unique
   leadId         String
-  lead           Lead              @relation(fields: [leadId], references: [id], onDelete: Cascade)
   assistantId    String
-  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id])
-  customerNumber String?
-  intent         String?           // ✅ Add this
   transcript     String?
   summary        String?
   recordingUrl   String?
   status         String
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
+  customerNumber String?
+  intent         String?
+  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id])
+  lead           Lead              @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
   @@map("call")
 }
