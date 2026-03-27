@@ -100,6 +100,7 @@ model BusinessAssistant {
   faqs            FAQ[]
   products        Product[]
   resourceLinks   ResourceLink[]
+  context         BusinessContext?
 
   @@map("business_assistant")
 }
@@ -174,4 +175,14 @@ model Call {
   lead           Lead              @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
   @@map("call")
+}
+
+model BusinessContext {
+  id          String            @id @default(cuid())
+  assistantId String            @unique
+  content     String            // This stores the bulk knowledge/training data
+  updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("business_context")
 }

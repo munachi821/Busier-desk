@@ -394,7 +394,8 @@ export const ModelName = {
   Product: 'Product',
   ResourceLink: 'ResourceLink',
   Lead: 'Lead',
-  Call: 'Call'
+  Call: 'Call',
+  BusinessContext: 'BusinessContext'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "notification" | "account" | "verification" | "businessAssistant" | "fAQ" | "product" | "resourceLink" | "lead" | "call"
+    modelProps: "user" | "session" | "notification" | "account" | "verification" | "businessAssistant" | "fAQ" | "product" | "resourceLink" | "lead" | "call" | "businessContext"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1228,6 +1229,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    BusinessContext: {
+      payload: Prisma.$BusinessContextPayload<ExtArgs>
+      fields: Prisma.BusinessContextFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BusinessContextFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BusinessContextFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        findFirst: {
+          args: Prisma.BusinessContextFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BusinessContextFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        findMany: {
+          args: Prisma.BusinessContextFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+        }
+        create: {
+          args: Prisma.BusinessContextCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        createMany: {
+          args: Prisma.BusinessContextCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BusinessContextCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+        }
+        delete: {
+          args: Prisma.BusinessContextDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        update: {
+          args: Prisma.BusinessContextUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        deleteMany: {
+          args: Prisma.BusinessContextDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BusinessContextUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BusinessContextUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+        }
+        upsert: {
+          args: Prisma.BusinessContextUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+        }
+        aggregate: {
+          args: Prisma.BusinessContextAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBusinessContext>
+        }
+        groupBy: {
+          args: Prisma.BusinessContextGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BusinessContextGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BusinessContextCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BusinessContextCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1424,6 +1499,16 @@ export const CallScalarFieldEnum = {
 } as const
 
 export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
+
+
+export const BusinessContextScalarFieldEnum = {
+  id: 'id',
+  assistantId: 'assistantId',
+  content: 'content',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BusinessContextScalarFieldEnum = (typeof BusinessContextScalarFieldEnum)[keyof typeof BusinessContextScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1655,6 +1740,7 @@ export type GlobalOmitConfig = {
   resourceLink?: Prisma.ResourceLinkOmit
   lead?: Prisma.LeadOmit
   call?: Prisma.CallOmit
+  businessContext?: Prisma.BusinessContextOmit
 }
 
 /* Types for Logging */
