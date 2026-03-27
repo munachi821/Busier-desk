@@ -33,6 +33,8 @@ export type BusinessAssistantMinAggregateOutputType = {
   vapiAssistantId: string | null
   phoneNumber: string | null
   isSubscribed: boolean | null
+  subscriptionTier: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,6 +48,8 @@ export type BusinessAssistantMaxAggregateOutputType = {
   vapiAssistantId: string | null
   phoneNumber: string | null
   isSubscribed: boolean | null
+  subscriptionTier: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -59,6 +63,8 @@ export type BusinessAssistantCountAggregateOutputType = {
   vapiAssistantId: number
   phoneNumber: number
   isSubscribed: number
+  subscriptionTier: number
+  subscriptionExpiresAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -74,6 +80,8 @@ export type BusinessAssistantMinAggregateInputType = {
   vapiAssistantId?: true
   phoneNumber?: true
   isSubscribed?: true
+  subscriptionTier?: true
+  subscriptionExpiresAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -87,6 +95,8 @@ export type BusinessAssistantMaxAggregateInputType = {
   vapiAssistantId?: true
   phoneNumber?: true
   isSubscribed?: true
+  subscriptionTier?: true
+  subscriptionExpiresAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -100,6 +110,8 @@ export type BusinessAssistantCountAggregateInputType = {
   vapiAssistantId?: true
   phoneNumber?: true
   isSubscribed?: true
+  subscriptionTier?: true
+  subscriptionExpiresAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -186,6 +198,8 @@ export type BusinessAssistantGroupByOutputType = {
   vapiAssistantId: string | null
   phoneNumber: string | null
   isSubscribed: boolean
+  subscriptionTier: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: BusinessAssistantCountAggregateOutputType | null
@@ -220,6 +234,8 @@ export type BusinessAssistantWhereInput = {
   vapiAssistantId?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   isSubscribed?: Prisma.BoolFilter<"BusinessAssistant"> | boolean
+  subscriptionTier?: Prisma.EnumSubscriptionTierNullableFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.DateTimeNullableFilter<"BusinessAssistant"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -238,6 +254,8 @@ export type BusinessAssistantOrderByWithRelationInput = {
   vapiAssistantId?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   isSubscribed?: Prisma.SortOrder
+  subscriptionTier?: Prisma.SortOrderInput | Prisma.SortOrder
+  subscriptionExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -259,6 +277,8 @@ export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
   firstMessage?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableFilter<"BusinessAssistant"> | string | null
   isSubscribed?: Prisma.BoolFilter<"BusinessAssistant"> | boolean
+  subscriptionTier?: Prisma.EnumSubscriptionTierNullableFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.DateTimeNullableFilter<"BusinessAssistant"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"BusinessAssistant"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -277,6 +297,8 @@ export type BusinessAssistantOrderByWithAggregationInput = {
   vapiAssistantId?: Prisma.SortOrderInput | Prisma.SortOrder
   phoneNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   isSubscribed?: Prisma.SortOrder
+  subscriptionTier?: Prisma.SortOrderInput | Prisma.SortOrder
+  subscriptionExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.BusinessAssistantCountOrderByAggregateInput
@@ -296,6 +318,8 @@ export type BusinessAssistantScalarWhereWithAggregatesInput = {
   vapiAssistantId?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
   phoneNumber?: Prisma.StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
   isSubscribed?: Prisma.BoolWithAggregatesFilter<"BusinessAssistant"> | boolean
+  subscriptionTier?: Prisma.EnumSubscriptionTierNullableWithAggregatesFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"BusinessAssistant"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
 }
@@ -308,6 +332,8 @@ export type BusinessAssistantCreateInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
@@ -326,6 +352,8 @@ export type BusinessAssistantUncheckedCreateInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
@@ -342,6 +370,8 @@ export type BusinessAssistantUpdateInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
@@ -360,6 +390,8 @@ export type BusinessAssistantUncheckedUpdateInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
@@ -377,6 +409,8 @@ export type BusinessAssistantCreateManyInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -389,6 +423,8 @@ export type BusinessAssistantUpdateManyMutationInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -402,6 +438,8 @@ export type BusinessAssistantUncheckedUpdateManyInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -420,6 +458,8 @@ export type BusinessAssistantCountOrderByAggregateInput = {
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   isSubscribed?: Prisma.SortOrder
+  subscriptionTier?: Prisma.SortOrder
+  subscriptionExpiresAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -433,6 +473,8 @@ export type BusinessAssistantMaxOrderByAggregateInput = {
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   isSubscribed?: Prisma.SortOrder
+  subscriptionTier?: Prisma.SortOrder
+  subscriptionExpiresAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -446,6 +488,8 @@ export type BusinessAssistantMinOrderByAggregateInput = {
   vapiAssistantId?: Prisma.SortOrder
   phoneNumber?: Prisma.SortOrder
   isSubscribed?: Prisma.SortOrder
+  subscriptionTier?: Prisma.SortOrder
+  subscriptionExpiresAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -485,6 +529,10 @@ export type BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput = {
   delete?: Prisma.BusinessAssistantWhereInput | boolean
   connect?: Prisma.BusinessAssistantWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.BusinessAssistantUpdateToOneWithWhereWithoutUserInput, Prisma.BusinessAssistantUpdateWithoutUserInput>, Prisma.BusinessAssistantUncheckedUpdateWithoutUserInput>
+}
+
+export type NullableEnumSubscriptionTierFieldUpdateOperationsInput = {
+  set?: $Enums.SubscriptionTier | null
 }
 
 export type BusinessAssistantCreateNestedOneWithoutFaqsInput = {
@@ -551,6 +599,8 @@ export type BusinessAssistantCreateWithoutUserInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
@@ -567,6 +617,8 @@ export type BusinessAssistantUncheckedCreateWithoutUserInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
@@ -599,6 +651,8 @@ export type BusinessAssistantUpdateWithoutUserInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
@@ -615,6 +669,8 @@ export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
@@ -631,6 +687,8 @@ export type BusinessAssistantCreateWithoutFaqsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
@@ -648,6 +706,8 @@ export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
@@ -679,6 +739,8 @@ export type BusinessAssistantUpdateWithoutFaqsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
@@ -696,6 +758,8 @@ export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
@@ -711,6 +775,8 @@ export type BusinessAssistantCreateWithoutProductsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
@@ -728,6 +794,8 @@ export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
@@ -759,6 +827,8 @@ export type BusinessAssistantUpdateWithoutProductsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
@@ -776,6 +846,8 @@ export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
@@ -791,6 +863,8 @@ export type BusinessAssistantCreateWithoutResourceLinksInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
@@ -808,6 +882,8 @@ export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
@@ -839,6 +915,8 @@ export type BusinessAssistantUpdateWithoutResourceLinksInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
@@ -856,6 +934,8 @@ export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
@@ -871,6 +951,8 @@ export type BusinessAssistantCreateWithoutCallsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
@@ -888,6 +970,8 @@ export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
   vapiAssistantId?: string | null
   phoneNumber?: string | null
   isSubscribed?: boolean
+  subscriptionTier?: $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
@@ -919,6 +1003,8 @@ export type BusinessAssistantUpdateWithoutCallsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
@@ -936,6 +1022,8 @@ export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
   vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSubscribed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subscriptionTier?: Prisma.NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+  subscriptionExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
@@ -1010,6 +1098,8 @@ export type BusinessAssistantSelect<ExtArgs extends runtime.Types.Extensions.Int
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   isSubscribed?: boolean
+  subscriptionTier?: boolean
+  subscriptionExpiresAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1029,6 +1119,8 @@ export type BusinessAssistantSelectCreateManyAndReturn<ExtArgs extends runtime.T
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   isSubscribed?: boolean
+  subscriptionTier?: boolean
+  subscriptionExpiresAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1043,6 +1135,8 @@ export type BusinessAssistantSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   isSubscribed?: boolean
+  subscriptionTier?: boolean
+  subscriptionExpiresAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1057,11 +1151,13 @@ export type BusinessAssistantSelectScalar = {
   vapiAssistantId?: boolean
   phoneNumber?: boolean
   isSubscribed?: boolean
+  subscriptionTier?: boolean
+  subscriptionExpiresAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type BusinessAssistantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "systemPrompt" | "firstMessage" | "vapiAssistantId" | "phoneNumber" | "isSubscribed" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
+export type BusinessAssistantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "systemPrompt" | "firstMessage" | "vapiAssistantId" | "phoneNumber" | "isSubscribed" | "subscriptionTier" | "subscriptionExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
 export type BusinessAssistantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   faqs?: boolean | Prisma.BusinessAssistant$faqsArgs<ExtArgs>
@@ -1095,6 +1191,8 @@ export type $BusinessAssistantPayload<ExtArgs extends runtime.Types.Extensions.I
     vapiAssistantId: string | null
     phoneNumber: string | null
     isSubscribed: boolean
+    subscriptionTier: $Enums.SubscriptionTier | null
+    subscriptionExpiresAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["businessAssistant"]>
@@ -1533,6 +1631,8 @@ export interface BusinessAssistantFieldRefs {
   readonly vapiAssistantId: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly phoneNumber: Prisma.FieldRef<"BusinessAssistant", 'String'>
   readonly isSubscribed: Prisma.FieldRef<"BusinessAssistant", 'Boolean'>
+  readonly subscriptionTier: Prisma.FieldRef<"BusinessAssistant", 'SubscriptionTier'>
+  readonly subscriptionExpiresAt: Prisma.FieldRef<"BusinessAssistant", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"BusinessAssistant", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"BusinessAssistant", 'DateTime'>
 }

@@ -19,6 +19,7 @@ model User {
   accounts          Account[]
   businessAssistant BusinessAssistant?
   leads             Lead[]
+  transactions      Transaction[]
 
   @@unique([email])
   @@map("user")
@@ -69,6 +70,25 @@ model Verification {
   @@map("verification")
 }
 
+enum SubscriptionTier {
+  STARTER
+  PRO
+  ENTERPRISE
+}
+
+model Transaction {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Float
+  reference String           @unique
+  status    String           @default("PENDING") // PENDING, SUCCESS, FAILED
+  tier      SubscriptionTier
+  createdAt DateTime         @default(now())
+
+  @@map("transaction")
+}
+
 model BusinessAssistant {
   id              String         @id @default(cuid())
   userId          String         @unique
@@ -76,11 +96,13 @@ model BusinessAssistant {
   name            String
   systemPrompt    String?                    // ✅ Added
   firstMessage    String?
-  vapiAssistantId String?        @unique     // ✅ Made unique
-  phoneNumber     String?
-  isSubscribed    Boolean        @default(false)
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
+  vapiAssistantId      String?           @unique
+  phoneNumber          String?
+  isSubscribed         Boolean           @default(false)
+  subscriptionTier     SubscriptionTier?
+  subscriptionExpiresAt DateTime?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
   faqs            FAQ[]                      // ✅ Added
   products        Product[]                  // ✅ Added
   resourceLinks   ResourceLink[]             // ✅ Added
