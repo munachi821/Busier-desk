@@ -10,6 +10,13 @@
  */
 export type * from './models/User'
 export type * from './models/Session'
+export type * from './models/Notification'
 export type * from './models/Account'
 export type * from './models/Verification'
+export type * from './models/BusinessAssistant'
+export type * from './models/FAQ'
+export type * from './models/Product'
+export type * from './models/ResourceLink'
+export type * from './models/Lead'
+export type * from './models/Call'
 export type * from './commonInputTypes'

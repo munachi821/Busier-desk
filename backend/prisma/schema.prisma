@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -13,35 +8,58 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified Boolean   @default(false)
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  id                String             @id
+  name              String
+  email             String             @unique
+  emailVerified     Boolean
+  image             String?
+  phoneNumber       String?
+  createdAt         DateTime
+  updatedAt         DateTime
+  accounts          Account[]
+  businessAssistant BusinessAssistant?
+  leads             Lead[]
+  notifications     Notification[]
+  sessions          Session[]
+
+  @@map("user")
 }
 
 model Session {
-  id        String   @id @default(cuid())
+  id        String   @id
   expiresAt DateTime
   token     String   @unique
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  read      Boolean  @default(false)
+  metadata  Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  ipAddress String?  
-  userAgent String?
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+  @@map("notification")
 }
 
 model Account {
-  id                    String    @id @default(cuid())
+  id                    String    @id
   accountId             String
   providerId            String
   userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   accessToken           String?
   refreshToken          String?
   idToken               String?
@@ -49,15 +67,111 @@ model Account {
   refreshTokenExpiresAt DateTime?
   scope                 String?
   password              String?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  createdAt             DateTime
+  updatedAt             DateTime
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
 }
 
 model Verification {
-  id         String    @id @default(cuid())
+  id         String    @id
   identifier String
   value      String
   expiresAt  DateTime
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+model BusinessAssistant {
+  id              String         @id @default(cuid())
+  userId          String         @unique
+  name            String
+  systemPrompt    String?
+  vapiAssistantId String?        @unique
+  phoneNumber     String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  firstMessage    String?
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calls           Call[]
+  faqs            FAQ[]
+  products        Product[]
+  resourceLinks   ResourceLink[]
+
+  @@map("business_assistant")
+}
+
+model FAQ {
+  id          String            @id @default(cuid())
+  assistantId String
+  question    String
+  answer      String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("faq")
+}
+
+model Product {
+  id          String            @id @default(cuid())
+  assistantId String
+  name        String
+  description String?
+  price       Float?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("product")
+}
+
+model ResourceLink {
+  id          String            @id @default(cuid())
+  assistantId String
+  title       String
+  url         String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("resource_link")
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+  name        String?
+  email       String?
+  summary     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  businessId  String
+  phoneNumber String
+  intent      String?
+  calls       Call[]
+  user        User     @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@map("lead")
+}
+
+model Call {
+  id             String            @id @default(cuid())
+  vapiCallId     String            @unique
+  leadId         String
+  assistantId    String
+  transcript     String?
+  summary        String?
+  recordingUrl   String?
+  status         String
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  customerNumber String?
+  intent         String?
+  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id])
+  lead           Lead              @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@map("call")
 }
