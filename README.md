@@ -1,117 +1,232 @@
-# 🟢 BusierDesk
-**The 24/7 AI Voice & Messaging Receptionist for Local Businesses.**
+# BusierDesk
 
-**Built for the Enyata x Interswitch Buildathon.**
+**BusierDesk** is an AI-powered, multi-language voice and messaging agent that acts as a 24/7 front desk for businesses.
 
-BusierDesk is an AI-powered, multi-language voice and messaging agent that acts as a 24/7 front desk for businesses. It handles customer calls, understands business-specific context, and seamlessly continues interactions via WhatsApp—enabling businesses to respond instantly, share relevant content, and convert enquiries into sales.
-
----
-
-## 🚀 The Pitch
-
-### The Problem
-Businesses lose massive amounts of revenue daily due to missed calls, slow responses, and poor follow-up. Most local vendors simply cannot answer the phone while servicing a customer, causing hot leads to slip away.
-
-### The Solution
-BusierDesk ensures every single call is answered, every enquiry is followed up on, and every interaction is captured as a lead. 
-
-**What makes us different:** We don’t just answer calls—we continue the conversation. Most solutions stop at call handling. BusierDesk extends the interaction into WhatsApp, dropping resources and booking links right where real business happens.
+It handles customer calls, understands business-specific context, and seamlessly continues interactions via WhatsApp—enabling businesses to respond instantly, share relevant content, and convert enquiries into actions.
 
 ---
 
-## 🌐 Live Demo & Testing
+## Live Demo
 
-* **Live Dashboard:** [https://busier-desk-kjo5.vercel.app/authentication](https://busier-desk-kjo5.vercel.app/authentication)
-* **Demo Phone Number:** `+1 (276) 533-9590`
-* **Backend API:** Deployed securely on Railway
+* **App URL:** [https://busier-desk-kjo5.vercel.app/authentication](https://busier-desk-kjo5.vercel.app/authentication)
+* **Demo Phone Number:** +1 (276) 533-9590
+* **Backend API:** Deployed on Railway
 
-### How to Test the Agent
-1. Call the demo number.
-2. Ask about a service or product (e.g., pricing, availability, or location).
-3. The AI will respond conversationally based on trained business data.
-4. *Note: A WhatsApp follow-up is triggered post-call (integration configured, pending final live activation).*
+### How to Test
 
----
-
-## ✨ Core Features
-
-* **AI Voice Call Handling:** Powered by Vapi, the agent understands user intent, speaks conversationally, and pulls from custom business data.
-* **Lead Capture System:** Automatically extracts the caller's phone number, intent, and timestamp, storing them in the dashboard for the business owner.
-* **Multi-Tenant SaaS Architecture:** Supports multiple businesses, each with strictly isolated data and their own custom AI training (FAQs, products, links).
-* **Subscription Billing:** Fully integrated with **Interswitch** to process seamless, recurring subscription payments for vendors.
-* **Kinetic Admin Dashboard:** A premium interface where business owners can view call logs, manage leads, update their AI's FAQs, and track subscription status.
-* **Smart WhatsApp Follow-Up:** Triggers after a call to send summaries and relevant links via Twilio (Configured).
+1. Call the demo number
+2. Ask about a service/product
+3. The AI will respond based on trained business data
+4. After the call, a WhatsApp follow-up is triggered (integration configured, pending final activation)
 
 ---
 
-## 🛠 Tech Stack
+Tech Stack
+Frontend (Client Dashboard)
 
-**Frontend (Client Dashboard)**
-* **Framework:** React.js (Deployed on Vercel)
-* **Styling:** Tailwind CSS
+Framework: React.js (Deployed on Vercel)
+Styling: Tailwind CSS
+Backend (API & Data)
 
-**Backend (API & Data)**
-* **Framework:** NestJS (Node.js)
-* **Database:** Neon (Serverless PostgreSQL)
-* **ORM:** Prisma
-* **Authentication:** Better Auth
-* **Deployment:** Railway
+Framework: NestJS (Node.js)
+Database: Neon (Serverless PostgreSQL)
+ORM: Prisma
+Authentication: Better Auth
+Deployment: Railway
+AI & Telephony
 
-**AI & Telephony**
-* **Voice Orchestration:** Vapi
-* **Messaging/Handoff:** Twilio WhatsApp API (Configured)
-
----
-
-## 🚦 Buildathon Status Report
-
-**✅ What is Fully Working (Live Demo):**
-* AI successfully handles and negotiates incoming calls.
-* Leads are accurately extracted and stored in the database.
-* The Multi-tenant architecture securely isolates business accounts.
-* Subscription payments process successfully via Interswitch.
-* The Frontend Admin Dashboard is fully functional.
-
-**🚧 Partial / In Progress:**
-* WhatsApp follow-up (Twilio webhook routing is configured, but pending final pipeline activation).
-
-**🔮 Future Roadmap:**
-* Full two-way WhatsApp conversational support.
-* Multi-language optimization (Pidgin, Hausa, Igbo, Yoruba).
-* Direct calendar and scheduling integration.
+Voice Orchestration: Vapi
+Messaging/Handoff: Twilio WhatsApp API (Configured)
 
 ---
 
-## 💻 Local Setup Instructions
+## Core Features
+
+### AI Voice Call Handling
+
+* Handles inbound calls using Vapi
+* Understands user intent and responds conversationally
+* Uses business-specific training data
+
+---
+
+### WhatsApp Follow-Up
+
+* Automatically triggered after each call
+* Sends:
+
+  * Call summary
+  * Relevant links/resources
+* Built with Twilio (integration configured, not yet fully activated)
+
+---
+
+### Lead Capture System
+
+* Captures:
+
+  * Phone number
+  * Customer intent
+  * Timestamp
+* Stored in database for business use
+
+---
+
+### Multi-Tenant SaaS
+
+* Supports multiple businesses
+* Each business has:
+
+  * Isolated data
+  * Custom training (FAQs, products, links)
+
+---
+
+### Subscription Payments
+
+* Integrated with Interswitch
+* Enables subscription-based access
+
+---
+
+### Admin Dashboard
+
+Businesses can:
+
+* View call logs
+* Manage leads
+* Add FAQs and product data
+* Configure resources
+
+---
+
+## Tech Stack
+
+### Backend
+
+* Framework: NestJS
+* Database: Neon (PostgreSQL)
+* ORM: Prisma
+* Authentication: Better Auth
+* Deployment: Railway
+
+### AI + Voice
+
+* Voice AI / Telephony: Vapi
+
+### Messaging
+
+* WhatsApp API: Twilio (configured)
+
+### Frontend
+
+* React (Vercel deployed)
+
+---
+
+## Local Setup
 
 ### 1. Clone the Repository
-\`\`\`bash
+
+```bash
 git clone <your-repo-url>
 cd <project-folder>
-\`\`\`
+```
 
-### 2. Backend Setup
-\`\`\`bash
-cd backend
-npm install
-cp .env.example .env  # Add your Neon DB, Interswitch, and Vapi keys here
-npx prisma generate
-npm run start:dev
-\`\`\`
+---
 
-### 3. Frontend Setup
-Open a new terminal window:
-\`\`\`bash
+### 2. Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 ---
 
-## 👥 The Team
+### 3. Backend Setup
 
-* **Amarachi Evunde** — Project Manager
-* **Munachi Onyebuchi** — Lead Frontend Engineer & UI/UX
-* **Emmanuel Sunday** — Backend Engineer
-* **Victor Jonah** — AI & Telephony Engineer
+```bash
+cd backend
+npm install
+npm run start:dev
+npx prisma generate
+```
+
+---
+
+### 4. Environment Variables
+
+Create a `.env` file in the backend:
+
+```bash
+cp .env.example .env
+```
+
+Fill in required variables (API keys, database URL, Neon DB, Interswitch, and Vapi keys)
+
+---
+
+## What’s Fully Working
+
+* AI handles incoming calls
+* Leads stored in database
+* Multi-tenant architecture
+* Subscription payments (Interswitch)
+* Dashboard
+
+---
+
+## Partial / In Progress
+
+* WhatsApp follow-up (Twilio configured but not fully connected)
+
+---
+
+## Problem
+
+Businesses lose revenue due to:
+
+* Missed calls
+* Slow responses
+* Poor follow-up
+
+---
+
+## Solution
+
+BusierDesk ensures:
+
+* Every call is answered
+* Every enquiry is followed up
+* Every interaction becomes a lead
+
+---
+
+## What Makes BusierDesk Different
+
+It doesn’t just answer calls — it continues the conversation and drives conversion.
+
+Most solutions stop at call handling.
+BusierDesk extends the interaction into WhatsApp, where real business happens.
+
+---
+
+## Future Improvements
+
+* Full WhatsApp conversation support
+* Multi-language optimization
+* Calendar and scheduling integration
+* Advanced analytics
+* AI self-learning from conversations
+
+---
+
+## Team
+Amarachi Evunde — Project Manager
+Munachi Onyebuchi — Lead Frontend Engineer & UI/UX
+Emmanuel Sunday — Backend Engineer
+Victor Jonah — AI & Software Engineer
+BusierDesk - Built for the Enyata x Interswitch Buildathon
+
+---
