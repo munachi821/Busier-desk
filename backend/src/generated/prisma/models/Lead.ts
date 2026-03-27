@@ -26,76 +26,76 @@ export type AggregateLead = {
 
 export type LeadMinAggregateOutputType = {
   id: string | null
-  businessId: string | null
   name: string | null
-  phoneNumber: string | null
-  intent: string | null
   email: string | null
   summary: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  businessId: string | null
+  phoneNumber: string | null
+  intent: string | null
 }
 
 export type LeadMaxAggregateOutputType = {
   id: string | null
-  businessId: string | null
   name: string | null
-  phoneNumber: string | null
-  intent: string | null
   email: string | null
   summary: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  businessId: string | null
+  phoneNumber: string | null
+  intent: string | null
 }
 
 export type LeadCountAggregateOutputType = {
   id: number
-  businessId: number
   name: number
-  phoneNumber: number
-  intent: number
   email: number
   summary: number
   createdAt: number
   updatedAt: number
+  businessId: number
+  phoneNumber: number
+  intent: number
   _all: number
 }
 
 
 export type LeadMinAggregateInputType = {
   id?: true
-  businessId?: true
   name?: true
-  phoneNumber?: true
-  intent?: true
   email?: true
   summary?: true
   createdAt?: true
   updatedAt?: true
+  businessId?: true
+  phoneNumber?: true
+  intent?: true
 }
 
 export type LeadMaxAggregateInputType = {
   id?: true
-  businessId?: true
   name?: true
-  phoneNumber?: true
-  intent?: true
   email?: true
   summary?: true
   createdAt?: true
   updatedAt?: true
+  businessId?: true
+  phoneNumber?: true
+  intent?: true
 }
 
 export type LeadCountAggregateInputType = {
   id?: true
-  businessId?: true
   name?: true
-  phoneNumber?: true
-  intent?: true
   email?: true
   summary?: true
   createdAt?: true
   updatedAt?: true
+  businessId?: true
+  phoneNumber?: true
+  intent?: true
   _all?: true
 }
 
@@ -173,14 +173,14 @@ export type LeadGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type LeadGroupByOutputType = {
   id: string
-  businessId: string
   name: string | null
-  phoneNumber: string
-  intent: string | null
   email: string | null
   summary: string | null
   createdAt: Date
   updatedAt: Date
+  businessId: string
+  phoneNumber: string
+  intent: string | null
   _count: LeadCountAggregateOutputType | null
   _min: LeadMinAggregateOutputType | null
   _max: LeadMaxAggregateOutputType | null
@@ -206,30 +206,30 @@ export type LeadWhereInput = {
   OR?: Prisma.LeadWhereInput[]
   NOT?: Prisma.LeadWhereInput | Prisma.LeadWhereInput[]
   id?: Prisma.StringFilter<"Lead"> | string
-  businessId?: Prisma.StringFilter<"Lead"> | string
   name?: Prisma.StringNullableFilter<"Lead"> | string | null
-  phoneNumber?: Prisma.StringFilter<"Lead"> | string
-  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
   email?: Prisma.StringNullableFilter<"Lead"> | string | null
   summary?: Prisma.StringNullableFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  businessId?: Prisma.StringFilter<"Lead"> | string
+  phoneNumber?: Prisma.StringFilter<"Lead"> | string
+  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
   calls?: Prisma.CallListRelationFilter
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
 export type LeadOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  businessId?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  businessId?: Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   calls?: Prisma.CallOrderByRelationAggregateInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
 export type LeadWhereUniqueInput = Prisma.AtLeast<{
@@ -237,28 +237,28 @@ export type LeadWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.LeadWhereInput | Prisma.LeadWhereInput[]
   OR?: Prisma.LeadWhereInput[]
   NOT?: Prisma.LeadWhereInput | Prisma.LeadWhereInput[]
-  businessId?: Prisma.StringFilter<"Lead"> | string
   name?: Prisma.StringNullableFilter<"Lead"> | string | null
-  phoneNumber?: Prisma.StringFilter<"Lead"> | string
-  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
   email?: Prisma.StringNullableFilter<"Lead"> | string | null
   summary?: Prisma.StringNullableFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  businessId?: Prisma.StringFilter<"Lead"> | string
+  phoneNumber?: Prisma.StringFilter<"Lead"> | string
+  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
   calls?: Prisma.CallListRelationFilter
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
 export type LeadOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  businessId?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  businessId?: Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.LeadCountOrderByAggregateInput
   _max?: Prisma.LeadMaxOrderByAggregateInput
   _min?: Prisma.LeadMinOrderByAggregateInput
@@ -269,101 +269,101 @@ export type LeadScalarWhereWithAggregatesInput = {
   OR?: Prisma.LeadScalarWhereWithAggregatesInput[]
   NOT?: Prisma.LeadScalarWhereWithAggregatesInput | Prisma.LeadScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Lead"> | string
-  businessId?: Prisma.StringWithAggregatesFilter<"Lead"> | string
   name?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
-  phoneNumber?: Prisma.StringWithAggregatesFilter<"Lead"> | string
-  intent?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   summary?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Lead"> | Date | string
+  businessId?: Prisma.StringWithAggregatesFilter<"Lead"> | string
+  phoneNumber?: Prisma.StringWithAggregatesFilter<"Lead"> | string
+  intent?: Prisma.StringNullableWithAggregatesFilter<"Lead"> | string | null
 }
 
 export type LeadCreateInput = {
   id?: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutLeadsInput
+  phoneNumber: string
+  intent?: string | null
   calls?: Prisma.CallCreateNestedManyWithoutLeadInput
+  user: Prisma.UserCreateNestedOneWithoutLeadsInput
 }
 
 export type LeadUncheckedCreateInput = {
   id?: string
-  businessId: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  businessId: string
+  phoneNumber: string
+  intent?: string | null
   calls?: Prisma.CallUncheckedCreateNestedManyWithoutLeadInput
 }
 
 export type LeadUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutLeadsNestedInput
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   calls?: Prisma.CallUpdateManyWithoutLeadNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutLeadsNestedInput
 }
 
 export type LeadUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  businessId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  businessId?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   calls?: Prisma.CallUncheckedUpdateManyWithoutLeadNestedInput
 }
 
 export type LeadCreateManyInput = {
   id?: string
-  businessId: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  businessId: string
+  phoneNumber: string
+  intent?: string | null
 }
 
 export type LeadUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type LeadUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  businessId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  businessId?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type LeadListRelationFilter = {
@@ -378,38 +378,38 @@ export type LeadOrderByRelationAggregateInput = {
 
 export type LeadCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  businessId?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   email?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  businessId?: Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type LeadMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  businessId?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   email?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  businessId?: Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type LeadMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  businessId?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  phoneNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   email?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  businessId?: Prisma.SortOrder
+  phoneNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type LeadScalarRelationFilter = {
@@ -476,24 +476,24 @@ export type LeadUpdateOneRequiredWithoutCallsNestedInput = {
 export type LeadCreateWithoutUserInput = {
   id?: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  phoneNumber: string
+  intent?: string | null
   calls?: Prisma.CallCreateNestedManyWithoutLeadInput
 }
 
 export type LeadUncheckedCreateWithoutUserInput = {
   id?: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  phoneNumber: string
+  intent?: string | null
   calls?: Prisma.CallUncheckedCreateNestedManyWithoutLeadInput
 }
 
@@ -528,38 +528,38 @@ export type LeadScalarWhereInput = {
   OR?: Prisma.LeadScalarWhereInput[]
   NOT?: Prisma.LeadScalarWhereInput | Prisma.LeadScalarWhereInput[]
   id?: Prisma.StringFilter<"Lead"> | string
-  businessId?: Prisma.StringFilter<"Lead"> | string
   name?: Prisma.StringNullableFilter<"Lead"> | string | null
-  phoneNumber?: Prisma.StringFilter<"Lead"> | string
-  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
   email?: Prisma.StringNullableFilter<"Lead"> | string | null
   summary?: Prisma.StringNullableFilter<"Lead"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Lead"> | Date | string
+  businessId?: Prisma.StringFilter<"Lead"> | string
+  phoneNumber?: Prisma.StringFilter<"Lead"> | string
+  intent?: Prisma.StringNullableFilter<"Lead"> | string | null
 }
 
 export type LeadCreateWithoutCallsInput = {
   id?: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  phoneNumber: string
+  intent?: string | null
   user: Prisma.UserCreateNestedOneWithoutLeadsInput
 }
 
 export type LeadUncheckedCreateWithoutCallsInput = {
   id?: string
-  businessId: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  businessId: string
+  phoneNumber: string
+  intent?: string | null
 }
 
 export type LeadCreateOrConnectWithoutCallsInput = {
@@ -581,71 +581,71 @@ export type LeadUpdateToOneWithWhereWithoutCallsInput = {
 export type LeadUpdateWithoutCallsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutLeadsNestedInput
 }
 
 export type LeadUncheckedUpdateWithoutCallsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  businessId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  businessId?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type LeadCreateManyUserInput = {
   id?: string
   name?: string | null
-  phoneNumber: string
-  intent?: string | null
   email?: string | null
   summary?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  phoneNumber: string
+  intent?: string | null
 }
 
 export type LeadUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   calls?: Prisma.CallUpdateManyWithoutLeadNestedInput
 }
 
 export type LeadUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   calls?: Prisma.CallUncheckedUpdateManyWithoutLeadNestedInput
 }
 
 export type LeadUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  phoneNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -681,61 +681,61 @@ export type LeadCountOutputTypeCountCallsArgs<ExtArgs extends runtime.Types.Exte
 
 export type LeadSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  businessId?: boolean
   name?: boolean
-  phoneNumber?: boolean
-  intent?: boolean
   email?: boolean
   summary?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  businessId?: boolean
+  phoneNumber?: boolean
+  intent?: boolean
   calls?: boolean | Prisma.Lead$callsArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.LeadCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lead"]>
 
 export type LeadSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  businessId?: boolean
   name?: boolean
-  phoneNumber?: boolean
-  intent?: boolean
   email?: boolean
   summary?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  businessId?: boolean
+  phoneNumber?: boolean
+  intent?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lead"]>
 
 export type LeadSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  businessId?: boolean
   name?: boolean
-  phoneNumber?: boolean
-  intent?: boolean
   email?: boolean
   summary?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  businessId?: boolean
+  phoneNumber?: boolean
+  intent?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lead"]>
 
 export type LeadSelectScalar = {
   id?: boolean
-  businessId?: boolean
   name?: boolean
-  phoneNumber?: boolean
-  intent?: boolean
   email?: boolean
   summary?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  businessId?: boolean
+  phoneNumber?: boolean
+  intent?: boolean
 }
 
-export type LeadOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "businessId" | "name" | "phoneNumber" | "intent" | "email" | "summary" | "createdAt" | "updatedAt", ExtArgs["result"]["lead"]>
+export type LeadOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "summary" | "createdAt" | "updatedAt" | "businessId" | "phoneNumber" | "intent", ExtArgs["result"]["lead"]>
 export type LeadInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   calls?: boolean | Prisma.Lead$callsArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.LeadCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LeadIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -748,19 +748,19 @@ export type LeadIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $LeadPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Lead"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
     calls: Prisma.$CallPayload<ExtArgs>[]
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    businessId: string
     name: string | null
-    phoneNumber: string
-    intent: string | null
     email: string | null
     summary: string | null
     createdAt: Date
     updatedAt: Date
+    businessId: string
+    phoneNumber: string
+    intent: string | null
   }, ExtArgs["result"]["lead"]>
   composites: {}
 }
@@ -1155,8 +1155,8 @@ readonly fields: LeadFieldRefs;
  */
 export interface Prisma__LeadClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   calls<T extends Prisma.Lead$callsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Lead$callsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1187,14 +1187,14 @@ export interface Prisma__LeadClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface LeadFieldRefs {
   readonly id: Prisma.FieldRef<"Lead", 'String'>
-  readonly businessId: Prisma.FieldRef<"Lead", 'String'>
   readonly name: Prisma.FieldRef<"Lead", 'String'>
-  readonly phoneNumber: Prisma.FieldRef<"Lead", 'String'>
-  readonly intent: Prisma.FieldRef<"Lead", 'String'>
   readonly email: Prisma.FieldRef<"Lead", 'String'>
   readonly summary: Prisma.FieldRef<"Lead", 'String'>
   readonly createdAt: Prisma.FieldRef<"Lead", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Lead", 'DateTime'>
+  readonly businessId: Prisma.FieldRef<"Lead", 'String'>
+  readonly phoneNumber: Prisma.FieldRef<"Lead", 'String'>
+  readonly intent: Prisma.FieldRef<"Lead", 'String'>
 }
     
 

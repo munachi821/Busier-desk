@@ -29,14 +29,14 @@ export type CallMinAggregateOutputType = {
   vapiCallId: string | null
   leadId: string | null
   assistantId: string | null
-  customerNumber: string | null
-  intent: string | null
   transcript: string | null
   summary: string | null
   recordingUrl: string | null
   status: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  customerNumber: string | null
+  intent: string | null
 }
 
 export type CallMaxAggregateOutputType = {
@@ -44,14 +44,14 @@ export type CallMaxAggregateOutputType = {
   vapiCallId: string | null
   leadId: string | null
   assistantId: string | null
-  customerNumber: string | null
-  intent: string | null
   transcript: string | null
   summary: string | null
   recordingUrl: string | null
   status: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  customerNumber: string | null
+  intent: string | null
 }
 
 export type CallCountAggregateOutputType = {
@@ -59,14 +59,14 @@ export type CallCountAggregateOutputType = {
   vapiCallId: number
   leadId: number
   assistantId: number
-  customerNumber: number
-  intent: number
   transcript: number
   summary: number
   recordingUrl: number
   status: number
   createdAt: number
   updatedAt: number
+  customerNumber: number
+  intent: number
   _all: number
 }
 
@@ -76,14 +76,14 @@ export type CallMinAggregateInputType = {
   vapiCallId?: true
   leadId?: true
   assistantId?: true
-  customerNumber?: true
-  intent?: true
   transcript?: true
   summary?: true
   recordingUrl?: true
   status?: true
   createdAt?: true
   updatedAt?: true
+  customerNumber?: true
+  intent?: true
 }
 
 export type CallMaxAggregateInputType = {
@@ -91,14 +91,14 @@ export type CallMaxAggregateInputType = {
   vapiCallId?: true
   leadId?: true
   assistantId?: true
-  customerNumber?: true
-  intent?: true
   transcript?: true
   summary?: true
   recordingUrl?: true
   status?: true
   createdAt?: true
   updatedAt?: true
+  customerNumber?: true
+  intent?: true
 }
 
 export type CallCountAggregateInputType = {
@@ -106,14 +106,14 @@ export type CallCountAggregateInputType = {
   vapiCallId?: true
   leadId?: true
   assistantId?: true
-  customerNumber?: true
-  intent?: true
   transcript?: true
   summary?: true
   recordingUrl?: true
   status?: true
   createdAt?: true
   updatedAt?: true
+  customerNumber?: true
+  intent?: true
   _all?: true
 }
 
@@ -194,14 +194,14 @@ export type CallGroupByOutputType = {
   vapiCallId: string
   leadId: string
   assistantId: string
-  customerNumber: string | null
-  intent: string | null
   transcript: string | null
   summary: string | null
   recordingUrl: string | null
   status: string
   createdAt: Date
   updatedAt: Date
+  customerNumber: string | null
+  intent: string | null
   _count: CallCountAggregateOutputType | null
   _min: CallMinAggregateOutputType | null
   _max: CallMaxAggregateOutputType | null
@@ -230,16 +230,16 @@ export type CallWhereInput = {
   vapiCallId?: Prisma.StringFilter<"Call"> | string
   leadId?: Prisma.StringFilter<"Call"> | string
   assistantId?: Prisma.StringFilter<"Call"> | string
-  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
-  intent?: Prisma.StringNullableFilter<"Call"> | string | null
   transcript?: Prisma.StringNullableFilter<"Call"> | string | null
   summary?: Prisma.StringNullableFilter<"Call"> | string | null
   recordingUrl?: Prisma.StringNullableFilter<"Call"> | string | null
   status?: Prisma.StringFilter<"Call"> | string
   createdAt?: Prisma.DateTimeFilter<"Call"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Call"> | Date | string
-  lead?: Prisma.XOR<Prisma.LeadScalarRelationFilter, Prisma.LeadWhereInput>
+  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
+  intent?: Prisma.StringNullableFilter<"Call"> | string | null
   assistant?: Prisma.XOR<Prisma.BusinessAssistantScalarRelationFilter, Prisma.BusinessAssistantWhereInput>
+  lead?: Prisma.XOR<Prisma.LeadScalarRelationFilter, Prisma.LeadWhereInput>
 }
 
 export type CallOrderByWithRelationInput = {
@@ -247,16 +247,16 @@ export type CallOrderByWithRelationInput = {
   vapiCallId?: Prisma.SortOrder
   leadId?: Prisma.SortOrder
   assistantId?: Prisma.SortOrder
-  customerNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   recordingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  lead?: Prisma.LeadOrderByWithRelationInput
+  customerNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   assistant?: Prisma.BusinessAssistantOrderByWithRelationInput
+  lead?: Prisma.LeadOrderByWithRelationInput
 }
 
 export type CallWhereUniqueInput = Prisma.AtLeast<{
@@ -267,16 +267,16 @@ export type CallWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CallWhereInput | Prisma.CallWhereInput[]
   leadId?: Prisma.StringFilter<"Call"> | string
   assistantId?: Prisma.StringFilter<"Call"> | string
-  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
-  intent?: Prisma.StringNullableFilter<"Call"> | string | null
   transcript?: Prisma.StringNullableFilter<"Call"> | string | null
   summary?: Prisma.StringNullableFilter<"Call"> | string | null
   recordingUrl?: Prisma.StringNullableFilter<"Call"> | string | null
   status?: Prisma.StringFilter<"Call"> | string
   createdAt?: Prisma.DateTimeFilter<"Call"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Call"> | Date | string
-  lead?: Prisma.XOR<Prisma.LeadScalarRelationFilter, Prisma.LeadWhereInput>
+  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
+  intent?: Prisma.StringNullableFilter<"Call"> | string | null
   assistant?: Prisma.XOR<Prisma.BusinessAssistantScalarRelationFilter, Prisma.BusinessAssistantWhereInput>
+  lead?: Prisma.XOR<Prisma.LeadScalarRelationFilter, Prisma.LeadWhereInput>
 }, "id" | "vapiCallId">
 
 export type CallOrderByWithAggregationInput = {
@@ -284,14 +284,14 @@ export type CallOrderByWithAggregationInput = {
   vapiCallId?: Prisma.SortOrder
   leadId?: Prisma.SortOrder
   assistantId?: Prisma.SortOrder
-  customerNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   recordingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  customerNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  intent?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.CallCountOrderByAggregateInput
   _max?: Prisma.CallMaxOrderByAggregateInput
   _min?: Prisma.CallMinOrderByAggregateInput
@@ -305,29 +305,29 @@ export type CallScalarWhereWithAggregatesInput = {
   vapiCallId?: Prisma.StringWithAggregatesFilter<"Call"> | string
   leadId?: Prisma.StringWithAggregatesFilter<"Call"> | string
   assistantId?: Prisma.StringWithAggregatesFilter<"Call"> | string
-  customerNumber?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
-  intent?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
   transcript?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
   summary?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
   recordingUrl?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
   status?: Prisma.StringWithAggregatesFilter<"Call"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Call"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Call"> | Date | string
+  customerNumber?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
+  intent?: Prisma.StringNullableWithAggregatesFilter<"Call"> | string | null
 }
 
 export type CallCreateInput = {
   id?: string
   vapiCallId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  lead: Prisma.LeadCreateNestedOneWithoutCallsInput
+  customerNumber?: string | null
+  intent?: string | null
   assistant: Prisma.BusinessAssistantCreateNestedOneWithoutCallsInput
+  lead: Prisma.LeadCreateNestedOneWithoutCallsInput
 }
 
 export type CallUncheckedCreateInput = {
@@ -335,29 +335,29 @@ export type CallUncheckedCreateInput = {
   vapiCallId: string
   leadId: string
   assistantId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  lead?: Prisma.LeadUpdateOneRequiredWithoutCallsNestedInput
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   assistant?: Prisma.BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput
+  lead?: Prisma.LeadUpdateOneRequiredWithoutCallsNestedInput
 }
 
 export type CallUncheckedUpdateInput = {
@@ -365,14 +365,14 @@ export type CallUncheckedUpdateInput = {
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   leadId?: Prisma.StringFieldUpdateOperationsInput | string
   assistantId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallCreateManyInput = {
@@ -380,27 +380,27 @@ export type CallCreateManyInput = {
   vapiCallId: string
   leadId: string
   assistantId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallUncheckedUpdateManyInput = {
@@ -408,14 +408,14 @@ export type CallUncheckedUpdateManyInput = {
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   leadId?: Prisma.StringFieldUpdateOperationsInput | string
   assistantId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallListRelationFilter = {
@@ -433,14 +433,14 @@ export type CallCountOrderByAggregateInput = {
   vapiCallId?: Prisma.SortOrder
   leadId?: Prisma.SortOrder
   assistantId?: Prisma.SortOrder
-  customerNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  customerNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type CallMaxOrderByAggregateInput = {
@@ -448,14 +448,14 @@ export type CallMaxOrderByAggregateInput = {
   vapiCallId?: Prisma.SortOrder
   leadId?: Prisma.SortOrder
   assistantId?: Prisma.SortOrder
-  customerNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  customerNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type CallMinOrderByAggregateInput = {
@@ -463,14 +463,14 @@ export type CallMinOrderByAggregateInput = {
   vapiCallId?: Prisma.SortOrder
   leadId?: Prisma.SortOrder
   assistantId?: Prisma.SortOrder
-  customerNumber?: Prisma.SortOrder
-  intent?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  customerNumber?: Prisma.SortOrder
+  intent?: Prisma.SortOrder
 }
 
 export type CallCreateNestedManyWithoutAssistantInput = {
@@ -560,14 +560,14 @@ export type CallUncheckedUpdateManyWithoutLeadNestedInput = {
 export type CallCreateWithoutAssistantInput = {
   id?: string
   vapiCallId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
   lead: Prisma.LeadCreateNestedOneWithoutCallsInput
 }
 
@@ -575,14 +575,14 @@ export type CallUncheckedCreateWithoutAssistantInput = {
   id?: string
   vapiCallId: string
   leadId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallCreateOrConnectWithoutAssistantInput = {
@@ -619,27 +619,27 @@ export type CallScalarWhereInput = {
   vapiCallId?: Prisma.StringFilter<"Call"> | string
   leadId?: Prisma.StringFilter<"Call"> | string
   assistantId?: Prisma.StringFilter<"Call"> | string
-  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
-  intent?: Prisma.StringNullableFilter<"Call"> | string | null
   transcript?: Prisma.StringNullableFilter<"Call"> | string | null
   summary?: Prisma.StringNullableFilter<"Call"> | string | null
   recordingUrl?: Prisma.StringNullableFilter<"Call"> | string | null
   status?: Prisma.StringFilter<"Call"> | string
   createdAt?: Prisma.DateTimeFilter<"Call"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Call"> | Date | string
+  customerNumber?: Prisma.StringNullableFilter<"Call"> | string | null
+  intent?: Prisma.StringNullableFilter<"Call"> | string | null
 }
 
 export type CallCreateWithoutLeadInput = {
   id?: string
   vapiCallId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
   assistant: Prisma.BusinessAssistantCreateNestedOneWithoutCallsInput
 }
 
@@ -647,14 +647,14 @@ export type CallUncheckedCreateWithoutLeadInput = {
   id?: string
   vapiCallId: string
   assistantId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallCreateOrConnectWithoutLeadInput = {
@@ -687,27 +687,27 @@ export type CallCreateManyAssistantInput = {
   id?: string
   vapiCallId: string
   leadId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallUpdateWithoutAssistantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lead?: Prisma.LeadUpdateOneRequiredWithoutCallsNestedInput
 }
 
@@ -715,55 +715,55 @@ export type CallUncheckedUpdateWithoutAssistantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   leadId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallUncheckedUpdateManyWithoutAssistantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   leadId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallCreateManyLeadInput = {
   id?: string
   vapiCallId: string
   assistantId: string
-  customerNumber?: string | null
-  intent?: string | null
   transcript?: string | null
   summary?: string | null
   recordingUrl?: string | null
   status: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  customerNumber?: string | null
+  intent?: string | null
 }
 
 export type CallUpdateWithoutLeadInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   assistant?: Prisma.BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput
 }
 
@@ -771,28 +771,28 @@ export type CallUncheckedUpdateWithoutLeadInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   assistantId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type CallUncheckedUpdateManyWithoutLeadInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   vapiCallId?: Prisma.StringFieldUpdateOperationsInput | string
   assistantId?: Prisma.StringFieldUpdateOperationsInput | string
-  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customerNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -802,16 +802,16 @@ export type CallSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   vapiCallId?: boolean
   leadId?: boolean
   assistantId?: boolean
-  customerNumber?: boolean
-  intent?: boolean
   transcript?: boolean
   summary?: boolean
   recordingUrl?: boolean
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
+  customerNumber?: boolean
+  intent?: boolean
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["call"]>
 
 export type CallSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -819,16 +819,16 @@ export type CallSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   vapiCallId?: boolean
   leadId?: boolean
   assistantId?: boolean
-  customerNumber?: boolean
-  intent?: boolean
   transcript?: boolean
   summary?: boolean
   recordingUrl?: boolean
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
+  customerNumber?: boolean
+  intent?: boolean
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["call"]>
 
 export type CallSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -836,16 +836,16 @@ export type CallSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   vapiCallId?: boolean
   leadId?: boolean
   assistantId?: boolean
-  customerNumber?: boolean
-  intent?: boolean
   transcript?: boolean
   summary?: boolean
   recordingUrl?: boolean
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
+  customerNumber?: boolean
+  intent?: boolean
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["call"]>
 
 export type CallSelectScalar = {
@@ -853,49 +853,49 @@ export type CallSelectScalar = {
   vapiCallId?: boolean
   leadId?: boolean
   assistantId?: boolean
-  customerNumber?: boolean
-  intent?: boolean
   transcript?: boolean
   summary?: boolean
   recordingUrl?: boolean
   status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  customerNumber?: boolean
+  intent?: boolean
 }
 
-export type CallOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vapiCallId" | "leadId" | "assistantId" | "customerNumber" | "intent" | "transcript" | "summary" | "recordingUrl" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["call"]>
+export type CallOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vapiCallId" | "leadId" | "assistantId" | "transcript" | "summary" | "recordingUrl" | "status" | "createdAt" | "updatedAt" | "customerNumber" | "intent", ExtArgs["result"]["call"]>
 export type CallInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }
 export type CallIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }
 export type CallIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
   assistant?: boolean | Prisma.BusinessAssistantDefaultArgs<ExtArgs>
+  lead?: boolean | Prisma.LeadDefaultArgs<ExtArgs>
 }
 
 export type $CallPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Call"
   objects: {
-    lead: Prisma.$LeadPayload<ExtArgs>
     assistant: Prisma.$BusinessAssistantPayload<ExtArgs>
+    lead: Prisma.$LeadPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     vapiCallId: string
     leadId: string
     assistantId: string
-    customerNumber: string | null
-    intent: string | null
     transcript: string | null
     summary: string | null
     recordingUrl: string | null
     status: string
     createdAt: Date
     updatedAt: Date
+    customerNumber: string | null
+    intent: string | null
   }, ExtArgs["result"]["call"]>
   composites: {}
 }
@@ -1290,8 +1290,8 @@ readonly fields: CallFieldRefs;
  */
 export interface Prisma__CallClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  lead<T extends Prisma.LeadDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LeadDefaultArgs<ExtArgs>>): Prisma.Prisma__LeadClient<runtime.Types.Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   assistant<T extends Prisma.BusinessAssistantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistantDefaultArgs<ExtArgs>>): Prisma.Prisma__BusinessAssistantClient<runtime.Types.Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  lead<T extends Prisma.LeadDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LeadDefaultArgs<ExtArgs>>): Prisma.Prisma__LeadClient<runtime.Types.Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1325,14 +1325,14 @@ export interface CallFieldRefs {
   readonly vapiCallId: Prisma.FieldRef<"Call", 'String'>
   readonly leadId: Prisma.FieldRef<"Call", 'String'>
   readonly assistantId: Prisma.FieldRef<"Call", 'String'>
-  readonly customerNumber: Prisma.FieldRef<"Call", 'String'>
-  readonly intent: Prisma.FieldRef<"Call", 'String'>
   readonly transcript: Prisma.FieldRef<"Call", 'String'>
   readonly summary: Prisma.FieldRef<"Call", 'String'>
   readonly recordingUrl: Prisma.FieldRef<"Call", 'String'>
   readonly status: Prisma.FieldRef<"Call", 'String'>
   readonly createdAt: Prisma.FieldRef<"Call", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Call", 'DateTime'>
+  readonly customerNumber: Prisma.FieldRef<"Call", 'String'>
+  readonly intent: Prisma.FieldRef<"Call", 'String'>
 }
     
 
