@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { VapiService } from './vapi.service';
 
-@Controller('vapi')
+@Controller('api/vapi')
 export class VapiController {
   constructor(private readonly vapiService: VapiService) {}
 
