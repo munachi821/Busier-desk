@@ -1,5 +1,5 @@
 [build]
-buildCommand = "npm install --include=dev && npm run build && ls -la dist"
+buildCommand = "npm install --include=dev && ./node_modules/.bin/tsc -p tsconfig.build.json && ls -la dist"
 
 [deploy]
 startCommand = "npx prisma migrate deploy && node dist/main"
