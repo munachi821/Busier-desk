@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
@@ -106,24 +106,34 @@ model Transaction {
 }
 
 model BusinessAssistant {
-  id                    String            @id @default(cuid())
-  userId                String            @unique
-  name                  String
-  firstMessage          String?
-  phoneNumber           String?
-  isSubscribed          Boolean           @default(false)
-  subscriptionTier      SubscriptionTier?
+  id              String         @id @default(cuid())
+  userId          String         @unique
+  name            String
+  systemPrompt    String?                    // ✅ Added
+  firstMessage    String?
+  vapiAssistantId      String?           @unique
+  phoneNumber          String?
+  isSubscribed         Boolean           @default(false)
+  subscriptionTier     SubscriptionTier?
   subscriptionExpiresAt DateTime?
-  systemPrompt          String?
-  vapiAssistantId       String?           @unique
-  createdAt             DateTime          @default(now())
-  updatedAt             DateTime          @updatedAt
-  user                  User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  calls                 Call[]
-  faqs                  FAQ[]
-  products              Product[]
-  resourceLinks         ResourceLink[]
-  context               BusinessContext?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  faqs            FAQ[]                      // ✅ Added
+  products        Product[]                  // ✅ Added
+  resourceLinks   ResourceLink[]             // ✅ Added
+  calls           Call[]                     // ✅ Added
+  systemPrompt    String?
+  vapiAssistantId String?        @unique
+  phoneNumber     String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  firstMessage    String?
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calls           Call[]
+  faqs            FAQ[]
+  products        Product[]
+  resourceLinks   ResourceLink[]
+  context         BusinessContext?
 
   @@map("business_assistant")
 }
