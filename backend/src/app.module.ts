@@ -9,6 +9,8 @@ import { VapiModule } from './vapi/vapi.module';
 import { AssistantModule } from './assistant/assistant.module';
 import { NotificationModule } from './notification/notification.module';
 import { UserModule } from './user/user.module';
+import { BusinessModule } from './business/business.module';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @Module({
   imports: [
@@ -18,7 +20,9 @@ import { UserModule } from './user/user.module';
     VapiModule,
     AssistantModule,
     NotificationModule,
-    UserModule
+    UserModule,
+    ChatbotModule,
+    BusinessModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -61,7 +61,8 @@ export const ModelName = {
   Product: 'Product',
   ResourceLink: 'ResourceLink',
   Lead: 'Lead',
-  Call: 'Call'
+  Call: 'Call',
+  BusinessContext: 'BusinessContext'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -237,6 +238,16 @@ export const CallScalarFieldEnum = {
 } as const
 
 export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
+
+
+export const BusinessContextScalarFieldEnum = {
+  id: 'id',
+  assistantId: 'assistantId',
+  content: 'content',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BusinessContextScalarFieldEnum = (typeof BusinessContextScalarFieldEnum)[keyof typeof BusinessContextScalarFieldEnum]
 
 
 export const SortOrder = {
