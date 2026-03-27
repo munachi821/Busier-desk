@@ -1258,6 +1258,7 @@ export const BusinessAssistantScalarFieldEnum = {
   firstMessage: 'firstMessage',
   vapiAssistantId: 'vapiAssistantId',
   phoneNumber: 'phoneNumber',
+  isSubscribed: 'isSubscribed',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

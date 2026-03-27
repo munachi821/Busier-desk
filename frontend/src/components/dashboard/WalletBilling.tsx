@@ -17,9 +17,9 @@ const WalletBilling = () => {
         <h2 className="font-manrope font-bold text-3xl md:text-4xl text-[#E7E5E5]">
           Wallet & Billing
         </h2>
-        <p className="text-[#ACABAA] font-inter text-sm mt-1 max-w-130">
+        <p className="text-[#ACABAA] font-inter text-sm mt-1 max-w-160 leading-relaxed">
           Manage your enterprise credit, monitor real-time AI consumption, and
-          top-up your operational wallet via Interswitch secure gateway.
+          top-up your operational wallet or manage your <b>monthly subscription</b> via Interswitch secure gateway.
         </p>
       </div>
 
@@ -69,14 +69,16 @@ const WalletBilling = () => {
           </div>
         </div>
 
-        <div className="bg-[#191A1A] border-[#191a1a] border-b-[3px] hover:border-b-[#008F5A] transition-colors duration-300 p-6 lg:p-8 rounded-sm">
-          <p className="text-[#87948A] text-[10px] font-inter font-semibold tracking-widest uppercase mb-4">
-            TOTAL CALLS TODAY
+        <div className="bg-[#191A1A] border-[#191a1a] border-b-[3px] border-b-[#6BDC9F] p-6 lg:p-8 rounded-sm">
+          <p className="text-[#6BDC9F] text-[10px] font-inter font-semibold tracking-widest uppercase mb-4">
+            ACTIVE SUBSCRIPTION
           </p>
           <div className="flex items-baseline gap-2">
-            <h3 className="text-white font-manrope font-bold text-3xl">142</h3>
-            <span className="text-[#6BDC9F] text-xs font-semibold tracking-wide">
-              Active
+            <h3 className="text-white font-manrope font-bold text-2xl uppercase">
+              Enterprise
+            </h3>
+            <span className="text-[#6BDC9F] text-[10px] font-bold tracking-widest ml-2">
+              Billed Monthly
             </span>
           </div>
         </div>

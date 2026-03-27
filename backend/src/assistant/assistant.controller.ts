@@ -18,6 +18,11 @@ export class AssistantController {
     return this.assistantService.findByUserId(user.id);
   }
 
+  @Get('profile')
+  async getProfile(@User() user: any) {
+    return this.assistantService.findByUserId(user.id);
+  }
+
   @Get('calls')
   async getCalls(@User() user: any) {
     return this.assistantService.getCalls(user.id);
