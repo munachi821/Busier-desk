@@ -3,7 +3,6 @@ import {
   MessageCircleCheck,
   Phone,
   Wallet,
-  Bell,
   UserCircle2,
   Copy,
   Check,
@@ -16,6 +15,8 @@ import CallLogs from "./CallLogs";
 import AgentConfiguration from "./AgentConfiguration";
 import WalletBilling from "./WalletBilling";
 import Leads from "./Leads";
+import Profile from "./Profile";
+import NotificationBell from "./NotificationBell";
 import { authClient } from "../../lib/auth-client";
 
 const DashboardLayout = () => {
@@ -25,8 +26,6 @@ const DashboardLayout = () => {
 
   const { data: sessionData, isPending } = authClient.useSession();
   const user = sessionData?.user;
-
-  console.log(user);
 
   const handleTabShow = () => {
     if (activeTab === "call-logs") {
@@ -40,6 +39,9 @@ const DashboardLayout = () => {
     }
     if (activeTab === "leads") {
       return <Leads />;
+    }
+    if (activeTab === "profile") {
+      return <Profile />;
     }
   };
 
@@ -207,10 +209,11 @@ const DashboardLayout = () => {
             {/* Mobile Nav Icons & Balance */}
             <div className="w-full md:hidden flex justify-between items-center mt-2 border-t border-[#262626] pt-4">
               <div className="flex items-center gap-4 shrink-0">
-                <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
-                  <Bell size={22} className="sm:w-6 sm:h-6" />
-                </div>
-                <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
+                <NotificationBell />
+                <div
+                  className={`${activeTab === "profile" ? "text-[#6BDC9F]" : "text-[#ACABAA]"} hover:text-white cursor-pointer transition-colors mb-1`}
+                  onClick={() => setActiveTab("profile")}
+                >
                   <UserCircle2 size={24} className="sm:w-7 sm:h-7" />
                 </div>
               </div>
@@ -234,11 +237,12 @@ const DashboardLayout = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
-                <Bell size={22} className="sm:w-6 sm:h-6" />
-              </div>
+              <NotificationBell />
 
-              <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
+              <div
+                onClick={() => setActiveTab("profile")}
+                className={`${activeTab === "profile" ? "text-[#6BDC9F]" : "text-[#ACABAA]"} hover:text-white cursor-pointer transition-colors`}
+              >
                 <UserCircle2 size={24} className="sm:w-7 sm:h-7" />
               </div>
             </div>
