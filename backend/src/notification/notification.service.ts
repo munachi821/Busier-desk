@@ -5,7 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { NotificationGateway } from './notification.gateway';
 import { CreateNotificationDto } from './dto/create-notification.dto';
 import { QueryNotificationDto } from './dto/query-notification.dto';
-import { Prisma } from 'src/generated/prisma/client';
+import { Prisma } from '../generated/prisma/client';
 
 @Injectable()
 export class NotificationService {

@@ -5,7 +5,7 @@ import { NotificationService } from './notification.service';
 import { NotificationController } from './notification.controller';
 import { NotificationGateway } from './notification.gateway';
 import { PrismaModule } from '../prisma/prisma.module'; // adjust to your prisma module path
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [PrismaModule, AuthModule],

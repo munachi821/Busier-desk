@@ -15,7 +15,7 @@ import {
   import { NotificationService } from './notification.service';
   import { QueryNotificationDto } from './dto/query-notification.dto';
   import { Request } from 'express';
-import { SessionGuard } from 'src/auth/session.guard';
+import { SessionGuard } from '../auth/session.guard';
   
   @UseGuards(SessionGuard)
   @Controller('api/notifications')
