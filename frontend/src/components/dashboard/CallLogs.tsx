@@ -1,7 +1,23 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../lib/api";
 
 const CallLogs = () => {
+  const { data: calls, isLoading } = useQuery({
+    queryKey: ["calls"],
+    queryFn: async () => {
+      const res = await api.get("/assistant/calls");
+      return res.data;
+    },
+  });
+
+  const stats = {
+    today: calls?.length || 0,
+    minutes: Math.ceil((calls?.length || 0) * 5.2), // Mocked for now
+    resolved: "94%",
+  };
+
   return (
     <div className="p-2 sm:p-6 pt-8">
       <Helmet>
@@ -17,7 +33,7 @@ const CallLogs = () => {
             CALLS TODAY
           </p>
           <h3 className="font-manrope font-bold text-2xl text-white mt-1">
-            142
+            {stats.today}
           </h3>
         </div>
 
@@ -26,7 +42,7 @@ const CallLogs = () => {
             MINUTES USED
           </p>
           <h3 className="font-manrope font-bold text-2xl text-white mt-1">
-            845
+            {stats.minutes}
           </h3>
         </div>
 
@@ -35,7 +51,7 @@ const CallLogs = () => {
             RESOLVED
           </p>
           <h3 className="font-manrope font-bold text-2xl text-[#6BDC9F] mt-1">
-            94%
+            {stats.resolved}
           </h3>
         </div>
       </div>
@@ -51,10 +67,7 @@ const CallLogs = () => {
                 Caller ID
               </th>
               <th className="px-6 py-4 text-[11px] font-semibold text-[#87948A] tracking-wider uppercase">
-                Duration
-              </th>
-              <th className="px-6 py-4 text-[11px] font-semibold text-[#87948A] tracking-wider uppercase">
-                Cost
+                Intent
               </th>
               <th className="px-6 py-4 text-[11px] font-semibold text-[#87948A] tracking-wider uppercase text-right">
                 Action
@@ -62,77 +75,51 @@ const CallLogs = () => {
             </tr>
           </thead>
           <tbody className="font-inter">
-            {[
-              {
-                status: "Resolved",
-                caller: "+234 803 123 4567",
-                duration: "12m 45s",
-                cost: "-₦150",
-                isMissed: false,
-              },
-              {
-                status: "Missed",
-                caller: "+234 701 987 6543",
-                duration: "00m 00s",
-                cost: "₦0",
-                isMissed: true,
-              },
-              {
-                status: "Resolved",
-                caller: "+234 812 345 6789",
-                duration: "05m 12s",
-                cost: "-₦85",
-                isMissed: false,
-              },
-              {
-                status: "Resolved",
-                caller: "+234 905 555 0192",
-                duration: "22m 30s",
-                cost: "-₦320",
-                isMissed: false,
-              },
-              {
-                status: "Resolved",
-                caller: "+234 802 000 1122",
-                duration: "02m 05s",
-                cost: "-₦45",
-                isMissed: false,
-              },
-            ].map((log, index) => (
-              <tr
-                key={index}
-                className="border-b border-[#262626] bg-[#141414] hover:bg-[#1A1A1A] transition-colors"
-              >
-                <td className="px-6 py-5">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className={`w-2.5 h-2.5 rounded-sm ${
-                        log.isMissed ? "bg-[#555]" : "bg-[#6BDC9F]"
-                      }`}
-                    ></div>
-                    <span className="text-[#ACABAA] text-sm">{log.status}</span>
+            {isLoading ? (
+              <tr>
+                <td colSpan={4} className="px-6 py-10 text-center">
+                  <div className="flex justify-center items-center gap-2 text-[#ACABAA]">
+                    <Loader2 className="animate-spin" size={20} />
+                    <span>Loading call logs...</span>
                   </div>
                 </td>
-                <td className="px-6 py-5 text-[#E7E5E5] text-sm font-medium tracking-wide">
-                  {log.caller}
-                </td>
-                <td className="px-6 py-5 text-[#ACABAA] text-sm tracking-wide">
-                  {log.duration}
-                </td>
-                <td
-                  className={`px-6 py-5 text-sm font-medium tracking-wide ${
-                    log.isMissed ? "text-[#87948A]" : "text-[#E87A7A]"
-                  }`}
-                >
-                  {log.cost}
-                </td>
-                <td className="px-6 py-5 text-right">
-                  <button className="border border-[#333] text-[#E7E5E5] text-[10px] font-bold tracking-widest px-4 py-2.5 rounded hover:bg-[#222] transition-colors bg-[#111]">
-                    VIEW TRANSCRIPT / WHATSAPP
-                  </button>
+              </tr>
+            ) : calls?.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="px-6 py-10 text-center text-[#ACABAA]">
+                  No calls recorded yet.
                 </td>
               </tr>
-            ))}
+            ) : (
+              calls?.map((call: any, index: number) => (
+                <tr
+                  key={call.id || index}
+                  className="border-b border-[#262626] bg-[#141414] hover:bg-[#1A1A1A] transition-colors"
+                >
+                  <td className="px-6 py-5">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`w-2.5 h-2.5 rounded-sm ${
+                          call.status === "failed" ? "bg-[#E87A7A]" : "bg-[#6BDC9F]"
+                        }`}
+                      ></div>
+                      <span className="text-[#ACABAA] text-sm capitalize">{call.status}</span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-5 text-[#E7E5E5] text-sm font-medium tracking-wide">
+                    {call.customerNumber}
+                  </td>
+                  <td className="px-6 py-5 text-[#ACABAA] text-sm tracking-wide italic">
+                    {call.intent || "Unknown"}
+                  </td>
+                  <td className="px-6 py-5 text-right">
+                    <button className="border border-[#333] text-[#E7E5E5] text-[10px] font-bold tracking-widest px-4 py-2.5 rounded hover:bg-[#222] transition-colors bg-[#111]">
+                      VIEW TRANSCRIPT / WHATSAPP
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
 

@@ -15,6 +15,7 @@ import { useState } from "react";
 import CallLogs from "./CallLogs";
 import AgentConfiguration from "./AgentConfiguration";
 import WalletBilling from "./WalletBilling";
+import Leads from "./Leads";
 import { authClient } from "../../lib/auth-client";
 
 const DashboardLayout = () => {
@@ -34,6 +35,9 @@ const DashboardLayout = () => {
     }
     if (activeTab === "wallet-billing") {
       return <WalletBilling />;
+    }
+    if (activeTab === "leads") {
+      return <Leads />;
     }
   };
 
@@ -121,6 +125,19 @@ const DashboardLayout = () => {
                 strokeWidth={activeTab === "wallet-billing" ? "0.5" : "1.5"}
               />
               Wallet & Billing
+            </li>
+            <li
+              onClick={() => {
+                setActiveTab("leads");
+                setIsSidebarOpen(false);
+              }}
+              className={`flex items-center gap-2.5 py-3 pl-3 rounded-l-sm tracking-wide hover:bg-[#131313] transition-colors cursor-pointer ${activeTab === "leads" ? "bg-[#131313] text-[#6BDC9F] font-semibold" : "text-[#ACABAA]"}`}
+            >
+              <UserCircle2
+                fill={activeTab === "leads" ? "#6BDC9F" : ""}
+                strokeWidth={activeTab === "leads" ? "0.5" : "1.5"}
+              />
+              Lead Management
             </li>
           </ul>
         </div>

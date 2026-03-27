@@ -1,5 +1,5 @@
 import { betterAuth } from 'better-auth';
-import { PrismaClient } from '../generated/prisma/client';
+import { PrismaClient } from '../generated/prisma';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 
@@ -16,9 +16,9 @@ export const auth = betterAuth({
   trustedOrigins: ['http://localhost:5173', 'https://busier-desk-kjo5.vercel.app'],
   advanced: {
     defaultCookieAttributes: {
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       httpOnly: true,
-      sameSite: "none" as const,
+      sameSite: "lax",
       partitioned: true,
     },
   },
