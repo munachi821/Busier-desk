@@ -3,7 +3,6 @@ import {
   MessageCircleCheck,
   Phone,
   Wallet,
-  Bell,
   UserCircle2,
   Copy,
   Check,
@@ -18,6 +17,8 @@ import CallLogs from "./CallLogs";
 import AgentConfiguration from "./AgentConfiguration";
 import WalletBilling from "./WalletBilling";
 import Leads from "./Leads";
+import Profile from "./Profile";
+import NotificationBell from "./NotificationBell";
 import { authClient } from "../../lib/auth-client";
 
 const DashboardLayout = () => {
@@ -40,6 +41,9 @@ const DashboardLayout = () => {
     }
     if (activeTab === "leads") {
       return <Leads />;
+    }
+    if (activeTab === "profile") {
+      return <Profile />;
     }
   };
 
@@ -153,16 +157,27 @@ const DashboardLayout = () => {
               Lead Management
             </li>
           </ul>
-        </div>
-        <div className="flex items-center gap-2 absolute bottom-4 left-4">
-          <div className="p-3 bg-[#252626] rounded-sm text-white w-fit">
-            <MessageCircleCheck size={22} />
-          </div>
-          <div className="flex flex-col">
-            <p className="text-[#E5E2E1] text-sm font-semibold">Support</p>
-            <p className="text-[#87948A] font-inter text-xs font-medium">
-              24/7 Available
-            </p>
+          <div className="absolute bottom-6 left-4 right-4 flex flex-col gap-4">
+            <button
+              onClick={() => authClient.signOut()}
+              className="text-[#E87A7A] bg-[#2a1b1b] border border-[#E87A7A]/20 hover:bg-[#E87A7A] hover:text-white transition-colors w-full py-2.5 rounded-sm font-inter font-bold tracking-widest text-[11px] uppercase text-center"
+            >
+              Logout
+            </button>
+
+            <div className="flex items-center gap-2">
+              <div className="p-3 bg-[#252626] rounded-sm text-[#ACABAA] hover:text-white transition-colors cursor-pointer w-fit">
+                <MessageCircleCheck size={22} />
+              </div>
+              <div className="flex flex-col cursor-pointer group">
+                <p className="text-[#E5E2E1] text-sm font-semibold group-hover:text-white transition-colors">
+                  Support
+                </p>
+                <p className="text-[#87948A] font-inter text-xs font-medium">
+                  24/7 Available
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
@@ -218,10 +233,11 @@ const DashboardLayout = () => {
             {/* Mobile Nav Icons & Balance */}
             <div className="w-full md:hidden flex justify-between items-center mt-2 border-t border-[#262626] pt-4">
               <div className="flex items-center gap-4 shrink-0">
-                <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
-                  <Bell size={22} className="sm:w-6 sm:h-6" />
-                </div>
-                <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
+                <NotificationBell />
+                <div
+                  className={`${activeTab === "profile" ? "text-[#6BDC9F]" : "text-[#ACABAA]"} hover:text-white cursor-pointer transition-colors mb-1`}
+                  onClick={() => setActiveTab("profile")}
+                >
                   <UserCircle2 size={24} className="sm:w-7 sm:h-7" />
                 </div>
               </div>
@@ -245,11 +261,12 @@ const DashboardLayout = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
-                <Bell size={22} className="sm:w-6 sm:h-6" />
-              </div>
+              <NotificationBell />
 
-              <div className="text-[#ACABAA] hover:text-white cursor-pointer transition-colors">
+              <div
+                onClick={() => setActiveTab("profile")}
+                className={`${activeTab === "profile" ? "text-[#6BDC9F]" : "text-[#ACABAA]"} hover:text-white cursor-pointer transition-colors`}
+              >
                 <UserCircle2 size={24} className="sm:w-7 sm:h-7" />
               </div>
             </div>
