@@ -72,3 +72,8 @@ export type Lead = Prisma.LeadModel
  * 
  */
 export type Call = Prisma.CallModel
+/**
+ * Model BusinessContext
+ * 
+ */
+export type BusinessContext = Prisma.BusinessContextModel

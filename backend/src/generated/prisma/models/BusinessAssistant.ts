@@ -219,6 +219,7 @@ export type BusinessAssistantWhereInput = {
   faqs?: Prisma.FAQListRelationFilter
   products?: Prisma.ProductListRelationFilter
   resourceLinks?: Prisma.ResourceLinkListRelationFilter
+  context?: Prisma.XOR<Prisma.BusinessContextNullableScalarRelationFilter, Prisma.BusinessContextWhereInput> | null
 }
 
 export type BusinessAssistantOrderByWithRelationInput = {
@@ -236,6 +237,7 @@ export type BusinessAssistantOrderByWithRelationInput = {
   faqs?: Prisma.FAQOrderByRelationAggregateInput
   products?: Prisma.ProductOrderByRelationAggregateInput
   resourceLinks?: Prisma.ResourceLinkOrderByRelationAggregateInput
+  context?: Prisma.BusinessContextOrderByWithRelationInput
 }
 
 export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
@@ -256,6 +258,7 @@ export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
   faqs?: Prisma.FAQListRelationFilter
   products?: Prisma.ProductListRelationFilter
   resourceLinks?: Prisma.ResourceLinkListRelationFilter
+  context?: Prisma.XOR<Prisma.BusinessContextNullableScalarRelationFilter, Prisma.BusinessContextWhereInput> | null
 }, "id" | "userId" | "vapiAssistantId">
 
 export type BusinessAssistantOrderByWithAggregationInput = {
@@ -302,6 +305,7 @@ export type BusinessAssistantCreateInput = {
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateInput = {
@@ -318,6 +322,7 @@ export type BusinessAssistantUncheckedCreateInput = {
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUpdateInput = {
@@ -334,6 +339,7 @@ export type BusinessAssistantUpdateInput = {
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateInput = {
@@ -350,6 +356,7 @@ export type BusinessAssistantUncheckedUpdateInput = {
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateManyInput = {
@@ -521,6 +528,20 @@ export type BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BusinessAssistantUpdateToOneWithWhereWithoutCallsInput, Prisma.BusinessAssistantUpdateWithoutCallsInput>, Prisma.BusinessAssistantUncheckedUpdateWithoutCallsInput>
 }
 
+export type BusinessAssistantCreateNestedOneWithoutContextInput = {
+  create?: Prisma.XOR<Prisma.BusinessAssistantCreateWithoutContextInput, Prisma.BusinessAssistantUncheckedCreateWithoutContextInput>
+  connectOrCreate?: Prisma.BusinessAssistantCreateOrConnectWithoutContextInput
+  connect?: Prisma.BusinessAssistantWhereUniqueInput
+}
+
+export type BusinessAssistantUpdateOneRequiredWithoutContextNestedInput = {
+  create?: Prisma.XOR<Prisma.BusinessAssistantCreateWithoutContextInput, Prisma.BusinessAssistantUncheckedCreateWithoutContextInput>
+  connectOrCreate?: Prisma.BusinessAssistantCreateOrConnectWithoutContextInput
+  upsert?: Prisma.BusinessAssistantUpsertWithoutContextInput
+  connect?: Prisma.BusinessAssistantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BusinessAssistantUpdateToOneWithWhereWithoutContextInput, Prisma.BusinessAssistantUpdateWithoutContextInput>, Prisma.BusinessAssistantUncheckedUpdateWithoutContextInput>
+}
+
 export type BusinessAssistantCreateWithoutUserInput = {
   id?: string
   name: string
@@ -534,6 +555,7 @@ export type BusinessAssistantCreateWithoutUserInput = {
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutUserInput = {
@@ -549,6 +571,7 @@ export type BusinessAssistantUncheckedCreateWithoutUserInput = {
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutUserInput = {
@@ -580,6 +603,7 @@ export type BusinessAssistantUpdateWithoutUserInput = {
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
@@ -595,6 +619,7 @@ export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutFaqsInput = {
@@ -610,6 +635,7 @@ export type BusinessAssistantCreateWithoutFaqsInput = {
   calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
@@ -625,6 +651,7 @@ export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
   calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutFaqsInput = {
@@ -656,6 +683,7 @@ export type BusinessAssistantUpdateWithoutFaqsInput = {
   calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
@@ -671,6 +699,7 @@ export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
   calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutProductsInput = {
@@ -686,6 +715,7 @@ export type BusinessAssistantCreateWithoutProductsInput = {
   calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
@@ -701,6 +731,7 @@ export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
   calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutProductsInput = {
@@ -732,6 +763,7 @@ export type BusinessAssistantUpdateWithoutProductsInput = {
   calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
@@ -747,6 +779,7 @@ export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
   calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutResourceLinksInput = {
@@ -762,6 +795,7 @@ export type BusinessAssistantCreateWithoutResourceLinksInput = {
   calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
@@ -777,6 +811,7 @@ export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
   calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutResourceLinksInput = {
@@ -808,6 +843,7 @@ export type BusinessAssistantUpdateWithoutResourceLinksInput = {
   calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
@@ -823,6 +859,7 @@ export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
   calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantCreateWithoutCallsInput = {
@@ -838,6 +875,7 @@ export type BusinessAssistantCreateWithoutCallsInput = {
   faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
@@ -853,6 +891,7 @@ export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
   faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
   resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  context?: Prisma.BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
 }
 
 export type BusinessAssistantCreateOrConnectWithoutCallsInput = {
@@ -884,6 +923,7 @@ export type BusinessAssistantUpdateWithoutCallsInput = {
   faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUpdateOneWithoutAssistantNestedInput
 }
 
 export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
@@ -896,6 +936,87 @@ export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
+  resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+  context?: Prisma.BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
+}
+
+export type BusinessAssistantCreateWithoutContextInput = {
+  id?: string
+  name: string
+  systemPrompt?: string | null
+  vapiAssistantId?: string | null
+  phoneNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  firstMessage?: string | null
+  user: Prisma.UserCreateNestedOneWithoutBusinessAssistantInput
+  calls?: Prisma.CallCreateNestedManyWithoutAssistantInput
+  faqs?: Prisma.FAQCreateNestedManyWithoutAssistantInput
+  products?: Prisma.ProductCreateNestedManyWithoutAssistantInput
+  resourceLinks?: Prisma.ResourceLinkCreateNestedManyWithoutAssistantInput
+}
+
+export type BusinessAssistantUncheckedCreateWithoutContextInput = {
+  id?: string
+  userId: string
+  name: string
+  systemPrompt?: string | null
+  vapiAssistantId?: string | null
+  phoneNumber?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  firstMessage?: string | null
+  calls?: Prisma.CallUncheckedCreateNestedManyWithoutAssistantInput
+  faqs?: Prisma.FAQUncheckedCreateNestedManyWithoutAssistantInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutAssistantInput
+  resourceLinks?: Prisma.ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+}
+
+export type BusinessAssistantCreateOrConnectWithoutContextInput = {
+  where: Prisma.BusinessAssistantWhereUniqueInput
+  create: Prisma.XOR<Prisma.BusinessAssistantCreateWithoutContextInput, Prisma.BusinessAssistantUncheckedCreateWithoutContextInput>
+}
+
+export type BusinessAssistantUpsertWithoutContextInput = {
+  update: Prisma.XOR<Prisma.BusinessAssistantUpdateWithoutContextInput, Prisma.BusinessAssistantUncheckedUpdateWithoutContextInput>
+  create: Prisma.XOR<Prisma.BusinessAssistantCreateWithoutContextInput, Prisma.BusinessAssistantUncheckedCreateWithoutContextInput>
+  where?: Prisma.BusinessAssistantWhereInput
+}
+
+export type BusinessAssistantUpdateToOneWithWhereWithoutContextInput = {
+  where?: Prisma.BusinessAssistantWhereInput
+  data: Prisma.XOR<Prisma.BusinessAssistantUpdateWithoutContextInput, Prisma.BusinessAssistantUncheckedUpdateWithoutContextInput>
+}
+
+export type BusinessAssistantUpdateWithoutContextInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user?: Prisma.UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+  calls?: Prisma.CallUpdateManyWithoutAssistantNestedInput
+  faqs?: Prisma.FAQUpdateManyWithoutAssistantNestedInput
+  products?: Prisma.ProductUpdateManyWithoutAssistantNestedInput
+  resourceLinks?: Prisma.ResourceLinkUpdateManyWithoutAssistantNestedInput
+}
+
+export type BusinessAssistantUncheckedUpdateWithoutContextInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  systemPrompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vapiAssistantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phoneNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  firstMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  calls?: Prisma.CallUncheckedUpdateManyWithoutAssistantNestedInput
   faqs?: Prisma.FAQUncheckedUpdateManyWithoutAssistantNestedInput
   products?: Prisma.ProductUncheckedUpdateManyWithoutAssistantNestedInput
   resourceLinks?: Prisma.ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
@@ -974,6 +1095,7 @@ export type BusinessAssistantSelect<ExtArgs extends runtime.Types.Extensions.Int
   faqs?: boolean | Prisma.BusinessAssistant$faqsArgs<ExtArgs>
   products?: boolean | Prisma.BusinessAssistant$productsArgs<ExtArgs>
   resourceLinks?: boolean | Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>
+  context?: boolean | Prisma.BusinessAssistant$contextArgs<ExtArgs>
   _count?: boolean | Prisma.BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["businessAssistant"]>
 
@@ -1022,6 +1144,7 @@ export type BusinessAssistantInclude<ExtArgs extends runtime.Types.Extensions.In
   faqs?: boolean | Prisma.BusinessAssistant$faqsArgs<ExtArgs>
   products?: boolean | Prisma.BusinessAssistant$productsArgs<ExtArgs>
   resourceLinks?: boolean | Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>
+  context?: boolean | Prisma.BusinessAssistant$contextArgs<ExtArgs>
   _count?: boolean | Prisma.BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BusinessAssistantIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1039,6 +1162,7 @@ export type $BusinessAssistantPayload<ExtArgs extends runtime.Types.Extensions.I
     faqs: Prisma.$FAQPayload<ExtArgs>[]
     products: Prisma.$ProductPayload<ExtArgs>[]
     resourceLinks: Prisma.$ResourceLinkPayload<ExtArgs>[]
+    context: Prisma.$BusinessContextPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1449,6 +1573,7 @@ export interface Prisma__BusinessAssistantClient<T, Null = never, ExtArgs extend
   faqs<T extends Prisma.BusinessAssistant$faqsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   products<T extends Prisma.BusinessAssistant$productsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$productsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   resourceLinks<T extends Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$resourceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResourceLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  context<T extends Prisma.BusinessAssistant$contextArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BusinessAssistant$contextArgs<ExtArgs>>): Prisma.Prisma__BusinessContextClient<runtime.Types.Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1981,6 +2106,25 @@ export type BusinessAssistant$resourceLinksArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.ResourceLinkScalarFieldEnum | Prisma.ResourceLinkScalarFieldEnum[]
+}
+
+/**
+ * BusinessAssistant.context
+ */
+export type BusinessAssistant$contextArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BusinessContext
+   */
+  select?: Prisma.BusinessContextSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BusinessContext
+   */
+  omit?: Prisma.BusinessContextOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BusinessContextInclude<ExtArgs> | null
+  where?: Prisma.BusinessContextWhereInput
 }
 
 /**
