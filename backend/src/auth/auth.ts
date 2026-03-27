@@ -16,7 +16,7 @@ export const auth = betterAuth({
   trustedOrigins: ['http://localhost:5173', 'https://busier-desk-kjo5.vercel.app'],
   advanced: {
     defaultCookieAttributes: {
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       httpOnly: true,
       sameSite: "none" as const,
       partitioned: true,
