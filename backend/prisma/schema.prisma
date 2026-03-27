@@ -109,25 +109,15 @@ model BusinessAssistant {
   id              String         @id @default(cuid())
   userId          String         @unique
   name            String
-  systemPrompt    String?                    // ✅ Added
-  firstMessage    String?
-  vapiAssistantId      String?           @unique
-  phoneNumber          String?
-  isSubscribed         Boolean           @default(false)
-  subscriptionTier     SubscriptionTier?
-  subscriptionExpiresAt DateTime?
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @updatedAt
-  faqs            FAQ[]                      // ✅ Added
-  products        Product[]                  // ✅ Added
-  resourceLinks   ResourceLink[]             // ✅ Added
-  calls           Call[]                     // ✅ Added
   systemPrompt    String?
+  firstMessage    String?
   vapiAssistantId String?        @unique
   phoneNumber     String?
+  isSubscribed    Boolean         @default(false)
+  subscriptionTier SubscriptionTier?
+  subscriptionExpiresAt DateTime?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  firstMessage    String?
   user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   calls           Call[]
   faqs            FAQ[]
