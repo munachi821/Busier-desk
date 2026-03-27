@@ -1,130 +1,117 @@
 # 🟢 BusierDesk
+**The 24/7 AI Voice & Messaging Receptionist for Local Businesses.**
 
-**The 24/7 AI Voice Receptionist for Nigerian Local Businesses.**
+**Built for the Enyata x Interswitch Buildathon.**
+
+BusierDesk is an AI-powered, multi-language voice and messaging agent that acts as a 24/7 front desk for businesses. It handles customer calls, understands business-specific context, and seamlessly continues interactions via WhatsApp—enabling businesses to respond instantly, share relevant content, and convert enquiries into sales.
+
+---
 
 ## 🚀 The Pitch
 
 ### The Problem
+Businesses lose massive amounts of revenue daily due to missed calls, slow responses, and poor follow-up. Most local vendors simply cannot answer the phone while servicing a customer, causing hot leads to slip away.
 
-Local Nigerian SMEs (auto repair shops, restaurants, salons) lose millions of Naira annually in missed leads simply because the owner cannot answer the phone while working. Current enterprise AI voice solutions are built for massive call centers and charge terrifying, unpredictable "per-token" and "per-minute" micro-transactions that local vendors refuse to adopt.
+### The Solution
+BusierDesk ensures every single call is answered, every enquiry is followed up on, and every interaction is captured as a lead. 
 
-### The Solution: BusierDesk
-
-BusierDesk democratizes AI voice reception for the local market through **Cost Certainty**. For a predictable, flat monthly subscription, local businesses get a dedicated AI voice agent that answers every call 24/7, negotiates bookings, and answers FAQs.
-
-**The "Smart Handoff" Advantage:** To protect the vendor's voice minute quota, our AI agent is programmed to intelligently cap voice calls and instantly transition the customer to the WhatsApp Business API to complete their booking via text. We protect their revenue, and we protect their wallet.
+**What makes us different:** We don’t just answer calls—we continue the conversation. Most solutions stop at call handling. BusierDesk extends the interaction into WhatsApp, dropping resources and booking links right where real business happens.
 
 ---
 
-## ✨ Key Features
+## 🌐 Live Demo & Testing
 
-- **Real-Time AI Voice Agent:** Human-like, low-latency conversational AI tailored to specific business domains (e.g., auto repair pricing, restaurant reservations).
-- **Smart WhatsApp Handoff:** Automatically transitions lengthy calls to a cheap text-based WhatsApp thread to conserve the vendor's monthly voice minutes.
-- **Predictable SaaS Billing:** A flat monthly subscription tier, removing the anxiety of unpredictable cloud token billing.
-- **Kinetic Command Center:** A premium, dark-mode real-time dashboard for vendors to view call logs, monitor minute usage, and read AI-generated call summaries.
+* **Live Dashboard:** [https://busier-desk-kjo5.vercel.app/authentication](https://busier-desk-kjo5.vercel.app/authentication)
+* **Demo Phone Number:** `+1 (276) 533-9590`
+* **Backend API:** Deployed securely on Railway
+
+### How to Test the Agent
+1. Call the demo number.
+2. Ask about a service or product (e.g., pricing, availability, or location).
+3. The AI will respond conversationally based on trained business data.
+4. *Note: A WhatsApp follow-up is triggered post-call (integration configured, pending final live activation).*
+
+---
+
+## ✨ Core Features
+
+* **AI Voice Call Handling:** Powered by Vapi, the agent understands user intent, speaks conversationally, and pulls from custom business data.
+* **Lead Capture System:** Automatically extracts the caller's phone number, intent, and timestamp, storing them in the dashboard for the business owner.
+* **Multi-Tenant SaaS Architecture:** Supports multiple businesses, each with strictly isolated data and their own custom AI training (FAQs, products, links).
+* **Subscription Billing:** Fully integrated with **Interswitch** to process seamless, recurring subscription payments for vendors.
+* **Kinetic Admin Dashboard:** A premium interface where business owners can view call logs, manage leads, update their AI's FAQs, and track subscription status.
+* **Smart WhatsApp Follow-Up:** Triggers after a call to send summaries and relevant links via Twilio (Configured).
 
 ---
 
 ## 🛠 Tech Stack
 
 **Frontend (Client Dashboard)**
-
-- **Framework:** React.js (Vite)
-- **Styling:** Tailwind CSS & Lucide Icons
-- **Hosting:** Vercel & Railway
+* **Framework:** React.js (Deployed on Vercel)
+* **Styling:** Tailwind CSS
 
 **Backend (API & Data)**
+* **Framework:** NestJS (Node.js)
+* **Database:** Neon (Serverless PostgreSQL)
+* **ORM:** Prisma
+* **Authentication:** Better Auth
+* **Deployment:** Railway
 
-- **Framework:** NestJS (Node.js)
-- **Database:** PostgreSQL (via Prisma ORM)
-- **Hosting:** Railway
-
-**AI & Telephony Infrastructure**
-
-- **Voice Orchestration:** Vapi / Retell (WebRTC, STT, TTS)
-- **Intelligence:** OpenAI (GPT-4o-mini)
-- **Telecom Provider:** Twilio (SIP & Number Provisioning)
+**AI & Telephony**
+* **Voice Orchestration:** Vapi
+* **Messaging/Handoff:** Twilio WhatsApp API (Configured)
 
 ---
 
-## 💻 How to Run Locally
+## 🚦 Buildathon Status Report
+
+**✅ What is Fully Working (Live Demo):**
+* AI successfully handles and negotiates incoming calls.
+* Leads are accurately extracted and stored in the database.
+* The Multi-tenant architecture securely isolates business accounts.
+* Subscription payments process successfully via Interswitch.
+* The Frontend Admin Dashboard is fully functional.
+
+**🚧 Partial / In Progress:**
+* WhatsApp follow-up (Twilio webhook routing is configured, but pending final pipeline activation).
+
+**🔮 Future Roadmap:**
+* Full two-way WhatsApp conversational support.
+* Multi-language optimization (Pidgin, Hausa, Igbo, Yoruba).
+* Direct calendar and scheduling integration.
+
+---
+
+## 💻 Local Setup Instructions
 
 ### 1. Clone the Repository
-
 \`\`\`bash
-git clone https://github.com/your-org/busierdesk.git
-cd busierdesk
+git clone <your-repo-url>
+cd <project-folder>
 \`\`\`
 
-### 2. Backend Setup (NestJS)
-
+### 2. Backend Setup
 \`\`\`bash
 cd backend
 npm install
-
-# Set up your environment variables
-
-cp .env.example .env
-
-# Edit .env with your PostgreSQL DATABASE_URL and API Keys
-
-# Generate the Prisma Client and sync the database
-
+cp .env.example .env  # Add your Neon DB, Interswitch, and Vapi keys here
 npx prisma generate
-npx prisma db push
-
-# Start the development server
-
 npm run start:dev
 \`\`\`
-_The backend will run on `http://localhost:3000`_
 
-### 3. Frontend Setup (React/Vite)
-
+### 3. Frontend Setup
 Open a new terminal window:
 \`\`\`bash
 cd frontend
 npm install
-
-# Set up your environment variables
-
-cp .env.example .env
-
-# Ensure VITE_API_URL is set to http://localhost:3000
-
-# Start the Vite development server
-
 npm run dev
 \`\`\`
-_The frontend will run on `http://localhost:5173`_
 
 ---
 
-## 👥 Team & Contributions
+## 👥 The Team
 
-BusierDesk was built by a highly specialized team of four, bridging the gap between product strategy, a high-performance client dashboard, robust infrastructure, and state-of-the-art AI telephony.
-
-**Amarachi Evunde — Project Manager**
-
-- **Product Strategy & Scoping:** Led the core product vision, ensuring the engineering team remained focused on the MVP requirements and the specific pain points of the Nigerian SME market.
-- **Sprint Execution:** Managed the extended buildathon timeline, coordinating the crucial integration handoffs between the frontend, backend, and AI branches to prevent deployment bottlenecks.
-- **Business Narrative:** Orchestrated the final pitch and presentation strategy, ensuring the complex technical architecture translated perfectly into a compelling, vendor-friendly SaaS business case for the judges.
-
-**Munachi Onyebuchi — Lead Frontend Engineer & UI/UX**
-
-- **Frontend Architecture:** Bootstrapped and structured the React (Vite) client, ensuring a fast, scalable foundation, successfully deployed on Vercel.
-- **Design System & UI:** Designed and developed the "Kinetic Command Center" dashboard from scratch using Tailwind CSS, establishing a premium Deep Charcoal and Emerald Green B2B aesthetic.
-- **Feature Implementation:** Built the interactive state-based UI for critical features, including Subscription Tier tracking, Agent Configuration, Profile Settings, and the dynamic Notification Inbox.
-- **API Integration:** Wired the frontend client to the NestJS backend, handling asynchronous data fetching, state management, and error handling for a seamless user experience.
-
-**Emmanuel Sunday — Backend Engineer**
-
-- **Core API & Infrastructure:** Architected the secure NestJS REST API and managed the PostgreSQL database schema using Prisma ORM.
-- **Cloud Deployment:** Successfully containerized and deployed the backend infrastructure on Railway, managing dynamic port binding and CORS security policies.
-- **Subscription & Billing Logic:** Built the underlying logic for the monthly subscription tier system and real-time minute usage tracking for the vendor dashboard.
-
-**Victor Jonah — AI & Telephony Engineer**
-
-- **Voice Orchestration:** Engineered the complex telephony stack, integrating Twilio for SIP provisioning and Vapi/Retell for real-time webRTC, Speech-to-Text (STT), and Text-to-Speech (TTS) handling.
-- **Intelligence & Prompting:** Managed the OpenAI LLM integration, optimizing the context windows and agent prompts to ensure the AI responds accurately to local auto-repair inquiries.
-- **The "Smart Handoff" Pipeline:** Programmed the cost-saving routing logic that tracks active call minutes and seamlessly transitions customers to the WhatsApp Business API when the vendor's minute cap is reached.
+* **Amarachi Evunde** — Project Manager
+* **Munachi Onyebuchi** — Lead Frontend Engineer & UI/UX
+* **Emmanuel Sunday** — Backend Engineer
+* **Victor Jonah** — AI & Telephony Engineer
