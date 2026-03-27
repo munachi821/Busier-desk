@@ -10,6 +10,7 @@
  */
 export type * from './models/User'
 export type * from './models/Session'
+export type * from './models/Notification'
 export type * from './models/Account'
 export type * from './models/Verification'
 export type * from './models/Transaction'
@@ -19,4 +20,5 @@ export type * from './models/Product'
 export type * from './models/ResourceLink'
 export type * from './models/Lead'
 export type * from './models/Call'
+export type * from './models/BusinessContext'
 export type * from './commonInputTypes'

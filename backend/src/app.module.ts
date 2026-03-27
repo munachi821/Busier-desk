@@ -8,6 +8,10 @@ import { AuthModule } from './auth/auth.module';
 import { VapiModule } from './vapi/vapi.module';
 import { AssistantModule } from './assistant/assistant.module';
 import { PaymentModule } from './payment/payment.module';
+import { NotificationModule } from './notification/notification.module';
+import { UserModule } from './user/user.module';
+import { BusinessModule } from './business/business.module';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @Module({
   imports: [
@@ -17,6 +21,10 @@ import { PaymentModule } from './payment/payment.module';
     VapiModule,
     AssistantModule,
     PaymentModule,
+    NotificationModule,
+    UserModule,
+    ChatbotModule,
+    BusinessModule,
   ],
   controllers: [AppController],
   providers: [AppService],
