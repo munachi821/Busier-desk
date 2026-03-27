@@ -126,6 +126,7 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
+  phoneNumber: 'phoneNumber',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -134,11 +135,23 @@ exports.Prisma.SessionScalarFieldEnum = {
   id: 'id',
   expiresAt: 'expiresAt',
   token: 'token',
-  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   ipAddress: 'ipAddress',
-  userAgent: 'userAgent'
+  userAgent: 'userAgent',
+  userId: 'userId'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  read: 'read',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {
@@ -166,68 +179,101 @@ exports.Prisma.VerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.TransactionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  amount: 'amount',
+  reference: 'reference',
+  status: 'status',
+  tier: 'tier',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.BusinessAssistantScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  vapiAssistantId: 'vapiAssistantId',
   name: 'name',
   firstMessage: 'firstMessage',
+  phoneNumber: 'phoneNumber',
+  isSubscribed: 'isSubscribed',
+  subscriptionTier: 'subscriptionTier',
+  subscriptionExpiresAt: 'subscriptionExpiresAt',
   systemPrompt: 'systemPrompt',
+  vapiAssistantId: 'vapiAssistantId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.FAQScalarFieldEnum = {
   id: 'id',
+  assistantId: 'assistantId',
   question: 'question',
   answer: 'answer',
-  assistantId: 'assistantId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
+  assistantId: 'assistantId',
   name: 'name',
-  price: 'price',
   description: 'description',
-  mediaLink: 'mediaLink',
-  assistantId: 'assistantId'
+  price: 'price',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ResourceLinkScalarFieldEnum = {
   id: 'id',
-  label: 'label',
+  assistantId: 'assistantId',
+  title: 'title',
   url: 'url',
-  assistantId: 'assistantId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeadScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  businessId: 'businessId',
+  phoneNumber: 'phoneNumber',
+  intent: 'intent'
 };
 
 exports.Prisma.CallScalarFieldEnum = {
   id: 'id',
   vapiCallId: 'vapiCallId',
+  leadId: 'leadId',
   assistantId: 'assistantId',
-  customerNumber: 'customerNumber',
-  summary: 'summary',
   transcript: 'transcript',
+  summary: 'summary',
   recordingUrl: 'recordingUrl',
-  intent: 'intent',
   status: 'status',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  customerNumber: 'customerNumber',
+  intent: 'intent'
 };
 
-exports.Prisma.LeadScalarFieldEnum = {
+exports.Prisma.BusinessContextScalarFieldEnum = {
   id: 'id',
-  businessId: 'businessId',
-  name: 'name',
-  phoneNumber: 'phoneNumber',
-  email: 'email',
-  intent: 'intent',
-  status: 'status',
-  lastContacted: 'lastContacted',
-  createdAt: 'createdAt'
+  assistantId: 'assistantId',
+  content: 'content',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -240,18 +286,31 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+exports.SubscriptionTier = exports.$Enums.SubscriptionTier = {
+  STARTER: 'STARTER',
+  PRO: 'PRO',
+  ENTERPRISE: 'ENTERPRISE'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
+  Notification: 'Notification',
   Account: 'Account',
   Verification: 'Verification',
+  Transaction: 'Transaction',
   BusinessAssistant: 'BusinessAssistant',
   FAQ: 'FAQ',
   Product: 'Product',
   ResourceLink: 'ResourceLink',
+  Lead: 'Lead',
   Call: 'Call',
-  Lead: 'Lead'
+  BusinessContext: 'BusinessContext'
 };
 
 /**

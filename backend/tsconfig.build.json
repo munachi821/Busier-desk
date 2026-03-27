@@ -3,7 +3,16 @@
   "compilerOptions": {
     "incremental": false,
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "declaration": false,      // <--- THIS IS THE FIX
+    "declarationMap": false,   // Disable this too just in case
+    "skipLibCheck": true       // Ensures it ignores errors in generated types
   },
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+  "exclude": [
+    "node_modules", 
+    "test", 
+    "dist", 
+    "**/*spec.ts",
+    "src/generated"            // <--- ADD THIS TO IGNORE DURING BUILD
+  ]
 }

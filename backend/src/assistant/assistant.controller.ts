@@ -3,7 +3,7 @@ import { AssistantService } from './assistant.service';
 import { SessionGuard } from '../auth/session.guard';
 import { User } from '../auth/user.decorator';
 
-@Controller('assistant')
+@Controller('api/assistant')
 @UseGuards(SessionGuard)
 export class AssistantController {
   constructor(private readonly assistantService: AssistantService) {}
@@ -15,6 +15,11 @@ export class AssistantController {
 
   @Get()
   async getAssistant(@User() user: any) {
+    return this.assistantService.findByUserId(user.id);
+  }
+
+  @Get('profile')
+  async getProfile(@User() user: any) {
     return this.assistantService.findByUserId(user.id);
   }
 

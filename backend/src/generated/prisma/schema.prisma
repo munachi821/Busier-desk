@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -13,36 +8,59 @@ datasource db {
 }
 
 model User {
-  id                String             @id @default(cuid())
-  name              String?
+  id                String             @id
+  name              String
   email             String             @unique
-  emailVerified     Boolean            @default(false)
+  emailVerified     Boolean
   image             String?
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
-  sessions          Session[]
+  phoneNumber       String?
+  createdAt         DateTime
+  updatedAt         DateTime
   accounts          Account[]
   businessAssistant BusinessAssistant?
+  leads             Lead[]
+  transactions      Transaction[]
+  notifications     Notification[]
+  sessions          Session[]
+
+  @@map("user")
 }
 
 model Session {
-  id        String   @id @default(cuid())
+  id        String   @id
   expiresAt DateTime
   token     String   @unique
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime
+  updatedAt DateTime
   ipAddress String?
   userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  read      Boolean  @default(false)
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+  @@map("notification")
 }
 
 model Account {
-  id                    String    @id @default(cuid())
+  id                    String    @id
   accountId             String
   providerId            String
   userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   accessToken           String?
   refreshToken          String?
   idToken               String?
@@ -50,83 +68,144 @@ model Account {
   refreshTokenExpiresAt DateTime?
   scope                 String?
   password              String?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  createdAt             DateTime
+  updatedAt             DateTime
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
 }
 
 model Verification {
-  id         String   @id @default(cuid())
+  id         String    @id
   identifier String
   value      String
   expiresAt  DateTime
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+enum SubscriptionTier {
+  STARTER
+  PRO
+  ENTERPRISE
+}
+
+model Transaction {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Float
+  reference String           @unique
+  status    String           @default("PENDING") // PENDING, SUCCESS, FAILED
+  tier      SubscriptionTier
+  createdAt DateTime         @default(now())
+
+  @@map("transaction")
 }
 
 model BusinessAssistant {
-  id              String         @id @default(cuid())
-  userId          String         @unique
-  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  vapiAssistantId String?        @unique
-  name            String
-  firstMessage    String?
-  systemPrompt    String?
-  faqs            FAQ[]
-  products        Product[]
-  resourceLinks   ResourceLink[]
-  calls           Call[]
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
+  id                    String            @id @default(cuid())
+  userId                String            @unique
+  name                  String
+  firstMessage          String?
+  phoneNumber           String?
+  isSubscribed          Boolean           @default(false)
+  subscriptionTier      SubscriptionTier?
+  subscriptionExpiresAt DateTime?
+  systemPrompt          String?
+  vapiAssistantId       String?           @unique
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  user                  User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calls                 Call[]
+  faqs                  FAQ[]
+  products              Product[]
+  resourceLinks         ResourceLink[]
+  context               BusinessContext?
+
+  @@map("business_assistant")
 }
 
 model FAQ {
   id          String            @id @default(cuid())
+  assistantId String
   question    String
   answer      String
-  assistantId String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
   assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("faq")
 }
 
 model Product {
   id          String            @id @default(cuid())
-  name        String
-  price       Float?
-  description String?
-  mediaLink   String?
   assistantId String
+  name        String
+  description String?
+  price       Float?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
   assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("product")
 }
 
 model ResourceLink {
   id          String            @id @default(cuid())
-  label       String
-  url         String
   assistantId String
+  title       String
+  url         String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
   assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("resource_link")
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+  name        String?
+  email       String?
+  summary     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  businessId  String
+  phoneNumber String
+  intent      String?
+  calls       Call[]
+  user        User     @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@map("lead")
 }
 
 model Call {
   id             String            @id @default(cuid())
   vapiCallId     String            @unique
+  leadId         String
   assistantId    String
-  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
-  customerNumber String
-  summary        String?           @db.Text
-  transcript     String?           @db.Text
+  transcript     String?
+  summary        String?
   recordingUrl   String?
-  intent         String?
-  status         String            @default("completed")
+  status         String
   createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  customerNumber String?
+  intent         String?
+  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id])
+  lead           Lead              @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@map("call")
 }
 
-model Lead {
-  id            String   @id @default(cuid())
-  businessId    String
-  name          String?
-  phoneNumber   String
-  email         String?
-  intent        String?
-  status        String   @default("new")
-  lastContacted DateTime @default(now())
-  createdAt     DateTime @default(now())
+model BusinessContext {
+  id          String            @id @default(cuid())
+  assistantId String            @unique
+  content     String // This stores the bulk knowledge/training data
+  updatedAt   DateTime          @updatedAt
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+
+  @@map("business_context")
 }
