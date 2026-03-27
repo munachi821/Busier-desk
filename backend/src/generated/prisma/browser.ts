@@ -28,6 +28,11 @@ export type User = Prisma.UserModel
  */
 export type Session = Prisma.SessionModel
 /**
+ * Model Notification
+ * 
+ */
+export type Notification = Prisma.NotificationModel
+/**
  * Model Account
  * 
  */
@@ -72,3 +77,8 @@ export type Lead = Prisma.LeadModel
  * 
  */
 export type Call = Prisma.CallModel
+/**
+ * Model BusinessContext
+ * 
+ */
+export type BusinessContext = Prisma.BusinessContextModel
