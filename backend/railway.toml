@@ -1,8 +1,5 @@
 [build]
-buildCommand = "npm run build"
+buildCommand = "npm install --include=dev && npm run build"
 
 [deploy]
-startCommand = "npm run migrate:deploy && npm run start:prod"
-healthcheckPath = "/"
-healthcheckTimeout = 60
-restartPolicyType = "on_failure"
+startCommand = "npx prisma migrate deploy && node dist/main"
