@@ -27,7 +27,14 @@ export class AssistantService {
   async findByUserId(userId: string) {
     return this.prisma.businessAssistant.findUnique({
       where: { userId },
-      include: { faqs: true, products: true, resourceLinks: true },
+      include: { 
+        faqs: true, 
+        products: true, 
+        resourceLinks: true,
+        user: {
+          include: { transactions: { orderBy: { createdAt: 'desc' }, take: 10 } }
+        }
+      },
     });
   }
 

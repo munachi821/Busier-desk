@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import logo from "/images/BusierDesk_logo.png";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../lib/api";
 import CallLogs from "./CallLogs";
 import AgentConfiguration from "./AgentConfiguration";
 import WalletBilling from "./WalletBilling";
@@ -41,9 +43,20 @@ const DashboardLayout = () => {
     }
   };
 
-  const agentNumber = "+2348031234567";
+  const { data: assistant } = useQuery({
+    queryKey: ["assistant"],
+    queryFn: async () => {
+      const res = await api.get("/assistant/profile");
+      return res.data;
+    },
+  });
+
+  const agentNumber = assistant?.phoneNumber;
+  const isSubscribed = assistant?.isSubscribed;
+
   const handleCopy = async () => {
     try {
+      if (!agentNumber) return;
       await navigator.clipboard.writeText(agentNumber);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -173,22 +186,33 @@ const DashboardLayout = () => {
               )}
             </div>
 
-            <div className="font-inter text-white font-semibold text-[11px] sm:text-sm bg-[#252626] border border-[#4848481A] px-3 py-2 flex items-center rounded-sm w-fit shrink-0">
-              <span className="text-[#ACABAA] font-manrope font-normal hidden sm:inline">
-                AGENT NUMBER:
-              </span>
-              {"  "}
-              <p className="ml-2.5">+2348031234567</p>
-              <button
-                onClick={handleCopy}
-                className={`ml-3 transition-all duration-200 ${
-                  copied
-                    ? "text-[#008F5A] bg-green-900/20"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800"
-                }`}
-              >
-                {copied ? <Check size={20} /> : <Copy size={20} />}
-              </button>
+            <div className="font-inter text-white font-semibold text-[11px] sm:text-sm bg-[#252626] border border-[#4848481A] px-3 py-2 flex items-center rounded-sm w-fit shrink-0 overflow-hidden">
+              {isSubscribed ? (
+                <>
+                  <span className="text-[#ACABAA] font-manrope font-normal hidden sm:inline">
+                    AGENT NUMBER:
+                  </span>
+                  {"  "}
+                  <p className="ml-2.5">{agentNumber}</p>
+                  <button
+                    onClick={handleCopy}
+                    className={`ml-3 transition-all duration-200 ${
+                      copied
+                        ? "text-[#008F5A] bg-green-900/20"
+                        : "text-gray-400 hover:text-white hover:bg-gray-800"
+                    }`}
+                  >
+                    {copied ? <Check size={20} /> : <Copy size={20} />}
+                  </button>
+                </>
+              ) : (
+                <span 
+                  onClick={() => setActiveTab("wallet-billing")}
+                  className="text-[#6BDC9F] font-manrope font-bold animate-pulse cursor-pointer tracking-wider"
+                >
+                  SUBSCRIBE TO RECEIVE CALLS WITH BUSIERDESK
+                </span>
+              )}
             </div>
 
             {/* Mobile Nav Icons & Balance */}

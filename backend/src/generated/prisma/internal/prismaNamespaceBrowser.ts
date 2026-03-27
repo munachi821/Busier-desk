@@ -56,6 +56,7 @@ export const ModelName = {
   Notification: 'Notification',
   Account: 'Account',
   Verification: 'Verification',
+  Transaction: 'Transaction',
   BusinessAssistant: 'BusinessAssistant',
   FAQ: 'FAQ',
   Product: 'Product',
@@ -155,6 +156,19 @@ export const VerificationScalarFieldEnum = {
 export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
 
 
+export const TransactionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  amount: 'amount',
+  reference: 'reference',
+  status: 'status',
+  tier: 'tier',
+  createdAt: 'createdAt'
+} as const
+
+export type TransactionScalarFieldEnum = (typeof TransactionScalarFieldEnum)[keyof typeof TransactionScalarFieldEnum]
+
+
 export const BusinessAssistantScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -162,6 +176,9 @@ export const BusinessAssistantScalarFieldEnum = {
   systemPrompt: 'systemPrompt',
   vapiAssistantId: 'vapiAssistantId',
   phoneNumber: 'phoneNumber',
+  isSubscribed: 'isSubscribed',
+  subscriptionTier: 'subscriptionTier',
+  subscriptionExpiresAt: 'subscriptionExpiresAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   firstMessage: 'firstMessage'

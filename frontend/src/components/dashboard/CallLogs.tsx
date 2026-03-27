@@ -12,6 +12,39 @@ const CallLogs = () => {
     },
   });
 
+  const { data: assistant } = useQuery({
+    queryKey: ["assistant"],
+    queryFn: async () => {
+      const res = await api.get("/assistant/profile");
+      return res.data;
+    },
+  });
+
+  const isSubscribed = assistant?.isSubscribed;
+
+  if (!isSubscribed && !isLoading) {
+    return (
+      <div className="p-6 pt-12 text-center flex flex-col items-center justify-center min-h-[60vh]">
+        <Helmet>
+          <title>Call Registry</title>
+        </Helmet>
+        <div className="p-6 bg-[#191A1A] border border-[#262626] rounded-sm max-w-md">
+          <h2 className="font-manrope font-bold text-2xl text-[#6BDC9F] mb-4 uppercase tracking-tight">
+            Oops, you're yet to subscribe
+          </h2>
+          <p className="text-[#ACABAA] font-inter text-sm leading-relaxed mb-8">
+            Join the premium community of businesses using BusierDesk to handle all their secondary customer calls on the go with state-of-the-art AI.
+          </p>
+          <button 
+            className="w-full py-4 bg-[#6BDC9F] text-[#004A2D] font-bold font-manrope rounded-sm hover:brightness-110 transition-all uppercase tracking-widest text-xs"
+          >
+            BECOME A SUBSCRIBER
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   const stats = {
     today: calls?.length || 0,
     minutes: Math.ceil((calls?.length || 0) * 5.2), // Mocked for now

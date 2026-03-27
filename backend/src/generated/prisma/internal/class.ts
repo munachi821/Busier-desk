@@ -239,6 +239,16 @@ export interface PrismaClient<
   get verification(): Prisma.VerificationDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
+   * `prisma.transaction`: Exposes CRUD operations for the **Transaction** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transactions
+    * const transactions = await prisma.transaction.findMany()
+    * ```
+    */
+  get transaction(): Prisma.TransactionDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
    * `prisma.businessAssistant`: Exposes CRUD operations for the **BusinessAssistant** model.
     * Example usage:
     * ```ts
