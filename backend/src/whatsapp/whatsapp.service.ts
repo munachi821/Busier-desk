@@ -11,7 +11,11 @@ export class WhatsAppService {
     const authToken = this.configService.get<string>('TWILIO_AUTH_TOKEN');
     
     if (accountSid && authToken) {
-      this.client = new Twilio(accountSid, authToken);
+      try {
+        this.client = new Twilio(accountSid, authToken);
+      } catch (error) {
+        console.error('[WhatsApp] Twilio initialization failed:', error.message);
+      }
     }
   }
 

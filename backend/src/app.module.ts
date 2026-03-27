@@ -10,7 +10,7 @@ import { AssistantModule } from './assistant/assistant.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
     AuthModule,
     VapiModule,
