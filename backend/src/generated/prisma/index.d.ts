@@ -24,6 +24,11 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
 /**
+ * Model Notification
+ * 
+ */
+export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
+/**
  * Model Account
  * 
  */
@@ -68,6 +73,11 @@ export type Lead = $Result.DefaultSelection<Prisma.$LeadPayload>
  * 
  */
 export type Call = $Result.DefaultSelection<Prisma.$CallPayload>
+/**
+ * Model BusinessContext
+ * 
+ */
+export type BusinessContext = $Result.DefaultSelection<Prisma.$BusinessContextPayload>
 
 /**
  * Enums
@@ -229,6 +239,16 @@ export class PrismaClient<
   get session(): Prisma.SessionDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Notifications
+    * const notifications = await prisma.notification.findMany()
+    * ```
+    */
+  get notification(): Prisma.NotificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.account`: Exposes CRUD operations for the **Account** model.
     * Example usage:
     * ```ts
@@ -317,6 +337,16 @@ export class PrismaClient<
     * ```
     */
   get call(): Prisma.CallDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.businessContext`: Exposes CRUD operations for the **BusinessContext** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BusinessContexts
+    * const businessContexts = await prisma.businessContext.findMany()
+    * ```
+    */
+  get businessContext(): Prisma.BusinessContextDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -753,6 +783,7 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Session: 'Session',
+    Notification: 'Notification',
     Account: 'Account',
     Verification: 'Verification',
     Transaction: 'Transaction',
@@ -761,7 +792,8 @@ export namespace Prisma {
     Product: 'Product',
     ResourceLink: 'ResourceLink',
     Lead: 'Lead',
-    Call: 'Call'
+    Call: 'Call',
+    BusinessContext: 'BusinessContext'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -777,7 +809,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "transaction" | "businessAssistant" | "fAQ" | "product" | "resourceLink" | "lead" | "call"
+      modelProps: "user" | "session" | "notification" | "account" | "verification" | "transaction" | "businessAssistant" | "fAQ" | "product" | "resourceLink" | "lead" | "call" | "businessContext"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -926,6 +958,80 @@ export namespace Prisma {
           count: {
             args: Prisma.SessionCountArgs<ExtArgs>
             result: $Utils.Optional<SessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Notification: {
+        payload: Prisma.$NotificationPayload<ExtArgs>
+        fields: Prisma.NotificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NotificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NotificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findFirst: {
+            args: Prisma.NotificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NotificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findMany: {
+            args: Prisma.NotificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          create: {
+            args: Prisma.NotificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          createMany: {
+            args: Prisma.NotificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NotificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          delete: {
+            args: Prisma.NotificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          update: {
+            args: Prisma.NotificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.NotificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NotificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NotificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.NotificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          aggregate: {
+            args: Prisma.NotificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNotification>
+          }
+          groupBy: {
+            args: Prisma.NotificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NotificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NotificationCountArgs<ExtArgs>
+            result: $Utils.Optional<NotificationCountAggregateOutputType> | number
           }
         }
       }
@@ -1595,6 +1701,80 @@ export namespace Prisma {
           }
         }
       }
+      BusinessContext: {
+        payload: Prisma.$BusinessContextPayload<ExtArgs>
+        fields: Prisma.BusinessContextFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BusinessContextFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BusinessContextFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          findFirst: {
+            args: Prisma.BusinessContextFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BusinessContextFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          findMany: {
+            args: Prisma.BusinessContextFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+          }
+          create: {
+            args: Prisma.BusinessContextCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          createMany: {
+            args: Prisma.BusinessContextCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BusinessContextCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+          }
+          delete: {
+            args: Prisma.BusinessContextDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          update: {
+            args: Prisma.BusinessContextUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          deleteMany: {
+            args: Prisma.BusinessContextDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BusinessContextUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BusinessContextUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>[]
+          }
+          upsert: {
+            args: Prisma.BusinessContextUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BusinessContextPayload>
+          }
+          aggregate: {
+            args: Prisma.BusinessContextAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBusinessContext>
+          }
+          groupBy: {
+            args: Prisma.BusinessContextGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BusinessContextGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BusinessContextCountArgs<ExtArgs>
+            result: $Utils.Optional<BusinessContextCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1705,6 +1885,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     session?: SessionOmit
+    notification?: NotificationOmit
     account?: AccountOmit
     verification?: VerificationOmit
     transaction?: TransactionOmit
@@ -1714,6 +1895,7 @@ export namespace Prisma {
     resourceLink?: ResourceLinkOmit
     lead?: LeadOmit
     call?: CallOmit
+    businessContext?: BusinessContextOmit
   }
 
   /* Types for Logging */
@@ -1794,17 +1976,19 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    sessions: number
     accounts: number
     leads: number
     transactions: number
+    notifications: number
+    sessions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     leads?: boolean | UserCountOutputTypeCountLeadsArgs
     transactions?: boolean | UserCountOutputTypeCountTransactionsArgs
+    notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   }
 
   // Custom InputTypes
@@ -1816,13 +2000,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the UserCountOutputType
      */
     select?: UserCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SessionWhereInput
   }
 
   /**
@@ -1846,23 +2023,37 @@ export namespace Prisma {
     where?: TransactionWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
+  }
+
 
   /**
    * Count Type BusinessAssistantCountOutputType
    */
 
   export type BusinessAssistantCountOutputType = {
+    calls: number
     faqs: number
     products: number
     resourceLinks: number
-    calls: number
   }
 
   export type BusinessAssistantCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
     faqs?: boolean | BusinessAssistantCountOutputTypeCountFaqsArgs
     products?: boolean | BusinessAssistantCountOutputTypeCountProductsArgs
     resourceLinks?: boolean | BusinessAssistantCountOutputTypeCountResourceLinksArgs
-    calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
   }
 
   // Custom InputTypes
@@ -1874,6 +2065,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the BusinessAssistantCountOutputType
      */
     select?: BusinessAssistantCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BusinessAssistantCountOutputType without action
+   */
+  export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
   }
 
   /**
@@ -1895,13 +2093,6 @@ export namespace Prisma {
    */
   export type BusinessAssistantCountOutputTypeCountResourceLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ResourceLinkWhereInput
-  }
-
-  /**
-   * BusinessAssistantCountOutputType without action
-   */
-  export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CallWhereInput
   }
 
 
@@ -1956,6 +2147,7 @@ export namespace Prisma {
     email: string | null
     emailVerified: boolean | null
     image: string | null
+    phoneNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1966,6 +2158,7 @@ export namespace Prisma {
     email: string | null
     emailVerified: boolean | null
     image: string | null
+    phoneNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1976,6 +2169,7 @@ export namespace Prisma {
     email: number
     emailVerified: number
     image: number
+    phoneNumber: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1988,6 +2182,7 @@ export namespace Prisma {
     email?: true
     emailVerified?: true
     image?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1998,6 +2193,7 @@ export namespace Prisma {
     email?: true
     emailVerified?: true
     image?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2008,6 +2204,7 @@ export namespace Prisma {
     email?: true
     emailVerified?: true
     image?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2091,6 +2288,7 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image: string | null
+    phoneNumber: string | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -2118,13 +2316,15 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     businessAssistant?: boolean | User$businessAssistantArgs<ExtArgs>
     leads?: boolean | User$leadsArgs<ExtArgs>
     transactions?: boolean | User$transactionsArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2134,6 +2334,7 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2144,6 +2345,7 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2154,17 +2356,19 @@ export namespace Prisma {
     email?: boolean
     emailVerified?: boolean
     image?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "phoneNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     businessAssistant?: boolean | User$businessAssistantArgs<ExtArgs>
     leads?: boolean | User$leadsArgs<ExtArgs>
     transactions?: boolean | User$transactionsArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2173,11 +2377,12 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       businessAssistant: Prisma.$BusinessAssistantPayload<ExtArgs> | null
       leads: Prisma.$LeadPayload<ExtArgs>[]
       transactions: Prisma.$TransactionPayload<ExtArgs>[]
+      notifications: Prisma.$NotificationPayload<ExtArgs>[]
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2185,6 +2390,7 @@ export namespace Prisma {
       email: string
       emailVerified: boolean
       image: string | null
+      phoneNumber: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2581,11 +2787,12 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     businessAssistant<T extends User$businessAssistantArgs<ExtArgs> = {}>(args?: Subset<T, User$businessAssistantArgs<ExtArgs>>): Prisma__BusinessAssistantClient<$Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     leads<T extends User$leadsArgs<ExtArgs> = {}>(args?: Subset<T, User$leadsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     transactions<T extends User$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, User$transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2620,6 +2827,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly emailVerified: FieldRef<"User", 'Boolean'>
     readonly image: FieldRef<"User", 'String'>
+    readonly phoneNumber: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -3015,30 +3223,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.sessions
-   */
-  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Session
-     */
-    select?: SessionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Session
-     */
-    omit?: SessionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SessionInclude<ExtArgs> | null
-    where?: SessionWhereInput
-    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
-    cursor?: SessionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
-  }
-
-  /**
    * User.accounts
    */
   export type User$accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3127,6 +3311,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransactionScalarFieldEnum | TransactionScalarFieldEnum[]
+  }
+
+  /**
+   * User.notifications
+   */
+  export type User$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * User.sessions
+   */
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
   }
 
   /**
@@ -4247,6 +4479,1117 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: SessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Notification
+   */
+
+  export type AggregateNotification = {
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  export type NotificationMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    type: string | null
+    title: string | null
+    body: string | null
+    read: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    type: string | null
+    title: string | null
+    body: string | null
+    read: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationCountAggregateOutputType = {
+    id: number
+    userId: number
+    type: number
+    title: number
+    body: number
+    read: number
+    metadata: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NotificationMinAggregateInputType = {
+    id?: true
+    userId?: true
+    type?: true
+    title?: true
+    body?: true
+    read?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    type?: true
+    title?: true
+    body?: true
+    read?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationCountAggregateInputType = {
+    id?: true
+    userId?: true
+    type?: true
+    title?: true
+    body?: true
+    read?: true
+    metadata?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notification to aggregate.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Notifications
+    **/
+    _count?: true | NotificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NotificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type GetNotificationAggregateType<T extends NotificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateNotification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNotification[P]>
+      : GetScalarType<T[P], AggregateNotification[P]>
+  }
+
+
+
+
+  export type NotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithAggregationInput | NotificationOrderByWithAggregationInput[]
+    by: NotificationScalarFieldEnum[] | NotificationScalarFieldEnum
+    having?: NotificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NotificationCountAggregateInputType | true
+    _min?: NotificationMinAggregateInputType
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type NotificationGroupByOutputType = {
+    id: string
+    userId: string
+    type: string
+    title: string
+    body: string
+    read: boolean
+    metadata: JsonValue | null
+    createdAt: Date
+    updatedAt: Date
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  type GetNotificationGroupByPayload<T extends NotificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NotificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NotificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+            : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    type?: boolean
+    title?: boolean
+    body?: boolean
+    read?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    type?: boolean
+    title?: boolean
+    body?: boolean
+    read?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    type?: boolean
+    title?: boolean
+    body?: boolean
+    read?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    type?: boolean
+    title?: boolean
+    body?: boolean
+    read?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "type" | "title" | "body" | "read" | "metadata" | "createdAt" | "updatedAt", ExtArgs["result"]["notification"]>
+  export type NotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Notification"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      type: string
+      title: string
+      body: string
+      read: boolean
+      metadata: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["notification"]>
+    composites: {}
+  }
+
+  type NotificationGetPayload<S extends boolean | null | undefined | NotificationDefaultArgs> = $Result.GetResult<Prisma.$NotificationPayload, S>
+
+  type NotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NotificationCountAggregateInputType | true
+    }
+
+  export interface NotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Notification'], meta: { name: 'Notification' } }
+    /**
+     * Find zero or one Notification that matches the filter.
+     * @param {NotificationFindUniqueArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NotificationFindUniqueArgs>(args: SelectSubset<T, NotificationFindUniqueArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Notification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NotificationFindUniqueOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, NotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NotificationFindFirstArgs>(args?: SelectSubset<T, NotificationFindFirstArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, NotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Notifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Notifications
+     * const notifications = await prisma.notification.findMany()
+     * 
+     * // Get first 10 Notifications
+     * const notifications = await prisma.notification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const notificationWithIdOnly = await prisma.notification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NotificationFindManyArgs>(args?: SelectSubset<T, NotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Notification.
+     * @param {NotificationCreateArgs} args - Arguments to create a Notification.
+     * @example
+     * // Create one Notification
+     * const Notification = await prisma.notification.create({
+     *   data: {
+     *     // ... data to create a Notification
+     *   }
+     * })
+     * 
+     */
+    create<T extends NotificationCreateArgs>(args: SelectSubset<T, NotificationCreateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Notifications.
+     * @param {NotificationCreateManyArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NotificationCreateManyArgs>(args?: SelectSubset<T, NotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Notifications and returns the data saved in the database.
+     * @param {NotificationCreateManyAndReturnArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Notification.
+     * @param {NotificationDeleteArgs} args - Arguments to delete one Notification.
+     * @example
+     * // Delete one Notification
+     * const Notification = await prisma.notification.delete({
+     *   where: {
+     *     // ... filter to delete one Notification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NotificationDeleteArgs>(args: SelectSubset<T, NotificationDeleteArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Notification.
+     * @param {NotificationUpdateArgs} args - Arguments to update one Notification.
+     * @example
+     * // Update one Notification
+     * const notification = await prisma.notification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NotificationUpdateArgs>(args: SelectSubset<T, NotificationUpdateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Notifications.
+     * @param {NotificationDeleteManyArgs} args - Arguments to filter Notifications to delete.
+     * @example
+     * // Delete a few Notifications
+     * const { count } = await prisma.notification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NotificationDeleteManyArgs>(args?: SelectSubset<T, NotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NotificationUpdateManyArgs>(args: SelectSubset<T, NotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications and returns the data updated in the database.
+     * @param {NotificationUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Notification.
+     * @param {NotificationUpsertArgs} args - Arguments to update or create a Notification.
+     * @example
+     * // Update or create a Notification
+     * const notification = await prisma.notification.upsert({
+     *   create: {
+     *     // ... data to create a Notification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Notification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NotificationUpsertArgs>(args: SelectSubset<T, NotificationUpsertArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationCountArgs} args - Arguments to filter Notifications to count.
+     * @example
+     * // Count the number of Notifications
+     * const count = await prisma.notification.count({
+     *   where: {
+     *     // ... the filter for the Notifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends NotificationCountArgs>(
+      args?: Subset<T, NotificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NotificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NotificationAggregateArgs>(args: Subset<T, NotificationAggregateArgs>): Prisma.PrismaPromise<GetNotificationAggregateType<T>>
+
+    /**
+     * Group by Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NotificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NotificationGroupByArgs['orderBy'] }
+        : { orderBy?: NotificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Notification model
+   */
+  readonly fields: NotificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Notification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Notification model
+   */
+  interface NotificationFieldRefs {
+    readonly id: FieldRef<"Notification", 'String'>
+    readonly userId: FieldRef<"Notification", 'String'>
+    readonly type: FieldRef<"Notification", 'String'>
+    readonly title: FieldRef<"Notification", 'String'>
+    readonly body: FieldRef<"Notification", 'String'>
+    readonly read: FieldRef<"Notification", 'Boolean'>
+    readonly metadata: FieldRef<"Notification", 'Json'>
+    readonly createdAt: FieldRef<"Notification", 'DateTime'>
+    readonly updatedAt: FieldRef<"Notification", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Notification findUnique
+   */
+  export type NotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findUniqueOrThrow
+   */
+  export type NotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findFirst
+   */
+  export type NotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findFirstOrThrow
+   */
+  export type NotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findMany
+   */
+  export type NotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notifications to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification create
+   */
+  export type NotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Notification.
+     */
+    data: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+  }
+
+  /**
+   * Notification createMany
+   */
+  export type NotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Notification createManyAndReturn
+   */
+  export type NotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification update
+   */
+  export type NotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Notification.
+     */
+    data: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+    /**
+     * Choose, which Notification to update.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification updateMany
+   */
+  export type NotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification updateManyAndReturn
+   */
+  export type NotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification upsert
+   */
+  export type NotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Notification to update in case it exists.
+     */
+    where: NotificationWhereUniqueInput
+    /**
+     * In case the Notification found by the `where` argument doesn't exist, create a new Notification with this data.
+     */
+    create: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+    /**
+     * In case the Notification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+  }
+
+  /**
+   * Notification delete
+   */
+  export type NotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter which Notification to delete.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification deleteMany
+   */
+  export type NotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notifications to delete
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification without action
+   */
+  export type NotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
   }
 
 
@@ -7567,13 +8910,13 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     name: string | null
-    systemPrompt: string | null
     firstMessage: string | null
-    vapiAssistantId: string | null
     phoneNumber: string | null
     isSubscribed: boolean | null
     subscriptionTier: $Enums.SubscriptionTier | null
     subscriptionExpiresAt: Date | null
+    systemPrompt: string | null
+    vapiAssistantId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7582,13 +8925,13 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     name: string | null
-    systemPrompt: string | null
     firstMessage: string | null
-    vapiAssistantId: string | null
     phoneNumber: string | null
     isSubscribed: boolean | null
     subscriptionTier: $Enums.SubscriptionTier | null
     subscriptionExpiresAt: Date | null
+    systemPrompt: string | null
+    vapiAssistantId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7597,13 +8940,13 @@ export namespace Prisma {
     id: number
     userId: number
     name: number
-    systemPrompt: number
     firstMessage: number
-    vapiAssistantId: number
     phoneNumber: number
     isSubscribed: number
     subscriptionTier: number
     subscriptionExpiresAt: number
+    systemPrompt: number
+    vapiAssistantId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -7614,13 +8957,13 @@ export namespace Prisma {
     id?: true
     userId?: true
     name?: true
-    systemPrompt?: true
     firstMessage?: true
-    vapiAssistantId?: true
     phoneNumber?: true
     isSubscribed?: true
     subscriptionTier?: true
     subscriptionExpiresAt?: true
+    systemPrompt?: true
+    vapiAssistantId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7629,13 +8972,13 @@ export namespace Prisma {
     id?: true
     userId?: true
     name?: true
-    systemPrompt?: true
     firstMessage?: true
-    vapiAssistantId?: true
     phoneNumber?: true
     isSubscribed?: true
     subscriptionTier?: true
     subscriptionExpiresAt?: true
+    systemPrompt?: true
+    vapiAssistantId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -7644,13 +8987,13 @@ export namespace Prisma {
     id?: true
     userId?: true
     name?: true
-    systemPrompt?: true
     firstMessage?: true
-    vapiAssistantId?: true
     phoneNumber?: true
     isSubscribed?: true
     subscriptionTier?: true
     subscriptionExpiresAt?: true
+    systemPrompt?: true
+    vapiAssistantId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -7732,13 +9075,13 @@ export namespace Prisma {
     id: string
     userId: string
     name: string
-    systemPrompt: string | null
     firstMessage: string | null
-    vapiAssistantId: string | null
     phoneNumber: string | null
     isSubscribed: boolean
     subscriptionTier: $Enums.SubscriptionTier | null
     subscriptionExpiresAt: Date | null
+    systemPrompt: string | null
+    vapiAssistantId: string | null
     createdAt: Date
     updatedAt: Date
     _count: BusinessAssistantCountAggregateOutputType | null
@@ -7764,20 +9107,21 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     name?: boolean
-    systemPrompt?: boolean
     firstMessage?: boolean
-    vapiAssistantId?: boolean
     phoneNumber?: boolean
     isSubscribed?: boolean
     subscriptionTier?: boolean
     subscriptionExpiresAt?: boolean
+    systemPrompt?: boolean
+    vapiAssistantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     faqs?: boolean | BusinessAssistant$faqsArgs<ExtArgs>
     products?: boolean | BusinessAssistant$productsArgs<ExtArgs>
     resourceLinks?: boolean | BusinessAssistant$resourceLinksArgs<ExtArgs>
-    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
+    context?: boolean | BusinessAssistant$contextArgs<ExtArgs>
     _count?: boolean | BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["businessAssistant"]>
 
@@ -7785,13 +9129,13 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     name?: boolean
-    systemPrompt?: boolean
     firstMessage?: boolean
-    vapiAssistantId?: boolean
     phoneNumber?: boolean
     isSubscribed?: boolean
     subscriptionTier?: boolean
     subscriptionExpiresAt?: boolean
+    systemPrompt?: boolean
+    vapiAssistantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -7801,13 +9145,13 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     name?: boolean
-    systemPrompt?: boolean
     firstMessage?: boolean
-    vapiAssistantId?: boolean
     phoneNumber?: boolean
     isSubscribed?: boolean
     subscriptionTier?: boolean
     subscriptionExpiresAt?: boolean
+    systemPrompt?: boolean
+    vapiAssistantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -7817,24 +9161,25 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     name?: boolean
-    systemPrompt?: boolean
     firstMessage?: boolean
-    vapiAssistantId?: boolean
     phoneNumber?: boolean
     isSubscribed?: boolean
     subscriptionTier?: boolean
     subscriptionExpiresAt?: boolean
+    systemPrompt?: boolean
+    vapiAssistantId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BusinessAssistantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "systemPrompt" | "firstMessage" | "vapiAssistantId" | "phoneNumber" | "isSubscribed" | "subscriptionTier" | "subscriptionExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
+  export type BusinessAssistantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "firstMessage" | "phoneNumber" | "isSubscribed" | "subscriptionTier" | "subscriptionExpiresAt" | "systemPrompt" | "vapiAssistantId" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
   export type BusinessAssistantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     faqs?: boolean | BusinessAssistant$faqsArgs<ExtArgs>
     products?: boolean | BusinessAssistant$productsArgs<ExtArgs>
     resourceLinks?: boolean | BusinessAssistant$resourceLinksArgs<ExtArgs>
-    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
+    context?: boolean | BusinessAssistant$contextArgs<ExtArgs>
     _count?: boolean | BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type BusinessAssistantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7848,22 +9193,23 @@ export namespace Prisma {
     name: "BusinessAssistant"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
+      calls: Prisma.$CallPayload<ExtArgs>[]
       faqs: Prisma.$FAQPayload<ExtArgs>[]
       products: Prisma.$ProductPayload<ExtArgs>[]
       resourceLinks: Prisma.$ResourceLinkPayload<ExtArgs>[]
-      calls: Prisma.$CallPayload<ExtArgs>[]
+      context: Prisma.$BusinessContextPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
       name: string
-      systemPrompt: string | null
       firstMessage: string | null
-      vapiAssistantId: string | null
       phoneNumber: string | null
       isSubscribed: boolean
       subscriptionTier: $Enums.SubscriptionTier | null
       subscriptionExpiresAt: Date | null
+      systemPrompt: string | null
+      vapiAssistantId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["businessAssistant"]>
@@ -8261,10 +9607,11 @@ export namespace Prisma {
   export interface Prisma__BusinessAssistantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    calls<T extends BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     faqs<T extends BusinessAssistant$faqsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     products<T extends BusinessAssistant$productsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     resourceLinks<T extends BusinessAssistant$resourceLinksArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$resourceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    calls<T extends BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    context<T extends BusinessAssistant$contextArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$contextArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8297,13 +9644,13 @@ export namespace Prisma {
     readonly id: FieldRef<"BusinessAssistant", 'String'>
     readonly userId: FieldRef<"BusinessAssistant", 'String'>
     readonly name: FieldRef<"BusinessAssistant", 'String'>
-    readonly systemPrompt: FieldRef<"BusinessAssistant", 'String'>
     readonly firstMessage: FieldRef<"BusinessAssistant", 'String'>
-    readonly vapiAssistantId: FieldRef<"BusinessAssistant", 'String'>
     readonly phoneNumber: FieldRef<"BusinessAssistant", 'String'>
     readonly isSubscribed: FieldRef<"BusinessAssistant", 'Boolean'>
     readonly subscriptionTier: FieldRef<"BusinessAssistant", 'SubscriptionTier'>
     readonly subscriptionExpiresAt: FieldRef<"BusinessAssistant", 'DateTime'>
+    readonly systemPrompt: FieldRef<"BusinessAssistant", 'String'>
+    readonly vapiAssistantId: FieldRef<"BusinessAssistant", 'String'>
     readonly createdAt: FieldRef<"BusinessAssistant", 'DateTime'>
     readonly updatedAt: FieldRef<"BusinessAssistant", 'DateTime'>
   }
@@ -8707,6 +10054,30 @@ export namespace Prisma {
   }
 
   /**
+   * BusinessAssistant.calls
+   */
+  export type BusinessAssistant$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
    * BusinessAssistant.faqs
    */
   export type BusinessAssistant$faqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8779,27 +10150,22 @@ export namespace Prisma {
   }
 
   /**
-   * BusinessAssistant.calls
+   * BusinessAssistant.context
    */
-  export type BusinessAssistant$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BusinessAssistant$contextArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Call
+     * Select specific fields to fetch from the BusinessContext
      */
-    select?: CallSelect<ExtArgs> | null
+    select?: BusinessContextSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Call
+     * Omit specific fields from the BusinessContext
      */
-    omit?: CallOmit<ExtArgs> | null
+    omit?: BusinessContextOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CallInclude<ExtArgs> | null
-    where?: CallWhereInput
-    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
-    cursor?: CallWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+    include?: BusinessContextInclude<ExtArgs> | null
+    where?: BusinessContextWhereInput
   }
 
   /**
@@ -12108,76 +13474,76 @@ export namespace Prisma {
 
   export type LeadMinAggregateOutputType = {
     id: string | null
-    businessId: string | null
     name: string | null
-    phoneNumber: string | null
-    intent: string | null
     email: string | null
     summary: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    businessId: string | null
+    phoneNumber: string | null
+    intent: string | null
   }
 
   export type LeadMaxAggregateOutputType = {
     id: string | null
-    businessId: string | null
     name: string | null
-    phoneNumber: string | null
-    intent: string | null
     email: string | null
     summary: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    businessId: string | null
+    phoneNumber: string | null
+    intent: string | null
   }
 
   export type LeadCountAggregateOutputType = {
     id: number
-    businessId: number
     name: number
-    phoneNumber: number
-    intent: number
     email: number
     summary: number
     createdAt: number
     updatedAt: number
+    businessId: number
+    phoneNumber: number
+    intent: number
     _all: number
   }
 
 
   export type LeadMinAggregateInputType = {
     id?: true
-    businessId?: true
     name?: true
-    phoneNumber?: true
-    intent?: true
     email?: true
     summary?: true
     createdAt?: true
     updatedAt?: true
+    businessId?: true
+    phoneNumber?: true
+    intent?: true
   }
 
   export type LeadMaxAggregateInputType = {
     id?: true
-    businessId?: true
     name?: true
-    phoneNumber?: true
-    intent?: true
     email?: true
     summary?: true
     createdAt?: true
     updatedAt?: true
+    businessId?: true
+    phoneNumber?: true
+    intent?: true
   }
 
   export type LeadCountAggregateInputType = {
     id?: true
-    businessId?: true
     name?: true
-    phoneNumber?: true
-    intent?: true
     email?: true
     summary?: true
     createdAt?: true
     updatedAt?: true
+    businessId?: true
+    phoneNumber?: true
+    intent?: true
     _all?: true
   }
 
@@ -12255,14 +13621,14 @@ export namespace Prisma {
 
   export type LeadGroupByOutputType = {
     id: string
-    businessId: string
     name: string | null
-    phoneNumber: string
-    intent: string | null
     email: string | null
     summary: string | null
     createdAt: Date
     updatedAt: Date
+    businessId: string
+    phoneNumber: string
+    intent: string | null
     _count: LeadCountAggregateOutputType | null
     _min: LeadMinAggregateOutputType | null
     _max: LeadMaxAggregateOutputType | null
@@ -12284,61 +13650,61 @@ export namespace Prisma {
 
   export type LeadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    businessId?: boolean
     name?: boolean
-    phoneNumber?: boolean
-    intent?: boolean
     email?: boolean
     summary?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    businessId?: boolean
+    phoneNumber?: boolean
+    intent?: boolean
     calls?: boolean | Lead$callsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | LeadCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lead"]>
 
   export type LeadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    businessId?: boolean
     name?: boolean
-    phoneNumber?: boolean
-    intent?: boolean
     email?: boolean
     summary?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    businessId?: boolean
+    phoneNumber?: boolean
+    intent?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lead"]>
 
   export type LeadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    businessId?: boolean
     name?: boolean
-    phoneNumber?: boolean
-    intent?: boolean
     email?: boolean
     summary?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    businessId?: boolean
+    phoneNumber?: boolean
+    intent?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["lead"]>
 
   export type LeadSelectScalar = {
     id?: boolean
-    businessId?: boolean
     name?: boolean
-    phoneNumber?: boolean
-    intent?: boolean
     email?: boolean
     summary?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    businessId?: boolean
+    phoneNumber?: boolean
+    intent?: boolean
   }
 
-  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "businessId" | "name" | "phoneNumber" | "intent" | "email" | "summary" | "createdAt" | "updatedAt", ExtArgs["result"]["lead"]>
+  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "summary" | "createdAt" | "updatedAt" | "businessId" | "phoneNumber" | "intent", ExtArgs["result"]["lead"]>
   export type LeadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     calls?: boolean | Lead$callsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | LeadCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LeadIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12351,19 +13717,19 @@ export namespace Prisma {
   export type $LeadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Lead"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       calls: Prisma.$CallPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      businessId: string
       name: string | null
-      phoneNumber: string
-      intent: string | null
       email: string | null
       summary: string | null
       createdAt: Date
       updatedAt: Date
+      businessId: string
+      phoneNumber: string
+      intent: string | null
     }, ExtArgs["result"]["lead"]>
     composites: {}
   }
@@ -12758,8 +14124,8 @@ export namespace Prisma {
    */
   export interface Prisma__LeadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     calls<T extends Lead$callsArgs<ExtArgs> = {}>(args?: Subset<T, Lead$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12790,14 +14156,14 @@ export namespace Prisma {
    */
   interface LeadFieldRefs {
     readonly id: FieldRef<"Lead", 'String'>
-    readonly businessId: FieldRef<"Lead", 'String'>
     readonly name: FieldRef<"Lead", 'String'>
-    readonly phoneNumber: FieldRef<"Lead", 'String'>
-    readonly intent: FieldRef<"Lead", 'String'>
     readonly email: FieldRef<"Lead", 'String'>
     readonly summary: FieldRef<"Lead", 'String'>
     readonly createdAt: FieldRef<"Lead", 'DateTime'>
     readonly updatedAt: FieldRef<"Lead", 'DateTime'>
+    readonly businessId: FieldRef<"Lead", 'String'>
+    readonly phoneNumber: FieldRef<"Lead", 'String'>
+    readonly intent: FieldRef<"Lead", 'String'>
   }
     
 
@@ -13256,14 +14622,14 @@ export namespace Prisma {
     vapiCallId: string | null
     leadId: string | null
     assistantId: string | null
-    customerNumber: string | null
-    intent: string | null
     transcript: string | null
     summary: string | null
     recordingUrl: string | null
     status: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    customerNumber: string | null
+    intent: string | null
   }
 
   export type CallMaxAggregateOutputType = {
@@ -13271,14 +14637,14 @@ export namespace Prisma {
     vapiCallId: string | null
     leadId: string | null
     assistantId: string | null
-    customerNumber: string | null
-    intent: string | null
     transcript: string | null
     summary: string | null
     recordingUrl: string | null
     status: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    customerNumber: string | null
+    intent: string | null
   }
 
   export type CallCountAggregateOutputType = {
@@ -13286,14 +14652,14 @@ export namespace Prisma {
     vapiCallId: number
     leadId: number
     assistantId: number
-    customerNumber: number
-    intent: number
     transcript: number
     summary: number
     recordingUrl: number
     status: number
     createdAt: number
     updatedAt: number
+    customerNumber: number
+    intent: number
     _all: number
   }
 
@@ -13303,14 +14669,14 @@ export namespace Prisma {
     vapiCallId?: true
     leadId?: true
     assistantId?: true
-    customerNumber?: true
-    intent?: true
     transcript?: true
     summary?: true
     recordingUrl?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    customerNumber?: true
+    intent?: true
   }
 
   export type CallMaxAggregateInputType = {
@@ -13318,14 +14684,14 @@ export namespace Prisma {
     vapiCallId?: true
     leadId?: true
     assistantId?: true
-    customerNumber?: true
-    intent?: true
     transcript?: true
     summary?: true
     recordingUrl?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    customerNumber?: true
+    intent?: true
   }
 
   export type CallCountAggregateInputType = {
@@ -13333,14 +14699,14 @@ export namespace Prisma {
     vapiCallId?: true
     leadId?: true
     assistantId?: true
-    customerNumber?: true
-    intent?: true
     transcript?: true
     summary?: true
     recordingUrl?: true
     status?: true
     createdAt?: true
     updatedAt?: true
+    customerNumber?: true
+    intent?: true
     _all?: true
   }
 
@@ -13421,14 +14787,14 @@ export namespace Prisma {
     vapiCallId: string
     leadId: string
     assistantId: string
-    customerNumber: string | null
-    intent: string | null
     transcript: string | null
     summary: string | null
     recordingUrl: string | null
     status: string
     createdAt: Date
     updatedAt: Date
+    customerNumber: string | null
+    intent: string | null
     _count: CallCountAggregateOutputType | null
     _min: CallMinAggregateOutputType | null
     _max: CallMaxAggregateOutputType | null
@@ -13453,16 +14819,16 @@ export namespace Prisma {
     vapiCallId?: boolean
     leadId?: boolean
     assistantId?: boolean
-    customerNumber?: boolean
-    intent?: boolean
     transcript?: boolean
     summary?: boolean
     recordingUrl?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
+    customerNumber?: boolean
+    intent?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
   export type CallSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -13470,16 +14836,16 @@ export namespace Prisma {
     vapiCallId?: boolean
     leadId?: boolean
     assistantId?: boolean
-    customerNumber?: boolean
-    intent?: boolean
     transcript?: boolean
     summary?: boolean
     recordingUrl?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
+    customerNumber?: boolean
+    intent?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
   export type CallSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -13487,16 +14853,16 @@ export namespace Prisma {
     vapiCallId?: boolean
     leadId?: boolean
     assistantId?: boolean
-    customerNumber?: boolean
-    intent?: boolean
     transcript?: boolean
     summary?: boolean
     recordingUrl?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
+    customerNumber?: boolean
+    intent?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
   export type CallSelectScalar = {
@@ -13504,49 +14870,49 @@ export namespace Prisma {
     vapiCallId?: boolean
     leadId?: boolean
     assistantId?: boolean
-    customerNumber?: boolean
-    intent?: boolean
     transcript?: boolean
     summary?: boolean
     recordingUrl?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    customerNumber?: boolean
+    intent?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "vapiCallId" | "leadId" | "assistantId" | "customerNumber" | "intent" | "transcript" | "summary" | "recordingUrl" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "vapiCallId" | "leadId" | "assistantId" | "transcript" | "summary" | "recordingUrl" | "status" | "createdAt" | "updatedAt" | "customerNumber" | "intent", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }
   export type CallIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }
   export type CallIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    lead?: boolean | LeadDefaultArgs<ExtArgs>
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+    lead?: boolean | LeadDefaultArgs<ExtArgs>
   }
 
   export type $CallPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Call"
     objects: {
-      lead: Prisma.$LeadPayload<ExtArgs>
       assistant: Prisma.$BusinessAssistantPayload<ExtArgs>
+      lead: Prisma.$LeadPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       vapiCallId: string
       leadId: string
       assistantId: string
-      customerNumber: string | null
-      intent: string | null
       transcript: string | null
       summary: string | null
       recordingUrl: string | null
       status: string
       createdAt: Date
       updatedAt: Date
+      customerNumber: string | null
+      intent: string | null
     }, ExtArgs["result"]["call"]>
     composites: {}
   }
@@ -13941,8 +15307,8 @@ export namespace Prisma {
    */
   export interface Prisma__CallClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    lead<T extends LeadDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeadDefaultArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     assistant<T extends BusinessAssistantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistantDefaultArgs<ExtArgs>>): Prisma__BusinessAssistantClient<$Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    lead<T extends LeadDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeadDefaultArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13976,14 +15342,14 @@ export namespace Prisma {
     readonly vapiCallId: FieldRef<"Call", 'String'>
     readonly leadId: FieldRef<"Call", 'String'>
     readonly assistantId: FieldRef<"Call", 'String'>
-    readonly customerNumber: FieldRef<"Call", 'String'>
-    readonly intent: FieldRef<"Call", 'String'>
     readonly transcript: FieldRef<"Call", 'String'>
     readonly summary: FieldRef<"Call", 'String'>
     readonly recordingUrl: FieldRef<"Call", 'String'>
     readonly status: FieldRef<"Call", 'String'>
     readonly createdAt: FieldRef<"Call", 'DateTime'>
     readonly updatedAt: FieldRef<"Call", 'DateTime'>
+    readonly customerNumber: FieldRef<"Call", 'String'>
+    readonly intent: FieldRef<"Call", 'String'>
   }
     
 
@@ -14404,6 +15770,1056 @@ export namespace Prisma {
 
 
   /**
+   * Model BusinessContext
+   */
+
+  export type AggregateBusinessContext = {
+    _count: BusinessContextCountAggregateOutputType | null
+    _min: BusinessContextMinAggregateOutputType | null
+    _max: BusinessContextMaxAggregateOutputType | null
+  }
+
+  export type BusinessContextMinAggregateOutputType = {
+    id: string | null
+    assistantId: string | null
+    content: string | null
+    updatedAt: Date | null
+  }
+
+  export type BusinessContextMaxAggregateOutputType = {
+    id: string | null
+    assistantId: string | null
+    content: string | null
+    updatedAt: Date | null
+  }
+
+  export type BusinessContextCountAggregateOutputType = {
+    id: number
+    assistantId: number
+    content: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BusinessContextMinAggregateInputType = {
+    id?: true
+    assistantId?: true
+    content?: true
+    updatedAt?: true
+  }
+
+  export type BusinessContextMaxAggregateInputType = {
+    id?: true
+    assistantId?: true
+    content?: true
+    updatedAt?: true
+  }
+
+  export type BusinessContextCountAggregateInputType = {
+    id?: true
+    assistantId?: true
+    content?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BusinessContextAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BusinessContext to aggregate.
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BusinessContexts to fetch.
+     */
+    orderBy?: BusinessContextOrderByWithRelationInput | BusinessContextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BusinessContextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BusinessContexts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BusinessContexts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BusinessContexts
+    **/
+    _count?: true | BusinessContextCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BusinessContextMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BusinessContextMaxAggregateInputType
+  }
+
+  export type GetBusinessContextAggregateType<T extends BusinessContextAggregateArgs> = {
+        [P in keyof T & keyof AggregateBusinessContext]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBusinessContext[P]>
+      : GetScalarType<T[P], AggregateBusinessContext[P]>
+  }
+
+
+
+
+  export type BusinessContextGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BusinessContextWhereInput
+    orderBy?: BusinessContextOrderByWithAggregationInput | BusinessContextOrderByWithAggregationInput[]
+    by: BusinessContextScalarFieldEnum[] | BusinessContextScalarFieldEnum
+    having?: BusinessContextScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BusinessContextCountAggregateInputType | true
+    _min?: BusinessContextMinAggregateInputType
+    _max?: BusinessContextMaxAggregateInputType
+  }
+
+  export type BusinessContextGroupByOutputType = {
+    id: string
+    assistantId: string
+    content: string
+    updatedAt: Date
+    _count: BusinessContextCountAggregateOutputType | null
+    _min: BusinessContextMinAggregateOutputType | null
+    _max: BusinessContextMaxAggregateOutputType | null
+  }
+
+  type GetBusinessContextGroupByPayload<T extends BusinessContextGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BusinessContextGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BusinessContextGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BusinessContextGroupByOutputType[P]>
+            : GetScalarType<T[P], BusinessContextGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BusinessContextSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    assistantId?: boolean
+    content?: boolean
+    updatedAt?: boolean
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["businessContext"]>
+
+  export type BusinessContextSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    assistantId?: boolean
+    content?: boolean
+    updatedAt?: boolean
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["businessContext"]>
+
+  export type BusinessContextSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    assistantId?: boolean
+    content?: boolean
+    updatedAt?: boolean
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["businessContext"]>
+
+  export type BusinessContextSelectScalar = {
+    id?: boolean
+    assistantId?: boolean
+    content?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BusinessContextOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assistantId" | "content" | "updatedAt", ExtArgs["result"]["businessContext"]>
+  export type BusinessContextInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }
+  export type BusinessContextIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }
+  export type BusinessContextIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
+  }
+
+  export type $BusinessContextPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BusinessContext"
+    objects: {
+      assistant: Prisma.$BusinessAssistantPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      assistantId: string
+      content: string
+      updatedAt: Date
+    }, ExtArgs["result"]["businessContext"]>
+    composites: {}
+  }
+
+  type BusinessContextGetPayload<S extends boolean | null | undefined | BusinessContextDefaultArgs> = $Result.GetResult<Prisma.$BusinessContextPayload, S>
+
+  type BusinessContextCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BusinessContextFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BusinessContextCountAggregateInputType | true
+    }
+
+  export interface BusinessContextDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BusinessContext'], meta: { name: 'BusinessContext' } }
+    /**
+     * Find zero or one BusinessContext that matches the filter.
+     * @param {BusinessContextFindUniqueArgs} args - Arguments to find a BusinessContext
+     * @example
+     * // Get one BusinessContext
+     * const businessContext = await prisma.businessContext.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BusinessContextFindUniqueArgs>(args: SelectSubset<T, BusinessContextFindUniqueArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BusinessContext that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BusinessContextFindUniqueOrThrowArgs} args - Arguments to find a BusinessContext
+     * @example
+     * // Get one BusinessContext
+     * const businessContext = await prisma.businessContext.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BusinessContextFindUniqueOrThrowArgs>(args: SelectSubset<T, BusinessContextFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BusinessContext that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextFindFirstArgs} args - Arguments to find a BusinessContext
+     * @example
+     * // Get one BusinessContext
+     * const businessContext = await prisma.businessContext.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BusinessContextFindFirstArgs>(args?: SelectSubset<T, BusinessContextFindFirstArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BusinessContext that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextFindFirstOrThrowArgs} args - Arguments to find a BusinessContext
+     * @example
+     * // Get one BusinessContext
+     * const businessContext = await prisma.businessContext.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BusinessContextFindFirstOrThrowArgs>(args?: SelectSubset<T, BusinessContextFindFirstOrThrowArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BusinessContexts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BusinessContexts
+     * const businessContexts = await prisma.businessContext.findMany()
+     * 
+     * // Get first 10 BusinessContexts
+     * const businessContexts = await prisma.businessContext.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const businessContextWithIdOnly = await prisma.businessContext.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BusinessContextFindManyArgs>(args?: SelectSubset<T, BusinessContextFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BusinessContext.
+     * @param {BusinessContextCreateArgs} args - Arguments to create a BusinessContext.
+     * @example
+     * // Create one BusinessContext
+     * const BusinessContext = await prisma.businessContext.create({
+     *   data: {
+     *     // ... data to create a BusinessContext
+     *   }
+     * })
+     * 
+     */
+    create<T extends BusinessContextCreateArgs>(args: SelectSubset<T, BusinessContextCreateArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BusinessContexts.
+     * @param {BusinessContextCreateManyArgs} args - Arguments to create many BusinessContexts.
+     * @example
+     * // Create many BusinessContexts
+     * const businessContext = await prisma.businessContext.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BusinessContextCreateManyArgs>(args?: SelectSubset<T, BusinessContextCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BusinessContexts and returns the data saved in the database.
+     * @param {BusinessContextCreateManyAndReturnArgs} args - Arguments to create many BusinessContexts.
+     * @example
+     * // Create many BusinessContexts
+     * const businessContext = await prisma.businessContext.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BusinessContexts and only return the `id`
+     * const businessContextWithIdOnly = await prisma.businessContext.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BusinessContextCreateManyAndReturnArgs>(args?: SelectSubset<T, BusinessContextCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BusinessContext.
+     * @param {BusinessContextDeleteArgs} args - Arguments to delete one BusinessContext.
+     * @example
+     * // Delete one BusinessContext
+     * const BusinessContext = await prisma.businessContext.delete({
+     *   where: {
+     *     // ... filter to delete one BusinessContext
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BusinessContextDeleteArgs>(args: SelectSubset<T, BusinessContextDeleteArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BusinessContext.
+     * @param {BusinessContextUpdateArgs} args - Arguments to update one BusinessContext.
+     * @example
+     * // Update one BusinessContext
+     * const businessContext = await prisma.businessContext.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BusinessContextUpdateArgs>(args: SelectSubset<T, BusinessContextUpdateArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BusinessContexts.
+     * @param {BusinessContextDeleteManyArgs} args - Arguments to filter BusinessContexts to delete.
+     * @example
+     * // Delete a few BusinessContexts
+     * const { count } = await prisma.businessContext.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BusinessContextDeleteManyArgs>(args?: SelectSubset<T, BusinessContextDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BusinessContexts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BusinessContexts
+     * const businessContext = await prisma.businessContext.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BusinessContextUpdateManyArgs>(args: SelectSubset<T, BusinessContextUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BusinessContexts and returns the data updated in the database.
+     * @param {BusinessContextUpdateManyAndReturnArgs} args - Arguments to update many BusinessContexts.
+     * @example
+     * // Update many BusinessContexts
+     * const businessContext = await prisma.businessContext.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BusinessContexts and only return the `id`
+     * const businessContextWithIdOnly = await prisma.businessContext.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BusinessContextUpdateManyAndReturnArgs>(args: SelectSubset<T, BusinessContextUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BusinessContext.
+     * @param {BusinessContextUpsertArgs} args - Arguments to update or create a BusinessContext.
+     * @example
+     * // Update or create a BusinessContext
+     * const businessContext = await prisma.businessContext.upsert({
+     *   create: {
+     *     // ... data to create a BusinessContext
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BusinessContext we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BusinessContextUpsertArgs>(args: SelectSubset<T, BusinessContextUpsertArgs<ExtArgs>>): Prisma__BusinessContextClient<$Result.GetResult<Prisma.$BusinessContextPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BusinessContexts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextCountArgs} args - Arguments to filter BusinessContexts to count.
+     * @example
+     * // Count the number of BusinessContexts
+     * const count = await prisma.businessContext.count({
+     *   where: {
+     *     // ... the filter for the BusinessContexts we want to count
+     *   }
+     * })
+    **/
+    count<T extends BusinessContextCountArgs>(
+      args?: Subset<T, BusinessContextCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BusinessContextCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BusinessContext.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BusinessContextAggregateArgs>(args: Subset<T, BusinessContextAggregateArgs>): Prisma.PrismaPromise<GetBusinessContextAggregateType<T>>
+
+    /**
+     * Group by BusinessContext.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BusinessContextGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BusinessContextGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BusinessContextGroupByArgs['orderBy'] }
+        : { orderBy?: BusinessContextGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BusinessContextGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBusinessContextGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BusinessContext model
+   */
+  readonly fields: BusinessContextFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BusinessContext.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BusinessContextClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    assistant<T extends BusinessAssistantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistantDefaultArgs<ExtArgs>>): Prisma__BusinessAssistantClient<$Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BusinessContext model
+   */
+  interface BusinessContextFieldRefs {
+    readonly id: FieldRef<"BusinessContext", 'String'>
+    readonly assistantId: FieldRef<"BusinessContext", 'String'>
+    readonly content: FieldRef<"BusinessContext", 'String'>
+    readonly updatedAt: FieldRef<"BusinessContext", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BusinessContext findUnique
+   */
+  export type BusinessContextFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter, which BusinessContext to fetch.
+     */
+    where: BusinessContextWhereUniqueInput
+  }
+
+  /**
+   * BusinessContext findUniqueOrThrow
+   */
+  export type BusinessContextFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter, which BusinessContext to fetch.
+     */
+    where: BusinessContextWhereUniqueInput
+  }
+
+  /**
+   * BusinessContext findFirst
+   */
+  export type BusinessContextFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter, which BusinessContext to fetch.
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BusinessContexts to fetch.
+     */
+    orderBy?: BusinessContextOrderByWithRelationInput | BusinessContextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BusinessContexts.
+     */
+    cursor?: BusinessContextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BusinessContexts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BusinessContexts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BusinessContexts.
+     */
+    distinct?: BusinessContextScalarFieldEnum | BusinessContextScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessContext findFirstOrThrow
+   */
+  export type BusinessContextFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter, which BusinessContext to fetch.
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BusinessContexts to fetch.
+     */
+    orderBy?: BusinessContextOrderByWithRelationInput | BusinessContextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BusinessContexts.
+     */
+    cursor?: BusinessContextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BusinessContexts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BusinessContexts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BusinessContexts.
+     */
+    distinct?: BusinessContextScalarFieldEnum | BusinessContextScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessContext findMany
+   */
+  export type BusinessContextFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter, which BusinessContexts to fetch.
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BusinessContexts to fetch.
+     */
+    orderBy?: BusinessContextOrderByWithRelationInput | BusinessContextOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BusinessContexts.
+     */
+    cursor?: BusinessContextWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BusinessContexts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BusinessContexts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BusinessContexts.
+     */
+    distinct?: BusinessContextScalarFieldEnum | BusinessContextScalarFieldEnum[]
+  }
+
+  /**
+   * BusinessContext create
+   */
+  export type BusinessContextCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BusinessContext.
+     */
+    data: XOR<BusinessContextCreateInput, BusinessContextUncheckedCreateInput>
+  }
+
+  /**
+   * BusinessContext createMany
+   */
+  export type BusinessContextCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BusinessContexts.
+     */
+    data: BusinessContextCreateManyInput | BusinessContextCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BusinessContext createManyAndReturn
+   */
+  export type BusinessContextCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * The data used to create many BusinessContexts.
+     */
+    data: BusinessContextCreateManyInput | BusinessContextCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BusinessContext update
+   */
+  export type BusinessContextUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BusinessContext.
+     */
+    data: XOR<BusinessContextUpdateInput, BusinessContextUncheckedUpdateInput>
+    /**
+     * Choose, which BusinessContext to update.
+     */
+    where: BusinessContextWhereUniqueInput
+  }
+
+  /**
+   * BusinessContext updateMany
+   */
+  export type BusinessContextUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BusinessContexts.
+     */
+    data: XOR<BusinessContextUpdateManyMutationInput, BusinessContextUncheckedUpdateManyInput>
+    /**
+     * Filter which BusinessContexts to update
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * Limit how many BusinessContexts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BusinessContext updateManyAndReturn
+   */
+  export type BusinessContextUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * The data used to update BusinessContexts.
+     */
+    data: XOR<BusinessContextUpdateManyMutationInput, BusinessContextUncheckedUpdateManyInput>
+    /**
+     * Filter which BusinessContexts to update
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * Limit how many BusinessContexts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BusinessContext upsert
+   */
+  export type BusinessContextUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BusinessContext to update in case it exists.
+     */
+    where: BusinessContextWhereUniqueInput
+    /**
+     * In case the BusinessContext found by the `where` argument doesn't exist, create a new BusinessContext with this data.
+     */
+    create: XOR<BusinessContextCreateInput, BusinessContextUncheckedCreateInput>
+    /**
+     * In case the BusinessContext was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BusinessContextUpdateInput, BusinessContextUncheckedUpdateInput>
+  }
+
+  /**
+   * BusinessContext delete
+   */
+  export type BusinessContextDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+    /**
+     * Filter which BusinessContext to delete.
+     */
+    where: BusinessContextWhereUniqueInput
+  }
+
+  /**
+   * BusinessContext deleteMany
+   */
+  export type BusinessContextDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BusinessContexts to delete
+     */
+    where?: BusinessContextWhereInput
+    /**
+     * Limit how many BusinessContexts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BusinessContext without action
+   */
+  export type BusinessContextDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BusinessContext
+     */
+    select?: BusinessContextSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BusinessContext
+     */
+    omit?: BusinessContextOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BusinessContextInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -14423,6 +16839,7 @@ export namespace Prisma {
     email: 'email',
     emailVerified: 'emailVerified',
     image: 'image',
+    phoneNumber: 'phoneNumber',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14442,6 +16859,21 @@ export namespace Prisma {
   };
 
   export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+  export const NotificationScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    type: 'type',
+    title: 'title',
+    body: 'body',
+    read: 'read',
+    metadata: 'metadata',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
 
 
   export const AccountScalarFieldEnum: {
@@ -14492,13 +16924,13 @@ export namespace Prisma {
     id: 'id',
     userId: 'userId',
     name: 'name',
-    systemPrompt: 'systemPrompt',
     firstMessage: 'firstMessage',
-    vapiAssistantId: 'vapiAssistantId',
     phoneNumber: 'phoneNumber',
     isSubscribed: 'isSubscribed',
     subscriptionTier: 'subscriptionTier',
     subscriptionExpiresAt: 'subscriptionExpiresAt',
+    systemPrompt: 'systemPrompt',
+    vapiAssistantId: 'vapiAssistantId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -14545,14 +16977,14 @@ export namespace Prisma {
 
   export const LeadScalarFieldEnum: {
     id: 'id',
-    businessId: 'businessId',
     name: 'name',
-    phoneNumber: 'phoneNumber',
-    intent: 'intent',
     email: 'email',
     summary: 'summary',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    businessId: 'businessId',
+    phoneNumber: 'phoneNumber',
+    intent: 'intent'
   };
 
   export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
@@ -14563,17 +16995,27 @@ export namespace Prisma {
     vapiCallId: 'vapiCallId',
     leadId: 'leadId',
     assistantId: 'assistantId',
-    customerNumber: 'customerNumber',
-    intent: 'intent',
     transcript: 'transcript',
     summary: 'summary',
     recordingUrl: 'recordingUrl',
     status: 'status',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    customerNumber: 'customerNumber',
+    intent: 'intent'
   };
 
   export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
+
+
+  export const BusinessContextScalarFieldEnum: {
+    id: 'id',
+    assistantId: 'assistantId',
+    content: 'content',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BusinessContextScalarFieldEnum = (typeof BusinessContextScalarFieldEnum)[keyof typeof BusinessContextScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -14582,6 +17024,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -14598,6 +17048,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -14637,6 +17096,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -14694,13 +17167,15 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
+    phoneNumber?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     businessAssistant?: XOR<BusinessAssistantNullableScalarRelationFilter, BusinessAssistantWhereInput> | null
     leads?: LeadListRelationFilter
     transactions?: TransactionListRelationFilter
+    notifications?: NotificationListRelationFilter
+    sessions?: SessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -14709,13 +17184,15 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
     businessAssistant?: BusinessAssistantOrderByWithRelationInput
     leads?: LeadOrderByRelationAggregateInput
     transactions?: TransactionOrderByRelationAggregateInput
+    notifications?: NotificationOrderByRelationAggregateInput
+    sessions?: SessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -14727,13 +17204,15 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
+    phoneNumber?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     businessAssistant?: XOR<BusinessAssistantNullableScalarRelationFilter, BusinessAssistantWhereInput> | null
     leads?: LeadListRelationFilter
     transactions?: TransactionListRelationFilter
+    notifications?: NotificationListRelationFilter
+    sessions?: SessionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -14742,6 +17221,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -14758,6 +17238,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
+    phoneNumber?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -14830,6 +17311,81 @@ export namespace Prisma {
     ipAddress?: StringNullableWithAggregatesFilter<"Session"> | string | null
     userAgent?: StringNullableWithAggregatesFilter<"Session"> | string | null
     userId?: StringWithAggregatesFilter<"Session"> | string
+  }
+
+  export type NotificationWhereInput = {
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    userId?: StringFilter<"Notification"> | string
+    type?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    body?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    metadata?: JsonNullableFilter<"Notification">
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type NotificationOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    body?: SortOrder
+    read?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type NotificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    userId?: StringFilter<"Notification"> | string
+    type?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    body?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    metadata?: JsonNullableFilter<"Notification">
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type NotificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    body?: SortOrder
+    read?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NotificationCountOrderByAggregateInput
+    _max?: NotificationMaxOrderByAggregateInput
+    _min?: NotificationMinOrderByAggregateInput
+  }
+
+  export type NotificationScalarWhereWithAggregatesInput = {
+    AND?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    OR?: NotificationScalarWhereWithAggregatesInput[]
+    NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Notification"> | string
+    userId?: StringWithAggregatesFilter<"Notification"> | string
+    type?: StringWithAggregatesFilter<"Notification"> | string
+    title?: StringWithAggregatesFilter<"Notification"> | string
+    body?: StringWithAggregatesFilter<"Notification"> | string
+    read?: BoolWithAggregatesFilter<"Notification"> | boolean
+    metadata?: JsonNullableWithAggregatesFilter<"Notification">
+    createdAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
   }
 
   export type AccountWhereInput = {
@@ -15058,40 +17614,42 @@ export namespace Prisma {
     id?: StringFilter<"BusinessAssistant"> | string
     userId?: StringFilter<"BusinessAssistant"> | string
     name?: StringFilter<"BusinessAssistant"> | string
-    systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
     firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
-    vapiAssistantId?: StringNullableFilter<"BusinessAssistant"> | string | null
     phoneNumber?: StringNullableFilter<"BusinessAssistant"> | string | null
     isSubscribed?: BoolFilter<"BusinessAssistant"> | boolean
     subscriptionTier?: EnumSubscriptionTierNullableFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: DateTimeNullableFilter<"BusinessAssistant"> | Date | string | null
+    systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
+    vapiAssistantId?: StringNullableFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    calls?: CallListRelationFilter
     faqs?: FAQListRelationFilter
     products?: ProductListRelationFilter
     resourceLinks?: ResourceLinkListRelationFilter
-    calls?: CallListRelationFilter
+    context?: XOR<BusinessContextNullableScalarRelationFilter, BusinessContextWhereInput> | null
   }
 
   export type BusinessAssistantOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
     name?: SortOrder
-    systemPrompt?: SortOrderInput | SortOrder
     firstMessage?: SortOrderInput | SortOrder
-    vapiAssistantId?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     isSubscribed?: SortOrder
     subscriptionTier?: SortOrderInput | SortOrder
     subscriptionExpiresAt?: SortOrderInput | SortOrder
+    systemPrompt?: SortOrderInput | SortOrder
+    vapiAssistantId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
+    calls?: CallOrderByRelationAggregateInput
     faqs?: FAQOrderByRelationAggregateInput
     products?: ProductOrderByRelationAggregateInput
     resourceLinks?: ResourceLinkOrderByRelationAggregateInput
-    calls?: CallOrderByRelationAggregateInput
+    context?: BusinessContextOrderByWithRelationInput
   }
 
   export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
@@ -15102,32 +17660,33 @@ export namespace Prisma {
     OR?: BusinessAssistantWhereInput[]
     NOT?: BusinessAssistantWhereInput | BusinessAssistantWhereInput[]
     name?: StringFilter<"BusinessAssistant"> | string
-    systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
     firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
     phoneNumber?: StringNullableFilter<"BusinessAssistant"> | string | null
     isSubscribed?: BoolFilter<"BusinessAssistant"> | boolean
     subscriptionTier?: EnumSubscriptionTierNullableFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: DateTimeNullableFilter<"BusinessAssistant"> | Date | string | null
+    systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    calls?: CallListRelationFilter
     faqs?: FAQListRelationFilter
     products?: ProductListRelationFilter
     resourceLinks?: ResourceLinkListRelationFilter
-    calls?: CallListRelationFilter
+    context?: XOR<BusinessContextNullableScalarRelationFilter, BusinessContextWhereInput> | null
   }, "id" | "userId" | "vapiAssistantId">
 
   export type BusinessAssistantOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
     name?: SortOrder
-    systemPrompt?: SortOrderInput | SortOrder
     firstMessage?: SortOrderInput | SortOrder
-    vapiAssistantId?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     isSubscribed?: SortOrder
     subscriptionTier?: SortOrderInput | SortOrder
     subscriptionExpiresAt?: SortOrderInput | SortOrder
+    systemPrompt?: SortOrderInput | SortOrder
+    vapiAssistantId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: BusinessAssistantCountOrderByAggregateInput
@@ -15142,13 +17701,13 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"BusinessAssistant"> | string
     userId?: StringWithAggregatesFilter<"BusinessAssistant"> | string
     name?: StringWithAggregatesFilter<"BusinessAssistant"> | string
-    systemPrompt?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     firstMessage?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
-    vapiAssistantId?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     phoneNumber?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     isSubscribed?: BoolWithAggregatesFilter<"BusinessAssistant"> | boolean
     subscriptionTier?: EnumSubscriptionTierNullableWithAggregatesFilter<"BusinessAssistant"> | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: DateTimeNullableWithAggregatesFilter<"BusinessAssistant"> | Date | string | null
+    systemPrompt?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
+    vapiAssistantId?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
   }
@@ -15345,30 +17904,30 @@ export namespace Prisma {
     OR?: LeadWhereInput[]
     NOT?: LeadWhereInput | LeadWhereInput[]
     id?: StringFilter<"Lead"> | string
-    businessId?: StringFilter<"Lead"> | string
     name?: StringNullableFilter<"Lead"> | string | null
-    phoneNumber?: StringFilter<"Lead"> | string
-    intent?: StringNullableFilter<"Lead"> | string | null
     email?: StringNullableFilter<"Lead"> | string | null
     summary?: StringNullableFilter<"Lead"> | string | null
     createdAt?: DateTimeFilter<"Lead"> | Date | string
     updatedAt?: DateTimeFilter<"Lead"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    businessId?: StringFilter<"Lead"> | string
+    phoneNumber?: StringFilter<"Lead"> | string
+    intent?: StringNullableFilter<"Lead"> | string | null
     calls?: CallListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type LeadOrderByWithRelationInput = {
     id?: SortOrder
-    businessId?: SortOrder
     name?: SortOrderInput | SortOrder
-    phoneNumber?: SortOrder
-    intent?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     summary?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    businessId?: SortOrder
+    phoneNumber?: SortOrder
+    intent?: SortOrderInput | SortOrder
     calls?: CallOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type LeadWhereUniqueInput = Prisma.AtLeast<{
@@ -15376,28 +17935,28 @@ export namespace Prisma {
     AND?: LeadWhereInput | LeadWhereInput[]
     OR?: LeadWhereInput[]
     NOT?: LeadWhereInput | LeadWhereInput[]
-    businessId?: StringFilter<"Lead"> | string
     name?: StringNullableFilter<"Lead"> | string | null
-    phoneNumber?: StringFilter<"Lead"> | string
-    intent?: StringNullableFilter<"Lead"> | string | null
     email?: StringNullableFilter<"Lead"> | string | null
     summary?: StringNullableFilter<"Lead"> | string | null
     createdAt?: DateTimeFilter<"Lead"> | Date | string
     updatedAt?: DateTimeFilter<"Lead"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    businessId?: StringFilter<"Lead"> | string
+    phoneNumber?: StringFilter<"Lead"> | string
+    intent?: StringNullableFilter<"Lead"> | string | null
     calls?: CallListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type LeadOrderByWithAggregationInput = {
     id?: SortOrder
-    businessId?: SortOrder
     name?: SortOrderInput | SortOrder
-    phoneNumber?: SortOrder
-    intent?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     summary?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    businessId?: SortOrder
+    phoneNumber?: SortOrder
+    intent?: SortOrderInput | SortOrder
     _count?: LeadCountOrderByAggregateInput
     _max?: LeadMaxOrderByAggregateInput
     _min?: LeadMinOrderByAggregateInput
@@ -15408,14 +17967,14 @@ export namespace Prisma {
     OR?: LeadScalarWhereWithAggregatesInput[]
     NOT?: LeadScalarWhereWithAggregatesInput | LeadScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Lead"> | string
-    businessId?: StringWithAggregatesFilter<"Lead"> | string
     name?: StringNullableWithAggregatesFilter<"Lead"> | string | null
-    phoneNumber?: StringWithAggregatesFilter<"Lead"> | string
-    intent?: StringNullableWithAggregatesFilter<"Lead"> | string | null
     email?: StringNullableWithAggregatesFilter<"Lead"> | string | null
     summary?: StringNullableWithAggregatesFilter<"Lead"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
+    businessId?: StringWithAggregatesFilter<"Lead"> | string
+    phoneNumber?: StringWithAggregatesFilter<"Lead"> | string
+    intent?: StringNullableWithAggregatesFilter<"Lead"> | string | null
   }
 
   export type CallWhereInput = {
@@ -15426,16 +17985,16 @@ export namespace Prisma {
     vapiCallId?: StringFilter<"Call"> | string
     leadId?: StringFilter<"Call"> | string
     assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringNullableFilter<"Call"> | string | null
-    intent?: StringNullableFilter<"Call"> | string | null
     transcript?: StringNullableFilter<"Call"> | string | null
     summary?: StringNullableFilter<"Call"> | string | null
     recordingUrl?: StringNullableFilter<"Call"> | string | null
     status?: StringFilter<"Call"> | string
     createdAt?: DateTimeFilter<"Call"> | Date | string
     updatedAt?: DateTimeFilter<"Call"> | Date | string
-    lead?: XOR<LeadScalarRelationFilter, LeadWhereInput>
+    customerNumber?: StringNullableFilter<"Call"> | string | null
+    intent?: StringNullableFilter<"Call"> | string | null
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
+    lead?: XOR<LeadScalarRelationFilter, LeadWhereInput>
   }
 
   export type CallOrderByWithRelationInput = {
@@ -15443,16 +18002,16 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     leadId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrderInput | SortOrder
-    intent?: SortOrderInput | SortOrder
     transcript?: SortOrderInput | SortOrder
     summary?: SortOrderInput | SortOrder
     recordingUrl?: SortOrderInput | SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    lead?: LeadOrderByWithRelationInput
+    customerNumber?: SortOrderInput | SortOrder
+    intent?: SortOrderInput | SortOrder
     assistant?: BusinessAssistantOrderByWithRelationInput
+    lead?: LeadOrderByWithRelationInput
   }
 
   export type CallWhereUniqueInput = Prisma.AtLeast<{
@@ -15463,16 +18022,16 @@ export namespace Prisma {
     NOT?: CallWhereInput | CallWhereInput[]
     leadId?: StringFilter<"Call"> | string
     assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringNullableFilter<"Call"> | string | null
-    intent?: StringNullableFilter<"Call"> | string | null
     transcript?: StringNullableFilter<"Call"> | string | null
     summary?: StringNullableFilter<"Call"> | string | null
     recordingUrl?: StringNullableFilter<"Call"> | string | null
     status?: StringFilter<"Call"> | string
     createdAt?: DateTimeFilter<"Call"> | Date | string
     updatedAt?: DateTimeFilter<"Call"> | Date | string
-    lead?: XOR<LeadScalarRelationFilter, LeadWhereInput>
+    customerNumber?: StringNullableFilter<"Call"> | string | null
+    intent?: StringNullableFilter<"Call"> | string | null
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
+    lead?: XOR<LeadScalarRelationFilter, LeadWhereInput>
   }, "id" | "vapiCallId">
 
   export type CallOrderByWithAggregationInput = {
@@ -15480,14 +18039,14 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     leadId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrderInput | SortOrder
-    intent?: SortOrderInput | SortOrder
     transcript?: SortOrderInput | SortOrder
     summary?: SortOrderInput | SortOrder
     recordingUrl?: SortOrderInput | SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerNumber?: SortOrderInput | SortOrder
+    intent?: SortOrderInput | SortOrder
     _count?: CallCountOrderByAggregateInput
     _max?: CallMaxOrderByAggregateInput
     _min?: CallMinOrderByAggregateInput
@@ -15501,14 +18060,64 @@ export namespace Prisma {
     vapiCallId?: StringWithAggregatesFilter<"Call"> | string
     leadId?: StringWithAggregatesFilter<"Call"> | string
     assistantId?: StringWithAggregatesFilter<"Call"> | string
-    customerNumber?: StringNullableWithAggregatesFilter<"Call"> | string | null
-    intent?: StringNullableWithAggregatesFilter<"Call"> | string | null
     transcript?: StringNullableWithAggregatesFilter<"Call"> | string | null
     summary?: StringNullableWithAggregatesFilter<"Call"> | string | null
     recordingUrl?: StringNullableWithAggregatesFilter<"Call"> | string | null
     status?: StringWithAggregatesFilter<"Call"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Call"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Call"> | Date | string
+    customerNumber?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    intent?: StringNullableWithAggregatesFilter<"Call"> | string | null
+  }
+
+  export type BusinessContextWhereInput = {
+    AND?: BusinessContextWhereInput | BusinessContextWhereInput[]
+    OR?: BusinessContextWhereInput[]
+    NOT?: BusinessContextWhereInput | BusinessContextWhereInput[]
+    id?: StringFilter<"BusinessContext"> | string
+    assistantId?: StringFilter<"BusinessContext"> | string
+    content?: StringFilter<"BusinessContext"> | string
+    updatedAt?: DateTimeFilter<"BusinessContext"> | Date | string
+    assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
+  }
+
+  export type BusinessContextOrderByWithRelationInput = {
+    id?: SortOrder
+    assistantId?: SortOrder
+    content?: SortOrder
+    updatedAt?: SortOrder
+    assistant?: BusinessAssistantOrderByWithRelationInput
+  }
+
+  export type BusinessContextWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    assistantId?: string
+    AND?: BusinessContextWhereInput | BusinessContextWhereInput[]
+    OR?: BusinessContextWhereInput[]
+    NOT?: BusinessContextWhereInput | BusinessContextWhereInput[]
+    content?: StringFilter<"BusinessContext"> | string
+    updatedAt?: DateTimeFilter<"BusinessContext"> | Date | string
+    assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
+  }, "id" | "assistantId">
+
+  export type BusinessContextOrderByWithAggregationInput = {
+    id?: SortOrder
+    assistantId?: SortOrder
+    content?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BusinessContextCountOrderByAggregateInput
+    _max?: BusinessContextMaxOrderByAggregateInput
+    _min?: BusinessContextMinOrderByAggregateInput
+  }
+
+  export type BusinessContextScalarWhereWithAggregatesInput = {
+    AND?: BusinessContextScalarWhereWithAggregatesInput | BusinessContextScalarWhereWithAggregatesInput[]
+    OR?: BusinessContextScalarWhereWithAggregatesInput[]
+    NOT?: BusinessContextScalarWhereWithAggregatesInput | BusinessContextScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BusinessContext"> | string
+    assistantId?: StringWithAggregatesFilter<"BusinessContext"> | string
+    content?: StringWithAggregatesFilter<"BusinessContext"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BusinessContext"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -15517,13 +18126,15 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
     leads?: LeadCreateNestedManyWithoutUserInput
     transactions?: TransactionCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -15532,13 +18143,15 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
     leads?: LeadUncheckedCreateNestedManyWithoutUserInput
     transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -15547,13 +18160,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
     leads?: LeadUpdateManyWithoutUserNestedInput
     transactions?: TransactionUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -15562,13 +18177,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
     leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
     transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -15577,6 +18194,7 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
   }
@@ -15587,6 +18205,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15597,6 +18216,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15675,6 +18295,89 @@ export namespace Prisma {
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     userAgent?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NotificationCreateInput = {
+    id?: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateInput = {
+    id?: string
+    userId: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationCreateManyInput = {
+    id?: string
+    userId: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateInput = {
@@ -15923,90 +18626,94 @@ export namespace Prisma {
   export type BusinessAssistantCreateInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
     faqs?: FAQCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateManyInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16014,13 +18721,13 @@ export namespace Prisma {
   export type BusinessAssistantUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16029,13 +18736,13 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16236,103 +18943,103 @@ export namespace Prisma {
   export type LeadCreateInput = {
     id?: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutLeadsInput
+    phoneNumber: string
+    intent?: string | null
     calls?: CallCreateNestedManyWithoutLeadInput
+    user: UserCreateNestedOneWithoutLeadsInput
   }
 
   export type LeadUncheckedCreateInput = {
     id?: string
-    businessId: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    businessId: string
+    phoneNumber: string
+    intent?: string | null
     calls?: CallUncheckedCreateNestedManyWithoutLeadInput
   }
 
   export type LeadUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLeadsNestedInput
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     calls?: CallUpdateManyWithoutLeadNestedInput
+    user?: UserUpdateOneRequiredWithoutLeadsNestedInput
   }
 
   export type LeadUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    businessId?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     calls?: CallUncheckedUpdateManyWithoutLeadNestedInput
   }
 
   export type LeadCreateManyInput = {
     id?: string
-    businessId: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    businessId: string
+    phoneNumber: string
+    intent?: string | null
   }
 
   export type LeadUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LeadUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    businessId?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CallCreateInput = {
     id?: string
     vapiCallId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    lead: LeadCreateNestedOneWithoutCallsInput
+    customerNumber?: string | null
+    intent?: string | null
     assistant: BusinessAssistantCreateNestedOneWithoutCallsInput
+    lead: LeadCreateNestedOneWithoutCallsInput
   }
 
   export type CallUncheckedCreateInput = {
@@ -16340,29 +19047,29 @@ export namespace Prisma {
     vapiCallId: string
     leadId: string
     assistantId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
   }
 
   export type CallUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    lead?: LeadUpdateOneRequiredWithoutCallsNestedInput
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     assistant?: BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput
+    lead?: LeadUpdateOneRequiredWithoutCallsNestedInput
   }
 
   export type CallUncheckedUpdateInput = {
@@ -16370,14 +19077,14 @@ export namespace Prisma {
     vapiCallId?: StringFieldUpdateOperationsInput | string
     leadId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CallCreateManyInput = {
@@ -16385,27 +19092,27 @@ export namespace Prisma {
     vapiCallId: string
     leadId: string
     assistantId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
   }
 
   export type CallUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CallUncheckedUpdateManyInput = {
@@ -16413,13 +19120,61 @@ export namespace Prisma {
     vapiCallId?: StringFieldUpdateOperationsInput | string
     leadId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BusinessContextCreateInput = {
+    id?: string
+    content: string
+    updatedAt?: Date | string
+    assistant: BusinessAssistantCreateNestedOneWithoutContextInput
+  }
+
+  export type BusinessContextUncheckedCreateInput = {
+    id?: string
+    assistantId: string
+    content: string
+    updatedAt?: Date | string
+  }
+
+  export type BusinessContextUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assistant?: BusinessAssistantUpdateOneRequiredWithoutContextNestedInput
+  }
+
+  export type BusinessContextUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    assistantId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BusinessContextCreateManyInput = {
+    id?: string
+    assistantId: string
+    content: string
+    updatedAt?: Date | string
+  }
+
+  export type BusinessContextUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BusinessContextUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    assistantId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -16469,12 +19224,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type SessionListRelationFilter = {
-    every?: SessionWhereInput
-    some?: SessionWhereInput
-    none?: SessionWhereInput
-  }
-
   export type AccountListRelationFilter = {
     every?: AccountWhereInput
     some?: AccountWhereInput
@@ -16498,13 +19247,21 @@ export namespace Prisma {
     none?: TransactionWhereInput
   }
 
+  export type NotificationListRelationFilter = {
+    every?: NotificationWhereInput
+    some?: NotificationWhereInput
+    none?: NotificationWhereInput
+  }
+
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
-  }
-
-  export type SessionOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type AccountOrderByRelationAggregateInput = {
@@ -16519,12 +19276,21 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type NotificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16535,6 +19301,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16545,6 +19312,7 @@ export namespace Prisma {
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16643,6 +19411,89 @@ export namespace Prisma {
     ipAddress?: SortOrder
     userAgent?: SortOrder
     userId?: SortOrder
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NotificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    body?: SortOrder
+    read?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    body?: SortOrder
+    read?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    type?: SortOrder
+    title?: SortOrder
+    body?: SortOrder
+    read?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -16834,6 +19685,12 @@ export namespace Prisma {
     not?: NestedEnumSubscriptionTierNullableFilter<$PrismaModel> | $Enums.SubscriptionTier | null
   }
 
+  export type CallListRelationFilter = {
+    every?: CallWhereInput
+    some?: CallWhereInput
+    none?: CallWhereInput
+  }
+
   export type FAQListRelationFilter = {
     every?: FAQWhereInput
     some?: FAQWhereInput
@@ -16852,10 +19709,13 @@ export namespace Prisma {
     none?: ResourceLinkWhereInput
   }
 
-  export type CallListRelationFilter = {
-    every?: CallWhereInput
-    some?: CallWhereInput
-    none?: CallWhereInput
+  export type BusinessContextNullableScalarRelationFilter = {
+    is?: BusinessContextWhereInput | null
+    isNot?: BusinessContextWhereInput | null
+  }
+
+  export type CallOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type FAQOrderByRelationAggregateInput = {
@@ -16870,21 +19730,17 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CallOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type BusinessAssistantCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     name?: SortOrder
-    systemPrompt?: SortOrder
     firstMessage?: SortOrder
-    vapiAssistantId?: SortOrder
     phoneNumber?: SortOrder
     isSubscribed?: SortOrder
     subscriptionTier?: SortOrder
     subscriptionExpiresAt?: SortOrder
+    systemPrompt?: SortOrder
+    vapiAssistantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16893,13 +19749,13 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     name?: SortOrder
-    systemPrompt?: SortOrder
     firstMessage?: SortOrder
-    vapiAssistantId?: SortOrder
     phoneNumber?: SortOrder
     isSubscribed?: SortOrder
     subscriptionTier?: SortOrder
     subscriptionExpiresAt?: SortOrder
+    systemPrompt?: SortOrder
+    vapiAssistantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -16908,13 +19764,13 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     name?: SortOrder
-    systemPrompt?: SortOrder
     firstMessage?: SortOrder
-    vapiAssistantId?: SortOrder
     phoneNumber?: SortOrder
     isSubscribed?: SortOrder
     subscriptionTier?: SortOrder
     subscriptionExpiresAt?: SortOrder
+    systemPrompt?: SortOrder
+    vapiAssistantId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17055,38 +19911,38 @@ export namespace Prisma {
 
   export type LeadCountOrderByAggregateInput = {
     id?: SortOrder
-    businessId?: SortOrder
     name?: SortOrder
-    phoneNumber?: SortOrder
-    intent?: SortOrder
     email?: SortOrder
     summary?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    businessId?: SortOrder
+    phoneNumber?: SortOrder
+    intent?: SortOrder
   }
 
   export type LeadMaxOrderByAggregateInput = {
     id?: SortOrder
-    businessId?: SortOrder
     name?: SortOrder
-    phoneNumber?: SortOrder
-    intent?: SortOrder
     email?: SortOrder
     summary?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    businessId?: SortOrder
+    phoneNumber?: SortOrder
+    intent?: SortOrder
   }
 
   export type LeadMinOrderByAggregateInput = {
     id?: SortOrder
-    businessId?: SortOrder
     name?: SortOrder
-    phoneNumber?: SortOrder
-    intent?: SortOrder
     email?: SortOrder
     summary?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    businessId?: SortOrder
+    phoneNumber?: SortOrder
+    intent?: SortOrder
   }
 
   export type LeadScalarRelationFilter = {
@@ -17099,14 +19955,14 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     leadId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrder
-    intent?: SortOrder
     transcript?: SortOrder
     summary?: SortOrder
     recordingUrl?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerNumber?: SortOrder
+    intent?: SortOrder
   }
 
   export type CallMaxOrderByAggregateInput = {
@@ -17114,14 +19970,14 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     leadId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrder
-    intent?: SortOrder
     transcript?: SortOrder
     summary?: SortOrder
     recordingUrl?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerNumber?: SortOrder
+    intent?: SortOrder
   }
 
   export type CallMinOrderByAggregateInput = {
@@ -17129,21 +19985,35 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     leadId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrder
-    intent?: SortOrder
     transcript?: SortOrder
     summary?: SortOrder
     recordingUrl?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    customerNumber?: SortOrder
+    intent?: SortOrder
   }
 
-  export type SessionCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type BusinessContextCountOrderByAggregateInput = {
+    id?: SortOrder
+    assistantId?: SortOrder
+    content?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BusinessContextMaxOrderByAggregateInput = {
+    id?: SortOrder
+    assistantId?: SortOrder
+    content?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BusinessContextMinOrderByAggregateInput = {
+    id?: SortOrder
+    assistantId?: SortOrder
+    content?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AccountCreateNestedManyWithoutUserInput = {
@@ -17173,7 +20043,14 @@ export namespace Prisma {
     connect?: TransactionWhereUniqueInput | TransactionWhereUniqueInput[]
   }
 
-  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+  export type NotificationCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     createMany?: SessionCreateManyUserInputEnvelope
@@ -17207,6 +20084,20 @@ export namespace Prisma {
     connect?: TransactionWhereUniqueInput | TransactionWhereUniqueInput[]
   }
 
+  export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -17221,20 +20112,6 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type SessionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -17289,7 +20166,21 @@ export namespace Prisma {
     deleteMany?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
   }
 
-  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+  export type NotificationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type SessionUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
@@ -17355,6 +20246,34 @@ export namespace Prisma {
     deleteMany?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
   }
 
+  export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutSessionsInput = {
     create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
@@ -17367,6 +20286,20 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutSessionsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutNotificationsInput = {
+    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
+    upsert?: UserUpsertWithoutNotificationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotificationsInput, UserUpdateWithoutNotificationsInput>, UserUncheckedUpdateWithoutNotificationsInput>
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
@@ -17419,6 +20352,13 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type CallCreateNestedManyWithoutAssistantInput = {
+    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
+    createMany?: CallCreateManyAssistantInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
   export type FAQCreateNestedManyWithoutAssistantInput = {
     create?: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput> | FAQCreateWithoutAssistantInput[] | FAQUncheckedCreateWithoutAssistantInput[]
     connectOrCreate?: FAQCreateOrConnectWithoutAssistantInput | FAQCreateOrConnectWithoutAssistantInput[]
@@ -17440,7 +20380,13 @@ export namespace Prisma {
     connect?: ResourceLinkWhereUniqueInput | ResourceLinkWhereUniqueInput[]
   }
 
-  export type CallCreateNestedManyWithoutAssistantInput = {
+  export type BusinessContextCreateNestedOneWithoutAssistantInput = {
+    create?: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
+    connectOrCreate?: BusinessContextCreateOrConnectWithoutAssistantInput
+    connect?: BusinessContextWhereUniqueInput
+  }
+
+  export type CallUncheckedCreateNestedManyWithoutAssistantInput = {
     create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
     connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
     createMany?: CallCreateManyAssistantInputEnvelope
@@ -17468,11 +20414,10 @@ export namespace Prisma {
     connect?: ResourceLinkWhereUniqueInput | ResourceLinkWhereUniqueInput[]
   }
 
-  export type CallUncheckedCreateNestedManyWithoutAssistantInput = {
-    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
-    createMany?: CallCreateManyAssistantInputEnvelope
-    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  export type BusinessContextUncheckedCreateNestedOneWithoutAssistantInput = {
+    create?: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
+    connectOrCreate?: BusinessContextCreateOrConnectWithoutAssistantInput
+    connect?: BusinessContextWhereUniqueInput
   }
 
   export type NullableEnumSubscriptionTierFieldUpdateOperationsInput = {
@@ -17485,6 +20430,20 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutBusinessAssistantInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBusinessAssistantInput, UserUpdateWithoutBusinessAssistantInput>, UserUncheckedUpdateWithoutBusinessAssistantInput>
+  }
+
+  export type CallUpdateManyWithoutAssistantNestedInput = {
+    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
+    createMany?: CallCreateManyAssistantInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutAssistantInput | CallUpdateWithWhereUniqueWithoutAssistantInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutAssistantInput | CallUpdateManyWithWhereWithoutAssistantInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
   }
 
   export type FAQUpdateManyWithoutAssistantNestedInput = {
@@ -17529,7 +20488,17 @@ export namespace Prisma {
     deleteMany?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
   }
 
-  export type CallUpdateManyWithoutAssistantNestedInput = {
+  export type BusinessContextUpdateOneWithoutAssistantNestedInput = {
+    create?: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
+    connectOrCreate?: BusinessContextCreateOrConnectWithoutAssistantInput
+    upsert?: BusinessContextUpsertWithoutAssistantInput
+    disconnect?: BusinessContextWhereInput | boolean
+    delete?: BusinessContextWhereInput | boolean
+    connect?: BusinessContextWhereUniqueInput
+    update?: XOR<XOR<BusinessContextUpdateToOneWithWhereWithoutAssistantInput, BusinessContextUpdateWithoutAssistantInput>, BusinessContextUncheckedUpdateWithoutAssistantInput>
+  }
+
+  export type CallUncheckedUpdateManyWithoutAssistantNestedInput = {
     create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
     connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
     upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
@@ -17585,18 +20554,14 @@ export namespace Prisma {
     deleteMany?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
   }
 
-  export type CallUncheckedUpdateManyWithoutAssistantNestedInput = {
-    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
-    upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
-    createMany?: CallCreateManyAssistantInputEnvelope
-    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    update?: CallUpdateWithWhereUniqueWithoutAssistantInput | CallUpdateWithWhereUniqueWithoutAssistantInput[]
-    updateMany?: CallUpdateManyWithWhereWithoutAssistantInput | CallUpdateManyWithWhereWithoutAssistantInput[]
-    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  export type BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput = {
+    create?: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
+    connectOrCreate?: BusinessContextCreateOrConnectWithoutAssistantInput
+    upsert?: BusinessContextUpsertWithoutAssistantInput
+    disconnect?: BusinessContextWhereInput | boolean
+    delete?: BusinessContextWhereInput | boolean
+    connect?: BusinessContextWhereUniqueInput
+    update?: XOR<XOR<BusinessContextUpdateToOneWithWhereWithoutAssistantInput, BusinessContextUpdateWithoutAssistantInput>, BusinessContextUncheckedUpdateWithoutAssistantInput>
   }
 
   export type BusinessAssistantCreateNestedOneWithoutFaqsInput = {
@@ -17649,12 +20614,6 @@ export namespace Prisma {
     update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutResourceLinksInput, BusinessAssistantUpdateWithoutResourceLinksInput>, BusinessAssistantUncheckedUpdateWithoutResourceLinksInput>
   }
 
-  export type UserCreateNestedOneWithoutLeadsInput = {
-    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type CallCreateNestedManyWithoutLeadInput = {
     create?: XOR<CallCreateWithoutLeadInput, CallUncheckedCreateWithoutLeadInput> | CallCreateWithoutLeadInput[] | CallUncheckedCreateWithoutLeadInput[]
     connectOrCreate?: CallCreateOrConnectWithoutLeadInput | CallCreateOrConnectWithoutLeadInput[]
@@ -17662,19 +20621,17 @@ export namespace Prisma {
     connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
   }
 
+  export type UserCreateNestedOneWithoutLeadsInput = {
+    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type CallUncheckedCreateNestedManyWithoutLeadInput = {
     create?: XOR<CallCreateWithoutLeadInput, CallUncheckedCreateWithoutLeadInput> | CallCreateWithoutLeadInput[] | CallUncheckedCreateWithoutLeadInput[]
     connectOrCreate?: CallCreateOrConnectWithoutLeadInput | CallCreateOrConnectWithoutLeadInput[]
     createMany?: CallCreateManyLeadInputEnvelope
     connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-  }
-
-  export type UserUpdateOneRequiredWithoutLeadsNestedInput = {
-    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
-    upsert?: UserUpsertWithoutLeadsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLeadsInput, UserUpdateWithoutLeadsInput>, UserUncheckedUpdateWithoutLeadsInput>
   }
 
   export type CallUpdateManyWithoutLeadNestedInput = {
@@ -17691,6 +20648,14 @@ export namespace Prisma {
     deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
   }
 
+  export type UserUpdateOneRequiredWithoutLeadsNestedInput = {
+    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
+    upsert?: UserUpsertWithoutLeadsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLeadsInput, UserUpdateWithoutLeadsInput>, UserUncheckedUpdateWithoutLeadsInput>
+  }
+
   export type CallUncheckedUpdateManyWithoutLeadNestedInput = {
     create?: XOR<CallCreateWithoutLeadInput, CallUncheckedCreateWithoutLeadInput> | CallCreateWithoutLeadInput[] | CallUncheckedCreateWithoutLeadInput[]
     connectOrCreate?: CallCreateOrConnectWithoutLeadInput | CallCreateOrConnectWithoutLeadInput[]
@@ -17705,16 +20670,24 @@ export namespace Prisma {
     deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
   }
 
+  export type BusinessAssistantCreateNestedOneWithoutCallsInput = {
+    create?: XOR<BusinessAssistantCreateWithoutCallsInput, BusinessAssistantUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: BusinessAssistantCreateOrConnectWithoutCallsInput
+    connect?: BusinessAssistantWhereUniqueInput
+  }
+
   export type LeadCreateNestedOneWithoutCallsInput = {
     create?: XOR<LeadCreateWithoutCallsInput, LeadUncheckedCreateWithoutCallsInput>
     connectOrCreate?: LeadCreateOrConnectWithoutCallsInput
     connect?: LeadWhereUniqueInput
   }
 
-  export type BusinessAssistantCreateNestedOneWithoutCallsInput = {
+  export type BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput = {
     create?: XOR<BusinessAssistantCreateWithoutCallsInput, BusinessAssistantUncheckedCreateWithoutCallsInput>
     connectOrCreate?: BusinessAssistantCreateOrConnectWithoutCallsInput
+    upsert?: BusinessAssistantUpsertWithoutCallsInput
     connect?: BusinessAssistantWhereUniqueInput
+    update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutCallsInput, BusinessAssistantUpdateWithoutCallsInput>, BusinessAssistantUncheckedUpdateWithoutCallsInput>
   }
 
   export type LeadUpdateOneRequiredWithoutCallsNestedInput = {
@@ -17725,12 +20698,18 @@ export namespace Prisma {
     update?: XOR<XOR<LeadUpdateToOneWithWhereWithoutCallsInput, LeadUpdateWithoutCallsInput>, LeadUncheckedUpdateWithoutCallsInput>
   }
 
-  export type BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput = {
-    create?: XOR<BusinessAssistantCreateWithoutCallsInput, BusinessAssistantUncheckedCreateWithoutCallsInput>
-    connectOrCreate?: BusinessAssistantCreateOrConnectWithoutCallsInput
-    upsert?: BusinessAssistantUpsertWithoutCallsInput
+  export type BusinessAssistantCreateNestedOneWithoutContextInput = {
+    create?: XOR<BusinessAssistantCreateWithoutContextInput, BusinessAssistantUncheckedCreateWithoutContextInput>
+    connectOrCreate?: BusinessAssistantCreateOrConnectWithoutContextInput
     connect?: BusinessAssistantWhereUniqueInput
-    update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutCallsInput, BusinessAssistantUpdateWithoutCallsInput>, BusinessAssistantUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type BusinessAssistantUpdateOneRequiredWithoutContextNestedInput = {
+    create?: XOR<BusinessAssistantCreateWithoutContextInput, BusinessAssistantUncheckedCreateWithoutContextInput>
+    connectOrCreate?: BusinessAssistantCreateOrConnectWithoutContextInput
+    upsert?: BusinessAssistantUpsertWithoutContextInput
+    connect?: BusinessAssistantWhereUniqueInput
+    update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutContextInput, BusinessAssistantUpdateWithoutContextInput>, BusinessAssistantUncheckedUpdateWithoutContextInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -17854,6 +20833,29 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
@@ -17968,36 +20970,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type SessionCreateWithoutUserInput = {
-    id: string
-    expiresAt: Date | string
-    token: string
-    createdAt: Date | string
-    updatedAt: Date | string
-    ipAddress?: string | null
-    userAgent?: string | null
-  }
-
-  export type SessionUncheckedCreateWithoutUserInput = {
-    id: string
-    expiresAt: Date | string
-    token: string
-    createdAt: Date | string
-    updatedAt: Date | string
-    ipAddress?: string | null
-    userAgent?: string | null
-  }
-
-  export type SessionCreateOrConnectWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
-  }
-
-  export type SessionCreateManyUserInputEnvelope = {
-    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type AccountCreateWithoutUserInput = {
     id: string
     accountId: string
@@ -18041,37 +21013,39 @@ export namespace Prisma {
   export type BusinessAssistantCreateWithoutUserInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallCreateNestedManyWithoutAssistantInput
     faqs?: FAQCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutUserInput = {
@@ -18082,24 +21056,24 @@ export namespace Prisma {
   export type LeadCreateWithoutUserInput = {
     id?: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    phoneNumber: string
+    intent?: string | null
     calls?: CallCreateNestedManyWithoutLeadInput
   }
 
   export type LeadUncheckedCreateWithoutUserInput = {
     id?: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    phoneNumber: string
+    intent?: string | null
     calls?: CallUncheckedCreateNestedManyWithoutLeadInput
   }
 
@@ -18141,34 +21115,66 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+  export type NotificationCreateWithoutUserInput = {
+    id?: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUncheckedCreateWithoutUserInput = {
+    id?: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationCreateManyUserInputEnvelope = {
+    data: NotificationCreateManyUserInput | NotificationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SessionCreateWithoutUserInput = {
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
+  }
+
+  export type SessionUncheckedCreateWithoutUserInput = {
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
+  }
+
+  export type SessionCreateOrConnectWithoutUserInput = {
     where: SessionWhereUniqueInput
-    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
     create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
   }
 
-  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type SessionUpdateManyWithWhereWithoutUserInput = {
-    where: SessionScalarWhereInput
-    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type SessionScalarWhereInput = {
-    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    OR?: SessionScalarWhereInput[]
-    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    id?: StringFilter<"Session"> | string
-    expiresAt?: DateTimeFilter<"Session"> | Date | string
-    token?: StringFilter<"Session"> | string
-    createdAt?: DateTimeFilter<"Session"> | Date | string
-    updatedAt?: DateTimeFilter<"Session"> | Date | string
-    ipAddress?: StringNullableFilter<"Session"> | string | null
-    userAgent?: StringNullableFilter<"Session"> | string | null
-    userId?: StringFilter<"Session"> | string
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -18220,37 +21226,39 @@ export namespace Prisma {
   export type BusinessAssistantUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
   export type LeadUpsertWithWhereUniqueWithoutUserInput = {
@@ -18274,14 +21282,14 @@ export namespace Prisma {
     OR?: LeadScalarWhereInput[]
     NOT?: LeadScalarWhereInput | LeadScalarWhereInput[]
     id?: StringFilter<"Lead"> | string
-    businessId?: StringFilter<"Lead"> | string
     name?: StringNullableFilter<"Lead"> | string | null
-    phoneNumber?: StringFilter<"Lead"> | string
-    intent?: StringNullableFilter<"Lead"> | string | null
     email?: StringNullableFilter<"Lead"> | string | null
     summary?: StringNullableFilter<"Lead"> | string | null
     createdAt?: DateTimeFilter<"Lead"> | Date | string
     updatedAt?: DateTimeFilter<"Lead"> | Date | string
+    businessId?: StringFilter<"Lead"> | string
+    phoneNumber?: StringFilter<"Lead"> | string
+    intent?: StringNullableFilter<"Lead"> | string | null
   }
 
   export type TransactionUpsertWithWhereUniqueWithoutUserInput = {
@@ -18313,18 +21321,81 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
   }
 
+  export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutUserInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NotificationScalarWhereInput = {
+    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    OR?: NotificationScalarWhereInput[]
+    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    userId?: StringFilter<"Notification"> | string
+    type?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    body?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    metadata?: JsonNullableFilter<"Notification">
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+  }
+
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    id?: StringFilter<"Session"> | string
+    expiresAt?: DateTimeFilter<"Session"> | Date | string
+    token?: StringFilter<"Session"> | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    ipAddress?: StringNullableFilter<"Session"> | string | null
+    userAgent?: StringNullableFilter<"Session"> | string | null
+    userId?: StringFilter<"Session"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id: string
     name: string
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
     leads?: LeadCreateNestedManyWithoutUserInput
     transactions?: TransactionCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -18333,12 +21404,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
     leads?: LeadUncheckedCreateNestedManyWithoutUserInput
     transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -18363,12 +21436,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
     leads?: LeadUpdateManyWithoutUserNestedInput
     transactions?: TransactionUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -18377,12 +21452,94 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
     leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
     transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutNotificationsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    phoneNumber?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+    leads?: LeadCreateNestedManyWithoutUserInput
+    transactions?: TransactionCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNotificationsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    phoneNumber?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+    leads?: LeadUncheckedCreateNestedManyWithoutUserInput
+    transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNotificationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+  }
+
+  export type UserUpsertWithoutNotificationsInput = {
+    update: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type UserUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
+    leads?: LeadUpdateManyWithoutUserNestedInput
+    transactions?: TransactionUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
+    leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
+    transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -18391,12 +21548,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
     leads?: LeadCreateNestedManyWithoutUserInput
     transactions?: TransactionCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -18405,12 +21564,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
     leads?: LeadUncheckedCreateNestedManyWithoutUserInput
     transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -18435,12 +21596,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
     leads?: LeadUpdateManyWithoutUserNestedInput
     transactions?: TransactionUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -18449,12 +21612,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
     leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
     transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutTransactionsInput = {
@@ -18463,12 +21628,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
     leads?: LeadCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTransactionsInput = {
@@ -18477,12 +21644,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
     leads?: LeadUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTransactionsInput = {
@@ -18507,12 +21676,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
     leads?: LeadUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTransactionsInput = {
@@ -18521,12 +21692,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
     leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutBusinessAssistantInput = {
@@ -18535,12 +21708,14 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     leads?: LeadCreateNestedManyWithoutUserInput
     transactions?: TransactionCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutBusinessAssistantInput = {
@@ -18549,17 +21724,57 @@ export namespace Prisma {
     email: string
     emailVerified: boolean
     image?: string | null
+    phoneNumber?: string | null
     createdAt: Date | string
     updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     leads?: LeadUncheckedCreateNestedManyWithoutUserInput
     transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutBusinessAssistantInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutBusinessAssistantInput, UserUncheckedCreateWithoutBusinessAssistantInput>
+  }
+
+  export type CallCreateWithoutAssistantInput = {
+    id?: string
+    vapiCallId: string
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
+    lead: LeadCreateNestedOneWithoutCallsInput
+  }
+
+  export type CallUncheckedCreateWithoutAssistantInput = {
+    id?: string
+    vapiCallId: string
+    leadId: string
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
+  }
+
+  export type CallCreateOrConnectWithoutAssistantInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type CallCreateManyAssistantInputEnvelope = {
+    data: CallCreateManyAssistantInput | CallCreateManyAssistantInput[]
+    skipDuplicates?: boolean
   }
 
   export type FAQCreateWithoutAssistantInput = {
@@ -18642,42 +21857,21 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type CallCreateWithoutAssistantInput = {
+  export type BusinessContextCreateWithoutAssistantInput = {
     id?: string
-    vapiCallId: string
-    customerNumber?: string | null
-    intent?: string | null
-    transcript?: string | null
-    summary?: string | null
-    recordingUrl?: string | null
-    status: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    lead: LeadCreateNestedOneWithoutCallsInput
-  }
-
-  export type CallUncheckedCreateWithoutAssistantInput = {
-    id?: string
-    vapiCallId: string
-    leadId: string
-    customerNumber?: string | null
-    intent?: string | null
-    transcript?: string | null
-    summary?: string | null
-    recordingUrl?: string | null
-    status: string
-    createdAt?: Date | string
+    content: string
     updatedAt?: Date | string
   }
 
-  export type CallCreateOrConnectWithoutAssistantInput = {
-    where: CallWhereUniqueInput
-    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
+  export type BusinessContextUncheckedCreateWithoutAssistantInput = {
+    id?: string
+    content: string
+    updatedAt?: Date | string
   }
 
-  export type CallCreateManyAssistantInputEnvelope = {
-    data: CallCreateManyAssistantInput | CallCreateManyAssistantInput[]
-    skipDuplicates?: boolean
+  export type BusinessContextCreateOrConnectWithoutAssistantInput = {
+    where: BusinessContextWhereUniqueInput
+    create: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
   }
 
   export type UserUpsertWithoutBusinessAssistantInput = {
@@ -18697,12 +21891,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     leads?: LeadUpdateManyWithoutUserNestedInput
     transactions?: TransactionUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutBusinessAssistantInput = {
@@ -18711,12 +21907,48 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
     transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutAssistantInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutAssistantInput, CallUncheckedUpdateWithoutAssistantInput>
+    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutAssistantInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutAssistantInput, CallUncheckedUpdateWithoutAssistantInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutAssistantInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutAssistantInput>
+  }
+
+  export type CallScalarWhereInput = {
+    AND?: CallScalarWhereInput | CallScalarWhereInput[]
+    OR?: CallScalarWhereInput[]
+    NOT?: CallScalarWhereInput | CallScalarWhereInput[]
+    id?: StringFilter<"Call"> | string
+    vapiCallId?: StringFilter<"Call"> | string
+    leadId?: StringFilter<"Call"> | string
+    assistantId?: StringFilter<"Call"> | string
+    transcript?: StringNullableFilter<"Call"> | string | null
+    summary?: StringNullableFilter<"Call"> | string | null
+    recordingUrl?: StringNullableFilter<"Call"> | string | null
+    status?: StringFilter<"Call"> | string
+    createdAt?: DateTimeFilter<"Call"> | Date | string
+    updatedAt?: DateTimeFilter<"Call"> | Date | string
+    customerNumber?: StringNullableFilter<"Call"> | string | null
+    intent?: StringNullableFilter<"Call"> | string | null
   }
 
   export type FAQUpsertWithWhereUniqueWithoutAssistantInput = {
@@ -18804,74 +22036,65 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"ResourceLink"> | Date | string
   }
 
-  export type CallUpsertWithWhereUniqueWithoutAssistantInput = {
-    where: CallWhereUniqueInput
-    update: XOR<CallUpdateWithoutAssistantInput, CallUncheckedUpdateWithoutAssistantInput>
-    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
+  export type BusinessContextUpsertWithoutAssistantInput = {
+    update: XOR<BusinessContextUpdateWithoutAssistantInput, BusinessContextUncheckedUpdateWithoutAssistantInput>
+    create: XOR<BusinessContextCreateWithoutAssistantInput, BusinessContextUncheckedCreateWithoutAssistantInput>
+    where?: BusinessContextWhereInput
   }
 
-  export type CallUpdateWithWhereUniqueWithoutAssistantInput = {
-    where: CallWhereUniqueInput
-    data: XOR<CallUpdateWithoutAssistantInput, CallUncheckedUpdateWithoutAssistantInput>
+  export type BusinessContextUpdateToOneWithWhereWithoutAssistantInput = {
+    where?: BusinessContextWhereInput
+    data: XOR<BusinessContextUpdateWithoutAssistantInput, BusinessContextUncheckedUpdateWithoutAssistantInput>
   }
 
-  export type CallUpdateManyWithWhereWithoutAssistantInput = {
-    where: CallScalarWhereInput
-    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutAssistantInput>
+  export type BusinessContextUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CallScalarWhereInput = {
-    AND?: CallScalarWhereInput | CallScalarWhereInput[]
-    OR?: CallScalarWhereInput[]
-    NOT?: CallScalarWhereInput | CallScalarWhereInput[]
-    id?: StringFilter<"Call"> | string
-    vapiCallId?: StringFilter<"Call"> | string
-    leadId?: StringFilter<"Call"> | string
-    assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringNullableFilter<"Call"> | string | null
-    intent?: StringNullableFilter<"Call"> | string | null
-    transcript?: StringNullableFilter<"Call"> | string | null
-    summary?: StringNullableFilter<"Call"> | string | null
-    recordingUrl?: StringNullableFilter<"Call"> | string | null
-    status?: StringFilter<"Call"> | string
-    createdAt?: DateTimeFilter<"Call"> | Date | string
-    updatedAt?: DateTimeFilter<"Call"> | Date | string
+  export type BusinessContextUncheckedUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BusinessAssistantCreateWithoutFaqsInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutFaqsInput = {
@@ -18893,73 +22116,77 @@ export namespace Prisma {
   export type BusinessAssistantUpdateWithoutFaqsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateWithoutProductsInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
     faqs?: FAQCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutProductsInput = {
@@ -18981,73 +22208,77 @@ export namespace Prisma {
   export type BusinessAssistantUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateWithoutResourceLinksInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
     faqs?: FAQCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutResourceLinksInput = {
@@ -19069,83 +22300,52 @@ export namespace Prisma {
   export type BusinessAssistantUpdateWithoutResourceLinksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
-  }
-
-  export type UserCreateWithoutLeadsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
-    transactions?: TransactionCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutLeadsInput = {
-    id: string
-    name: string
-    email: string
-    emailVerified: boolean
-    image?: string | null
-    createdAt: Date | string
-    updatedAt: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
-    transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutLeadsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
   export type CallCreateWithoutLeadInput = {
     id?: string
     vapiCallId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
     assistant: BusinessAssistantCreateNestedOneWithoutCallsInput
   }
 
@@ -19153,14 +22353,14 @@ export namespace Prisma {
     id?: string
     vapiCallId: string
     assistantId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
   }
 
   export type CallCreateOrConnectWithoutLeadInput = {
@@ -19171,6 +22371,59 @@ export namespace Prisma {
   export type CallCreateManyLeadInputEnvelope = {
     data: CallCreateManyLeadInput | CallCreateManyLeadInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutLeadsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    phoneNumber?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+    transactions?: TransactionCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLeadsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    phoneNumber?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+    transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLeadsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutLeadInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutLeadInput, CallUncheckedUpdateWithoutLeadInput>
+    create: XOR<CallCreateWithoutLeadInput, CallUncheckedCreateWithoutLeadInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutLeadInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutLeadInput, CallUncheckedUpdateWithoutLeadInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutLeadInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutLeadInput>
   }
 
   export type UserUpsertWithoutLeadsInput = {
@@ -19190,12 +22443,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
     transactions?: TransactionUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLeadsInput = {
@@ -19204,93 +22459,52 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
     transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type CallUpsertWithWhereUniqueWithoutLeadInput = {
-    where: CallWhereUniqueInput
-    update: XOR<CallUpdateWithoutLeadInput, CallUncheckedUpdateWithoutLeadInput>
-    create: XOR<CallCreateWithoutLeadInput, CallUncheckedCreateWithoutLeadInput>
-  }
-
-  export type CallUpdateWithWhereUniqueWithoutLeadInput = {
-    where: CallWhereUniqueInput
-    data: XOR<CallUpdateWithoutLeadInput, CallUncheckedUpdateWithoutLeadInput>
-  }
-
-  export type CallUpdateManyWithWhereWithoutLeadInput = {
-    where: CallScalarWhereInput
-    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutLeadInput>
-  }
-
-  export type LeadCreateWithoutCallsInput = {
-    id?: string
-    name?: string | null
-    phoneNumber: string
-    intent?: string | null
-    email?: string | null
-    summary?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutLeadsInput
-  }
-
-  export type LeadUncheckedCreateWithoutCallsInput = {
-    id?: string
-    businessId: string
-    name?: string | null
-    phoneNumber: string
-    intent?: string | null
-    email?: string | null
-    summary?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type LeadCreateOrConnectWithoutCallsInput = {
-    where: LeadWhereUniqueInput
-    create: XOR<LeadCreateWithoutCallsInput, LeadUncheckedCreateWithoutCallsInput>
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type BusinessAssistantCreateWithoutCallsInput = {
     id?: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
     faqs?: FAQCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
     id?: string
     userId: string
     name: string
-    systemPrompt?: string | null
     firstMessage?: string | null
-    vapiAssistantId?: string | null
     phoneNumber?: string | null
     isSubscribed?: boolean
     subscriptionTier?: $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+    context?: BusinessContextUncheckedCreateNestedOneWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutCallsInput = {
@@ -19298,39 +22512,33 @@ export namespace Prisma {
     create: XOR<BusinessAssistantCreateWithoutCallsInput, BusinessAssistantUncheckedCreateWithoutCallsInput>
   }
 
-  export type LeadUpsertWithoutCallsInput = {
-    update: XOR<LeadUpdateWithoutCallsInput, LeadUncheckedUpdateWithoutCallsInput>
+  export type LeadCreateWithoutCallsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    summary?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    phoneNumber: string
+    intent?: string | null
+    user: UserCreateNestedOneWithoutLeadsInput
+  }
+
+  export type LeadUncheckedCreateWithoutCallsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    summary?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    businessId: string
+    phoneNumber: string
+    intent?: string | null
+  }
+
+  export type LeadCreateOrConnectWithoutCallsInput = {
+    where: LeadWhereUniqueInput
     create: XOR<LeadCreateWithoutCallsInput, LeadUncheckedCreateWithoutCallsInput>
-    where?: LeadWhereInput
-  }
-
-  export type LeadUpdateToOneWithWhereWithoutCallsInput = {
-    where?: LeadWhereInput
-    data: XOR<LeadUpdateWithoutCallsInput, LeadUncheckedUpdateWithoutCallsInput>
-  }
-
-  export type LeadUpdateWithoutCallsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLeadsNestedInput
-  }
-
-  export type LeadUncheckedUpdateWithoutCallsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type BusinessAssistantUpsertWithoutCallsInput = {
@@ -19347,47 +22555,166 @@ export namespace Prisma {
   export type BusinessAssistantUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
     faqs?: FAQUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUpdateOneWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     isSubscribed?: BoolFieldUpdateOperationsInput | boolean
     subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
     subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
+    context?: BusinessContextUncheckedUpdateOneWithoutAssistantNestedInput
   }
 
-  export type SessionCreateManyUserInput = {
-    id: string
-    expiresAt: Date | string
-    token: string
-    createdAt: Date | string
-    updatedAt: Date | string
-    ipAddress?: string | null
-    userAgent?: string | null
+  export type LeadUpsertWithoutCallsInput = {
+    update: XOR<LeadUpdateWithoutCallsInput, LeadUncheckedUpdateWithoutCallsInput>
+    create: XOR<LeadCreateWithoutCallsInput, LeadUncheckedCreateWithoutCallsInput>
+    where?: LeadWhereInput
+  }
+
+  export type LeadUpdateToOneWithWhereWithoutCallsInput = {
+    where?: LeadWhereInput
+    data: XOR<LeadUpdateWithoutCallsInput, LeadUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type LeadUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    user?: UserUpdateOneRequiredWithoutLeadsNestedInput
+  }
+
+  export type LeadUncheckedUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    businessId?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BusinessAssistantCreateWithoutContextInput = {
+    id?: string
+    name: string
+    firstMessage?: string | null
+    phoneNumber?: string | null
+    isSubscribed?: boolean
+    subscriptionTier?: $Enums.SubscriptionTier | null
+    subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
+    faqs?: FAQCreateNestedManyWithoutAssistantInput
+    products?: ProductCreateNestedManyWithoutAssistantInput
+    resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
+  }
+
+  export type BusinessAssistantUncheckedCreateWithoutContextInput = {
+    id?: string
+    userId: string
+    name: string
+    firstMessage?: string | null
+    phoneNumber?: string | null
+    isSubscribed?: boolean
+    subscriptionTier?: $Enums.SubscriptionTier | null
+    subscriptionExpiresAt?: Date | string | null
+    systemPrompt?: string | null
+    vapiAssistantId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
+    products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
+    resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
+  }
+
+  export type BusinessAssistantCreateOrConnectWithoutContextInput = {
+    where: BusinessAssistantWhereUniqueInput
+    create: XOR<BusinessAssistantCreateWithoutContextInput, BusinessAssistantUncheckedCreateWithoutContextInput>
+  }
+
+  export type BusinessAssistantUpsertWithoutContextInput = {
+    update: XOR<BusinessAssistantUpdateWithoutContextInput, BusinessAssistantUncheckedUpdateWithoutContextInput>
+    create: XOR<BusinessAssistantCreateWithoutContextInput, BusinessAssistantUncheckedCreateWithoutContextInput>
+    where?: BusinessAssistantWhereInput
+  }
+
+  export type BusinessAssistantUpdateToOneWithWhereWithoutContextInput = {
+    where?: BusinessAssistantWhereInput
+    data: XOR<BusinessAssistantUpdateWithoutContextInput, BusinessAssistantUncheckedUpdateWithoutContextInput>
+  }
+
+  export type BusinessAssistantUpdateWithoutContextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isSubscribed?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+    subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
+    faqs?: FAQUpdateManyWithoutAssistantNestedInput
+    products?: ProductUpdateManyWithoutAssistantNestedInput
+    resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
+  }
+
+  export type BusinessAssistantUncheckedUpdateWithoutContextInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isSubscribed?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionTier?: NullableEnumSubscriptionTierFieldUpdateOperationsInput | $Enums.SubscriptionTier | null
+    subscriptionExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
+    products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
+    resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -19408,12 +22735,12 @@ export namespace Prisma {
   export type LeadCreateManyUserInput = {
     id?: string
     name?: string | null
-    phoneNumber: string
-    intent?: string | null
     email?: string | null
     summary?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    phoneNumber: string
+    intent?: string | null
   }
 
   export type TransactionCreateManyUserInput = {
@@ -19425,34 +22752,25 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type SessionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  export type NotificationCreateManyUserInput = {
+    id?: string
+    type: string
+    title: string
+    body: string
+    read?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type SessionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type SessionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  export type SessionCreateManyUserInput = {
+    id: string
+    expiresAt: Date | string
+    token: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    ipAddress?: string | null
+    userAgent?: string | null
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -19503,36 +22821,36 @@ export namespace Prisma {
   export type LeadUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     calls?: CallUpdateManyWithoutLeadNestedInput
   }
 
   export type LeadUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     calls?: CallUncheckedUpdateManyWithoutLeadNestedInput
   }
 
   export type LeadUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TransactionUpdateWithoutUserInput = {
@@ -19562,6 +22880,83 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type NotificationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    body?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CallCreateManyAssistantInput = {
+    id?: string
+    vapiCallId: string
+    leadId: string
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
+  }
+
   export type FAQCreateManyAssistantInput = {
     id?: string
     question: string
@@ -19587,18 +22982,46 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type CallCreateManyAssistantInput = {
-    id?: string
-    vapiCallId: string
-    leadId: string
-    customerNumber?: string | null
-    intent?: string | null
-    transcript?: string | null
-    summary?: string | null
-    recordingUrl?: string | null
-    status: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type CallUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    lead?: LeadUpdateOneRequiredWithoutCallsNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    leadId?: StringFieldUpdateOperationsInput | string
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CallUncheckedUpdateManyWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    leadId?: StringFieldUpdateOperationsInput | string
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FAQUpdateWithoutAssistantInput = {
@@ -19676,73 +23099,31 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CallUpdateWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    lead?: LeadUpdateOneRequiredWithoutCallsNestedInput
-  }
-
-  export type CallUncheckedUpdateWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    leadId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CallUncheckedUpdateManyWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    leadId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type CallCreateManyLeadInput = {
     id?: string
     vapiCallId: string
     assistantId: string
-    customerNumber?: string | null
-    intent?: string | null
     transcript?: string | null
     summary?: string | null
     recordingUrl?: string | null
     status: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    customerNumber?: string | null
+    intent?: string | null
   }
 
   export type CallUpdateWithoutLeadInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
     assistant?: BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput
   }
 
@@ -19750,28 +23131,28 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CallUncheckedUpdateManyWithoutLeadInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
     summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

@@ -126,6 +126,7 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
+  phoneNumber: 'phoneNumber',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -139,6 +140,18 @@ exports.Prisma.SessionScalarFieldEnum = {
   ipAddress: 'ipAddress',
   userAgent: 'userAgent',
   userId: 'userId'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  read: 'read',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {
@@ -180,13 +193,13 @@ exports.Prisma.BusinessAssistantScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   name: 'name',
-  systemPrompt: 'systemPrompt',
   firstMessage: 'firstMessage',
-  vapiAssistantId: 'vapiAssistantId',
   phoneNumber: 'phoneNumber',
   isSubscribed: 'isSubscribed',
   subscriptionTier: 'subscriptionTier',
   subscriptionExpiresAt: 'subscriptionExpiresAt',
+  systemPrompt: 'systemPrompt',
+  vapiAssistantId: 'vapiAssistantId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -221,14 +234,14 @@ exports.Prisma.ResourceLinkScalarFieldEnum = {
 
 exports.Prisma.LeadScalarFieldEnum = {
   id: 'id',
-  businessId: 'businessId',
   name: 'name',
-  phoneNumber: 'phoneNumber',
-  intent: 'intent',
   email: 'email',
   summary: 'summary',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  businessId: 'businessId',
+  phoneNumber: 'phoneNumber',
+  intent: 'intent'
 };
 
 exports.Prisma.CallScalarFieldEnum = {
@@ -236,19 +249,31 @@ exports.Prisma.CallScalarFieldEnum = {
   vapiCallId: 'vapiCallId',
   leadId: 'leadId',
   assistantId: 'assistantId',
-  customerNumber: 'customerNumber',
-  intent: 'intent',
   transcript: 'transcript',
   summary: 'summary',
   recordingUrl: 'recordingUrl',
   status: 'status',
   createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  customerNumber: 'customerNumber',
+  intent: 'intent'
+};
+
+exports.Prisma.BusinessContextScalarFieldEnum = {
+  id: 'id',
+  assistantId: 'assistantId',
+  content: 'content',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -260,6 +285,12 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
 exports.SubscriptionTier = exports.$Enums.SubscriptionTier = {
   STARTER: 'STARTER',
   PRO: 'PRO',
@@ -269,6 +300,7 @@ exports.SubscriptionTier = exports.$Enums.SubscriptionTier = {
 exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
+  Notification: 'Notification',
   Account: 'Account',
   Verification: 'Verification',
   Transaction: 'Transaction',
@@ -277,7 +309,8 @@ exports.Prisma.ModelName = {
   Product: 'Product',
   ResourceLink: 'ResourceLink',
   Lead: 'Lead',
-  Call: 'Call'
+  Call: 'Call',
+  BusinessContext: 'BusinessContext'
 };
 
 /**
