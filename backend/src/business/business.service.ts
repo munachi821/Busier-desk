@@ -1,4 +1,3 @@
-// src/business/business.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UpdateAssistantDto } from './dto/update-assistant.dto';

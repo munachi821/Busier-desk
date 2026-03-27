@@ -1,4 +1,3 @@
-// src/business/business.controller.ts
 import { Controller, Get, Patch, Body, Req, UseGuards } from '@nestjs/common';
 import { BusinessService } from './business.service';
 import { SessionGuard } from '../auth/session.guard';
