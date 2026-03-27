@@ -1,5 +1,6 @@
 import { CloudUpload } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AgentConfiguration = () => {
   const [duration, setDuration] = useState(2);
@@ -32,6 +33,10 @@ A: We prioritize OEM parts but offer high-quality aftermarket alternatives for b
 
   return (
     <div className="p-6 pt-8">
+      <Helmet>
+        <title>Agent Configuration</title>
+      </Helmet>
+
       <h2 className="font-manrope font-bold text-3xl md:text-4xl text-[#E7E5E5] mb-10">
         Agent Configuration
       </h2>

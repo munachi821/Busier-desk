@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { authClient } from "../../lib/auth-client";
 
 // Prevents logged-in users from accessing /authentication again
-const PublicRoute = ({ children }) => {
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
   const { data: session, isPending } = authClient.useSession();
 
   if (isPending) {

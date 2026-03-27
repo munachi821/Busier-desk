@@ -5,46 +5,50 @@ import {
   Landmark,
   Cog,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const WalletBilling = () => {
   return (
     <div className="p-6 pt-8">
+      <Helmet>
+        <title>Wallet & Billing</title>
+      </Helmet>
       <div className="mb-10">
         <h2 className="font-manrope font-bold text-3xl md:text-4xl text-[#E7E5E5]">
           Wallet & Billing
         </h2>
-        <p className="text-[#ACABAA] font-inter text-sm mt-1">
+        <p className="text-[#ACABAA] font-inter text-sm mt-1 max-w-130">
           Manage your enterprise credit, monitor real-time AI consumption, and
-          top-up your <br /> operational wallet via Interswitch secure gateway.
+          top-up your operational wallet via Interswitch secure gateway.
         </p>
       </div>
 
-      <div className="bg-black border-l-2 border-[#6BDC9F] p-6 flex items-end justify-between">
-        <div>
+      <div className="bg-black border-l-2 border-[#6BDC9F] p-4 sm:p-6 flex flex-col xl:flex-row xl:items-end items-start justify-between gap-8 xl:gap-4 mt-8">
+        <div className="w-full">
           <div className="bg-[#6BDC9F1A] text-[#6BDC9F] px-2 py-0.5 text-[10px] w-fit font-semibold tracking-widest font-inter">
             <span>OPERATIONAL BALANCE</span>
           </div>
-          <div className="font-manrope text-5xl mt-4 font-bold">
+          <div className="font-manrope text-4xl sm:text-5xl mt-4 font-bold flex flex-col md:flex-row md:items-baseline gap-1 sm:gap-3">
             <h3 className="text-white">Current Balance:</h3>
             <p className="text-[#6BDC9F]">₦12,500</p>
           </div>
-          <p className="text-sm text-[#ACABAA] font-inter font-medium mt-3">
+          <p className="text-xs sm:text-sm text-[#ACABAA] font-inter font-medium mt-3">
             Last recharge: 4 hours ago via Interswitch
           </p>
         </div>
 
-        <div>
+        <div className="w-full xl:w-auto">
           <p className="text-[#ACABAA] font-inter font-medium text-sm mb-2">
             QUICK TOP-UP
           </p>
-          <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center w-full gap-3 sm:gap-0">
             <input
               type="number"
               name="top-up"
               placeholder="₦ Amount"
-              className="w-100 py-4 bg-[#252626] pl-3 placeholder:text-[#ACABAA80] font-inter outline-none text-white"
+              className="w-full sm:w-80 lg:w-100 py-3.5 sm:py-4 bg-[#252626] pl-4 placeholder:text-[#ACABAA80] font-inter outline-none text-white rounded-sm sm:rounded-r-none"
             />
-            <button className="nav-btn-gradient text-sm text-wide text-[#004A2D] px-4 py-4 font-inter font-semibold flex items-center gap-2">
+            <button className="nav-btn-gradient text-sm text-[#004A2D] px-6 py-3.5 sm:py-4 font-inter font-semibold flex items-center justify-center gap-2 whitespace-nowrap rounded-sm sm:rounded-l-none shrink-0">
               FUND WALLET <ArrowRight size={20} />
             </button>
           </div>

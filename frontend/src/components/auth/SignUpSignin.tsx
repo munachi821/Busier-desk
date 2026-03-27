@@ -24,12 +24,12 @@ const SignUpSignin = () => {
   const [signUpLoading, setSignUpLoading] = useState(false);
 
   // --- Handlers ---
-  const handleSignIn = async (e) => {
+  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSignInError("");
     setSignInLoading(true);
 
-    const { data, error } = await authClient.signIn.email({
+    const { error } = await authClient.signIn.email({
       email: signInData.email,
       password: signInData.password,
     });
@@ -44,12 +44,12 @@ const SignUpSignin = () => {
     navigate("/dashboard");
   };
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSignUpError("");
     setSignUpLoading(true);
 
-    const { data, error } = await authClient.signUp.email({
+    const { error } = await authClient.signUp.email({
       name: signUpData.name,
       email: signUpData.email,
       password: signUpData.password,
