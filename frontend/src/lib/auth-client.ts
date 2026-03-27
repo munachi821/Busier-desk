@@ -6,16 +6,4 @@ export const authClient = createAuthClient({
   fetchOptions: {
     credentials: "include",
   },
-  
-  advanced: {
-    crossSubdomainCookies: {
-      enabled: false,
-    },
-    defaultCookieAttributes: {
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",  // ← critical for cross-origin cookies
-      partitioned: true,
-    },
-  },
 })
