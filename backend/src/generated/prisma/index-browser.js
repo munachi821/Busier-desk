@@ -134,11 +134,11 @@ exports.Prisma.SessionScalarFieldEnum = {
   id: 'id',
   expiresAt: 'expiresAt',
   token: 'token',
-  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   ipAddress: 'ipAddress',
-  userAgent: 'userAgent'
+  userAgent: 'userAgent',
+  userId: 'userId'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {
@@ -169,35 +169,53 @@ exports.Prisma.VerificationScalarFieldEnum = {
 exports.Prisma.BusinessAssistantScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  vapiAssistantId: 'vapiAssistantId',
   name: 'name',
-  firstMessage: 'firstMessage',
+  vapiAssistantId: 'vapiAssistantId',
   systemPrompt: 'systemPrompt',
+  firstMessage: 'firstMessage',
+  phoneNumber: 'phoneNumber',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.FAQScalarFieldEnum = {
+exports.Prisma.FaqScalarFieldEnum = {
   id: 'id',
+  assistantId: 'assistantId',
   question: 'question',
   answer: 'answer',
-  assistantId: 'assistantId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
+  assistantId: 'assistantId',
   name: 'name',
   price: 'price',
   description: 'description',
-  mediaLink: 'mediaLink',
-  assistantId: 'assistantId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ResourceLinkScalarFieldEnum = {
   id: 'id',
-  label: 'label',
+  assistantId: 'assistantId',
+  title: 'title',
   url: 'url',
-  assistantId: 'assistantId'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeadScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  summary: 'summary',
+  intent: 'intent',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CallScalarFieldEnum = {
@@ -205,24 +223,13 @@ exports.Prisma.CallScalarFieldEnum = {
   vapiCallId: 'vapiCallId',
   assistantId: 'assistantId',
   customerNumber: 'customerNumber',
-  summary: 'summary',
   transcript: 'transcript',
+  summary: 'summary',
   recordingUrl: 'recordingUrl',
   intent: 'intent',
   status: 'status',
-  createdAt: 'createdAt'
-};
-
-exports.Prisma.LeadScalarFieldEnum = {
-  id: 'id',
-  businessId: 'businessId',
-  name: 'name',
-  phoneNumber: 'phoneNumber',
-  email: 'email',
-  intent: 'intent',
-  status: 'status',
-  lastContacted: 'lastContacted',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -247,11 +254,11 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Verification: 'Verification',
   BusinessAssistant: 'BusinessAssistant',
-  FAQ: 'FAQ',
+  Faq: 'Faq',
   Product: 'Product',
   ResourceLink: 'ResourceLink',
-  Call: 'Call',
-  Lead: 'Lead'
+  Lead: 'Lead',
+  Call: 'Call'
 };
 
 /**

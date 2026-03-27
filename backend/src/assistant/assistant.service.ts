@@ -50,7 +50,7 @@ export class AssistantService {
 
   async getLeads(userId: string) {
     return this.prisma.lead.findMany({
-      where: { businessId: userId },
+      where: { userId },
       orderBy: { createdAt: 'desc' },
     });
   }

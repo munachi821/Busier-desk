@@ -1,11 +1,11 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://neondb_owner:npg_j0kOZzw1LUEP@ep-shy-leaf-aniwbq4i-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require"
 }
 
 model User {
@@ -71,16 +71,59 @@ model Verification {
 }
 
 model BusinessAssistant {
-  id             String   @id @default(cuid())
-  userId         String   @unique
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name           String
-  vapiAssistantId String?
-  phoneNumber    String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name            String
+  vapiAssistantId String?  @unique
+  systemPrompt    String?
+  firstMessage    String?
+  phoneNumber     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  calls           Call[]
+  faqs            Faq[]
+  products        Product[]
+  resourceLinks   ResourceLink[]
 
   @@map("business_assistant")
+}
+
+model Faq {
+  id          String            @id @default(cuid())
+  assistantId String
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  question    String
+  answer      String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("faq")
+}
+
+model Product {
+  id          String            @id @default(cuid())
+  assistantId String
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  name        String
+  price       Float?
+  description String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("product")
+}
+
+model ResourceLink {
+  id          String            @id @default(cuid())
+  assistantId String
+  assistant   BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  title       String
+  url         String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("resource_link")
 }
 
 model Lead {
@@ -91,24 +134,26 @@ model Lead {
   phone     String
   email     String?
   summary   String?
+  intent    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  calls     Call[]
 
   @@map("lead")
 }
 
 model Call {
-  id           String   @id @default(cuid())
-  vapiCallId   String   @unique
-  leadId       String
-  lead         Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
-  transcript   String?
-  summary      String?
-  recordingUrl String?
-  status       String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id             String            @id @default(cuid())
+  vapiCallId     String            @unique
+  assistantId    String
+  assistant      BusinessAssistant @relation(fields: [assistantId], references: [id], onDelete: Cascade)
+  customerNumber String?
+  transcript     String?
+  summary        String?
+  recordingUrl   String?
+  intent         String?
+  status         String
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
 
   @@map("call")
 }

@@ -39,10 +39,10 @@ export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
  */
 export type BusinessAssistant = $Result.DefaultSelection<Prisma.$BusinessAssistantPayload>
 /**
- * Model FAQ
+ * Model Faq
  * 
  */
-export type FAQ = $Result.DefaultSelection<Prisma.$FAQPayload>
+export type Faq = $Result.DefaultSelection<Prisma.$FaqPayload>
 /**
  * Model Product
  * 
@@ -54,15 +54,15 @@ export type Product = $Result.DefaultSelection<Prisma.$ProductPayload>
  */
 export type ResourceLink = $Result.DefaultSelection<Prisma.$ResourceLinkPayload>
 /**
- * Model Call
- * 
- */
-export type Call = $Result.DefaultSelection<Prisma.$CallPayload>
-/**
  * Model Lead
  * 
  */
 export type Lead = $Result.DefaultSelection<Prisma.$LeadPayload>
+/**
+ * Model Call
+ * 
+ */
+export type Call = $Result.DefaultSelection<Prisma.$CallPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -236,14 +236,14 @@ export class PrismaClient<
   get businessAssistant(): Prisma.BusinessAssistantDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.fAQ`: Exposes CRUD operations for the **FAQ** model.
+   * `prisma.faq`: Exposes CRUD operations for the **Faq** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more FAQS
-    * const fAQS = await prisma.fAQ.findMany()
+    * // Fetch zero or more Faqs
+    * const faqs = await prisma.faq.findMany()
     * ```
     */
-  get fAQ(): Prisma.FAQDelegate<ExtArgs, ClientOptions>;
+  get faq(): Prisma.FaqDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.product`: Exposes CRUD operations for the **Product** model.
@@ -266,16 +266,6 @@ export class PrismaClient<
   get resourceLink(): Prisma.ResourceLinkDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.call`: Exposes CRUD operations for the **Call** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Calls
-    * const calls = await prisma.call.findMany()
-    * ```
-    */
-  get call(): Prisma.CallDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.lead`: Exposes CRUD operations for the **Lead** model.
     * Example usage:
     * ```ts
@@ -284,6 +274,16 @@ export class PrismaClient<
     * ```
     */
   get lead(): Prisma.LeadDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.call`: Exposes CRUD operations for the **Call** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Calls
+    * const calls = await prisma.call.findMany()
+    * ```
+    */
+  get call(): Prisma.CallDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -723,11 +723,11 @@ export namespace Prisma {
     Account: 'Account',
     Verification: 'Verification',
     BusinessAssistant: 'BusinessAssistant',
-    FAQ: 'FAQ',
+    Faq: 'Faq',
     Product: 'Product',
     ResourceLink: 'ResourceLink',
-    Call: 'Call',
-    Lead: 'Lead'
+    Lead: 'Lead',
+    Call: 'Call'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -743,7 +743,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "businessAssistant" | "fAQ" | "product" | "resourceLink" | "call" | "lead"
+      modelProps: "user" | "session" | "account" | "verification" | "businessAssistant" | "faq" | "product" | "resourceLink" | "lead" | "call"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1117,77 +1117,77 @@ export namespace Prisma {
           }
         }
       }
-      FAQ: {
-        payload: Prisma.$FAQPayload<ExtArgs>
-        fields: Prisma.FAQFieldRefs
+      Faq: {
+        payload: Prisma.$FaqPayload<ExtArgs>
+        fields: Prisma.FaqFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.FAQFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload> | null
+            args: Prisma.FaqFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.FAQFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           findFirst: {
-            args: Prisma.FAQFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload> | null
+            args: Prisma.FaqFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.FAQFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           findMany: {
-            args: Prisma.FAQFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+            args: Prisma.FaqFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>[]
           }
           create: {
-            args: Prisma.FAQCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           createMany: {
-            args: Prisma.FAQCreateManyArgs<ExtArgs>
+            args: Prisma.FaqCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.FAQCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+            args: Prisma.FaqCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>[]
           }
           delete: {
-            args: Prisma.FAQDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           update: {
-            args: Prisma.FAQUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           deleteMany: {
-            args: Prisma.FAQDeleteManyArgs<ExtArgs>
+            args: Prisma.FaqDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.FAQUpdateManyArgs<ExtArgs>
+            args: Prisma.FaqUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.FAQUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>[]
+            args: Prisma.FaqUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>[]
           }
           upsert: {
-            args: Prisma.FAQUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$FAQPayload>
+            args: Prisma.FaqUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FaqPayload>
           }
           aggregate: {
-            args: Prisma.FAQAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateFAQ>
+            args: Prisma.FaqAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFaq>
           }
           groupBy: {
-            args: Prisma.FAQGroupByArgs<ExtArgs>
-            result: $Utils.Optional<FAQGroupByOutputType>[]
+            args: Prisma.FaqGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FaqGroupByOutputType>[]
           }
           count: {
-            args: Prisma.FAQCountArgs<ExtArgs>
-            result: $Utils.Optional<FAQCountAggregateOutputType> | number
+            args: Prisma.FaqCountArgs<ExtArgs>
+            result: $Utils.Optional<FaqCountAggregateOutputType> | number
           }
         }
       }
@@ -1339,80 +1339,6 @@ export namespace Prisma {
           }
         }
       }
-      Call: {
-        payload: Prisma.$CallPayload<ExtArgs>
-        fields: Prisma.CallFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.CallFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.CallFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          findFirst: {
-            args: Prisma.CallFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.CallFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          findMany: {
-            args: Prisma.CallFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
-          }
-          create: {
-            args: Prisma.CallCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          createMany: {
-            args: Prisma.CallCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.CallCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
-          }
-          delete: {
-            args: Prisma.CallDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          update: {
-            args: Prisma.CallUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          deleteMany: {
-            args: Prisma.CallDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.CallUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.CallUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
-          }
-          upsert: {
-            args: Prisma.CallUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CallPayload>
-          }
-          aggregate: {
-            args: Prisma.CallAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCall>
-          }
-          groupBy: {
-            args: Prisma.CallGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CallGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.CallCountArgs<ExtArgs>
-            result: $Utils.Optional<CallCountAggregateOutputType> | number
-          }
-        }
-      }
       Lead: {
         payload: Prisma.$LeadPayload<ExtArgs>
         fields: Prisma.LeadFieldRefs
@@ -1484,6 +1410,80 @@ export namespace Prisma {
           count: {
             args: Prisma.LeadCountArgs<ExtArgs>
             result: $Utils.Optional<LeadCountAggregateOutputType> | number
+          }
+        }
+      }
+      Call: {
+        payload: Prisma.$CallPayload<ExtArgs>
+        fields: Prisma.CallFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CallFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CallFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          findFirst: {
+            args: Prisma.CallFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CallFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          findMany: {
+            args: Prisma.CallFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          create: {
+            args: Prisma.CallCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          createMany: {
+            args: Prisma.CallCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CallCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          delete: {
+            args: Prisma.CallDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          update: {
+            args: Prisma.CallUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          deleteMany: {
+            args: Prisma.CallDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CallUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CallUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          upsert: {
+            args: Prisma.CallUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          aggregate: {
+            args: Prisma.CallAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCall>
+          }
+          groupBy: {
+            args: Prisma.CallGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CallGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CallCountArgs<ExtArgs>
+            result: $Utils.Optional<CallCountAggregateOutputType> | number
           }
         }
       }
@@ -1600,11 +1600,11 @@ export namespace Prisma {
     account?: AccountOmit
     verification?: VerificationOmit
     businessAssistant?: BusinessAssistantOmit
-    fAQ?: FAQOmit
+    faq?: FaqOmit
     product?: ProductOmit
     resourceLink?: ResourceLinkOmit
-    call?: CallOmit
     lead?: LeadOmit
+    call?: CallOmit
   }
 
   /* Types for Logging */
@@ -1687,11 +1687,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
+    leads: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
+    leads?: boolean | UserCountOutputTypeCountLeadsArgs
   }
 
   // Custom InputTypes
@@ -1719,23 +1721,30 @@ export namespace Prisma {
     where?: AccountWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLeadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadWhereInput
+  }
+
 
   /**
    * Count Type BusinessAssistantCountOutputType
    */
 
   export type BusinessAssistantCountOutputType = {
+    calls: number
     faqs: number
     products: number
     resourceLinks: number
-    calls: number
   }
 
   export type BusinessAssistantCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
     faqs?: boolean | BusinessAssistantCountOutputTypeCountFaqsArgs
     products?: boolean | BusinessAssistantCountOutputTypeCountProductsArgs
     resourceLinks?: boolean | BusinessAssistantCountOutputTypeCountResourceLinksArgs
-    calls?: boolean | BusinessAssistantCountOutputTypeCountCallsArgs
   }
 
   // Custom InputTypes
@@ -1752,8 +1761,15 @@ export namespace Prisma {
   /**
    * BusinessAssistantCountOutputType without action
    */
+  export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+  }
+
+  /**
+   * BusinessAssistantCountOutputType without action
+   */
   export type BusinessAssistantCountOutputTypeCountFaqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FAQWhereInput
+    where?: FaqWhereInput
   }
 
   /**
@@ -1768,13 +1784,6 @@ export namespace Prisma {
    */
   export type BusinessAssistantCountOutputTypeCountResourceLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ResourceLinkWhereInput
-  }
-
-  /**
-   * BusinessAssistantCountOutputType without action
-   */
-  export type BusinessAssistantCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CallWhereInput
   }
 
 
@@ -1929,7 +1938,7 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: string
-    name: string | null
+    name: string
     email: string
     emailVerified: boolean
     image: string | null
@@ -1965,6 +1974,7 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     businessAssistant?: boolean | User$businessAssistantArgs<ExtArgs>
+    leads?: boolean | User$leadsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2003,6 +2013,7 @@ export namespace Prisma {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     businessAssistant?: boolean | User$businessAssistantArgs<ExtArgs>
+    leads?: boolean | User$leadsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2014,10 +2025,11 @@ export namespace Prisma {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       businessAssistant: Prisma.$BusinessAssistantPayload<ExtArgs> | null
+      leads: Prisma.$LeadPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string | null
+      name: string
       email: string
       emailVerified: boolean
       image: string | null
@@ -2420,6 +2432,7 @@ export namespace Prisma {
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     businessAssistant<T extends User$businessAssistantArgs<ExtArgs> = {}>(args?: Subset<T, User$businessAssistantArgs<ExtArgs>>): Prisma__BusinessAssistantClient<$Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    leads<T extends User$leadsArgs<ExtArgs> = {}>(args?: Subset<T, User$leadsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2916,6 +2929,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.leads
+   */
+  export type User$leadsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    where?: LeadWhereInput
+    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
+    cursor?: LeadWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2948,33 +2985,33 @@ export namespace Prisma {
     id: string | null
     expiresAt: Date | null
     token: string | null
-    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
     ipAddress: string | null
     userAgent: string | null
+    userId: string | null
   }
 
   export type SessionMaxAggregateOutputType = {
     id: string | null
     expiresAt: Date | null
     token: string | null
-    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
     ipAddress: string | null
     userAgent: string | null
+    userId: string | null
   }
 
   export type SessionCountAggregateOutputType = {
     id: number
     expiresAt: number
     token: number
-    userId: number
     createdAt: number
     updatedAt: number
     ipAddress: number
     userAgent: number
+    userId: number
     _all: number
   }
 
@@ -2983,33 +3020,33 @@ export namespace Prisma {
     id?: true
     expiresAt?: true
     token?: true
-    userId?: true
     createdAt?: true
     updatedAt?: true
     ipAddress?: true
     userAgent?: true
+    userId?: true
   }
 
   export type SessionMaxAggregateInputType = {
     id?: true
     expiresAt?: true
     token?: true
-    userId?: true
     createdAt?: true
     updatedAt?: true
     ipAddress?: true
     userAgent?: true
+    userId?: true
   }
 
   export type SessionCountAggregateInputType = {
     id?: true
     expiresAt?: true
     token?: true
-    userId?: true
     createdAt?: true
     updatedAt?: true
     ipAddress?: true
     userAgent?: true
+    userId?: true
     _all?: true
   }
 
@@ -3089,11 +3126,11 @@ export namespace Prisma {
     id: string
     expiresAt: Date
     token: string
-    userId: string
     createdAt: Date
     updatedAt: Date
     ipAddress: string | null
     userAgent: string | null
+    userId: string
     _count: SessionCountAggregateOutputType | null
     _min: SessionMinAggregateOutputType | null
     _max: SessionMaxAggregateOutputType | null
@@ -3117,11 +3154,11 @@ export namespace Prisma {
     id?: boolean
     expiresAt?: boolean
     token?: boolean
-    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ipAddress?: boolean
     userAgent?: boolean
+    userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
@@ -3129,11 +3166,11 @@ export namespace Prisma {
     id?: boolean
     expiresAt?: boolean
     token?: boolean
-    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ipAddress?: boolean
     userAgent?: boolean
+    userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
@@ -3141,11 +3178,11 @@ export namespace Prisma {
     id?: boolean
     expiresAt?: boolean
     token?: boolean
-    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ipAddress?: boolean
     userAgent?: boolean
+    userId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["session"]>
 
@@ -3153,14 +3190,14 @@ export namespace Prisma {
     id?: boolean
     expiresAt?: boolean
     token?: boolean
-    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     ipAddress?: boolean
     userAgent?: boolean
+    userId?: boolean
   }
 
-  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "expiresAt" | "token" | "userId" | "createdAt" | "updatedAt" | "ipAddress" | "userAgent", ExtArgs["result"]["session"]>
+  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "expiresAt" | "token" | "createdAt" | "updatedAt" | "ipAddress" | "userAgent" | "userId", ExtArgs["result"]["session"]>
   export type SessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -3180,11 +3217,11 @@ export namespace Prisma {
       id: string
       expiresAt: Date
       token: string
-      userId: string
       createdAt: Date
       updatedAt: Date
       ipAddress: string | null
       userAgent: string | null
+      userId: string
     }, ExtArgs["result"]["session"]>
     composites: {}
   }
@@ -3612,11 +3649,11 @@ export namespace Prisma {
     readonly id: FieldRef<"Session", 'String'>
     readonly expiresAt: FieldRef<"Session", 'DateTime'>
     readonly token: FieldRef<"Session", 'String'>
-    readonly userId: FieldRef<"Session", 'String'>
     readonly createdAt: FieldRef<"Session", 'DateTime'>
     readonly updatedAt: FieldRef<"Session", 'DateTime'>
     readonly ipAddress: FieldRef<"Session", 'String'>
     readonly userAgent: FieldRef<"Session", 'String'>
+    readonly userId: FieldRef<"Session", 'String'>
   }
     
 
@@ -5347,8 +5384,8 @@ export namespace Prisma {
     identifier: string
     value: string
     expiresAt: Date
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | null
+    updatedAt: Date | null
     _count: VerificationCountAggregateOutputType | null
     _min: VerificationMinAggregateOutputType | null
     _max: VerificationMaxAggregateOutputType | null
@@ -5414,8 +5451,8 @@ export namespace Prisma {
       identifier: string
       value: string
       expiresAt: Date
-      createdAt: Date
-      updatedAt: Date
+      createdAt: Date | null
+      updatedAt: Date | null
     }, ExtArgs["result"]["verification"]>
     composites: {}
   }
@@ -6229,10 +6266,11 @@ export namespace Prisma {
   export type BusinessAssistantMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    vapiAssistantId: string | null
     name: string | null
-    firstMessage: string | null
+    vapiAssistantId: string | null
     systemPrompt: string | null
+    firstMessage: string | null
+    phoneNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6240,10 +6278,11 @@ export namespace Prisma {
   export type BusinessAssistantMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    vapiAssistantId: string | null
     name: string | null
-    firstMessage: string | null
+    vapiAssistantId: string | null
     systemPrompt: string | null
+    firstMessage: string | null
+    phoneNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6251,10 +6290,11 @@ export namespace Prisma {
   export type BusinessAssistantCountAggregateOutputType = {
     id: number
     userId: number
-    vapiAssistantId: number
     name: number
-    firstMessage: number
+    vapiAssistantId: number
     systemPrompt: number
+    firstMessage: number
+    phoneNumber: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -6264,10 +6304,11 @@ export namespace Prisma {
   export type BusinessAssistantMinAggregateInputType = {
     id?: true
     userId?: true
-    vapiAssistantId?: true
     name?: true
-    firstMessage?: true
+    vapiAssistantId?: true
     systemPrompt?: true
+    firstMessage?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6275,10 +6316,11 @@ export namespace Prisma {
   export type BusinessAssistantMaxAggregateInputType = {
     id?: true
     userId?: true
-    vapiAssistantId?: true
     name?: true
-    firstMessage?: true
+    vapiAssistantId?: true
     systemPrompt?: true
+    firstMessage?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6286,10 +6328,11 @@ export namespace Prisma {
   export type BusinessAssistantCountAggregateInputType = {
     id?: true
     userId?: true
-    vapiAssistantId?: true
     name?: true
-    firstMessage?: true
+    vapiAssistantId?: true
     systemPrompt?: true
+    firstMessage?: true
+    phoneNumber?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6370,10 +6413,11 @@ export namespace Prisma {
   export type BusinessAssistantGroupByOutputType = {
     id: string
     userId: string
-    vapiAssistantId: string | null
     name: string
-    firstMessage: string | null
+    vapiAssistantId: string | null
     systemPrompt: string | null
+    firstMessage: string | null
+    phoneNumber: string | null
     createdAt: Date
     updatedAt: Date
     _count: BusinessAssistantCountAggregateOutputType | null
@@ -6398,27 +6442,29 @@ export namespace Prisma {
   export type BusinessAssistantSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    vapiAssistantId?: boolean
     name?: boolean
-    firstMessage?: boolean
+    vapiAssistantId?: boolean
     systemPrompt?: boolean
+    firstMessage?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     faqs?: boolean | BusinessAssistant$faqsArgs<ExtArgs>
     products?: boolean | BusinessAssistant$productsArgs<ExtArgs>
     resourceLinks?: boolean | BusinessAssistant$resourceLinksArgs<ExtArgs>
-    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     _count?: boolean | BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["businessAssistant"]>
 
   export type BusinessAssistantSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    vapiAssistantId?: boolean
     name?: boolean
-    firstMessage?: boolean
+    vapiAssistantId?: boolean
     systemPrompt?: boolean
+    firstMessage?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6427,10 +6473,11 @@ export namespace Prisma {
   export type BusinessAssistantSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    vapiAssistantId?: boolean
     name?: boolean
-    firstMessage?: boolean
+    vapiAssistantId?: boolean
     systemPrompt?: boolean
+    firstMessage?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6439,21 +6486,22 @@ export namespace Prisma {
   export type BusinessAssistantSelectScalar = {
     id?: boolean
     userId?: boolean
-    vapiAssistantId?: boolean
     name?: boolean
-    firstMessage?: boolean
+    vapiAssistantId?: boolean
     systemPrompt?: boolean
+    firstMessage?: boolean
+    phoneNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BusinessAssistantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "vapiAssistantId" | "name" | "firstMessage" | "systemPrompt" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
+  export type BusinessAssistantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "vapiAssistantId" | "systemPrompt" | "firstMessage" | "phoneNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["businessAssistant"]>
   export type BusinessAssistantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     faqs?: boolean | BusinessAssistant$faqsArgs<ExtArgs>
     products?: boolean | BusinessAssistant$productsArgs<ExtArgs>
     resourceLinks?: boolean | BusinessAssistant$resourceLinksArgs<ExtArgs>
-    calls?: boolean | BusinessAssistant$callsArgs<ExtArgs>
     _count?: boolean | BusinessAssistantCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type BusinessAssistantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6467,18 +6515,19 @@ export namespace Prisma {
     name: "BusinessAssistant"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      faqs: Prisma.$FAQPayload<ExtArgs>[]
+      calls: Prisma.$CallPayload<ExtArgs>[]
+      faqs: Prisma.$FaqPayload<ExtArgs>[]
       products: Prisma.$ProductPayload<ExtArgs>[]
       resourceLinks: Prisma.$ResourceLinkPayload<ExtArgs>[]
-      calls: Prisma.$CallPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      vapiAssistantId: string | null
       name: string
-      firstMessage: string | null
+      vapiAssistantId: string | null
       systemPrompt: string | null
+      firstMessage: string | null
+      phoneNumber: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["businessAssistant"]>
@@ -6876,10 +6925,10 @@ export namespace Prisma {
   export interface Prisma__BusinessAssistantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    faqs<T extends BusinessAssistant$faqsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calls<T extends BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faqs<T extends BusinessAssistant$faqsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$faqsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     products<T extends BusinessAssistant$productsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     resourceLinks<T extends BusinessAssistant$resourceLinksArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$resourceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResourceLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    calls<T extends BusinessAssistant$callsArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistant$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6911,10 +6960,11 @@ export namespace Prisma {
   interface BusinessAssistantFieldRefs {
     readonly id: FieldRef<"BusinessAssistant", 'String'>
     readonly userId: FieldRef<"BusinessAssistant", 'String'>
-    readonly vapiAssistantId: FieldRef<"BusinessAssistant", 'String'>
     readonly name: FieldRef<"BusinessAssistant", 'String'>
-    readonly firstMessage: FieldRef<"BusinessAssistant", 'String'>
+    readonly vapiAssistantId: FieldRef<"BusinessAssistant", 'String'>
     readonly systemPrompt: FieldRef<"BusinessAssistant", 'String'>
+    readonly firstMessage: FieldRef<"BusinessAssistant", 'String'>
+    readonly phoneNumber: FieldRef<"BusinessAssistant", 'String'>
     readonly createdAt: FieldRef<"BusinessAssistant", 'DateTime'>
     readonly updatedAt: FieldRef<"BusinessAssistant", 'DateTime'>
   }
@@ -7318,27 +7368,51 @@ export namespace Prisma {
   }
 
   /**
+   * BusinessAssistant.calls
+   */
+  export type BusinessAssistant$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
    * BusinessAssistant.faqs
    */
   export type BusinessAssistant$faqsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
-    where?: FAQWhereInput
-    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
-    cursor?: FAQWhereUniqueInput
+    include?: FaqInclude<ExtArgs> | null
+    where?: FaqWhereInput
+    orderBy?: FaqOrderByWithRelationInput | FaqOrderByWithRelationInput[]
+    cursor?: FaqWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+    distinct?: FaqScalarFieldEnum | FaqScalarFieldEnum[]
   }
 
   /**
@@ -7390,30 +7464,6 @@ export namespace Prisma {
   }
 
   /**
-   * BusinessAssistant.calls
-   */
-  export type BusinessAssistant$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Call
-     */
-    select?: CallSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Call
-     */
-    omit?: CallOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CallInclude<ExtArgs> | null
-    where?: CallWhereInput
-    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
-    cursor?: CallWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
-  }
-
-  /**
    * BusinessAssistant without action
    */
   export type BusinessAssistantDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7433,338 +7483,362 @@ export namespace Prisma {
 
 
   /**
-   * Model FAQ
+   * Model Faq
    */
 
-  export type AggregateFAQ = {
-    _count: FAQCountAggregateOutputType | null
-    _min: FAQMinAggregateOutputType | null
-    _max: FAQMaxAggregateOutputType | null
+  export type AggregateFaq = {
+    _count: FaqCountAggregateOutputType | null
+    _min: FaqMinAggregateOutputType | null
+    _max: FaqMaxAggregateOutputType | null
   }
 
-  export type FAQMinAggregateOutputType = {
+  export type FaqMinAggregateOutputType = {
     id: string | null
+    assistantId: string | null
     question: string | null
     answer: string | null
-    assistantId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type FAQMaxAggregateOutputType = {
+  export type FaqMaxAggregateOutputType = {
     id: string | null
+    assistantId: string | null
     question: string | null
     answer: string | null
-    assistantId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type FAQCountAggregateOutputType = {
+  export type FaqCountAggregateOutputType = {
     id: number
+    assistantId: number
     question: number
     answer: number
-    assistantId: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type FAQMinAggregateInputType = {
+  export type FaqMinAggregateInputType = {
     id?: true
+    assistantId?: true
     question?: true
     answer?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type FAQMaxAggregateInputType = {
+  export type FaqMaxAggregateInputType = {
     id?: true
+    assistantId?: true
     question?: true
     answer?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type FAQCountAggregateInputType = {
+  export type FaqCountAggregateInputType = {
     id?: true
+    assistantId?: true
     question?: true
     answer?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type FAQAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which FAQ to aggregate.
+     * Filter which Faq to aggregate.
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FAQS to fetch.
+     * Determine the order of Faqs to fetch.
      */
-    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    orderBy?: FaqOrderByWithRelationInput | FaqOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: FAQWhereUniqueInput
+    cursor?: FaqWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FAQS from the position of the cursor.
+     * Take `±n` Faqs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FAQS.
+     * Skip the first `n` Faqs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned FAQS
+     * Count returned Faqs
     **/
-    _count?: true | FAQCountAggregateInputType
+    _count?: true | FaqCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: FAQMinAggregateInputType
+    _min?: FaqMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: FAQMaxAggregateInputType
+    _max?: FaqMaxAggregateInputType
   }
 
-  export type GetFAQAggregateType<T extends FAQAggregateArgs> = {
-        [P in keyof T & keyof AggregateFAQ]: P extends '_count' | 'count'
+  export type GetFaqAggregateType<T extends FaqAggregateArgs> = {
+        [P in keyof T & keyof AggregateFaq]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateFAQ[P]>
-      : GetScalarType<T[P], AggregateFAQ[P]>
+        : GetScalarType<T[P], AggregateFaq[P]>
+      : GetScalarType<T[P], AggregateFaq[P]>
   }
 
 
 
 
-  export type FAQGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FAQWhereInput
-    orderBy?: FAQOrderByWithAggregationInput | FAQOrderByWithAggregationInput[]
-    by: FAQScalarFieldEnum[] | FAQScalarFieldEnum
-    having?: FAQScalarWhereWithAggregatesInput
+  export type FaqGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FaqWhereInput
+    orderBy?: FaqOrderByWithAggregationInput | FaqOrderByWithAggregationInput[]
+    by: FaqScalarFieldEnum[] | FaqScalarFieldEnum
+    having?: FaqScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: FAQCountAggregateInputType | true
-    _min?: FAQMinAggregateInputType
-    _max?: FAQMaxAggregateInputType
+    _count?: FaqCountAggregateInputType | true
+    _min?: FaqMinAggregateInputType
+    _max?: FaqMaxAggregateInputType
   }
 
-  export type FAQGroupByOutputType = {
+  export type FaqGroupByOutputType = {
     id: string
+    assistantId: string
     question: string
     answer: string
-    assistantId: string
-    _count: FAQCountAggregateOutputType | null
-    _min: FAQMinAggregateOutputType | null
-    _max: FAQMaxAggregateOutputType | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FaqCountAggregateOutputType | null
+    _min: FaqMinAggregateOutputType | null
+    _max: FaqMaxAggregateOutputType | null
   }
 
-  type GetFAQGroupByPayload<T extends FAQGroupByArgs> = Prisma.PrismaPromise<
+  type GetFaqGroupByPayload<T extends FaqGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<FAQGroupByOutputType, T['by']> &
+      PickEnumerable<FaqGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof FAQGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FaqGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], FAQGroupByOutputType[P]>
-            : GetScalarType<T[P], FAQGroupByOutputType[P]>
+              : GetScalarType<T[P], FaqGroupByOutputType[P]>
+            : GetScalarType<T[P], FaqGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type FAQSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FaqSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     question?: boolean
     answer?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["fAQ"]>
+  }, ExtArgs["result"]["faq"]>
 
-  export type FAQSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FaqSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     question?: boolean
     answer?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["fAQ"]>
+  }, ExtArgs["result"]["faq"]>
 
-  export type FAQSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FaqSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     question?: boolean
     answer?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["fAQ"]>
+  }, ExtArgs["result"]["faq"]>
 
-  export type FAQSelectScalar = {
+  export type FaqSelectScalar = {
     id?: boolean
+    assistantId?: boolean
     question?: boolean
     answer?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type FAQOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "question" | "answer" | "assistantId", ExtArgs["result"]["fAQ"]>
-  export type FAQInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assistantId" | "question" | "answer" | "createdAt" | "updatedAt", ExtArgs["result"]["faq"]>
+  export type FaqInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
-  export type FAQIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
-  export type FAQIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
 
-  export type $FAQPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "FAQ"
+  export type $FaqPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Faq"
     objects: {
       assistant: Prisma.$BusinessAssistantPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      assistantId: string
       question: string
       answer: string
-      assistantId: string
-    }, ExtArgs["result"]["fAQ"]>
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["faq"]>
     composites: {}
   }
 
-  type FAQGetPayload<S extends boolean | null | undefined | FAQDefaultArgs> = $Result.GetResult<Prisma.$FAQPayload, S>
+  type FaqGetPayload<S extends boolean | null | undefined | FaqDefaultArgs> = $Result.GetResult<Prisma.$FaqPayload, S>
 
-  type FAQCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<FAQFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: FAQCountAggregateInputType | true
+  type FaqCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FaqFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FaqCountAggregateInputType | true
     }
 
-  export interface FAQDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FAQ'], meta: { name: 'FAQ' } }
+  export interface FaqDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Faq'], meta: { name: 'Faq' } }
     /**
-     * Find zero or one FAQ that matches the filter.
-     * @param {FAQFindUniqueArgs} args - Arguments to find a FAQ
+     * Find zero or one Faq that matches the filter.
+     * @param {FaqFindUniqueArgs} args - Arguments to find a Faq
      * @example
-     * // Get one FAQ
-     * const fAQ = await prisma.fAQ.findUnique({
+     * // Get one Faq
+     * const faq = await prisma.faq.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends FAQFindUniqueArgs>(args: SelectSubset<T, FAQFindUniqueArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FaqFindUniqueArgs>(args: SelectSubset<T, FaqFindUniqueArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one FAQ that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Faq that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {FAQFindUniqueOrThrowArgs} args - Arguments to find a FAQ
+     * @param {FaqFindUniqueOrThrowArgs} args - Arguments to find a Faq
      * @example
-     * // Get one FAQ
-     * const fAQ = await prisma.fAQ.findUniqueOrThrow({
+     * // Get one Faq
+     * const faq = await prisma.faq.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends FAQFindUniqueOrThrowArgs>(args: SelectSubset<T, FAQFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FaqFindUniqueOrThrowArgs>(args: SelectSubset<T, FaqFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first FAQ that matches the filter.
+     * Find the first Faq that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQFindFirstArgs} args - Arguments to find a FAQ
+     * @param {FaqFindFirstArgs} args - Arguments to find a Faq
      * @example
-     * // Get one FAQ
-     * const fAQ = await prisma.fAQ.findFirst({
+     * // Get one Faq
+     * const faq = await prisma.faq.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends FAQFindFirstArgs>(args?: SelectSubset<T, FAQFindFirstArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FaqFindFirstArgs>(args?: SelectSubset<T, FaqFindFirstArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first FAQ that matches the filter or
+     * Find the first Faq that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQFindFirstOrThrowArgs} args - Arguments to find a FAQ
+     * @param {FaqFindFirstOrThrowArgs} args - Arguments to find a Faq
      * @example
-     * // Get one FAQ
-     * const fAQ = await prisma.fAQ.findFirstOrThrow({
+     * // Get one Faq
+     * const faq = await prisma.faq.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends FAQFindFirstOrThrowArgs>(args?: SelectSubset<T, FAQFindFirstOrThrowArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FaqFindFirstOrThrowArgs>(args?: SelectSubset<T, FaqFindFirstOrThrowArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more FAQS that matches the filter.
+     * Find zero or more Faqs that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FaqFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all FAQS
-     * const fAQS = await prisma.fAQ.findMany()
+     * // Get all Faqs
+     * const faqs = await prisma.faq.findMany()
      * 
-     * // Get first 10 FAQS
-     * const fAQS = await prisma.fAQ.findMany({ take: 10 })
+     * // Get first 10 Faqs
+     * const faqs = await prisma.faq.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const fAQWithIdOnly = await prisma.fAQ.findMany({ select: { id: true } })
+     * const faqWithIdOnly = await prisma.faq.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends FAQFindManyArgs>(args?: SelectSubset<T, FAQFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FaqFindManyArgs>(args?: SelectSubset<T, FaqFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a FAQ.
-     * @param {FAQCreateArgs} args - Arguments to create a FAQ.
+     * Create a Faq.
+     * @param {FaqCreateArgs} args - Arguments to create a Faq.
      * @example
-     * // Create one FAQ
-     * const FAQ = await prisma.fAQ.create({
+     * // Create one Faq
+     * const Faq = await prisma.faq.create({
      *   data: {
-     *     // ... data to create a FAQ
+     *     // ... data to create a Faq
      *   }
      * })
      * 
      */
-    create<T extends FAQCreateArgs>(args: SelectSubset<T, FAQCreateArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FaqCreateArgs>(args: SelectSubset<T, FaqCreateArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many FAQS.
-     * @param {FAQCreateManyArgs} args - Arguments to create many FAQS.
+     * Create many Faqs.
+     * @param {FaqCreateManyArgs} args - Arguments to create many Faqs.
      * @example
-     * // Create many FAQS
-     * const fAQ = await prisma.fAQ.createMany({
+     * // Create many Faqs
+     * const faq = await prisma.faq.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends FAQCreateManyArgs>(args?: SelectSubset<T, FAQCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FaqCreateManyArgs>(args?: SelectSubset<T, FaqCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many FAQS and returns the data saved in the database.
-     * @param {FAQCreateManyAndReturnArgs} args - Arguments to create many FAQS.
+     * Create many Faqs and returns the data saved in the database.
+     * @param {FaqCreateManyAndReturnArgs} args - Arguments to create many Faqs.
      * @example
-     * // Create many FAQS
-     * const fAQ = await prisma.fAQ.createManyAndReturn({
+     * // Create many Faqs
+     * const faq = await prisma.faq.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many FAQS and only return the `id`
-     * const fAQWithIdOnly = await prisma.fAQ.createManyAndReturn({
+     * // Create many Faqs and only return the `id`
+     * const faqWithIdOnly = await prisma.faq.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -7774,28 +7848,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends FAQCreateManyAndReturnArgs>(args?: SelectSubset<T, FAQCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FaqCreateManyAndReturnArgs>(args?: SelectSubset<T, FaqCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a FAQ.
-     * @param {FAQDeleteArgs} args - Arguments to delete one FAQ.
+     * Delete a Faq.
+     * @param {FaqDeleteArgs} args - Arguments to delete one Faq.
      * @example
-     * // Delete one FAQ
-     * const FAQ = await prisma.fAQ.delete({
+     * // Delete one Faq
+     * const Faq = await prisma.faq.delete({
      *   where: {
-     *     // ... filter to delete one FAQ
+     *     // ... filter to delete one Faq
      *   }
      * })
      * 
      */
-    delete<T extends FAQDeleteArgs>(args: SelectSubset<T, FAQDeleteArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FaqDeleteArgs>(args: SelectSubset<T, FaqDeleteArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one FAQ.
-     * @param {FAQUpdateArgs} args - Arguments to update one FAQ.
+     * Update one Faq.
+     * @param {FaqUpdateArgs} args - Arguments to update one Faq.
      * @example
-     * // Update one FAQ
-     * const fAQ = await prisma.fAQ.update({
+     * // Update one Faq
+     * const faq = await prisma.faq.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7805,30 +7879,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends FAQUpdateArgs>(args: SelectSubset<T, FAQUpdateArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FaqUpdateArgs>(args: SelectSubset<T, FaqUpdateArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more FAQS.
-     * @param {FAQDeleteManyArgs} args - Arguments to filter FAQS to delete.
+     * Delete zero or more Faqs.
+     * @param {FaqDeleteManyArgs} args - Arguments to filter Faqs to delete.
      * @example
-     * // Delete a few FAQS
-     * const { count } = await prisma.fAQ.deleteMany({
+     * // Delete a few Faqs
+     * const { count } = await prisma.faq.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends FAQDeleteManyArgs>(args?: SelectSubset<T, FAQDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FaqDeleteManyArgs>(args?: SelectSubset<T, FaqDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more FAQS.
+     * Update zero or more Faqs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FaqUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many FAQS
-     * const fAQ = await prisma.fAQ.updateMany({
+     * // Update many Faqs
+     * const faq = await prisma.faq.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7838,14 +7912,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends FAQUpdateManyArgs>(args: SelectSubset<T, FAQUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FaqUpdateManyArgs>(args: SelectSubset<T, FaqUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more FAQS and returns the data updated in the database.
-     * @param {FAQUpdateManyAndReturnArgs} args - Arguments to update many FAQS.
+     * Update zero or more Faqs and returns the data updated in the database.
+     * @param {FaqUpdateManyAndReturnArgs} args - Arguments to update many Faqs.
      * @example
-     * // Update many FAQS
-     * const fAQ = await prisma.fAQ.updateManyAndReturn({
+     * // Update many Faqs
+     * const faq = await prisma.faq.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7854,8 +7928,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more FAQS and only return the `id`
-     * const fAQWithIdOnly = await prisma.fAQ.updateManyAndReturn({
+     * // Update zero or more Faqs and only return the `id`
+     * const faqWithIdOnly = await prisma.faq.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -7868,56 +7942,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends FAQUpdateManyAndReturnArgs>(args: SelectSubset<T, FAQUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FaqUpdateManyAndReturnArgs>(args: SelectSubset<T, FaqUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one FAQ.
-     * @param {FAQUpsertArgs} args - Arguments to update or create a FAQ.
+     * Create or update one Faq.
+     * @param {FaqUpsertArgs} args - Arguments to update or create a Faq.
      * @example
-     * // Update or create a FAQ
-     * const fAQ = await prisma.fAQ.upsert({
+     * // Update or create a Faq
+     * const faq = await prisma.faq.upsert({
      *   create: {
-     *     // ... data to create a FAQ
+     *     // ... data to create a Faq
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the FAQ we want to update
+     *     // ... the filter for the Faq we want to update
      *   }
      * })
      */
-    upsert<T extends FAQUpsertArgs>(args: SelectSubset<T, FAQUpsertArgs<ExtArgs>>): Prisma__FAQClient<$Result.GetResult<Prisma.$FAQPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FaqUpsertArgs>(args: SelectSubset<T, FaqUpsertArgs<ExtArgs>>): Prisma__FaqClient<$Result.GetResult<Prisma.$FaqPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of FAQS.
+     * Count the number of Faqs.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQCountArgs} args - Arguments to filter FAQS to count.
+     * @param {FaqCountArgs} args - Arguments to filter Faqs to count.
      * @example
-     * // Count the number of FAQS
-     * const count = await prisma.fAQ.count({
+     * // Count the number of Faqs
+     * const count = await prisma.faq.count({
      *   where: {
-     *     // ... the filter for the FAQS we want to count
+     *     // ... the filter for the Faqs we want to count
      *   }
      * })
     **/
-    count<T extends FAQCountArgs>(
-      args?: Subset<T, FAQCountArgs>,
+    count<T extends FaqCountArgs>(
+      args?: Subset<T, FaqCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], FAQCountAggregateOutputType>
+          : GetScalarType<T['select'], FaqCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a FAQ.
+     * Allows you to perform aggregations operations on a Faq.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FaqAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -7937,13 +8011,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends FAQAggregateArgs>(args: Subset<T, FAQAggregateArgs>): Prisma.PrismaPromise<GetFAQAggregateType<T>>
+    aggregate<T extends FaqAggregateArgs>(args: Subset<T, FaqAggregateArgs>): Prisma.PrismaPromise<GetFaqAggregateType<T>>
 
     /**
-     * Group by FAQ.
+     * Group by Faq.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {FAQGroupByArgs} args - Group by arguments.
+     * @param {FaqGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -7958,14 +8032,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends FAQGroupByArgs,
+      T extends FaqGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: FAQGroupByArgs['orderBy'] }
-        : { orderBy?: FAQGroupByArgs['orderBy'] },
+        ? { orderBy: FaqGroupByArgs['orderBy'] }
+        : { orderBy?: FaqGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -8014,20 +8088,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, FAQGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFAQGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FaqGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFaqGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the FAQ model
+   * Fields of the Faq model
    */
-  readonly fields: FAQFieldRefs;
+  readonly fields: FaqFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for FAQ.
+   * The delegate class that acts as a "Promise-like" for Faq.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__FAQClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FaqClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     assistant<T extends BusinessAssistantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BusinessAssistantDefaultArgs<ExtArgs>>): Prisma__BusinessAssistantClient<$Result.GetResult<Prisma.$BusinessAssistantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -8056,429 +8130,431 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the FAQ model
+   * Fields of the Faq model
    */
-  interface FAQFieldRefs {
-    readonly id: FieldRef<"FAQ", 'String'>
-    readonly question: FieldRef<"FAQ", 'String'>
-    readonly answer: FieldRef<"FAQ", 'String'>
-    readonly assistantId: FieldRef<"FAQ", 'String'>
+  interface FaqFieldRefs {
+    readonly id: FieldRef<"Faq", 'String'>
+    readonly assistantId: FieldRef<"Faq", 'String'>
+    readonly question: FieldRef<"Faq", 'String'>
+    readonly answer: FieldRef<"Faq", 'String'>
+    readonly createdAt: FieldRef<"Faq", 'DateTime'>
+    readonly updatedAt: FieldRef<"Faq", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * FAQ findUnique
+   * Faq findUnique
    */
-  export type FAQFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter, which FAQ to fetch.
+     * Filter, which Faq to fetch.
      */
-    where: FAQWhereUniqueInput
+    where: FaqWhereUniqueInput
   }
 
   /**
-   * FAQ findUniqueOrThrow
+   * Faq findUniqueOrThrow
    */
-  export type FAQFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter, which FAQ to fetch.
+     * Filter, which Faq to fetch.
      */
-    where: FAQWhereUniqueInput
+    where: FaqWhereUniqueInput
   }
 
   /**
-   * FAQ findFirst
+   * Faq findFirst
    */
-  export type FAQFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter, which FAQ to fetch.
+     * Filter, which Faq to fetch.
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FAQS to fetch.
+     * Determine the order of Faqs to fetch.
      */
-    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    orderBy?: FaqOrderByWithRelationInput | FaqOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for FAQS.
+     * Sets the position for searching for Faqs.
      */
-    cursor?: FAQWhereUniqueInput
+    cursor?: FaqWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FAQS from the position of the cursor.
+     * Take `±n` Faqs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FAQS.
+     * Skip the first `n` Faqs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of FAQS.
+     * Filter by unique combinations of Faqs.
      */
-    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+    distinct?: FaqScalarFieldEnum | FaqScalarFieldEnum[]
   }
 
   /**
-   * FAQ findFirstOrThrow
+   * Faq findFirstOrThrow
    */
-  export type FAQFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter, which FAQ to fetch.
+     * Filter, which Faq to fetch.
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FAQS to fetch.
+     * Determine the order of Faqs to fetch.
      */
-    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    orderBy?: FaqOrderByWithRelationInput | FaqOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for FAQS.
+     * Sets the position for searching for Faqs.
      */
-    cursor?: FAQWhereUniqueInput
+    cursor?: FaqWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FAQS from the position of the cursor.
+     * Take `±n` Faqs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FAQS.
+     * Skip the first `n` Faqs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of FAQS.
+     * Filter by unique combinations of Faqs.
      */
-    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+    distinct?: FaqScalarFieldEnum | FaqScalarFieldEnum[]
   }
 
   /**
-   * FAQ findMany
+   * Faq findMany
    */
-  export type FAQFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter, which FAQS to fetch.
+     * Filter, which Faqs to fetch.
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of FAQS to fetch.
+     * Determine the order of Faqs to fetch.
      */
-    orderBy?: FAQOrderByWithRelationInput | FAQOrderByWithRelationInput[]
+    orderBy?: FaqOrderByWithRelationInput | FaqOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing FAQS.
+     * Sets the position for listing Faqs.
      */
-    cursor?: FAQWhereUniqueInput
+    cursor?: FaqWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` FAQS from the position of the cursor.
+     * Take `±n` Faqs from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` FAQS.
+     * Skip the first `n` Faqs.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of FAQS.
+     * Filter by unique combinations of Faqs.
      */
-    distinct?: FAQScalarFieldEnum | FAQScalarFieldEnum[]
+    distinct?: FaqScalarFieldEnum | FaqScalarFieldEnum[]
   }
 
   /**
-   * FAQ create
+   * Faq create
    */
-  export type FAQCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * The data needed to create a FAQ.
+     * The data needed to create a Faq.
      */
-    data: XOR<FAQCreateInput, FAQUncheckedCreateInput>
+    data: XOR<FaqCreateInput, FaqUncheckedCreateInput>
   }
 
   /**
-   * FAQ createMany
+   * Faq createMany
    */
-  export type FAQCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many FAQS.
+     * The data used to create many Faqs.
      */
-    data: FAQCreateManyInput | FAQCreateManyInput[]
+    data: FaqCreateManyInput | FaqCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * FAQ createManyAndReturn
+   * Faq createManyAndReturn
    */
-  export type FAQCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelectCreateManyAndReturn<ExtArgs> | null
+    select?: FaqSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
-     * The data used to create many FAQS.
+     * The data used to create many Faqs.
      */
-    data: FAQCreateManyInput | FAQCreateManyInput[]
+    data: FaqCreateManyInput | FaqCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: FaqIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * FAQ update
+   * Faq update
    */
-  export type FAQUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * The data needed to update a FAQ.
+     * The data needed to update a Faq.
      */
-    data: XOR<FAQUpdateInput, FAQUncheckedUpdateInput>
+    data: XOR<FaqUpdateInput, FaqUncheckedUpdateInput>
     /**
-     * Choose, which FAQ to update.
+     * Choose, which Faq to update.
      */
-    where: FAQWhereUniqueInput
+    where: FaqWhereUniqueInput
   }
 
   /**
-   * FAQ updateMany
+   * Faq updateMany
    */
-  export type FAQUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update FAQS.
+     * The data used to update Faqs.
      */
-    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyInput>
+    data: XOR<FaqUpdateManyMutationInput, FaqUncheckedUpdateManyInput>
     /**
-     * Filter which FAQS to update
+     * Filter which Faqs to update
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
-     * Limit how many FAQS to update.
+     * Limit how many Faqs to update.
      */
     limit?: number
   }
 
   /**
-   * FAQ updateManyAndReturn
+   * Faq updateManyAndReturn
    */
-  export type FAQUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FaqSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
-     * The data used to update FAQS.
+     * The data used to update Faqs.
      */
-    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyInput>
+    data: XOR<FaqUpdateManyMutationInput, FaqUncheckedUpdateManyInput>
     /**
-     * Filter which FAQS to update
+     * Filter which Faqs to update
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
-     * Limit how many FAQS to update.
+     * Limit how many Faqs to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: FaqIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * FAQ upsert
+   * Faq upsert
    */
-  export type FAQUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * The filter to search for the FAQ to update in case it exists.
+     * The filter to search for the Faq to update in case it exists.
      */
-    where: FAQWhereUniqueInput
+    where: FaqWhereUniqueInput
     /**
-     * In case the FAQ found by the `where` argument doesn't exist, create a new FAQ with this data.
+     * In case the Faq found by the `where` argument doesn't exist, create a new Faq with this data.
      */
-    create: XOR<FAQCreateInput, FAQUncheckedCreateInput>
+    create: XOR<FaqCreateInput, FaqUncheckedCreateInput>
     /**
-     * In case the FAQ was found with the provided `where` argument, update it with this data.
+     * In case the Faq was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<FAQUpdateInput, FAQUncheckedUpdateInput>
+    update: XOR<FaqUpdateInput, FaqUncheckedUpdateInput>
   }
 
   /**
-   * FAQ delete
+   * Faq delete
    */
-  export type FAQDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
     /**
-     * Filter which FAQ to delete.
+     * Filter which Faq to delete.
      */
-    where: FAQWhereUniqueInput
+    where: FaqWhereUniqueInput
   }
 
   /**
-   * FAQ deleteMany
+   * Faq deleteMany
    */
-  export type FAQDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which FAQS to delete
+     * Filter which Faqs to delete
      */
-    where?: FAQWhereInput
+    where?: FaqWhereInput
     /**
-     * Limit how many FAQS to delete.
+     * Limit how many Faqs to delete.
      */
     limit?: number
   }
 
   /**
-   * FAQ without action
+   * Faq without action
    */
-  export type FAQDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FaqDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the FAQ
+     * Select specific fields to fetch from the Faq
      */
-    select?: FAQSelect<ExtArgs> | null
+    select?: FaqSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the FAQ
+     * Omit specific fields from the Faq
      */
-    omit?: FAQOmit<ExtArgs> | null
+    omit?: FaqOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FAQInclude<ExtArgs> | null
+    include?: FaqInclude<ExtArgs> | null
   }
 
 
@@ -8504,29 +8580,32 @@ export namespace Prisma {
 
   export type ProductMinAggregateOutputType = {
     id: string | null
+    assistantId: string | null
     name: string | null
     price: number | null
     description: string | null
-    mediaLink: string | null
-    assistantId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ProductMaxAggregateOutputType = {
     id: string | null
+    assistantId: string | null
     name: string | null
     price: number | null
     description: string | null
-    mediaLink: string | null
-    assistantId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ProductCountAggregateOutputType = {
     id: number
+    assistantId: number
     name: number
     price: number
     description: number
-    mediaLink: number
-    assistantId: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -8541,29 +8620,32 @@ export namespace Prisma {
 
   export type ProductMinAggregateInputType = {
     id?: true
+    assistantId?: true
     name?: true
     price?: true
     description?: true
-    mediaLink?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ProductMaxAggregateInputType = {
     id?: true
+    assistantId?: true
     name?: true
     price?: true
     description?: true
-    mediaLink?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ProductCountAggregateInputType = {
     id?: true
+    assistantId?: true
     name?: true
     price?: true
     description?: true
-    mediaLink?: true
-    assistantId?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -8655,11 +8737,12 @@ export namespace Prisma {
 
   export type ProductGroupByOutputType = {
     id: string
+    assistantId: string
     name: string
     price: number | null
     description: string | null
-    mediaLink: string | null
-    assistantId: string
+    createdAt: Date
+    updatedAt: Date
     _count: ProductCountAggregateOutputType | null
     _avg: ProductAvgAggregateOutputType | null
     _sum: ProductSumAggregateOutputType | null
@@ -8683,44 +8766,48 @@ export namespace Prisma {
 
   export type ProductSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     name?: boolean
     price?: boolean
     description?: boolean
-    mediaLink?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     name?: boolean
     price?: boolean
     description?: boolean
-    mediaLink?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    assistantId?: boolean
     name?: boolean
     price?: boolean
     description?: boolean
-    mediaLink?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectScalar = {
     id?: boolean
+    assistantId?: boolean
     name?: boolean
     price?: boolean
     description?: boolean
-    mediaLink?: boolean
-    assistantId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "mediaLink" | "assistantId", ExtArgs["result"]["product"]>
+  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assistantId" | "name" | "price" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
@@ -8738,11 +8825,12 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      assistantId: string
       name: string
       price: number | null
       description: string | null
-      mediaLink: string | null
-      assistantId: string
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["product"]>
     composites: {}
   }
@@ -9168,11 +9256,12 @@ export namespace Prisma {
    */
   interface ProductFieldRefs {
     readonly id: FieldRef<"Product", 'String'>
+    readonly assistantId: FieldRef<"Product", 'String'>
     readonly name: FieldRef<"Product", 'String'>
     readonly price: FieldRef<"Product", 'Float'>
     readonly description: FieldRef<"Product", 'String'>
-    readonly mediaLink: FieldRef<"Product", 'String'>
-    readonly assistantId: FieldRef<"Product", 'String'>
+    readonly createdAt: FieldRef<"Product", 'DateTime'>
+    readonly updatedAt: FieldRef<"Product", 'DateTime'>
   }
     
 
@@ -9604,46 +9693,58 @@ export namespace Prisma {
 
   export type ResourceLinkMinAggregateOutputType = {
     id: string | null
-    label: string | null
-    url: string | null
     assistantId: string | null
+    title: string | null
+    url: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ResourceLinkMaxAggregateOutputType = {
     id: string | null
-    label: string | null
-    url: string | null
     assistantId: string | null
+    title: string | null
+    url: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ResourceLinkCountAggregateOutputType = {
     id: number
-    label: number
-    url: number
     assistantId: number
+    title: number
+    url: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type ResourceLinkMinAggregateInputType = {
     id?: true
-    label?: true
-    url?: true
     assistantId?: true
+    title?: true
+    url?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ResourceLinkMaxAggregateInputType = {
     id?: true
-    label?: true
-    url?: true
     assistantId?: true
+    title?: true
+    url?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ResourceLinkCountAggregateInputType = {
     id?: true
-    label?: true
-    url?: true
     assistantId?: true
+    title?: true
+    url?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -9721,9 +9822,11 @@ export namespace Prisma {
 
   export type ResourceLinkGroupByOutputType = {
     id: string
-    label: string
-    url: string
     assistantId: string
+    title: string
+    url: string
+    createdAt: Date
+    updatedAt: Date
     _count: ResourceLinkCountAggregateOutputType | null
     _min: ResourceLinkMinAggregateOutputType | null
     _max: ResourceLinkMaxAggregateOutputType | null
@@ -9745,36 +9848,44 @@ export namespace Prisma {
 
   export type ResourceLinkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    label?: boolean
-    url?: boolean
     assistantId?: boolean
+    title?: boolean
+    url?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resourceLink"]>
 
   export type ResourceLinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    label?: boolean
-    url?: boolean
     assistantId?: boolean
+    title?: boolean
+    url?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resourceLink"]>
 
   export type ResourceLinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    label?: boolean
-    url?: boolean
     assistantId?: boolean
+    title?: boolean
+    url?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resourceLink"]>
 
   export type ResourceLinkSelectScalar = {
     id?: boolean
-    label?: boolean
-    url?: boolean
     assistantId?: boolean
+    title?: boolean
+    url?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type ResourceLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "label" | "url" | "assistantId", ExtArgs["result"]["resourceLink"]>
+  export type ResourceLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assistantId" | "title" | "url" | "createdAt" | "updatedAt", ExtArgs["result"]["resourceLink"]>
   export type ResourceLinkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
@@ -9792,9 +9903,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      label: string
-      url: string
       assistantId: string
+      title: string
+      url: string
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["resourceLink"]>
     composites: {}
   }
@@ -10220,9 +10333,11 @@ export namespace Prisma {
    */
   interface ResourceLinkFieldRefs {
     readonly id: FieldRef<"ResourceLink", 'String'>
-    readonly label: FieldRef<"ResourceLink", 'String'>
-    readonly url: FieldRef<"ResourceLink", 'String'>
     readonly assistantId: FieldRef<"ResourceLink", 'String'>
+    readonly title: FieldRef<"ResourceLink", 'String'>
+    readonly url: FieldRef<"ResourceLink", 'String'>
+    readonly createdAt: FieldRef<"ResourceLink", 'DateTime'>
+    readonly updatedAt: FieldRef<"ResourceLink", 'DateTime'>
   }
     
 
@@ -10643,6 +10758,1121 @@ export namespace Prisma {
 
 
   /**
+   * Model Lead
+   */
+
+  export type AggregateLead = {
+    _count: LeadCountAggregateOutputType | null
+    _min: LeadMinAggregateOutputType | null
+    _max: LeadMaxAggregateOutputType | null
+  }
+
+  export type LeadMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    phone: string | null
+    email: string | null
+    summary: string | null
+    intent: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    phone: string | null
+    email: string | null
+    summary: string | null
+    intent: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadCountAggregateOutputType = {
+    id: number
+    userId: number
+    name: number
+    phone: number
+    email: number
+    summary: number
+    intent: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LeadMinAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    phone?: true
+    email?: true
+    summary?: true
+    intent?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    phone?: true
+    email?: true
+    summary?: true
+    intent?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadCountAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    phone?: true
+    email?: true
+    summary?: true
+    intent?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LeadAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lead to aggregate.
+     */
+    where?: LeadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Leads to fetch.
+     */
+    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LeadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Leads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Leads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Leads
+    **/
+    _count?: true | LeadCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeadMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeadMaxAggregateInputType
+  }
+
+  export type GetLeadAggregateType<T extends LeadAggregateArgs> = {
+        [P in keyof T & keyof AggregateLead]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLead[P]>
+      : GetScalarType<T[P], AggregateLead[P]>
+  }
+
+
+
+
+  export type LeadGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadWhereInput
+    orderBy?: LeadOrderByWithAggregationInput | LeadOrderByWithAggregationInput[]
+    by: LeadScalarFieldEnum[] | LeadScalarFieldEnum
+    having?: LeadScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeadCountAggregateInputType | true
+    _min?: LeadMinAggregateInputType
+    _max?: LeadMaxAggregateInputType
+  }
+
+  export type LeadGroupByOutputType = {
+    id: string
+    userId: string
+    name: string | null
+    phone: string
+    email: string | null
+    summary: string | null
+    intent: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: LeadCountAggregateOutputType | null
+    _min: LeadMinAggregateOutputType | null
+    _max: LeadMaxAggregateOutputType | null
+  }
+
+  type GetLeadGroupByPayload<T extends LeadGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeadGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeadGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeadGroupByOutputType[P]>
+            : GetScalarType<T[P], LeadGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    phone?: boolean
+    email?: boolean
+    summary?: boolean
+    intent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lead"]>
+
+  export type LeadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    phone?: boolean
+    email?: boolean
+    summary?: boolean
+    intent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lead"]>
+
+  export type LeadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    phone?: boolean
+    email?: boolean
+    summary?: boolean
+    intent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lead"]>
+
+  export type LeadSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    phone?: boolean
+    email?: boolean
+    summary?: boolean
+    intent?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "phone" | "email" | "summary" | "intent" | "createdAt" | "updatedAt", ExtArgs["result"]["lead"]>
+  export type LeadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type LeadIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type LeadIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $LeadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Lead"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      name: string | null
+      phone: string
+      email: string | null
+      summary: string | null
+      intent: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["lead"]>
+    composites: {}
+  }
+
+  type LeadGetPayload<S extends boolean | null | undefined | LeadDefaultArgs> = $Result.GetResult<Prisma.$LeadPayload, S>
+
+  type LeadCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LeadFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LeadCountAggregateInputType | true
+    }
+
+  export interface LeadDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Lead'], meta: { name: 'Lead' } }
+    /**
+     * Find zero or one Lead that matches the filter.
+     * @param {LeadFindUniqueArgs} args - Arguments to find a Lead
+     * @example
+     * // Get one Lead
+     * const lead = await prisma.lead.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeadFindUniqueArgs>(args: SelectSubset<T, LeadFindUniqueArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Lead that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeadFindUniqueOrThrowArgs} args - Arguments to find a Lead
+     * @example
+     * // Get one Lead
+     * const lead = await prisma.lead.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeadFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lead that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadFindFirstArgs} args - Arguments to find a Lead
+     * @example
+     * // Get one Lead
+     * const lead = await prisma.lead.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeadFindFirstArgs>(args?: SelectSubset<T, LeadFindFirstArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lead that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadFindFirstOrThrowArgs} args - Arguments to find a Lead
+     * @example
+     * // Get one Lead
+     * const lead = await prisma.lead.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeadFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Leads that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Leads
+     * const leads = await prisma.lead.findMany()
+     * 
+     * // Get first 10 Leads
+     * const leads = await prisma.lead.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const leadWithIdOnly = await prisma.lead.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LeadFindManyArgs>(args?: SelectSubset<T, LeadFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Lead.
+     * @param {LeadCreateArgs} args - Arguments to create a Lead.
+     * @example
+     * // Create one Lead
+     * const Lead = await prisma.lead.create({
+     *   data: {
+     *     // ... data to create a Lead
+     *   }
+     * })
+     * 
+     */
+    create<T extends LeadCreateArgs>(args: SelectSubset<T, LeadCreateArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Leads.
+     * @param {LeadCreateManyArgs} args - Arguments to create many Leads.
+     * @example
+     * // Create many Leads
+     * const lead = await prisma.lead.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LeadCreateManyArgs>(args?: SelectSubset<T, LeadCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Leads and returns the data saved in the database.
+     * @param {LeadCreateManyAndReturnArgs} args - Arguments to create many Leads.
+     * @example
+     * // Create many Leads
+     * const lead = await prisma.lead.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Leads and only return the `id`
+     * const leadWithIdOnly = await prisma.lead.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LeadCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Lead.
+     * @param {LeadDeleteArgs} args - Arguments to delete one Lead.
+     * @example
+     * // Delete one Lead
+     * const Lead = await prisma.lead.delete({
+     *   where: {
+     *     // ... filter to delete one Lead
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LeadDeleteArgs>(args: SelectSubset<T, LeadDeleteArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Lead.
+     * @param {LeadUpdateArgs} args - Arguments to update one Lead.
+     * @example
+     * // Update one Lead
+     * const lead = await prisma.lead.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LeadUpdateArgs>(args: SelectSubset<T, LeadUpdateArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Leads.
+     * @param {LeadDeleteManyArgs} args - Arguments to filter Leads to delete.
+     * @example
+     * // Delete a few Leads
+     * const { count } = await prisma.lead.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LeadDeleteManyArgs>(args?: SelectSubset<T, LeadDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Leads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Leads
+     * const lead = await prisma.lead.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LeadUpdateManyArgs>(args: SelectSubset<T, LeadUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Leads and returns the data updated in the database.
+     * @param {LeadUpdateManyAndReturnArgs} args - Arguments to update many Leads.
+     * @example
+     * // Update many Leads
+     * const lead = await prisma.lead.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Leads and only return the `id`
+     * const leadWithIdOnly = await prisma.lead.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LeadUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Lead.
+     * @param {LeadUpsertArgs} args - Arguments to update or create a Lead.
+     * @example
+     * // Update or create a Lead
+     * const lead = await prisma.lead.upsert({
+     *   create: {
+     *     // ... data to create a Lead
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Lead we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeadUpsertArgs>(args: SelectSubset<T, LeadUpsertArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Leads.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadCountArgs} args - Arguments to filter Leads to count.
+     * @example
+     * // Count the number of Leads
+     * const count = await prisma.lead.count({
+     *   where: {
+     *     // ... the filter for the Leads we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeadCountArgs>(
+      args?: Subset<T, LeadCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeadCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Lead.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeadAggregateArgs>(args: Subset<T, LeadAggregateArgs>): Prisma.PrismaPromise<GetLeadAggregateType<T>>
+
+    /**
+     * Group by Lead.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LeadGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeadGroupByArgs['orderBy'] }
+        : { orderBy?: LeadGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeadGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Lead model
+   */
+  readonly fields: LeadFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Lead.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Lead model
+   */
+  interface LeadFieldRefs {
+    readonly id: FieldRef<"Lead", 'String'>
+    readonly userId: FieldRef<"Lead", 'String'>
+    readonly name: FieldRef<"Lead", 'String'>
+    readonly phone: FieldRef<"Lead", 'String'>
+    readonly email: FieldRef<"Lead", 'String'>
+    readonly summary: FieldRef<"Lead", 'String'>
+    readonly intent: FieldRef<"Lead", 'String'>
+    readonly createdAt: FieldRef<"Lead", 'DateTime'>
+    readonly updatedAt: FieldRef<"Lead", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Lead findUnique
+   */
+  export type LeadFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter, which Lead to fetch.
+     */
+    where: LeadWhereUniqueInput
+  }
+
+  /**
+   * Lead findUniqueOrThrow
+   */
+  export type LeadFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter, which Lead to fetch.
+     */
+    where: LeadWhereUniqueInput
+  }
+
+  /**
+   * Lead findFirst
+   */
+  export type LeadFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter, which Lead to fetch.
+     */
+    where?: LeadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Leads to fetch.
+     */
+    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Leads.
+     */
+    cursor?: LeadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Leads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Leads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Leads.
+     */
+    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
+  }
+
+  /**
+   * Lead findFirstOrThrow
+   */
+  export type LeadFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter, which Lead to fetch.
+     */
+    where?: LeadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Leads to fetch.
+     */
+    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Leads.
+     */
+    cursor?: LeadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Leads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Leads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Leads.
+     */
+    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
+  }
+
+  /**
+   * Lead findMany
+   */
+  export type LeadFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter, which Leads to fetch.
+     */
+    where?: LeadWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Leads to fetch.
+     */
+    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Leads.
+     */
+    cursor?: LeadWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Leads from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Leads.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Leads.
+     */
+    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
+  }
+
+  /**
+   * Lead create
+   */
+  export type LeadCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Lead.
+     */
+    data: XOR<LeadCreateInput, LeadUncheckedCreateInput>
+  }
+
+  /**
+   * Lead createMany
+   */
+  export type LeadCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Leads.
+     */
+    data: LeadCreateManyInput | LeadCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Lead createManyAndReturn
+   */
+  export type LeadCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * The data used to create many Leads.
+     */
+    data: LeadCreateManyInput | LeadCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Lead update
+   */
+  export type LeadUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Lead.
+     */
+    data: XOR<LeadUpdateInput, LeadUncheckedUpdateInput>
+    /**
+     * Choose, which Lead to update.
+     */
+    where: LeadWhereUniqueInput
+  }
+
+  /**
+   * Lead updateMany
+   */
+  export type LeadUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Leads.
+     */
+    data: XOR<LeadUpdateManyMutationInput, LeadUncheckedUpdateManyInput>
+    /**
+     * Filter which Leads to update
+     */
+    where?: LeadWhereInput
+    /**
+     * Limit how many Leads to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lead updateManyAndReturn
+   */
+  export type LeadUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * The data used to update Leads.
+     */
+    data: XOR<LeadUpdateManyMutationInput, LeadUncheckedUpdateManyInput>
+    /**
+     * Filter which Leads to update
+     */
+    where?: LeadWhereInput
+    /**
+     * Limit how many Leads to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Lead upsert
+   */
+  export type LeadUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Lead to update in case it exists.
+     */
+    where: LeadWhereUniqueInput
+    /**
+     * In case the Lead found by the `where` argument doesn't exist, create a new Lead with this data.
+     */
+    create: XOR<LeadCreateInput, LeadUncheckedCreateInput>
+    /**
+     * In case the Lead was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeadUpdateInput, LeadUncheckedUpdateInput>
+  }
+
+  /**
+   * Lead delete
+   */
+  export type LeadDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+    /**
+     * Filter which Lead to delete.
+     */
+    where: LeadWhereUniqueInput
+  }
+
+  /**
+   * Lead deleteMany
+   */
+  export type LeadDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Leads to delete
+     */
+    where?: LeadWhereInput
+    /**
+     * Limit how many Leads to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lead without action
+   */
+  export type LeadDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lead
+     */
+    select?: LeadSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lead
+     */
+    omit?: LeadOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeadInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Call
    */
 
@@ -10657,12 +11887,13 @@ export namespace Prisma {
     vapiCallId: string | null
     assistantId: string | null
     customerNumber: string | null
-    summary: string | null
     transcript: string | null
+    summary: string | null
     recordingUrl: string | null
     intent: string | null
     status: string | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CallMaxAggregateOutputType = {
@@ -10670,12 +11901,13 @@ export namespace Prisma {
     vapiCallId: string | null
     assistantId: string | null
     customerNumber: string | null
-    summary: string | null
     transcript: string | null
+    summary: string | null
     recordingUrl: string | null
     intent: string | null
     status: string | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CallCountAggregateOutputType = {
@@ -10683,12 +11915,13 @@ export namespace Prisma {
     vapiCallId: number
     assistantId: number
     customerNumber: number
-    summary: number
     transcript: number
+    summary: number
     recordingUrl: number
     intent: number
     status: number
     createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -10698,12 +11931,13 @@ export namespace Prisma {
     vapiCallId?: true
     assistantId?: true
     customerNumber?: true
-    summary?: true
     transcript?: true
+    summary?: true
     recordingUrl?: true
     intent?: true
     status?: true
     createdAt?: true
+    updatedAt?: true
   }
 
   export type CallMaxAggregateInputType = {
@@ -10711,12 +11945,13 @@ export namespace Prisma {
     vapiCallId?: true
     assistantId?: true
     customerNumber?: true
-    summary?: true
     transcript?: true
+    summary?: true
     recordingUrl?: true
     intent?: true
     status?: true
     createdAt?: true
+    updatedAt?: true
   }
 
   export type CallCountAggregateInputType = {
@@ -10724,12 +11959,13 @@ export namespace Prisma {
     vapiCallId?: true
     assistantId?: true
     customerNumber?: true
-    summary?: true
     transcript?: true
+    summary?: true
     recordingUrl?: true
     intent?: true
     status?: true
     createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -10809,13 +12045,14 @@ export namespace Prisma {
     id: string
     vapiCallId: string
     assistantId: string
-    customerNumber: string
-    summary: string | null
+    customerNumber: string | null
     transcript: string | null
+    summary: string | null
     recordingUrl: string | null
     intent: string | null
     status: string
     createdAt: Date
+    updatedAt: Date
     _count: CallCountAggregateOutputType | null
     _min: CallMinAggregateOutputType | null
     _max: CallMaxAggregateOutputType | null
@@ -10840,12 +12077,13 @@ export namespace Prisma {
     vapiCallId?: boolean
     assistantId?: boolean
     customerNumber?: boolean
-    summary?: boolean
     transcript?: boolean
+    summary?: boolean
     recordingUrl?: boolean
     intent?: boolean
     status?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
@@ -10854,12 +12092,13 @@ export namespace Prisma {
     vapiCallId?: boolean
     assistantId?: boolean
     customerNumber?: boolean
-    summary?: boolean
     transcript?: boolean
+    summary?: boolean
     recordingUrl?: boolean
     intent?: boolean
     status?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
@@ -10868,12 +12107,13 @@ export namespace Prisma {
     vapiCallId?: boolean
     assistantId?: boolean
     customerNumber?: boolean
-    summary?: boolean
     transcript?: boolean
+    summary?: boolean
     recordingUrl?: boolean
     intent?: boolean
     status?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["call"]>
 
@@ -10882,15 +12122,16 @@ export namespace Prisma {
     vapiCallId?: boolean
     assistantId?: boolean
     customerNumber?: boolean
-    summary?: boolean
     transcript?: boolean
+    summary?: boolean
     recordingUrl?: boolean
     intent?: boolean
     status?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "vapiCallId" | "assistantId" | "customerNumber" | "summary" | "transcript" | "recordingUrl" | "intent" | "status" | "createdAt", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "vapiCallId" | "assistantId" | "customerNumber" | "transcript" | "summary" | "recordingUrl" | "intent" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     assistant?: boolean | BusinessAssistantDefaultArgs<ExtArgs>
   }
@@ -10910,13 +12151,14 @@ export namespace Prisma {
       id: string
       vapiCallId: string
       assistantId: string
-      customerNumber: string
-      summary: string | null
+      customerNumber: string | null
       transcript: string | null
+      summary: string | null
       recordingUrl: string | null
       intent: string | null
       status: string
       createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["call"]>
     composites: {}
   }
@@ -11345,12 +12587,13 @@ export namespace Prisma {
     readonly vapiCallId: FieldRef<"Call", 'String'>
     readonly assistantId: FieldRef<"Call", 'String'>
     readonly customerNumber: FieldRef<"Call", 'String'>
-    readonly summary: FieldRef<"Call", 'String'>
     readonly transcript: FieldRef<"Call", 'String'>
+    readonly summary: FieldRef<"Call", 'String'>
     readonly recordingUrl: FieldRef<"Call", 'String'>
     readonly intent: FieldRef<"Call", 'String'>
     readonly status: FieldRef<"Call", 'String'>
     readonly createdAt: FieldRef<"Call", 'DateTime'>
+    readonly updatedAt: FieldRef<"Call", 'DateTime'>
   }
     
 
@@ -11771,1058 +13014,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Lead
-   */
-
-  export type AggregateLead = {
-    _count: LeadCountAggregateOutputType | null
-    _min: LeadMinAggregateOutputType | null
-    _max: LeadMaxAggregateOutputType | null
-  }
-
-  export type LeadMinAggregateOutputType = {
-    id: string | null
-    businessId: string | null
-    name: string | null
-    phoneNumber: string | null
-    email: string | null
-    intent: string | null
-    status: string | null
-    lastContacted: Date | null
-    createdAt: Date | null
-  }
-
-  export type LeadMaxAggregateOutputType = {
-    id: string | null
-    businessId: string | null
-    name: string | null
-    phoneNumber: string | null
-    email: string | null
-    intent: string | null
-    status: string | null
-    lastContacted: Date | null
-    createdAt: Date | null
-  }
-
-  export type LeadCountAggregateOutputType = {
-    id: number
-    businessId: number
-    name: number
-    phoneNumber: number
-    email: number
-    intent: number
-    status: number
-    lastContacted: number
-    createdAt: number
-    _all: number
-  }
-
-
-  export type LeadMinAggregateInputType = {
-    id?: true
-    businessId?: true
-    name?: true
-    phoneNumber?: true
-    email?: true
-    intent?: true
-    status?: true
-    lastContacted?: true
-    createdAt?: true
-  }
-
-  export type LeadMaxAggregateInputType = {
-    id?: true
-    businessId?: true
-    name?: true
-    phoneNumber?: true
-    email?: true
-    intent?: true
-    status?: true
-    lastContacted?: true
-    createdAt?: true
-  }
-
-  export type LeadCountAggregateInputType = {
-    id?: true
-    businessId?: true
-    name?: true
-    phoneNumber?: true
-    email?: true
-    intent?: true
-    status?: true
-    lastContacted?: true
-    createdAt?: true
-    _all?: true
-  }
-
-  export type LeadAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Lead to aggregate.
-     */
-    where?: LeadWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Leads to fetch.
-     */
-    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: LeadWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Leads from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Leads.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Leads
-    **/
-    _count?: true | LeadCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: LeadMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: LeadMaxAggregateInputType
-  }
-
-  export type GetLeadAggregateType<T extends LeadAggregateArgs> = {
-        [P in keyof T & keyof AggregateLead]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateLead[P]>
-      : GetScalarType<T[P], AggregateLead[P]>
-  }
-
-
-
-
-  export type LeadGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LeadWhereInput
-    orderBy?: LeadOrderByWithAggregationInput | LeadOrderByWithAggregationInput[]
-    by: LeadScalarFieldEnum[] | LeadScalarFieldEnum
-    having?: LeadScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: LeadCountAggregateInputType | true
-    _min?: LeadMinAggregateInputType
-    _max?: LeadMaxAggregateInputType
-  }
-
-  export type LeadGroupByOutputType = {
-    id: string
-    businessId: string
-    name: string | null
-    phoneNumber: string
-    email: string | null
-    intent: string | null
-    status: string
-    lastContacted: Date
-    createdAt: Date
-    _count: LeadCountAggregateOutputType | null
-    _min: LeadMinAggregateOutputType | null
-    _max: LeadMaxAggregateOutputType | null
-  }
-
-  type GetLeadGroupByPayload<T extends LeadGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<LeadGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof LeadGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], LeadGroupByOutputType[P]>
-            : GetScalarType<T[P], LeadGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type LeadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    businessId?: boolean
-    name?: boolean
-    phoneNumber?: boolean
-    email?: boolean
-    intent?: boolean
-    status?: boolean
-    lastContacted?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["lead"]>
-
-  export type LeadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    businessId?: boolean
-    name?: boolean
-    phoneNumber?: boolean
-    email?: boolean
-    intent?: boolean
-    status?: boolean
-    lastContacted?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["lead"]>
-
-  export type LeadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    businessId?: boolean
-    name?: boolean
-    phoneNumber?: boolean
-    email?: boolean
-    intent?: boolean
-    status?: boolean
-    lastContacted?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["lead"]>
-
-  export type LeadSelectScalar = {
-    id?: boolean
-    businessId?: boolean
-    name?: boolean
-    phoneNumber?: boolean
-    email?: boolean
-    intent?: boolean
-    status?: boolean
-    lastContacted?: boolean
-    createdAt?: boolean
-  }
-
-  export type LeadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "businessId" | "name" | "phoneNumber" | "email" | "intent" | "status" | "lastContacted" | "createdAt", ExtArgs["result"]["lead"]>
-
-  export type $LeadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Lead"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      businessId: string
-      name: string | null
-      phoneNumber: string
-      email: string | null
-      intent: string | null
-      status: string
-      lastContacted: Date
-      createdAt: Date
-    }, ExtArgs["result"]["lead"]>
-    composites: {}
-  }
-
-  type LeadGetPayload<S extends boolean | null | undefined | LeadDefaultArgs> = $Result.GetResult<Prisma.$LeadPayload, S>
-
-  type LeadCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<LeadFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: LeadCountAggregateInputType | true
-    }
-
-  export interface LeadDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Lead'], meta: { name: 'Lead' } }
-    /**
-     * Find zero or one Lead that matches the filter.
-     * @param {LeadFindUniqueArgs} args - Arguments to find a Lead
-     * @example
-     * // Get one Lead
-     * const lead = await prisma.lead.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends LeadFindUniqueArgs>(args: SelectSubset<T, LeadFindUniqueArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Lead that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {LeadFindUniqueOrThrowArgs} args - Arguments to find a Lead
-     * @example
-     * // Get one Lead
-     * const lead = await prisma.lead.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends LeadFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Lead that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadFindFirstArgs} args - Arguments to find a Lead
-     * @example
-     * // Get one Lead
-     * const lead = await prisma.lead.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends LeadFindFirstArgs>(args?: SelectSubset<T, LeadFindFirstArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Lead that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadFindFirstOrThrowArgs} args - Arguments to find a Lead
-     * @example
-     * // Get one Lead
-     * const lead = await prisma.lead.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends LeadFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Leads that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Leads
-     * const leads = await prisma.lead.findMany()
-     * 
-     * // Get first 10 Leads
-     * const leads = await prisma.lead.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const leadWithIdOnly = await prisma.lead.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends LeadFindManyArgs>(args?: SelectSubset<T, LeadFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Lead.
-     * @param {LeadCreateArgs} args - Arguments to create a Lead.
-     * @example
-     * // Create one Lead
-     * const Lead = await prisma.lead.create({
-     *   data: {
-     *     // ... data to create a Lead
-     *   }
-     * })
-     * 
-     */
-    create<T extends LeadCreateArgs>(args: SelectSubset<T, LeadCreateArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Leads.
-     * @param {LeadCreateManyArgs} args - Arguments to create many Leads.
-     * @example
-     * // Create many Leads
-     * const lead = await prisma.lead.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends LeadCreateManyArgs>(args?: SelectSubset<T, LeadCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Leads and returns the data saved in the database.
-     * @param {LeadCreateManyAndReturnArgs} args - Arguments to create many Leads.
-     * @example
-     * // Create many Leads
-     * const lead = await prisma.lead.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Leads and only return the `id`
-     * const leadWithIdOnly = await prisma.lead.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends LeadCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Lead.
-     * @param {LeadDeleteArgs} args - Arguments to delete one Lead.
-     * @example
-     * // Delete one Lead
-     * const Lead = await prisma.lead.delete({
-     *   where: {
-     *     // ... filter to delete one Lead
-     *   }
-     * })
-     * 
-     */
-    delete<T extends LeadDeleteArgs>(args: SelectSubset<T, LeadDeleteArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Lead.
-     * @param {LeadUpdateArgs} args - Arguments to update one Lead.
-     * @example
-     * // Update one Lead
-     * const lead = await prisma.lead.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends LeadUpdateArgs>(args: SelectSubset<T, LeadUpdateArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Leads.
-     * @param {LeadDeleteManyArgs} args - Arguments to filter Leads to delete.
-     * @example
-     * // Delete a few Leads
-     * const { count } = await prisma.lead.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends LeadDeleteManyArgs>(args?: SelectSubset<T, LeadDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Leads.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Leads
-     * const lead = await prisma.lead.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends LeadUpdateManyArgs>(args: SelectSubset<T, LeadUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Leads and returns the data updated in the database.
-     * @param {LeadUpdateManyAndReturnArgs} args - Arguments to update many Leads.
-     * @example
-     * // Update many Leads
-     * const lead = await prisma.lead.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Leads and only return the `id`
-     * const leadWithIdOnly = await prisma.lead.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends LeadUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Lead.
-     * @param {LeadUpsertArgs} args - Arguments to update or create a Lead.
-     * @example
-     * // Update or create a Lead
-     * const lead = await prisma.lead.upsert({
-     *   create: {
-     *     // ... data to create a Lead
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Lead we want to update
-     *   }
-     * })
-     */
-    upsert<T extends LeadUpsertArgs>(args: SelectSubset<T, LeadUpsertArgs<ExtArgs>>): Prisma__LeadClient<$Result.GetResult<Prisma.$LeadPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Leads.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadCountArgs} args - Arguments to filter Leads to count.
-     * @example
-     * // Count the number of Leads
-     * const count = await prisma.lead.count({
-     *   where: {
-     *     // ... the filter for the Leads we want to count
-     *   }
-     * })
-    **/
-    count<T extends LeadCountArgs>(
-      args?: Subset<T, LeadCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], LeadCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Lead.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends LeadAggregateArgs>(args: Subset<T, LeadAggregateArgs>): Prisma.PrismaPromise<GetLeadAggregateType<T>>
-
-    /**
-     * Group by Lead.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LeadGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends LeadGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: LeadGroupByArgs['orderBy'] }
-        : { orderBy?: LeadGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, LeadGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Lead model
-   */
-  readonly fields: LeadFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Lead.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__LeadClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Lead model
-   */
-  interface LeadFieldRefs {
-    readonly id: FieldRef<"Lead", 'String'>
-    readonly businessId: FieldRef<"Lead", 'String'>
-    readonly name: FieldRef<"Lead", 'String'>
-    readonly phoneNumber: FieldRef<"Lead", 'String'>
-    readonly email: FieldRef<"Lead", 'String'>
-    readonly intent: FieldRef<"Lead", 'String'>
-    readonly status: FieldRef<"Lead", 'String'>
-    readonly lastContacted: FieldRef<"Lead", 'DateTime'>
-    readonly createdAt: FieldRef<"Lead", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Lead findUnique
-   */
-  export type LeadFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter, which Lead to fetch.
-     */
-    where: LeadWhereUniqueInput
-  }
-
-  /**
-   * Lead findUniqueOrThrow
-   */
-  export type LeadFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter, which Lead to fetch.
-     */
-    where: LeadWhereUniqueInput
-  }
-
-  /**
-   * Lead findFirst
-   */
-  export type LeadFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter, which Lead to fetch.
-     */
-    where?: LeadWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Leads to fetch.
-     */
-    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Leads.
-     */
-    cursor?: LeadWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Leads from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Leads.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Leads.
-     */
-    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
-  }
-
-  /**
-   * Lead findFirstOrThrow
-   */
-  export type LeadFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter, which Lead to fetch.
-     */
-    where?: LeadWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Leads to fetch.
-     */
-    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Leads.
-     */
-    cursor?: LeadWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Leads from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Leads.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Leads.
-     */
-    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
-  }
-
-  /**
-   * Lead findMany
-   */
-  export type LeadFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter, which Leads to fetch.
-     */
-    where?: LeadWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Leads to fetch.
-     */
-    orderBy?: LeadOrderByWithRelationInput | LeadOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Leads.
-     */
-    cursor?: LeadWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Leads from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Leads.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Leads.
-     */
-    distinct?: LeadScalarFieldEnum | LeadScalarFieldEnum[]
-  }
-
-  /**
-   * Lead create
-   */
-  export type LeadCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * The data needed to create a Lead.
-     */
-    data: XOR<LeadCreateInput, LeadUncheckedCreateInput>
-  }
-
-  /**
-   * Lead createMany
-   */
-  export type LeadCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Leads.
-     */
-    data: LeadCreateManyInput | LeadCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Lead createManyAndReturn
-   */
-  export type LeadCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * The data used to create many Leads.
-     */
-    data: LeadCreateManyInput | LeadCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Lead update
-   */
-  export type LeadUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * The data needed to update a Lead.
-     */
-    data: XOR<LeadUpdateInput, LeadUncheckedUpdateInput>
-    /**
-     * Choose, which Lead to update.
-     */
-    where: LeadWhereUniqueInput
-  }
-
-  /**
-   * Lead updateMany
-   */
-  export type LeadUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Leads.
-     */
-    data: XOR<LeadUpdateManyMutationInput, LeadUncheckedUpdateManyInput>
-    /**
-     * Filter which Leads to update
-     */
-    where?: LeadWhereInput
-    /**
-     * Limit how many Leads to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Lead updateManyAndReturn
-   */
-  export type LeadUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * The data used to update Leads.
-     */
-    data: XOR<LeadUpdateManyMutationInput, LeadUncheckedUpdateManyInput>
-    /**
-     * Filter which Leads to update
-     */
-    where?: LeadWhereInput
-    /**
-     * Limit how many Leads to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Lead upsert
-   */
-  export type LeadUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * The filter to search for the Lead to update in case it exists.
-     */
-    where: LeadWhereUniqueInput
-    /**
-     * In case the Lead found by the `where` argument doesn't exist, create a new Lead with this data.
-     */
-    create: XOR<LeadCreateInput, LeadUncheckedCreateInput>
-    /**
-     * In case the Lead was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<LeadUpdateInput, LeadUncheckedUpdateInput>
-  }
-
-  /**
-   * Lead delete
-   */
-  export type LeadDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-    /**
-     * Filter which Lead to delete.
-     */
-    where: LeadWhereUniqueInput
-  }
-
-  /**
-   * Lead deleteMany
-   */
-  export type LeadDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Leads to delete
-     */
-    where?: LeadWhereInput
-    /**
-     * Limit how many Leads to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Lead without action
-   */
-  export type LeadDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Lead
-     */
-    select?: LeadSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Lead
-     */
-    omit?: LeadOmit<ExtArgs> | null
-  }
-
-
-  /**
    * Enums
    */
 
@@ -12853,11 +13044,11 @@ export namespace Prisma {
     id: 'id',
     expiresAt: 'expiresAt',
     token: 'token',
-    userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     ipAddress: 'ipAddress',
-    userAgent: 'userAgent'
+    userAgent: 'userAgent',
+    userId: 'userId'
   };
 
   export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
@@ -12897,10 +13088,11 @@ export namespace Prisma {
   export const BusinessAssistantScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    vapiAssistantId: 'vapiAssistantId',
     name: 'name',
-    firstMessage: 'firstMessage',
+    vapiAssistantId: 'vapiAssistantId',
     systemPrompt: 'systemPrompt',
+    firstMessage: 'firstMessage',
+    phoneNumber: 'phoneNumber',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -12908,23 +13100,26 @@ export namespace Prisma {
   export type BusinessAssistantScalarFieldEnum = (typeof BusinessAssistantScalarFieldEnum)[keyof typeof BusinessAssistantScalarFieldEnum]
 
 
-  export const FAQScalarFieldEnum: {
+  export const FaqScalarFieldEnum: {
     id: 'id',
+    assistantId: 'assistantId',
     question: 'question',
     answer: 'answer',
-    assistantId: 'assistantId'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type FAQScalarFieldEnum = (typeof FAQScalarFieldEnum)[keyof typeof FAQScalarFieldEnum]
+  export type FaqScalarFieldEnum = (typeof FaqScalarFieldEnum)[keyof typeof FaqScalarFieldEnum]
 
 
   export const ProductScalarFieldEnum: {
     id: 'id',
+    assistantId: 'assistantId',
     name: 'name',
     price: 'price',
     description: 'description',
-    mediaLink: 'mediaLink',
-    assistantId: 'assistantId'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -12932,12 +13127,29 @@ export namespace Prisma {
 
   export const ResourceLinkScalarFieldEnum: {
     id: 'id',
-    label: 'label',
+    assistantId: 'assistantId',
+    title: 'title',
     url: 'url',
-    assistantId: 'assistantId'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type ResourceLinkScalarFieldEnum = (typeof ResourceLinkScalarFieldEnum)[keyof typeof ResourceLinkScalarFieldEnum]
+
+
+  export const LeadScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    name: 'name',
+    phone: 'phone',
+    email: 'email',
+    summary: 'summary',
+    intent: 'intent',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
 
 
   export const CallScalarFieldEnum: {
@@ -12945,30 +13157,16 @@ export namespace Prisma {
     vapiCallId: 'vapiCallId',
     assistantId: 'assistantId',
     customerNumber: 'customerNumber',
-    summary: 'summary',
     transcript: 'transcript',
+    summary: 'summary',
     recordingUrl: 'recordingUrl',
     intent: 'intent',
     status: 'status',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
-
-
-  export const LeadScalarFieldEnum: {
-    id: 'id',
-    businessId: 'businessId',
-    name: 'name',
-    phoneNumber: 'phoneNumber',
-    email: 'email',
-    intent: 'intent',
-    status: 'status',
-    lastContacted: 'lastContacted',
-    createdAt: 'createdAt'
-  };
-
-  export type LeadScalarFieldEnum = (typeof LeadScalarFieldEnum)[keyof typeof LeadScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -13071,7 +13269,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
+    name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
@@ -13080,11 +13278,12 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     businessAssistant?: XOR<BusinessAssistantNullableScalarRelationFilter, BusinessAssistantWhereInput> | null
+    leads?: LeadListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
+    name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
@@ -13093,6 +13292,7 @@ export namespace Prisma {
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
     businessAssistant?: BusinessAssistantOrderByWithRelationInput
+    leads?: LeadOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -13101,7 +13301,7 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
+    name?: StringFilter<"User"> | string
     emailVerified?: BoolFilter<"User"> | boolean
     image?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -13109,11 +13309,12 @@ export namespace Prisma {
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
     businessAssistant?: XOR<BusinessAssistantNullableScalarRelationFilter, BusinessAssistantWhereInput> | null
+    leads?: LeadListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
+    name?: SortOrder
     email?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrderInput | SortOrder
@@ -13129,7 +13330,7 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     emailVerified?: BoolWithAggregatesFilter<"User"> | boolean
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -13144,11 +13345,11 @@ export namespace Prisma {
     id?: StringFilter<"Session"> | string
     expiresAt?: DateTimeFilter<"Session"> | Date | string
     token?: StringFilter<"Session"> | string
-    userId?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     ipAddress?: StringNullableFilter<"Session"> | string | null
     userAgent?: StringNullableFilter<"Session"> | string | null
+    userId?: StringFilter<"Session"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -13156,11 +13357,11 @@ export namespace Prisma {
     id?: SortOrder
     expiresAt?: SortOrder
     token?: SortOrder
-    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ipAddress?: SortOrderInput | SortOrder
     userAgent?: SortOrderInput | SortOrder
+    userId?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -13171,11 +13372,11 @@ export namespace Prisma {
     OR?: SessionWhereInput[]
     NOT?: SessionWhereInput | SessionWhereInput[]
     expiresAt?: DateTimeFilter<"Session"> | Date | string
-    userId?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     ipAddress?: StringNullableFilter<"Session"> | string | null
     userAgent?: StringNullableFilter<"Session"> | string | null
+    userId?: StringFilter<"Session"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id" | "token">
 
@@ -13183,11 +13384,11 @@ export namespace Prisma {
     id?: SortOrder
     expiresAt?: SortOrder
     token?: SortOrder
-    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ipAddress?: SortOrderInput | SortOrder
     userAgent?: SortOrderInput | SortOrder
+    userId?: SortOrder
     _count?: SessionCountOrderByAggregateInput
     _max?: SessionMaxOrderByAggregateInput
     _min?: SessionMinOrderByAggregateInput
@@ -13200,11 +13401,11 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Session"> | string
     expiresAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     token?: StringWithAggregatesFilter<"Session"> | string
-    userId?: StringWithAggregatesFilter<"Session"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     ipAddress?: StringNullableWithAggregatesFilter<"Session"> | string | null
     userAgent?: StringNullableWithAggregatesFilter<"Session"> | string | null
+    userId?: StringWithAggregatesFilter<"Session"> | string
   }
 
   export type AccountWhereInput = {
@@ -13310,8 +13511,8 @@ export namespace Prisma {
     identifier?: StringFilter<"Verification"> | string
     value?: StringFilter<"Verification"> | string
     expiresAt?: DateTimeFilter<"Verification"> | Date | string
-    createdAt?: DateTimeFilter<"Verification"> | Date | string
-    updatedAt?: DateTimeFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
   }
 
   export type VerificationOrderByWithRelationInput = {
@@ -13319,8 +13520,8 @@ export namespace Prisma {
     identifier?: SortOrder
     value?: SortOrder
     expiresAt?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type VerificationWhereUniqueInput = Prisma.AtLeast<{
@@ -13331,8 +13532,8 @@ export namespace Prisma {
     identifier?: StringFilter<"Verification"> | string
     value?: StringFilter<"Verification"> | string
     expiresAt?: DateTimeFilter<"Verification"> | Date | string
-    createdAt?: DateTimeFilter<"Verification"> | Date | string
-    updatedAt?: DateTimeFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Verification"> | Date | string | null
   }, "id">
 
   export type VerificationOrderByWithAggregationInput = {
@@ -13340,8 +13541,8 @@ export namespace Prisma {
     identifier?: SortOrder
     value?: SortOrder
     expiresAt?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: VerificationCountOrderByAggregateInput
     _max?: VerificationMaxOrderByAggregateInput
     _min?: VerificationMinOrderByAggregateInput
@@ -13355,8 +13556,8 @@ export namespace Prisma {
     identifier?: StringWithAggregatesFilter<"Verification"> | string
     value?: StringWithAggregatesFilter<"Verification"> | string
     expiresAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Verification"> | Date | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
   export type BusinessAssistantWhereInput = {
@@ -13365,33 +13566,35 @@ export namespace Prisma {
     NOT?: BusinessAssistantWhereInput | BusinessAssistantWhereInput[]
     id?: StringFilter<"BusinessAssistant"> | string
     userId?: StringFilter<"BusinessAssistant"> | string
-    vapiAssistantId?: StringNullableFilter<"BusinessAssistant"> | string | null
     name?: StringFilter<"BusinessAssistant"> | string
-    firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
+    vapiAssistantId?: StringNullableFilter<"BusinessAssistant"> | string | null
     systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
+    firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
+    phoneNumber?: StringNullableFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    faqs?: FAQListRelationFilter
+    calls?: CallListRelationFilter
+    faqs?: FaqListRelationFilter
     products?: ProductListRelationFilter
     resourceLinks?: ResourceLinkListRelationFilter
-    calls?: CallListRelationFilter
   }
 
   export type BusinessAssistantOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    vapiAssistantId?: SortOrderInput | SortOrder
     name?: SortOrder
-    firstMessage?: SortOrderInput | SortOrder
+    vapiAssistantId?: SortOrderInput | SortOrder
     systemPrompt?: SortOrderInput | SortOrder
+    firstMessage?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    faqs?: FAQOrderByRelationAggregateInput
+    calls?: CallOrderByRelationAggregateInput
+    faqs?: FaqOrderByRelationAggregateInput
     products?: ProductOrderByRelationAggregateInput
     resourceLinks?: ResourceLinkOrderByRelationAggregateInput
-    calls?: CallOrderByRelationAggregateInput
   }
 
   export type BusinessAssistantWhereUniqueInput = Prisma.AtLeast<{
@@ -13402,24 +13605,26 @@ export namespace Prisma {
     OR?: BusinessAssistantWhereInput[]
     NOT?: BusinessAssistantWhereInput | BusinessAssistantWhereInput[]
     name?: StringFilter<"BusinessAssistant"> | string
-    firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
     systemPrompt?: StringNullableFilter<"BusinessAssistant"> | string | null
+    firstMessage?: StringNullableFilter<"BusinessAssistant"> | string | null
+    phoneNumber?: StringNullableFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeFilter<"BusinessAssistant"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    faqs?: FAQListRelationFilter
+    calls?: CallListRelationFilter
+    faqs?: FaqListRelationFilter
     products?: ProductListRelationFilter
     resourceLinks?: ResourceLinkListRelationFilter
-    calls?: CallListRelationFilter
   }, "id" | "userId" | "vapiAssistantId">
 
   export type BusinessAssistantOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    vapiAssistantId?: SortOrderInput | SortOrder
     name?: SortOrder
-    firstMessage?: SortOrderInput | SortOrder
+    vapiAssistantId?: SortOrderInput | SortOrder
     systemPrompt?: SortOrderInput | SortOrder
+    firstMessage?: SortOrderInput | SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: BusinessAssistantCountOrderByAggregateInput
@@ -13433,62 +13638,73 @@ export namespace Prisma {
     NOT?: BusinessAssistantScalarWhereWithAggregatesInput | BusinessAssistantScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"BusinessAssistant"> | string
     userId?: StringWithAggregatesFilter<"BusinessAssistant"> | string
-    vapiAssistantId?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     name?: StringWithAggregatesFilter<"BusinessAssistant"> | string
-    firstMessage?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
+    vapiAssistantId?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     systemPrompt?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
+    firstMessage?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
+    phoneNumber?: StringNullableWithAggregatesFilter<"BusinessAssistant"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"BusinessAssistant"> | Date | string
   }
 
-  export type FAQWhereInput = {
-    AND?: FAQWhereInput | FAQWhereInput[]
-    OR?: FAQWhereInput[]
-    NOT?: FAQWhereInput | FAQWhereInput[]
-    id?: StringFilter<"FAQ"> | string
-    question?: StringFilter<"FAQ"> | string
-    answer?: StringFilter<"FAQ"> | string
-    assistantId?: StringFilter<"FAQ"> | string
+  export type FaqWhereInput = {
+    AND?: FaqWhereInput | FaqWhereInput[]
+    OR?: FaqWhereInput[]
+    NOT?: FaqWhereInput | FaqWhereInput[]
+    id?: StringFilter<"Faq"> | string
+    assistantId?: StringFilter<"Faq"> | string
+    question?: StringFilter<"Faq"> | string
+    answer?: StringFilter<"Faq"> | string
+    createdAt?: DateTimeFilter<"Faq"> | Date | string
+    updatedAt?: DateTimeFilter<"Faq"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }
 
-  export type FAQOrderByWithRelationInput = {
+  export type FaqOrderByWithRelationInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     question?: SortOrder
     answer?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     assistant?: BusinessAssistantOrderByWithRelationInput
   }
 
-  export type FAQWhereUniqueInput = Prisma.AtLeast<{
+  export type FaqWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: FAQWhereInput | FAQWhereInput[]
-    OR?: FAQWhereInput[]
-    NOT?: FAQWhereInput | FAQWhereInput[]
-    question?: StringFilter<"FAQ"> | string
-    answer?: StringFilter<"FAQ"> | string
-    assistantId?: StringFilter<"FAQ"> | string
+    AND?: FaqWhereInput | FaqWhereInput[]
+    OR?: FaqWhereInput[]
+    NOT?: FaqWhereInput | FaqWhereInput[]
+    assistantId?: StringFilter<"Faq"> | string
+    question?: StringFilter<"Faq"> | string
+    answer?: StringFilter<"Faq"> | string
+    createdAt?: DateTimeFilter<"Faq"> | Date | string
+    updatedAt?: DateTimeFilter<"Faq"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }, "id">
 
-  export type FAQOrderByWithAggregationInput = {
+  export type FaqOrderByWithAggregationInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     question?: SortOrder
     answer?: SortOrder
-    assistantId?: SortOrder
-    _count?: FAQCountOrderByAggregateInput
-    _max?: FAQMaxOrderByAggregateInput
-    _min?: FAQMinOrderByAggregateInput
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FaqCountOrderByAggregateInput
+    _max?: FaqMaxOrderByAggregateInput
+    _min?: FaqMinOrderByAggregateInput
   }
 
-  export type FAQScalarWhereWithAggregatesInput = {
-    AND?: FAQScalarWhereWithAggregatesInput | FAQScalarWhereWithAggregatesInput[]
-    OR?: FAQScalarWhereWithAggregatesInput[]
-    NOT?: FAQScalarWhereWithAggregatesInput | FAQScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"FAQ"> | string
-    question?: StringWithAggregatesFilter<"FAQ"> | string
-    answer?: StringWithAggregatesFilter<"FAQ"> | string
-    assistantId?: StringWithAggregatesFilter<"FAQ"> | string
+  export type FaqScalarWhereWithAggregatesInput = {
+    AND?: FaqScalarWhereWithAggregatesInput | FaqScalarWhereWithAggregatesInput[]
+    OR?: FaqScalarWhereWithAggregatesInput[]
+    NOT?: FaqScalarWhereWithAggregatesInput | FaqScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Faq"> | string
+    assistantId?: StringWithAggregatesFilter<"Faq"> | string
+    question?: StringWithAggregatesFilter<"Faq"> | string
+    answer?: StringWithAggregatesFilter<"Faq"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Faq"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Faq"> | Date | string
   }
 
   export type ProductWhereInput = {
@@ -13496,21 +13712,23 @@ export namespace Prisma {
     OR?: ProductWhereInput[]
     NOT?: ProductWhereInput | ProductWhereInput[]
     id?: StringFilter<"Product"> | string
+    assistantId?: StringFilter<"Product"> | string
     name?: StringFilter<"Product"> | string
     price?: FloatNullableFilter<"Product"> | number | null
     description?: StringNullableFilter<"Product"> | string | null
-    mediaLink?: StringNullableFilter<"Product"> | string | null
-    assistantId?: StringFilter<"Product"> | string
+    createdAt?: DateTimeFilter<"Product"> | Date | string
+    updatedAt?: DateTimeFilter<"Product"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }
 
   export type ProductOrderByWithRelationInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     name?: SortOrder
     price?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    mediaLink?: SortOrderInput | SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     assistant?: BusinessAssistantOrderByWithRelationInput
   }
 
@@ -13519,21 +13737,23 @@ export namespace Prisma {
     AND?: ProductWhereInput | ProductWhereInput[]
     OR?: ProductWhereInput[]
     NOT?: ProductWhereInput | ProductWhereInput[]
+    assistantId?: StringFilter<"Product"> | string
     name?: StringFilter<"Product"> | string
     price?: FloatNullableFilter<"Product"> | number | null
     description?: StringNullableFilter<"Product"> | string | null
-    mediaLink?: StringNullableFilter<"Product"> | string | null
-    assistantId?: StringFilter<"Product"> | string
+    createdAt?: DateTimeFilter<"Product"> | Date | string
+    updatedAt?: DateTimeFilter<"Product"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }, "id">
 
   export type ProductOrderByWithAggregationInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     name?: SortOrder
     price?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    mediaLink?: SortOrderInput | SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: ProductCountOrderByAggregateInput
     _avg?: ProductAvgOrderByAggregateInput
     _max?: ProductMaxOrderByAggregateInput
@@ -13546,11 +13766,12 @@ export namespace Prisma {
     OR?: ProductScalarWhereWithAggregatesInput[]
     NOT?: ProductScalarWhereWithAggregatesInput | ProductScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Product"> | string
+    assistantId?: StringWithAggregatesFilter<"Product"> | string
     name?: StringWithAggregatesFilter<"Product"> | string
     price?: FloatNullableWithAggregatesFilter<"Product"> | number | null
     description?: StringNullableWithAggregatesFilter<"Product"> | string | null
-    mediaLink?: StringNullableWithAggregatesFilter<"Product"> | string | null
-    assistantId?: StringWithAggregatesFilter<"Product"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
   }
 
   export type ResourceLinkWhereInput = {
@@ -13558,17 +13779,21 @@ export namespace Prisma {
     OR?: ResourceLinkWhereInput[]
     NOT?: ResourceLinkWhereInput | ResourceLinkWhereInput[]
     id?: StringFilter<"ResourceLink"> | string
-    label?: StringFilter<"ResourceLink"> | string
-    url?: StringFilter<"ResourceLink"> | string
     assistantId?: StringFilter<"ResourceLink"> | string
+    title?: StringFilter<"ResourceLink"> | string
+    url?: StringFilter<"ResourceLink"> | string
+    createdAt?: DateTimeFilter<"ResourceLink"> | Date | string
+    updatedAt?: DateTimeFilter<"ResourceLink"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }
 
   export type ResourceLinkOrderByWithRelationInput = {
     id?: SortOrder
-    label?: SortOrder
-    url?: SortOrder
     assistantId?: SortOrder
+    title?: SortOrder
+    url?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     assistant?: BusinessAssistantOrderByWithRelationInput
   }
 
@@ -13577,17 +13802,21 @@ export namespace Prisma {
     AND?: ResourceLinkWhereInput | ResourceLinkWhereInput[]
     OR?: ResourceLinkWhereInput[]
     NOT?: ResourceLinkWhereInput | ResourceLinkWhereInput[]
-    label?: StringFilter<"ResourceLink"> | string
-    url?: StringFilter<"ResourceLink"> | string
     assistantId?: StringFilter<"ResourceLink"> | string
+    title?: StringFilter<"ResourceLink"> | string
+    url?: StringFilter<"ResourceLink"> | string
+    createdAt?: DateTimeFilter<"ResourceLink"> | Date | string
+    updatedAt?: DateTimeFilter<"ResourceLink"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }, "id">
 
   export type ResourceLinkOrderByWithAggregationInput = {
     id?: SortOrder
-    label?: SortOrder
-    url?: SortOrder
     assistantId?: SortOrder
+    title?: SortOrder
+    url?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: ResourceLinkCountOrderByAggregateInput
     _max?: ResourceLinkMaxOrderByAggregateInput
     _min?: ResourceLinkMinOrderByAggregateInput
@@ -13598,9 +13827,86 @@ export namespace Prisma {
     OR?: ResourceLinkScalarWhereWithAggregatesInput[]
     NOT?: ResourceLinkScalarWhereWithAggregatesInput | ResourceLinkScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"ResourceLink"> | string
-    label?: StringWithAggregatesFilter<"ResourceLink"> | string
-    url?: StringWithAggregatesFilter<"ResourceLink"> | string
     assistantId?: StringWithAggregatesFilter<"ResourceLink"> | string
+    title?: StringWithAggregatesFilter<"ResourceLink"> | string
+    url?: StringWithAggregatesFilter<"ResourceLink"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ResourceLink"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ResourceLink"> | Date | string
+  }
+
+  export type LeadWhereInput = {
+    AND?: LeadWhereInput | LeadWhereInput[]
+    OR?: LeadWhereInput[]
+    NOT?: LeadWhereInput | LeadWhereInput[]
+    id?: StringFilter<"Lead"> | string
+    userId?: StringFilter<"Lead"> | string
+    name?: StringNullableFilter<"Lead"> | string | null
+    phone?: StringFilter<"Lead"> | string
+    email?: StringNullableFilter<"Lead"> | string | null
+    summary?: StringNullableFilter<"Lead"> | string | null
+    intent?: StringNullableFilter<"Lead"> | string | null
+    createdAt?: DateTimeFilter<"Lead"> | Date | string
+    updatedAt?: DateTimeFilter<"Lead"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type LeadOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    phone?: SortOrder
+    email?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
+    intent?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type LeadWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LeadWhereInput | LeadWhereInput[]
+    OR?: LeadWhereInput[]
+    NOT?: LeadWhereInput | LeadWhereInput[]
+    userId?: StringFilter<"Lead"> | string
+    name?: StringNullableFilter<"Lead"> | string | null
+    phone?: StringFilter<"Lead"> | string
+    email?: StringNullableFilter<"Lead"> | string | null
+    summary?: StringNullableFilter<"Lead"> | string | null
+    intent?: StringNullableFilter<"Lead"> | string | null
+    createdAt?: DateTimeFilter<"Lead"> | Date | string
+    updatedAt?: DateTimeFilter<"Lead"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type LeadOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    phone?: SortOrder
+    email?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
+    intent?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LeadCountOrderByAggregateInput
+    _max?: LeadMaxOrderByAggregateInput
+    _min?: LeadMinOrderByAggregateInput
+  }
+
+  export type LeadScalarWhereWithAggregatesInput = {
+    AND?: LeadScalarWhereWithAggregatesInput | LeadScalarWhereWithAggregatesInput[]
+    OR?: LeadScalarWhereWithAggregatesInput[]
+    NOT?: LeadScalarWhereWithAggregatesInput | LeadScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Lead"> | string
+    userId?: StringWithAggregatesFilter<"Lead"> | string
+    name?: StringNullableWithAggregatesFilter<"Lead"> | string | null
+    phone?: StringWithAggregatesFilter<"Lead"> | string
+    email?: StringNullableWithAggregatesFilter<"Lead"> | string | null
+    summary?: StringNullableWithAggregatesFilter<"Lead"> | string | null
+    intent?: StringNullableWithAggregatesFilter<"Lead"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
   }
 
   export type CallWhereInput = {
@@ -13610,13 +13916,14 @@ export namespace Prisma {
     id?: StringFilter<"Call"> | string
     vapiCallId?: StringFilter<"Call"> | string
     assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringFilter<"Call"> | string
-    summary?: StringNullableFilter<"Call"> | string | null
+    customerNumber?: StringNullableFilter<"Call"> | string | null
     transcript?: StringNullableFilter<"Call"> | string | null
+    summary?: StringNullableFilter<"Call"> | string | null
     recordingUrl?: StringNullableFilter<"Call"> | string | null
     intent?: StringNullableFilter<"Call"> | string | null
     status?: StringFilter<"Call"> | string
     createdAt?: DateTimeFilter<"Call"> | Date | string
+    updatedAt?: DateTimeFilter<"Call"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }
 
@@ -13624,13 +13931,14 @@ export namespace Prisma {
     id?: SortOrder
     vapiCallId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrder
-    summary?: SortOrderInput | SortOrder
+    customerNumber?: SortOrderInput | SortOrder
     transcript?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
     recordingUrl?: SortOrderInput | SortOrder
     intent?: SortOrderInput | SortOrder
     status?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     assistant?: BusinessAssistantOrderByWithRelationInput
   }
 
@@ -13641,13 +13949,14 @@ export namespace Prisma {
     OR?: CallWhereInput[]
     NOT?: CallWhereInput | CallWhereInput[]
     assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringFilter<"Call"> | string
-    summary?: StringNullableFilter<"Call"> | string | null
+    customerNumber?: StringNullableFilter<"Call"> | string | null
     transcript?: StringNullableFilter<"Call"> | string | null
+    summary?: StringNullableFilter<"Call"> | string | null
     recordingUrl?: StringNullableFilter<"Call"> | string | null
     intent?: StringNullableFilter<"Call"> | string | null
     status?: StringFilter<"Call"> | string
     createdAt?: DateTimeFilter<"Call"> | Date | string
+    updatedAt?: DateTimeFilter<"Call"> | Date | string
     assistant?: XOR<BusinessAssistantScalarRelationFilter, BusinessAssistantWhereInput>
   }, "id" | "vapiCallId">
 
@@ -13655,13 +13964,14 @@ export namespace Prisma {
     id?: SortOrder
     vapiCallId?: SortOrder
     assistantId?: SortOrder
-    customerNumber?: SortOrder
-    summary?: SortOrderInput | SortOrder
+    customerNumber?: SortOrderInput | SortOrder
     transcript?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
     recordingUrl?: SortOrderInput | SortOrder
     intent?: SortOrderInput | SortOrder
     status?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: CallCountOrderByAggregateInput
     _max?: CallMaxOrderByAggregateInput
     _min?: CallMinOrderByAggregateInput
@@ -13674,116 +13984,47 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Call"> | string
     vapiCallId?: StringWithAggregatesFilter<"Call"> | string
     assistantId?: StringWithAggregatesFilter<"Call"> | string
-    customerNumber?: StringWithAggregatesFilter<"Call"> | string
-    summary?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    customerNumber?: StringNullableWithAggregatesFilter<"Call"> | string | null
     transcript?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    summary?: StringNullableWithAggregatesFilter<"Call"> | string | null
     recordingUrl?: StringNullableWithAggregatesFilter<"Call"> | string | null
     intent?: StringNullableWithAggregatesFilter<"Call"> | string | null
     status?: StringWithAggregatesFilter<"Call"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Call"> | Date | string
-  }
-
-  export type LeadWhereInput = {
-    AND?: LeadWhereInput | LeadWhereInput[]
-    OR?: LeadWhereInput[]
-    NOT?: LeadWhereInput | LeadWhereInput[]
-    id?: StringFilter<"Lead"> | string
-    businessId?: StringFilter<"Lead"> | string
-    name?: StringNullableFilter<"Lead"> | string | null
-    phoneNumber?: StringFilter<"Lead"> | string
-    email?: StringNullableFilter<"Lead"> | string | null
-    intent?: StringNullableFilter<"Lead"> | string | null
-    status?: StringFilter<"Lead"> | string
-    lastContacted?: DateTimeFilter<"Lead"> | Date | string
-    createdAt?: DateTimeFilter<"Lead"> | Date | string
-  }
-
-  export type LeadOrderByWithRelationInput = {
-    id?: SortOrder
-    businessId?: SortOrder
-    name?: SortOrderInput | SortOrder
-    phoneNumber?: SortOrder
-    email?: SortOrderInput | SortOrder
-    intent?: SortOrderInput | SortOrder
-    status?: SortOrder
-    lastContacted?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type LeadWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: LeadWhereInput | LeadWhereInput[]
-    OR?: LeadWhereInput[]
-    NOT?: LeadWhereInput | LeadWhereInput[]
-    businessId?: StringFilter<"Lead"> | string
-    name?: StringNullableFilter<"Lead"> | string | null
-    phoneNumber?: StringFilter<"Lead"> | string
-    email?: StringNullableFilter<"Lead"> | string | null
-    intent?: StringNullableFilter<"Lead"> | string | null
-    status?: StringFilter<"Lead"> | string
-    lastContacted?: DateTimeFilter<"Lead"> | Date | string
-    createdAt?: DateTimeFilter<"Lead"> | Date | string
-  }, "id">
-
-  export type LeadOrderByWithAggregationInput = {
-    id?: SortOrder
-    businessId?: SortOrder
-    name?: SortOrderInput | SortOrder
-    phoneNumber?: SortOrder
-    email?: SortOrderInput | SortOrder
-    intent?: SortOrderInput | SortOrder
-    status?: SortOrder
-    lastContacted?: SortOrder
-    createdAt?: SortOrder
-    _count?: LeadCountOrderByAggregateInput
-    _max?: LeadMaxOrderByAggregateInput
-    _min?: LeadMinOrderByAggregateInput
-  }
-
-  export type LeadScalarWhereWithAggregatesInput = {
-    AND?: LeadScalarWhereWithAggregatesInput | LeadScalarWhereWithAggregatesInput[]
-    OR?: LeadScalarWhereWithAggregatesInput[]
-    NOT?: LeadScalarWhereWithAggregatesInput | LeadScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Lead"> | string
-    businessId?: StringWithAggregatesFilter<"Lead"> | string
-    name?: StringNullableWithAggregatesFilter<"Lead"> | string | null
-    phoneNumber?: StringWithAggregatesFilter<"Lead"> | string
-    email?: StringNullableWithAggregatesFilter<"Lead"> | string | null
-    intent?: StringNullableWithAggregatesFilter<"Lead"> | string | null
-    status?: StringWithAggregatesFilter<"Lead"> | string
-    lastContacted?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"Lead"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Call"> | Date | string
   }
 
   export type UserCreateInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+    leads?: LeadCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+    leads?: LeadUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13792,11 +14033,12 @@ export namespace Prisma {
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
+    leads?: LeadUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13805,21 +14047,22 @@ export namespace Prisma {
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
+    leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13829,7 +14072,7 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13838,25 +14081,25 @@ export namespace Prisma {
   }
 
   export type SessionCreateInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
     user: UserCreateNestedOneWithoutSessionsInput
   }
 
   export type SessionUncheckedCreateInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
+    userId: string
   }
 
   export type SessionUpdateInput = {
@@ -13874,22 +14117,22 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     token?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCreateManyInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
+    userId: string
   }
 
   export type SessionUpdateManyMutationInput = {
@@ -13906,15 +14149,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     token?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type AccountCreateInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     accessToken?: string | null
@@ -13924,13 +14167,13 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     user: UserCreateNestedOneWithoutAccountsInput
   }
 
   export type AccountUncheckedCreateInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     userId: string
@@ -13941,8 +14184,8 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type AccountUpdateInput = {
@@ -13978,7 +14221,7 @@ export namespace Prisma {
   }
 
   export type AccountCreateManyInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     userId: string
@@ -13989,8 +14232,8 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type AccountUpdateManyMutationInput = {
@@ -14025,21 +14268,21 @@ export namespace Prisma {
   }
 
   export type VerificationCreateInput = {
-    id?: string
+    id: string
     identifier: string
     value: string
     expiresAt: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type VerificationUncheckedCreateInput = {
-    id?: string
+    id: string
     identifier: string
     value: string
     expiresAt: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type VerificationUpdateInput = {
@@ -14047,8 +14290,8 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type VerificationUncheckedUpdateInput = {
@@ -14056,17 +14299,17 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type VerificationCreateManyInput = {
-    id?: string
+    id: string
     identifier: string
     value: string
     expiresAt: Date | string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type VerificationUpdateManyMutationInput = {
@@ -14074,8 +14317,8 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type VerificationUncheckedUpdateManyInput = {
@@ -14083,87 +14326,93 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     value?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type BusinessAssistantCreateInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
-    faqs?: FAQCreateNestedManyWithoutAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
+    faqs?: FaqCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FaqUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
-    faqs?: FAQUpdateManyWithoutAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateManyInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type BusinessAssistantUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14171,60 +14420,75 @@ export namespace Prisma {
   export type BusinessAssistantUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQCreateInput = {
+  export type FaqCreateInput = {
     id?: string
     question: string
     answer: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     assistant: BusinessAssistantCreateNestedOneWithoutFaqsInput
   }
 
-  export type FAQUncheckedCreateInput = {
+  export type FaqUncheckedCreateInput = {
     id?: string
+    assistantId: string
     question: string
     answer: string
-    assistantId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type FAQUpdateInput = {
+  export type FaqUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assistant?: BusinessAssistantUpdateOneRequiredWithoutFaqsNestedInput
   }
 
-  export type FAQUncheckedUpdateInput = {
+  export type FaqUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    assistantId?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
-    assistantId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQCreateManyInput = {
+  export type FaqCreateManyInput = {
     id?: string
+    assistantId: string
     question: string
     answer: string
-    assistantId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type FAQUpdateManyMutationInput = {
+  export type FaqUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQUncheckedUpdateManyInput = {
+  export type FaqUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    question?: StringFieldUpdateOperationsInput | string
-    answer?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductCreateInput = {
@@ -14232,17 +14496,19 @@ export namespace Prisma {
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     assistant: BusinessAssistantCreateNestedOneWithoutProductsInput
   }
 
   export type ProductUncheckedCreateInput = {
     id?: string
+    assistantId: string
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
-    assistantId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProductUpdateInput = {
@@ -14250,26 +14516,29 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assistant?: BusinessAssistantUpdateOneRequiredWithoutProductsNestedInput
   }
 
   export type ProductUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    assistantId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
-    assistantId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductCreateManyInput = {
     id?: string
+    assistantId: string
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
-    assistantId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProductUpdateManyMutationInput = {
@@ -14277,76 +14546,176 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    assistantId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
-    assistantId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkCreateInput = {
     id?: string
-    label: string
+    title: string
     url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     assistant: BusinessAssistantCreateNestedOneWithoutResourceLinksInput
   }
 
   export type ResourceLinkUncheckedCreateInput = {
     id?: string
-    label: string
-    url: string
     assistantId: string
+    title: string
+    url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ResourceLinkUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assistant?: BusinessAssistantUpdateOneRequiredWithoutResourceLinksNestedInput
   }
 
   export type ResourceLinkUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkCreateManyInput = {
     id?: string
-    label: string
-    url: string
     assistantId: string
+    title: string
+    url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ResourceLinkUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadCreateInput = {
+    id?: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutLeadsInput
+  }
+
+  export type LeadUncheckedCreateInput = {
+    id?: string
+    userId: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLeadsNestedInput
+  }
+
+  export type LeadUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadCreateManyInput = {
+    id?: string
+    userId: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CallCreateInput = {
     id?: string
     vapiCallId: string
-    customerNumber: string
-    summary?: string | null
+    customerNumber?: string | null
     transcript?: string | null
+    summary?: string | null
     recordingUrl?: string | null
     intent?: string | null
-    status?: string
+    status: string
     createdAt?: Date | string
+    updatedAt?: Date | string
     assistant: BusinessAssistantCreateNestedOneWithoutCallsInput
   }
 
@@ -14354,25 +14723,27 @@ export namespace Prisma {
     id?: string
     vapiCallId: string
     assistantId: string
-    customerNumber: string
-    summary?: string | null
+    customerNumber?: string | null
     transcript?: string | null
+    summary?: string | null
     recordingUrl?: string | null
     intent?: string | null
-    status?: string
+    status: string
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CallUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     intent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assistant?: BusinessAssistantUpdateOneRequiredWithoutCallsNestedInput
   }
 
@@ -14380,135 +14751,55 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     intent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CallCreateManyInput = {
     id?: string
     vapiCallId: string
     assistantId: string
-    customerNumber: string
-    summary?: string | null
+    customerNumber?: string | null
     transcript?: string | null
+    summary?: string | null
     recordingUrl?: string | null
     intent?: string | null
-    status?: string
+    status: string
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CallUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     intent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CallUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     vapiCallId?: StringFieldUpdateOperationsInput | string
     assistantId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
     transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
     recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
     intent?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LeadCreateInput = {
-    id?: string
-    businessId: string
-    name?: string | null
-    phoneNumber: string
-    email?: string | null
-    intent?: string | null
-    status?: string
-    lastContacted?: Date | string
-    createdAt?: Date | string
-  }
-
-  export type LeadUncheckedCreateInput = {
-    id?: string
-    businessId: string
-    name?: string | null
-    phoneNumber: string
-    email?: string | null
-    intent?: string | null
-    status?: string
-    lastContacted?: Date | string
-    createdAt?: Date | string
-  }
-
-  export type LeadUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    lastContacted?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LeadUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    lastContacted?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LeadCreateManyInput = {
-    id?: string
-    businessId: string
-    name?: string | null
-    phoneNumber: string
-    email?: string | null
-    intent?: string | null
-    status?: string
-    lastContacted?: Date | string
-    createdAt?: Date | string
-  }
-
-  export type LeadUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    lastContacted?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LeadUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    businessId?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    lastContacted?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -14526,6 +14817,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -14539,11 +14835,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -14574,6 +14865,12 @@ export namespace Prisma {
     isNot?: BusinessAssistantWhereInput | null
   }
 
+  export type LeadListRelationFilter = {
+    every?: LeadWhereInput
+    some?: LeadWhereInput
+    none?: LeadWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -14584,6 +14881,10 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LeadOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14635,6 +14936,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -14651,14 +14960,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -14684,33 +14985,33 @@ export namespace Prisma {
     id?: SortOrder
     expiresAt?: SortOrder
     token?: SortOrder
-    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ipAddress?: SortOrder
     userAgent?: SortOrder
+    userId?: SortOrder
   }
 
   export type SessionMaxOrderByAggregateInput = {
     id?: SortOrder
     expiresAt?: SortOrder
     token?: SortOrder
-    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ipAddress?: SortOrder
     userAgent?: SortOrder
+    userId?: SortOrder
   }
 
   export type SessionMinOrderByAggregateInput = {
     id?: SortOrder
     expiresAt?: SortOrder
     token?: SortOrder
-    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     ipAddress?: SortOrder
     userAgent?: SortOrder
+    userId?: SortOrder
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -14813,10 +15114,16 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type FAQListRelationFilter = {
-    every?: FAQWhereInput
-    some?: FAQWhereInput
-    none?: FAQWhereInput
+  export type CallListRelationFilter = {
+    every?: CallWhereInput
+    some?: CallWhereInput
+    none?: CallWhereInput
+  }
+
+  export type FaqListRelationFilter = {
+    every?: FaqWhereInput
+    some?: FaqWhereInput
+    none?: FaqWhereInput
   }
 
   export type ProductListRelationFilter = {
@@ -14831,13 +15138,11 @@ export namespace Prisma {
     none?: ResourceLinkWhereInput
   }
 
-  export type CallListRelationFilter = {
-    every?: CallWhereInput
-    some?: CallWhereInput
-    none?: CallWhereInput
+  export type CallOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type FAQOrderByRelationAggregateInput = {
+  export type FaqOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14849,17 +15154,14 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CallOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type BusinessAssistantCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    vapiAssistantId?: SortOrder
     name?: SortOrder
-    firstMessage?: SortOrder
+    vapiAssistantId?: SortOrder
     systemPrompt?: SortOrder
+    firstMessage?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14867,10 +15169,11 @@ export namespace Prisma {
   export type BusinessAssistantMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    vapiAssistantId?: SortOrder
     name?: SortOrder
-    firstMessage?: SortOrder
+    vapiAssistantId?: SortOrder
     systemPrompt?: SortOrder
+    firstMessage?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14878,10 +15181,11 @@ export namespace Prisma {
   export type BusinessAssistantMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    vapiAssistantId?: SortOrder
     name?: SortOrder
-    firstMessage?: SortOrder
+    vapiAssistantId?: SortOrder
     systemPrompt?: SortOrder
+    firstMessage?: SortOrder
+    phoneNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14891,25 +15195,31 @@ export namespace Prisma {
     isNot?: BusinessAssistantWhereInput
   }
 
-  export type FAQCountOrderByAggregateInput = {
+  export type FaqCountOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     question?: SortOrder
     answer?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type FAQMaxOrderByAggregateInput = {
+  export type FaqMaxOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     question?: SortOrder
     answer?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type FAQMinOrderByAggregateInput = {
+  export type FaqMinOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     question?: SortOrder
     answer?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -14925,11 +15235,12 @@ export namespace Prisma {
 
   export type ProductCountOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     name?: SortOrder
     price?: SortOrder
     description?: SortOrder
-    mediaLink?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ProductAvgOrderByAggregateInput = {
@@ -14938,20 +15249,22 @@ export namespace Prisma {
 
   export type ProductMaxOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     name?: SortOrder
     price?: SortOrder
     description?: SortOrder
-    mediaLink?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ProductMinOrderByAggregateInput = {
     id?: SortOrder
+    assistantId?: SortOrder
     name?: SortOrder
     price?: SortOrder
     description?: SortOrder
-    mediaLink?: SortOrder
-    assistantId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ProductSumOrderByAggregateInput = {
@@ -14976,23 +15289,65 @@ export namespace Prisma {
 
   export type ResourceLinkCountOrderByAggregateInput = {
     id?: SortOrder
-    label?: SortOrder
-    url?: SortOrder
     assistantId?: SortOrder
+    title?: SortOrder
+    url?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ResourceLinkMaxOrderByAggregateInput = {
     id?: SortOrder
-    label?: SortOrder
-    url?: SortOrder
     assistantId?: SortOrder
+    title?: SortOrder
+    url?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ResourceLinkMinOrderByAggregateInput = {
     id?: SortOrder
-    label?: SortOrder
-    url?: SortOrder
     assistantId?: SortOrder
+    title?: SortOrder
+    url?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    summary?: SortOrder
+    intent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    summary?: SortOrder
+    intent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    phone?: SortOrder
+    email?: SortOrder
+    summary?: SortOrder
+    intent?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CallCountOrderByAggregateInput = {
@@ -15000,12 +15355,13 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     assistantId?: SortOrder
     customerNumber?: SortOrder
-    summary?: SortOrder
     transcript?: SortOrder
+    summary?: SortOrder
     recordingUrl?: SortOrder
     intent?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CallMaxOrderByAggregateInput = {
@@ -15013,12 +15369,13 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     assistantId?: SortOrder
     customerNumber?: SortOrder
-    summary?: SortOrder
     transcript?: SortOrder
+    summary?: SortOrder
     recordingUrl?: SortOrder
     intent?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CallMinOrderByAggregateInput = {
@@ -15026,48 +15383,13 @@ export namespace Prisma {
     vapiCallId?: SortOrder
     assistantId?: SortOrder
     customerNumber?: SortOrder
-    summary?: SortOrder
     transcript?: SortOrder
+    summary?: SortOrder
     recordingUrl?: SortOrder
     intent?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type LeadCountOrderByAggregateInput = {
-    id?: SortOrder
-    businessId?: SortOrder
-    name?: SortOrder
-    phoneNumber?: SortOrder
-    email?: SortOrder
-    intent?: SortOrder
-    status?: SortOrder
-    lastContacted?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type LeadMaxOrderByAggregateInput = {
-    id?: SortOrder
-    businessId?: SortOrder
-    name?: SortOrder
-    phoneNumber?: SortOrder
-    email?: SortOrder
-    intent?: SortOrder
-    status?: SortOrder
-    lastContacted?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type LeadMinOrderByAggregateInput = {
-    id?: SortOrder
-    businessId?: SortOrder
-    name?: SortOrder
-    phoneNumber?: SortOrder
-    email?: SortOrder
-    intent?: SortOrder
-    status?: SortOrder
-    lastContacted?: SortOrder
-    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -15090,6 +15412,13 @@ export namespace Prisma {
     connect?: BusinessAssistantWhereUniqueInput
   }
 
+  export type LeadCreateNestedManyWithoutUserInput = {
+    create?: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput> | LeadCreateWithoutUserInput[] | LeadUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LeadCreateOrConnectWithoutUserInput | LeadCreateOrConnectWithoutUserInput[]
+    createMany?: LeadCreateManyUserInputEnvelope
+    connect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -15110,16 +15439,23 @@ export namespace Prisma {
     connect?: BusinessAssistantWhereUniqueInput
   }
 
+  export type LeadUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput> | LeadCreateWithoutUserInput[] | LeadUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LeadCreateOrConnectWithoutUserInput | LeadCreateOrConnectWithoutUserInput[]
+    createMany?: LeadCreateManyUserInputEnvelope
+    connect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -15164,6 +15500,20 @@ export namespace Prisma {
     update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutUserInput, BusinessAssistantUpdateWithoutUserInput>, BusinessAssistantUncheckedUpdateWithoutUserInput>
   }
 
+  export type LeadUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput> | LeadCreateWithoutUserInput[] | LeadUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LeadCreateOrConnectWithoutUserInput | LeadCreateOrConnectWithoutUserInput[]
+    upsert?: LeadUpsertWithWhereUniqueWithoutUserInput | LeadUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LeadCreateManyUserInputEnvelope
+    set?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    disconnect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    delete?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    connect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    update?: LeadUpdateWithWhereUniqueWithoutUserInput | LeadUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LeadUpdateManyWithWhereWithoutUserInput | LeadUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LeadScalarWhereInput | LeadScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -15200,6 +15550,20 @@ export namespace Prisma {
     delete?: BusinessAssistantWhereInput | boolean
     connect?: BusinessAssistantWhereUniqueInput
     update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutUserInput, BusinessAssistantUpdateWithoutUserInput>, BusinessAssistantUncheckedUpdateWithoutUserInput>
+  }
+
+  export type LeadUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput> | LeadCreateWithoutUserInput[] | LeadUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LeadCreateOrConnectWithoutUserInput | LeadCreateOrConnectWithoutUserInput[]
+    upsert?: LeadUpsertWithWhereUniqueWithoutUserInput | LeadUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LeadCreateManyUserInputEnvelope
+    set?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    disconnect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    delete?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    connect?: LeadWhereUniqueInput | LeadWhereUniqueInput[]
+    update?: LeadUpdateWithWhereUniqueWithoutUserInput | LeadUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LeadUpdateManyWithWhereWithoutUserInput | LeadUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LeadScalarWhereInput | LeadScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -15240,11 +15604,18 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type FAQCreateNestedManyWithoutAssistantInput = {
-    create?: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput> | FAQCreateWithoutAssistantInput[] | FAQUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: FAQCreateOrConnectWithoutAssistantInput | FAQCreateOrConnectWithoutAssistantInput[]
-    createMany?: FAQCreateManyAssistantInputEnvelope
-    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  export type CallCreateNestedManyWithoutAssistantInput = {
+    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
+    createMany?: CallCreateManyAssistantInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type FaqCreateNestedManyWithoutAssistantInput = {
+    create?: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput> | FaqCreateWithoutAssistantInput[] | FaqUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: FaqCreateOrConnectWithoutAssistantInput | FaqCreateOrConnectWithoutAssistantInput[]
+    createMany?: FaqCreateManyAssistantInputEnvelope
+    connect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
   }
 
   export type ProductCreateNestedManyWithoutAssistantInput = {
@@ -15261,18 +15632,18 @@ export namespace Prisma {
     connect?: ResourceLinkWhereUniqueInput | ResourceLinkWhereUniqueInput[]
   }
 
-  export type CallCreateNestedManyWithoutAssistantInput = {
+  export type CallUncheckedCreateNestedManyWithoutAssistantInput = {
     create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
     connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
     createMany?: CallCreateManyAssistantInputEnvelope
     connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
   }
 
-  export type FAQUncheckedCreateNestedManyWithoutAssistantInput = {
-    create?: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput> | FAQCreateWithoutAssistantInput[] | FAQUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: FAQCreateOrConnectWithoutAssistantInput | FAQCreateOrConnectWithoutAssistantInput[]
-    createMany?: FAQCreateManyAssistantInputEnvelope
-    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
+  export type FaqUncheckedCreateNestedManyWithoutAssistantInput = {
+    create?: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput> | FaqCreateWithoutAssistantInput[] | FaqUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: FaqCreateOrConnectWithoutAssistantInput | FaqCreateOrConnectWithoutAssistantInput[]
+    createMany?: FaqCreateManyAssistantInputEnvelope
+    connect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
   }
 
   export type ProductUncheckedCreateNestedManyWithoutAssistantInput = {
@@ -15289,13 +15660,6 @@ export namespace Prisma {
     connect?: ResourceLinkWhereUniqueInput | ResourceLinkWhereUniqueInput[]
   }
 
-  export type CallUncheckedCreateNestedManyWithoutAssistantInput = {
-    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
-    createMany?: CallCreateManyAssistantInputEnvelope
-    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-  }
-
   export type UserUpdateOneRequiredWithoutBusinessAssistantNestedInput = {
     create?: XOR<UserCreateWithoutBusinessAssistantInput, UserUncheckedCreateWithoutBusinessAssistantInput>
     connectOrCreate?: UserCreateOrConnectWithoutBusinessAssistantInput
@@ -15304,18 +15668,32 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBusinessAssistantInput, UserUpdateWithoutBusinessAssistantInput>, UserUncheckedUpdateWithoutBusinessAssistantInput>
   }
 
-  export type FAQUpdateManyWithoutAssistantNestedInput = {
-    create?: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput> | FAQCreateWithoutAssistantInput[] | FAQUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: FAQCreateOrConnectWithoutAssistantInput | FAQCreateOrConnectWithoutAssistantInput[]
-    upsert?: FAQUpsertWithWhereUniqueWithoutAssistantInput | FAQUpsertWithWhereUniqueWithoutAssistantInput[]
-    createMany?: FAQCreateManyAssistantInputEnvelope
-    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    update?: FAQUpdateWithWhereUniqueWithoutAssistantInput | FAQUpdateWithWhereUniqueWithoutAssistantInput[]
-    updateMany?: FAQUpdateManyWithWhereWithoutAssistantInput | FAQUpdateManyWithWhereWithoutAssistantInput[]
-    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  export type CallUpdateManyWithoutAssistantNestedInput = {
+    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
+    createMany?: CallCreateManyAssistantInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutAssistantInput | CallUpdateWithWhereUniqueWithoutAssistantInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutAssistantInput | CallUpdateManyWithWhereWithoutAssistantInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type FaqUpdateManyWithoutAssistantNestedInput = {
+    create?: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput> | FaqCreateWithoutAssistantInput[] | FaqUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: FaqCreateOrConnectWithoutAssistantInput | FaqCreateOrConnectWithoutAssistantInput[]
+    upsert?: FaqUpsertWithWhereUniqueWithoutAssistantInput | FaqUpsertWithWhereUniqueWithoutAssistantInput[]
+    createMany?: FaqCreateManyAssistantInputEnvelope
+    set?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    disconnect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    delete?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    connect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    update?: FaqUpdateWithWhereUniqueWithoutAssistantInput | FaqUpdateWithWhereUniqueWithoutAssistantInput[]
+    updateMany?: FaqUpdateManyWithWhereWithoutAssistantInput | FaqUpdateManyWithWhereWithoutAssistantInput[]
+    deleteMany?: FaqScalarWhereInput | FaqScalarWhereInput[]
   }
 
   export type ProductUpdateManyWithoutAssistantNestedInput = {
@@ -15346,7 +15724,7 @@ export namespace Prisma {
     deleteMany?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
   }
 
-  export type CallUpdateManyWithoutAssistantNestedInput = {
+  export type CallUncheckedUpdateManyWithoutAssistantNestedInput = {
     create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
     connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
     upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
@@ -15360,18 +15738,18 @@ export namespace Prisma {
     deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
   }
 
-  export type FAQUncheckedUpdateManyWithoutAssistantNestedInput = {
-    create?: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput> | FAQCreateWithoutAssistantInput[] | FAQUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: FAQCreateOrConnectWithoutAssistantInput | FAQCreateOrConnectWithoutAssistantInput[]
-    upsert?: FAQUpsertWithWhereUniqueWithoutAssistantInput | FAQUpsertWithWhereUniqueWithoutAssistantInput[]
-    createMany?: FAQCreateManyAssistantInputEnvelope
-    set?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    disconnect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    delete?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    connect?: FAQWhereUniqueInput | FAQWhereUniqueInput[]
-    update?: FAQUpdateWithWhereUniqueWithoutAssistantInput | FAQUpdateWithWhereUniqueWithoutAssistantInput[]
-    updateMany?: FAQUpdateManyWithWhereWithoutAssistantInput | FAQUpdateManyWithWhereWithoutAssistantInput[]
-    deleteMany?: FAQScalarWhereInput | FAQScalarWhereInput[]
+  export type FaqUncheckedUpdateManyWithoutAssistantNestedInput = {
+    create?: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput> | FaqCreateWithoutAssistantInput[] | FaqUncheckedCreateWithoutAssistantInput[]
+    connectOrCreate?: FaqCreateOrConnectWithoutAssistantInput | FaqCreateOrConnectWithoutAssistantInput[]
+    upsert?: FaqUpsertWithWhereUniqueWithoutAssistantInput | FaqUpsertWithWhereUniqueWithoutAssistantInput[]
+    createMany?: FaqCreateManyAssistantInputEnvelope
+    set?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    disconnect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    delete?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    connect?: FaqWhereUniqueInput | FaqWhereUniqueInput[]
+    update?: FaqUpdateWithWhereUniqueWithoutAssistantInput | FaqUpdateWithWhereUniqueWithoutAssistantInput[]
+    updateMany?: FaqUpdateManyWithWhereWithoutAssistantInput | FaqUpdateManyWithWhereWithoutAssistantInput[]
+    deleteMany?: FaqScalarWhereInput | FaqScalarWhereInput[]
   }
 
   export type ProductUncheckedUpdateManyWithoutAssistantNestedInput = {
@@ -15400,20 +15778,6 @@ export namespace Prisma {
     update?: ResourceLinkUpdateWithWhereUniqueWithoutAssistantInput | ResourceLinkUpdateWithWhereUniqueWithoutAssistantInput[]
     updateMany?: ResourceLinkUpdateManyWithWhereWithoutAssistantInput | ResourceLinkUpdateManyWithWhereWithoutAssistantInput[]
     deleteMany?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
-  }
-
-  export type CallUncheckedUpdateManyWithoutAssistantNestedInput = {
-    create?: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput> | CallCreateWithoutAssistantInput[] | CallUncheckedCreateWithoutAssistantInput[]
-    connectOrCreate?: CallCreateOrConnectWithoutAssistantInput | CallCreateOrConnectWithoutAssistantInput[]
-    upsert?: CallUpsertWithWhereUniqueWithoutAssistantInput | CallUpsertWithWhereUniqueWithoutAssistantInput[]
-    createMany?: CallCreateManyAssistantInputEnvelope
-    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
-    update?: CallUpdateWithWhereUniqueWithoutAssistantInput | CallUpdateWithWhereUniqueWithoutAssistantInput[]
-    updateMany?: CallUpdateManyWithWhereWithoutAssistantInput | CallUpdateManyWithWhereWithoutAssistantInput[]
-    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
   }
 
   export type BusinessAssistantCreateNestedOneWithoutFaqsInput = {
@@ -15466,6 +15830,20 @@ export namespace Prisma {
     update?: XOR<XOR<BusinessAssistantUpdateToOneWithWhereWithoutResourceLinksInput, BusinessAssistantUpdateWithoutResourceLinksInput>, BusinessAssistantUncheckedUpdateWithoutResourceLinksInput>
   }
 
+  export type UserCreateNestedOneWithoutLeadsInput = {
+    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLeadsNestedInput = {
+    create?: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeadsInput
+    upsert?: UserUpsertWithoutLeadsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLeadsInput, UserUpdateWithoutLeadsInput>, UserUncheckedUpdateWithoutLeadsInput>
+  }
+
   export type BusinessAssistantCreateNestedOneWithoutCallsInput = {
     create?: XOR<BusinessAssistantCreateWithoutCallsInput, BusinessAssistantUncheckedCreateWithoutCallsInput>
     connectOrCreate?: BusinessAssistantCreateOrConnectWithoutCallsInput
@@ -15494,6 +15872,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -15506,11 +15889,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -15552,6 +15930,14 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -15578,14 +15964,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -15655,21 +16033,21 @@ export namespace Prisma {
   }
 
   export type SessionCreateWithoutUserInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
   }
 
   export type SessionUncheckedCreateWithoutUserInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
   }
@@ -15685,7 +16063,7 @@ export namespace Prisma {
   }
 
   export type AccountCreateWithoutUserInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     accessToken?: string | null
@@ -15695,12 +16073,12 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type AccountUncheckedCreateWithoutUserInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     accessToken?: string | null
@@ -15710,8 +16088,8 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type AccountCreateOrConnectWithoutUserInput = {
@@ -15726,35 +16104,69 @@ export namespace Prisma {
 
   export type BusinessAssistantCreateWithoutUserInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQCreateNestedManyWithoutAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
+    faqs?: FaqCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutUserInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FaqUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutUserInput = {
     where: BusinessAssistantWhereUniqueInput
     create: XOR<BusinessAssistantCreateWithoutUserInput, BusinessAssistantUncheckedCreateWithoutUserInput>
+  }
+
+  export type LeadCreateWithoutUserInput = {
+    id?: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadUncheckedCreateWithoutUserInput = {
+    id?: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadCreateOrConnectWithoutUserInput = {
+    where: LeadWhereUniqueInput
+    create: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput>
+  }
+
+  export type LeadCreateManyUserInputEnvelope = {
+    data: LeadCreateManyUserInput | LeadCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -15780,11 +16192,11 @@ export namespace Prisma {
     id?: StringFilter<"Session"> | string
     expiresAt?: DateTimeFilter<"Session"> | Date | string
     token?: StringFilter<"Session"> | string
-    userId?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     ipAddress?: StringNullableFilter<"Session"> | string | null
     userAgent?: StringNullableFilter<"Session"> | string | null
+    userId?: StringFilter<"Session"> | string
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -15835,54 +16247,89 @@ export namespace Prisma {
 
   export type BusinessAssistantUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUpdateManyWithoutAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+  }
+
+  export type LeadUpsertWithWhereUniqueWithoutUserInput = {
+    where: LeadWhereUniqueInput
+    update: XOR<LeadUpdateWithoutUserInput, LeadUncheckedUpdateWithoutUserInput>
+    create: XOR<LeadCreateWithoutUserInput, LeadUncheckedCreateWithoutUserInput>
+  }
+
+  export type LeadUpdateWithWhereUniqueWithoutUserInput = {
+    where: LeadWhereUniqueInput
+    data: XOR<LeadUpdateWithoutUserInput, LeadUncheckedUpdateWithoutUserInput>
+  }
+
+  export type LeadUpdateManyWithWhereWithoutUserInput = {
+    where: LeadScalarWhereInput
+    data: XOR<LeadUpdateManyMutationInput, LeadUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type LeadScalarWhereInput = {
+    AND?: LeadScalarWhereInput | LeadScalarWhereInput[]
+    OR?: LeadScalarWhereInput[]
+    NOT?: LeadScalarWhereInput | LeadScalarWhereInput[]
+    id?: StringFilter<"Lead"> | string
+    userId?: StringFilter<"Lead"> | string
+    name?: StringNullableFilter<"Lead"> | string | null
+    phone?: StringFilter<"Lead"> | string
+    email?: StringNullableFilter<"Lead"> | string | null
+    summary?: StringNullableFilter<"Lead"> | string | null
+    intent?: StringNullableFilter<"Lead"> | string | null
+    createdAt?: DateTimeFilter<"Lead"> | Date | string
+    updatedAt?: DateTimeFilter<"Lead"> | Date | string
   }
 
   export type UserCreateWithoutSessionsInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+    leads?: LeadCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+    leads?: LeadUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -15903,7 +16350,7 @@ export namespace Prisma {
 
   export type UserUpdateWithoutSessionsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15911,11 +16358,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
+    leads?: LeadUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15923,30 +16371,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
+    leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+    leads?: LeadCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+    leads?: LeadUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -15967,7 +16418,7 @@ export namespace Prisma {
 
   export type UserUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15975,11 +16426,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
+    leads?: LeadUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -15987,30 +16439,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
+    leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutBusinessAssistantInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
+    leads?: LeadCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutBusinessAssistantInput = {
-    id?: string
-    name?: string | null
+    id: string
+    name: string
     email: string
-    emailVerified?: boolean
+    emailVerified: boolean
     image?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    leads?: LeadUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutBusinessAssistantInput = {
@@ -16018,25 +16473,65 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutBusinessAssistantInput, UserUncheckedCreateWithoutBusinessAssistantInput>
   }
 
-  export type FAQCreateWithoutAssistantInput = {
+  export type CallCreateWithoutAssistantInput = {
+    id?: string
+    vapiCallId: string
+    customerNumber?: string | null
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    intent?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CallUncheckedCreateWithoutAssistantInput = {
+    id?: string
+    vapiCallId: string
+    customerNumber?: string | null
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    intent?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CallCreateOrConnectWithoutAssistantInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type CallCreateManyAssistantInputEnvelope = {
+    data: CallCreateManyAssistantInput | CallCreateManyAssistantInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FaqCreateWithoutAssistantInput = {
     id?: string
     question: string
     answer: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type FAQUncheckedCreateWithoutAssistantInput = {
+  export type FaqUncheckedCreateWithoutAssistantInput = {
     id?: string
     question: string
     answer: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type FAQCreateOrConnectWithoutAssistantInput = {
-    where: FAQWhereUniqueInput
-    create: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput>
+  export type FaqCreateOrConnectWithoutAssistantInput = {
+    where: FaqWhereUniqueInput
+    create: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput>
   }
 
-  export type FAQCreateManyAssistantInputEnvelope = {
-    data: FAQCreateManyAssistantInput | FAQCreateManyAssistantInput[]
+  export type FaqCreateManyAssistantInputEnvelope = {
+    data: FaqCreateManyAssistantInput | FaqCreateManyAssistantInput[]
     skipDuplicates?: boolean
   }
 
@@ -16045,7 +16540,8 @@ export namespace Prisma {
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProductUncheckedCreateWithoutAssistantInput = {
@@ -16053,7 +16549,8 @@ export namespace Prisma {
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProductCreateOrConnectWithoutAssistantInput = {
@@ -16068,14 +16565,18 @@ export namespace Prisma {
 
   export type ResourceLinkCreateWithoutAssistantInput = {
     id?: string
-    label: string
+    title: string
     url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ResourceLinkUncheckedCreateWithoutAssistantInput = {
     id?: string
-    label: string
+    title: string
     url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ResourceLinkCreateOrConnectWithoutAssistantInput = {
@@ -16085,40 +16586,6 @@ export namespace Prisma {
 
   export type ResourceLinkCreateManyAssistantInputEnvelope = {
     data: ResourceLinkCreateManyAssistantInput | ResourceLinkCreateManyAssistantInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type CallCreateWithoutAssistantInput = {
-    id?: string
-    vapiCallId: string
-    customerNumber: string
-    summary?: string | null
-    transcript?: string | null
-    recordingUrl?: string | null
-    intent?: string | null
-    status?: string
-    createdAt?: Date | string
-  }
-
-  export type CallUncheckedCreateWithoutAssistantInput = {
-    id?: string
-    vapiCallId: string
-    customerNumber: string
-    summary?: string | null
-    transcript?: string | null
-    recordingUrl?: string | null
-    intent?: string | null
-    status?: string
-    createdAt?: Date | string
-  }
-
-  export type CallCreateOrConnectWithoutAssistantInput = {
-    where: CallWhereUniqueInput
-    create: XOR<CallCreateWithoutAssistantInput, CallUncheckedCreateWithoutAssistantInput>
-  }
-
-  export type CallCreateManyAssistantInputEnvelope = {
-    data: CallCreateManyAssistantInput | CallCreateManyAssistantInput[]
     skipDuplicates?: boolean
   }
 
@@ -16135,7 +16602,7 @@ export namespace Prisma {
 
   export type UserUpdateWithoutBusinessAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16143,11 +16610,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    leads?: LeadUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutBusinessAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     emailVerified?: BoolFieldUpdateOperationsInput | boolean
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16155,86 +16623,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type FAQUpsertWithWhereUniqueWithoutAssistantInput = {
-    where: FAQWhereUniqueInput
-    update: XOR<FAQUpdateWithoutAssistantInput, FAQUncheckedUpdateWithoutAssistantInput>
-    create: XOR<FAQCreateWithoutAssistantInput, FAQUncheckedCreateWithoutAssistantInput>
-  }
-
-  export type FAQUpdateWithWhereUniqueWithoutAssistantInput = {
-    where: FAQWhereUniqueInput
-    data: XOR<FAQUpdateWithoutAssistantInput, FAQUncheckedUpdateWithoutAssistantInput>
-  }
-
-  export type FAQUpdateManyWithWhereWithoutAssistantInput = {
-    where: FAQScalarWhereInput
-    data: XOR<FAQUpdateManyMutationInput, FAQUncheckedUpdateManyWithoutAssistantInput>
-  }
-
-  export type FAQScalarWhereInput = {
-    AND?: FAQScalarWhereInput | FAQScalarWhereInput[]
-    OR?: FAQScalarWhereInput[]
-    NOT?: FAQScalarWhereInput | FAQScalarWhereInput[]
-    id?: StringFilter<"FAQ"> | string
-    question?: StringFilter<"FAQ"> | string
-    answer?: StringFilter<"FAQ"> | string
-    assistantId?: StringFilter<"FAQ"> | string
-  }
-
-  export type ProductUpsertWithWhereUniqueWithoutAssistantInput = {
-    where: ProductWhereUniqueInput
-    update: XOR<ProductUpdateWithoutAssistantInput, ProductUncheckedUpdateWithoutAssistantInput>
-    create: XOR<ProductCreateWithoutAssistantInput, ProductUncheckedCreateWithoutAssistantInput>
-  }
-
-  export type ProductUpdateWithWhereUniqueWithoutAssistantInput = {
-    where: ProductWhereUniqueInput
-    data: XOR<ProductUpdateWithoutAssistantInput, ProductUncheckedUpdateWithoutAssistantInput>
-  }
-
-  export type ProductUpdateManyWithWhereWithoutAssistantInput = {
-    where: ProductScalarWhereInput
-    data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutAssistantInput>
-  }
-
-  export type ProductScalarWhereInput = {
-    AND?: ProductScalarWhereInput | ProductScalarWhereInput[]
-    OR?: ProductScalarWhereInput[]
-    NOT?: ProductScalarWhereInput | ProductScalarWhereInput[]
-    id?: StringFilter<"Product"> | string
-    name?: StringFilter<"Product"> | string
-    price?: FloatNullableFilter<"Product"> | number | null
-    description?: StringNullableFilter<"Product"> | string | null
-    mediaLink?: StringNullableFilter<"Product"> | string | null
-    assistantId?: StringFilter<"Product"> | string
-  }
-
-  export type ResourceLinkUpsertWithWhereUniqueWithoutAssistantInput = {
-    where: ResourceLinkWhereUniqueInput
-    update: XOR<ResourceLinkUpdateWithoutAssistantInput, ResourceLinkUncheckedUpdateWithoutAssistantInput>
-    create: XOR<ResourceLinkCreateWithoutAssistantInput, ResourceLinkUncheckedCreateWithoutAssistantInput>
-  }
-
-  export type ResourceLinkUpdateWithWhereUniqueWithoutAssistantInput = {
-    where: ResourceLinkWhereUniqueInput
-    data: XOR<ResourceLinkUpdateWithoutAssistantInput, ResourceLinkUncheckedUpdateWithoutAssistantInput>
-  }
-
-  export type ResourceLinkUpdateManyWithWhereWithoutAssistantInput = {
-    where: ResourceLinkScalarWhereInput
-    data: XOR<ResourceLinkUpdateManyMutationInput, ResourceLinkUncheckedUpdateManyWithoutAssistantInput>
-  }
-
-  export type ResourceLinkScalarWhereInput = {
-    AND?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
-    OR?: ResourceLinkScalarWhereInput[]
-    NOT?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
-    id?: StringFilter<"ResourceLink"> | string
-    label?: StringFilter<"ResourceLink"> | string
-    url?: StringFilter<"ResourceLink"> | string
-    assistantId?: StringFilter<"ResourceLink"> | string
+    leads?: LeadUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CallUpsertWithWhereUniqueWithoutAssistantInput = {
@@ -16260,41 +16649,129 @@ export namespace Prisma {
     id?: StringFilter<"Call"> | string
     vapiCallId?: StringFilter<"Call"> | string
     assistantId?: StringFilter<"Call"> | string
-    customerNumber?: StringFilter<"Call"> | string
-    summary?: StringNullableFilter<"Call"> | string | null
+    customerNumber?: StringNullableFilter<"Call"> | string | null
     transcript?: StringNullableFilter<"Call"> | string | null
+    summary?: StringNullableFilter<"Call"> | string | null
     recordingUrl?: StringNullableFilter<"Call"> | string | null
     intent?: StringNullableFilter<"Call"> | string | null
     status?: StringFilter<"Call"> | string
     createdAt?: DateTimeFilter<"Call"> | Date | string
+    updatedAt?: DateTimeFilter<"Call"> | Date | string
+  }
+
+  export type FaqUpsertWithWhereUniqueWithoutAssistantInput = {
+    where: FaqWhereUniqueInput
+    update: XOR<FaqUpdateWithoutAssistantInput, FaqUncheckedUpdateWithoutAssistantInput>
+    create: XOR<FaqCreateWithoutAssistantInput, FaqUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type FaqUpdateWithWhereUniqueWithoutAssistantInput = {
+    where: FaqWhereUniqueInput
+    data: XOR<FaqUpdateWithoutAssistantInput, FaqUncheckedUpdateWithoutAssistantInput>
+  }
+
+  export type FaqUpdateManyWithWhereWithoutAssistantInput = {
+    where: FaqScalarWhereInput
+    data: XOR<FaqUpdateManyMutationInput, FaqUncheckedUpdateManyWithoutAssistantInput>
+  }
+
+  export type FaqScalarWhereInput = {
+    AND?: FaqScalarWhereInput | FaqScalarWhereInput[]
+    OR?: FaqScalarWhereInput[]
+    NOT?: FaqScalarWhereInput | FaqScalarWhereInput[]
+    id?: StringFilter<"Faq"> | string
+    assistantId?: StringFilter<"Faq"> | string
+    question?: StringFilter<"Faq"> | string
+    answer?: StringFilter<"Faq"> | string
+    createdAt?: DateTimeFilter<"Faq"> | Date | string
+    updatedAt?: DateTimeFilter<"Faq"> | Date | string
+  }
+
+  export type ProductUpsertWithWhereUniqueWithoutAssistantInput = {
+    where: ProductWhereUniqueInput
+    update: XOR<ProductUpdateWithoutAssistantInput, ProductUncheckedUpdateWithoutAssistantInput>
+    create: XOR<ProductCreateWithoutAssistantInput, ProductUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type ProductUpdateWithWhereUniqueWithoutAssistantInput = {
+    where: ProductWhereUniqueInput
+    data: XOR<ProductUpdateWithoutAssistantInput, ProductUncheckedUpdateWithoutAssistantInput>
+  }
+
+  export type ProductUpdateManyWithWhereWithoutAssistantInput = {
+    where: ProductScalarWhereInput
+    data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutAssistantInput>
+  }
+
+  export type ProductScalarWhereInput = {
+    AND?: ProductScalarWhereInput | ProductScalarWhereInput[]
+    OR?: ProductScalarWhereInput[]
+    NOT?: ProductScalarWhereInput | ProductScalarWhereInput[]
+    id?: StringFilter<"Product"> | string
+    assistantId?: StringFilter<"Product"> | string
+    name?: StringFilter<"Product"> | string
+    price?: FloatNullableFilter<"Product"> | number | null
+    description?: StringNullableFilter<"Product"> | string | null
+    createdAt?: DateTimeFilter<"Product"> | Date | string
+    updatedAt?: DateTimeFilter<"Product"> | Date | string
+  }
+
+  export type ResourceLinkUpsertWithWhereUniqueWithoutAssistantInput = {
+    where: ResourceLinkWhereUniqueInput
+    update: XOR<ResourceLinkUpdateWithoutAssistantInput, ResourceLinkUncheckedUpdateWithoutAssistantInput>
+    create: XOR<ResourceLinkCreateWithoutAssistantInput, ResourceLinkUncheckedCreateWithoutAssistantInput>
+  }
+
+  export type ResourceLinkUpdateWithWhereUniqueWithoutAssistantInput = {
+    where: ResourceLinkWhereUniqueInput
+    data: XOR<ResourceLinkUpdateWithoutAssistantInput, ResourceLinkUncheckedUpdateWithoutAssistantInput>
+  }
+
+  export type ResourceLinkUpdateManyWithWhereWithoutAssistantInput = {
+    where: ResourceLinkScalarWhereInput
+    data: XOR<ResourceLinkUpdateManyMutationInput, ResourceLinkUncheckedUpdateManyWithoutAssistantInput>
+  }
+
+  export type ResourceLinkScalarWhereInput = {
+    AND?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
+    OR?: ResourceLinkScalarWhereInput[]
+    NOT?: ResourceLinkScalarWhereInput | ResourceLinkScalarWhereInput[]
+    id?: StringFilter<"ResourceLink"> | string
+    assistantId?: StringFilter<"ResourceLink"> | string
+    title?: StringFilter<"ResourceLink"> | string
+    url?: StringFilter<"ResourceLink"> | string
+    createdAt?: DateTimeFilter<"ResourceLink"> | Date | string
+    updatedAt?: DateTimeFilter<"ResourceLink"> | Date | string
   }
 
   export type BusinessAssistantCreateWithoutFaqsInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
+    calls?: CallCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
-    calls?: CallCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutFaqsInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
-    calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutFaqsInput = {
@@ -16315,58 +16792,62 @@ export namespace Prisma {
 
   export type BusinessAssistantUpdateWithoutFaqsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
+    calls?: CallUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
-    calls?: CallUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutFaqsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
-    calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateWithoutProductsInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
-    faqs?: FAQCreateNestedManyWithoutAssistantInput
-    resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
     calls?: CallCreateNestedManyWithoutAssistantInput
+    faqs?: FaqCreateNestedManyWithoutAssistantInput
+    resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutProductsInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
-    resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
     calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FaqUncheckedCreateNestedManyWithoutAssistantInput
+    resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutProductsInput = {
@@ -16387,58 +16868,62 @@ export namespace Prisma {
 
   export type BusinessAssistantUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
-    faqs?: FAQUpdateManyWithoutAssistantNestedInput
-    resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
     calls?: CallUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUpdateManyWithoutAssistantNestedInput
+    resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
-    resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
     calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUncheckedUpdateManyWithoutAssistantNestedInput
+    resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantCreateWithoutResourceLinksInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
-    faqs?: FAQCreateNestedManyWithoutAssistantInput
-    products?: ProductCreateNestedManyWithoutAssistantInput
     calls?: CallCreateNestedManyWithoutAssistantInput
+    faqs?: FaqCreateNestedManyWithoutAssistantInput
+    products?: ProductCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantUncheckedCreateWithoutResourceLinksInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
-    products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     calls?: CallUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FaqUncheckedCreateNestedManyWithoutAssistantInput
+    products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
   }
 
   export type BusinessAssistantCreateOrConnectWithoutResourceLinksInput = {
@@ -16459,42 +16944,113 @@ export namespace Prisma {
 
   export type BusinessAssistantUpdateWithoutResourceLinksInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
-    faqs?: FAQUpdateManyWithoutAssistantNestedInput
-    products?: ProductUpdateManyWithoutAssistantNestedInput
     calls?: CallUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUpdateManyWithoutAssistantNestedInput
+    products?: ProductUpdateManyWithoutAssistantNestedInput
   }
 
   export type BusinessAssistantUncheckedUpdateWithoutResourceLinksInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
-    products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     calls?: CallUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUncheckedUpdateManyWithoutAssistantNestedInput
+    products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
+  }
+
+  export type UserCreateWithoutLeadsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLeadsInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    businessAssistant?: BusinessAssistantUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLeadsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+  }
+
+  export type UserUpsertWithoutLeadsInput = {
+    update: XOR<UserUpdateWithoutLeadsInput, UserUncheckedUpdateWithoutLeadsInput>
+    create: XOR<UserCreateWithoutLeadsInput, UserUncheckedCreateWithoutLeadsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLeadsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLeadsInput, UserUncheckedUpdateWithoutLeadsInput>
+  }
+
+  export type UserUpdateWithoutLeadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    businessAssistant?: BusinessAssistantUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLeadsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    businessAssistant?: BusinessAssistantUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type BusinessAssistantCreateWithoutCallsInput = {
     id?: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBusinessAssistantInput
-    faqs?: FAQCreateNestedManyWithoutAssistantInput
+    faqs?: FaqCreateNestedManyWithoutAssistantInput
     products?: ProductCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkCreateNestedManyWithoutAssistantInput
   }
@@ -16502,13 +17058,14 @@ export namespace Prisma {
   export type BusinessAssistantUncheckedCreateWithoutCallsInput = {
     id?: string
     userId: string
-    vapiAssistantId?: string | null
     name: string
-    firstMessage?: string | null
+    vapiAssistantId?: string | null
     systemPrompt?: string | null
+    firstMessage?: string | null
+    phoneNumber?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    faqs?: FAQUncheckedCreateNestedManyWithoutAssistantInput
+    faqs?: FaqUncheckedCreateNestedManyWithoutAssistantInput
     products?: ProductUncheckedCreateNestedManyWithoutAssistantInput
     resourceLinks?: ResourceLinkUncheckedCreateNestedManyWithoutAssistantInput
   }
@@ -16531,14 +17088,15 @@ export namespace Prisma {
 
   export type BusinessAssistantUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBusinessAssistantNestedInput
-    faqs?: FAQUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUpdateManyWithoutAssistantNestedInput
     products?: ProductUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUpdateManyWithoutAssistantNestedInput
   }
@@ -16546,29 +17104,30 @@ export namespace Prisma {
   export type BusinessAssistantUncheckedUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
-    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    vapiAssistantId?: NullableStringFieldUpdateOperationsInput | string | null
     systemPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    firstMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faqs?: FAQUncheckedUpdateManyWithoutAssistantNestedInput
+    faqs?: FaqUncheckedUpdateManyWithoutAssistantNestedInput
     products?: ProductUncheckedUpdateManyWithoutAssistantNestedInput
     resourceLinks?: ResourceLinkUncheckedUpdateManyWithoutAssistantNestedInput
   }
 
   export type SessionCreateManyUserInput = {
-    id?: string
+    id: string
     expiresAt: Date | string
     token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    createdAt: Date | string
+    updatedAt: Date | string
     ipAddress?: string | null
     userAgent?: string | null
   }
 
   export type AccountCreateManyUserInput = {
-    id?: string
+    id: string
     accountId: string
     providerId: string
     accessToken?: string | null
@@ -16578,6 +17137,17 @@ export namespace Prisma {
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
     password?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+  }
+
+  export type LeadCreateManyUserInput = {
+    id?: string
+    name?: string | null
+    phone: string
+    email?: string | null
+    summary?: string | null
+    intent?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16657,10 +17227,58 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQCreateManyAssistantInput = {
+  export type LeadUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallCreateManyAssistantInput = {
+    id?: string
+    vapiCallId: string
+    customerNumber?: string | null
+    transcript?: string | null
+    summary?: string | null
+    recordingUrl?: string | null
+    intent?: string | null
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FaqCreateManyAssistantInput = {
     id?: string
     question: string
     answer: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProductCreateManyAssistantInput = {
@@ -16668,43 +17286,79 @@ export namespace Prisma {
     name: string
     price?: number | null
     description?: string | null
-    mediaLink?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ResourceLinkCreateManyAssistantInput = {
     id?: string
-    label: string
+    title: string
     url: string
-  }
-
-  export type CallCreateManyAssistantInput = {
-    id?: string
-    vapiCallId: string
-    customerNumber: string
-    summary?: string | null
-    transcript?: string | null
-    recordingUrl?: string | null
-    intent?: string | null
-    status?: string
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type FAQUpdateWithoutAssistantInput = {
+  export type CallUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallUncheckedUpdateWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallUncheckedUpdateManyWithoutAssistantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    vapiCallId?: StringFieldUpdateOperationsInput | string
+    customerNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    transcript?: NullableStringFieldUpdateOperationsInput | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    intent?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FaqUpdateWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQUncheckedUpdateWithoutAssistantInput = {
+  export type FaqUncheckedUpdateWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FAQUncheckedUpdateManyWithoutAssistantInput = {
+  export type FaqUncheckedUpdateManyWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
     question?: StringFieldUpdateOperationsInput | string
     answer?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductUpdateWithoutAssistantInput = {
@@ -16712,7 +17366,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductUncheckedUpdateWithoutAssistantInput = {
@@ -16720,7 +17375,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProductUncheckedUpdateManyWithoutAssistantInput = {
@@ -16728,61 +17384,32 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: NullableFloatFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    mediaLink?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkUpdateWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkUncheckedUpdateWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ResourceLinkUncheckedUpdateManyWithoutAssistantInput = {
     id?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CallUpdateWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CallUncheckedUpdateWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CallUncheckedUpdateManyWithoutAssistantInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    vapiCallId?: StringFieldUpdateOperationsInput | string
-    customerNumber?: StringFieldUpdateOperationsInput | string
-    summary?: NullableStringFieldUpdateOperationsInput | string | null
-    transcript?: NullableStringFieldUpdateOperationsInput | string | null
-    recordingUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    intent?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

@@ -44,9 +44,9 @@ export class VapiService {
         // Capture lead
         await this.prisma.lead.create({
           data: {
-            businessId: assistant.userId, // Link to business owner
+            userId: assistant.userId, // Link to business owner
             name: call.customer?.name || null,
-            phoneNumber: customerNumber,
+            phone: customerNumber,
             intent,
           },
         });
