@@ -37,3 +37,33 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Verification = Prisma.VerificationModel
+/**
+ * Model BusinessAssistant
+ * 
+ */
+export type BusinessAssistant = Prisma.BusinessAssistantModel
+/**
+ * Model FAQ
+ * 
+ */
+export type FAQ = Prisma.FAQModel
+/**
+ * Model Product
+ * 
+ */
+export type Product = Prisma.ProductModel
+/**
+ * Model ResourceLink
+ * 
+ */
+export type ResourceLink = Prisma.ResourceLinkModel
+/**
+ * Model Lead
+ * 
+ */
+export type Lead = Prisma.LeadModel
+/**
+ * Model Call
+ * 
+ */
+export type Call = Prisma.CallModel
